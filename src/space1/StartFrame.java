@@ -117,7 +117,7 @@ public class StartFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				
 			}
 		});
 		gamePanel.add(btnMenu);
