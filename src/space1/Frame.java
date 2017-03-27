@@ -15,17 +15,21 @@ import javafx.stage.Stage;
 /**
  * Created by lzx on 2017/3/21.
  */
-public class Frame extends Application{
+public class Frame extends Application implements Runnable {
 
-    Scene scene;
-    Scene scene2;
+    static Scene scene;
+    static Scene scene2;
+    static Star star;
+    static Stage stage;
+    static Button button1;
+    int a = 0;
 
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage stage){
+    public void start(Stage pstage) {
         stage = new Stage();
         Stage finalStage = stage;
 
@@ -59,7 +63,7 @@ public class Frame extends Application{
             finalStage.setScene(scene);
         });
 
-        Star star = new Star();
+        Star star = new Star("sun", "star");
         star.setFill(Color.rgb(60, 130, 255, 0.5));
         star.setCenterX(50);
         star.setCenterY(50);
@@ -69,5 +73,24 @@ public class Frame extends Application{
         ((Group)scene2.getRoot()).getChildren().add(star);
 
         stage.show();
+        Thread thread = new Thread(this);
+        thread.start();
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if (stage.getScene() == scene2) {
+//                star.setCenterX(star.getCenterX() + 1);
+                System.out.println(star.getScene().getWindow().getX());
+                scene2.setFill(Color.BLACK);
+                scene2.getRoot().requestLayout();
+            }
+        }
     }
 }
