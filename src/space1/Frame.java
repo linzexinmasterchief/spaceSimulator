@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -19,10 +21,13 @@ public class Frame extends Application implements Runnable {
 
     static Scene scene;
     static Scene scene2;
-    static Star star;
     static Stage stage;
-    static Button button1;
-    int a = 0;
+    static Button backBtn;
+
+    Canvas canvas = new Canvas(300, 250);
+    GraphicsContext gc = canvas.getGraphicsContext2D();
+
+    int x = 0;
 
     public static void main(String[] args) {
         launch(args);
@@ -40,58 +45,58 @@ public class Frame extends Application implements Runnable {
 
         stage.setScene(scene);
 
-        Button button = new Button("",new ImageView(new Image(getClass().getResourceAsStream("..\\back.jpg"))));
-        button.setOnAction((ActionEvent e) ->{
+        Button screenBtn = new Button("", new ImageView(new Image(getClass().getResourceAsStream("..\\back.jpg"))));
+        screenBtn.setOnAction((ActionEvent e) -> {
             finalStage.setScene(scene2);
         });
-        button.setDefaultButton(true);
+        screenBtn.setDefaultButton(true);
 
-        Label label = new Label("Click any where to start");
-        label.setScaleX(1.5);
-        label.setScaleY(1.5);
-        label.setTranslateY(200);
-        label.setTextFill(Color.WHITE);
+        Label startTitle = new Label("Click any where to start");
+        startTitle.setScaleX(1.5);
+        startTitle.setScaleY(1.5);
+        startTitle.setTranslateY(200);
+        startTitle.setTextFill(Color.WHITE);
 
-        ((StackPane)scene.getRoot()).getChildren().add(button);
-        ((StackPane)scene.getRoot()).getChildren().add(label);
+        ((StackPane) scene.getRoot()).getChildren().add(screenBtn);
+        ((StackPane) scene.getRoot()).getChildren().add(startTitle);
 
 
-        Button button1 = new Button("Print Hello");
-        button1.setTranslateX(100);
-        button1.setDefaultButton(true);
-        button1.setOnAction((ActionEvent e) ->{
+        Button backBtn = new Button("Print Hello");
+        backBtn.setTranslateX(100);
+        backBtn.setDefaultButton(true);
+        backBtn.setOnAction((ActionEvent e) -> {
             finalStage.setScene(scene);
         });
 
-        Star star = new Star("sun", "star");
-        star.setFill(Color.rgb(60, 130, 255, 0.5));
-        star.setCenterX(50);
-        star.setCenterY(50);
-        star.setRadius(25);
+        drawShapes(gc);
 
-        ((Group)scene2.getRoot()).getChildren().add(button1);
-        ((Group)scene2.getRoot()).getChildren().add(star);
+        ((Group) scene2.getRoot()).getChildren().add(backBtn);
+        ((Group) scene2.getRoot()).getChildren().add(canvas);
 
         stage.show();
         Thread thread = new Thread(this);
         thread.start();
     }
 
+    private void drawShapes(GraphicsContext gc) {
+        gc.clearRect(0, 0, 100, 100);
+        gc.setFill(Color.GREEN);
+        gc.setStroke(Color.BLUE);
+        gc.setLineWidth(5);
+        gc.strokeLine(x, 10, x - 30, 40);
+    }
+
     @Override
     public void run() {
         while (true) {
             try {
-                Thread.sleep(20);
+                Thread.sleep(50);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (stage.getScene() == scene2) {
-//                star.setCenterX(star.getCenterX() + 1);
-//                System.out.println(star.getTranslateX());
-                button1.setText("Hello");
-                scene2.setFill(Color.BLACK);
-                scene2.getRoot().requestLayout();
-            }
+            x++;
+            System.out.println(x);
+            drawShapes(gc);
         }
     }
 }
