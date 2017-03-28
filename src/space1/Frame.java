@@ -87,7 +87,8 @@ public class Frame extends Application implements Runnable {
             }
             if (stage.getScene() == scene2) {
 //                star.setCenterX(star.getCenterX() + 1);
-                System.out.println(star.getScene().getWindow().getX());
+//                System.out.println(star.getTranslateX());
+                button1.setText("Hello");
                 scene2.setFill(Color.BLACK);
                 scene2.getRoot().requestLayout();
             }
