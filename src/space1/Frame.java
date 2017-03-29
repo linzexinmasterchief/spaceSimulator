@@ -26,9 +26,8 @@ public class Frame extends Application implements Runnable {
     static Stage stage;
     static Button backBtn;
     static Thread thread;
-
-    Canvas canvas = new Canvas(300, 250);
-    GraphicsContext gc = canvas.getGraphicsContext2D();
+    static Canvas canvas;
+    static GraphicsContext gc;
 
     int x = 0;
 
@@ -49,7 +48,6 @@ public class Frame extends Application implements Runnable {
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                System.out.print("监听到窗口关闭");
                 thread.stop();
             }
         });
@@ -77,6 +75,10 @@ public class Frame extends Application implements Runnable {
             finalStage.setScene(scene);
         });
 
+        canvas = new Canvas(300, 250);
+        canvas.setTranslateX(200);
+        canvas.setTranslateY(200);
+        gc = canvas.getGraphicsContext2D();
         drawShapes(gc);
 
         ((Group) scene2.getRoot()).getChildren().add(backBtn);
@@ -88,11 +90,10 @@ public class Frame extends Application implements Runnable {
     }
 
     private void drawShapes(GraphicsContext gc) {
-        gc.clearRect(0, 0, 100, 100);
-        gc.setFill(Color.GREEN);
-        gc.setStroke(Color.BLUE);
         gc.setLineWidth(5);
-        gc.strokeLine(x, 10, x - 30, 40);
+        gc.setFill(Color.BLUE);
+        gc.clearRect(x - 5, 5, x + 40, 50);
+        gc.fillOval(x, 10, 40, 40);
     }
 
     @Override
