@@ -27,7 +27,11 @@ public class Frame extends Application implements Runnable {
     private static Thread thread;
     private static GraphicsContext gc;
 
-    int x = 0;
+    int x = 250;
+    int y = 280;
+
+    int speedX = 0;
+    int speedY = 0;
 
     public static void main(String[] args) {
         launch(args);
@@ -44,6 +48,10 @@ public class Frame extends Application implements Runnable {
                 CycleMethod.REFLECT,
                 new Stop(1, Color.GRAY),
                 new Stop(0, Color.BLACK)));
+        scene2.setOnMouseMoved(me -> {
+            speedX = (int) ((me.getSceneX() - 220 - x) / 20);
+            speedY = (int) ((me.getSceneY() - 20 - y) / 20);
+        });
 
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -77,6 +85,8 @@ public class Frame extends Application implements Runnable {
         canvas.setTranslateX(200);
         canvas.setTranslateY(0);
         gc = canvas.getGraphicsContext2D();
+        gc.setFill(Color.BLACK);
+        gc.fillRect(0, 0, 825, 561);
         drawShapes(gc);
 
         ((Group) scene2.getRoot()).getChildren().add(backBtn);
@@ -88,23 +98,26 @@ public class Frame extends Application implements Runnable {
     }
 
     private void drawShapes(GraphicsContext gc) {
-        gc.clearRect(x - 5, 5, 40, 50);
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, 825, 561);
-        gc.setLineWidth(5);
         gc.setFill(Color.BLUE);
-        gc.fillOval(x, 10, 40, 40);
+        gc.fillOval(x, y, 40, 40);
     }
 
     @Override
     public void run() {
         while (true) {
             try {
-                Thread.sleep(20);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            x++;
+            System.out.println(speedX);
+            System.out.println(speedY);
+            x += speedX;
+            y += speedY;
+            speedX = 0;
+            speedY = 0;
             drawShapes(gc);
         }
     }
