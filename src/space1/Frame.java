@@ -8,14 +8,21 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
+
+import static javafx.scene.paint.Color.BLACK;
 
 /**
  * Created by lzx on 2017/3/21.
@@ -47,11 +54,7 @@ public class Frame extends Application implements Runnable {
         scene2.setFill(new LinearGradient(0, 0, 1, 0, true,
                 CycleMethod.REFLECT,
                 new Stop(1, Color.GRAY),
-                new Stop(0, Color.BLACK)));
-        scene2.setOnMouseMoved(me -> {
-            speedX = (int) ((me.getSceneX() - 220 - x) / 20);
-            speedY = (int) ((me.getSceneY() - 20 - y) / 20);
-        });
+                new Stop(0, BLACK)));
 
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -73,10 +76,24 @@ public class Frame extends Application implements Runnable {
         ((StackPane) scene.getRoot()).getChildren().add(startTitle);
 
 
-        Button backBtn = new Button("---Main menu---");
+        MenuBar menuBar = new MenuBar();
+        menuBar.setTranslateX(0);
+        menuBar.setTranslateY(0);
+        Menu menu1 = new Menu("File");
+        Menu menu2 = new Menu("Options");
+        Menu menu3 = new Menu("Help");
+        menuBar.setPrefWidth(1030);
+        menuBar.getMenus().addAll(menu1, menu2, menu3);
+        menuBar.setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(0), null)));
+
+        Button backBtn = new Button("              Main menu              ");
         backBtn.setTranslateX(10);
-        backBtn.setTranslateY(10);
+        backBtn.setTranslateY(30);
         backBtn.setDefaultButton(true);
+        backBtn.setOnMouseEntered(me -> backBtn.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, new CornerRadii(10), null))));
+        backBtn.setOnMouseExited(me -> backBtn.setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(10), null))));
+        backBtn.setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(10), null)));
+        backBtn.setTextFill(Color.WHITE);
         backBtn.setOnAction((ActionEvent e) -> {
             stage.setScene(scene);
         });
@@ -84,13 +101,18 @@ public class Frame extends Application implements Runnable {
         Canvas canvas = new Canvas(825, 561);
         canvas.setTranslateX(200);
         canvas.setTranslateY(0);
+        canvas.setOnMouseMoved(me -> {
+            speedX = (int) ((me.getX() - x) / 20);
+            speedY = (int) ((me.getY() - 20 - y) / 20);
+        });
         gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.BLACK);
+        gc.setFill(BLACK);
         gc.fillRect(0, 0, 825, 561);
         drawShapes(gc);
 
         ((Group) scene2.getRoot()).getChildren().add(backBtn);
         ((Group) scene2.getRoot()).getChildren().add(canvas);
+        ((Group) scene2.getRoot()).getChildren().add(menuBar);
 
         stage.show();
         thread = new Thread(this);
@@ -112,8 +134,6 @@ public class Frame extends Application implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(speedX);
-            System.out.println(speedY);
             x += speedX;
             y += speedY;
             speedX = 0;
