@@ -12,6 +12,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
@@ -29,10 +30,15 @@ import static javafx.scene.paint.Color.BLACK;
  */
 public class Frame extends Application implements Runnable {
 
+    private static Stage stage;
     private static Scene scene;
+    private static Label startTitle;
     private static Scene scene2;
     private static Thread thread;
     private static GraphicsContext gc;
+
+    double opacity = 1;
+    double speedOpacity = 0.01;
 
     int x = 250;
     int y = 280;
@@ -51,21 +57,23 @@ public class Frame extends Application implements Runnable {
 
         scene = new Scene(stackPane,1025,561);
 
-        Stage stage = new Stage();
+        stage = new Stage();
         stage.setScene(scene);
         stage.setOnCloseRequest(event -> thread.stop());
 
-        Button screenBtn = new Button("", new ImageView(new Image(getClass().getResourceAsStream("..\\back.jpg"))));
+        Image image = new Image(getClass().getResourceAsStream("..\\back.jpg"));
+        ImageView imageView = new ImageView(image);
+        Button screenBtn = new Button("", new ImageView(image));
         screenBtn.setOnAction((ActionEvent e) -> {
             stage.setScene(scene2);
         });
         screenBtn.setDefaultButton(true);
 
-        Label startTitle = new Label("Click any where to start");
+        startTitle = new Label("Click any where to start");
         startTitle.setScaleX(1.5);
         startTitle.setScaleY(1.5);
         startTitle.setTranslateY(230);
-        startTitle.setTextFill(Color.color(0.7176, 1, 0.5294));
+        startTitle.setTextFill(Color.gray(1));
 
         ((StackPane) scene.getRoot()).getChildren().add(screenBtn);
         ((StackPane) scene.getRoot()).getChildren().add(startTitle);
@@ -103,13 +111,26 @@ public class Frame extends Application implements Runnable {
         canvas.setTranslateX(200);
         canvas.setTranslateY(0);
         canvas.setOnMouseDragged(me -> {
-            speedX = (me.getX() - x) / 20;
-            speedY = (me.getY() - 20 - y) / 20;
+            if (me.getButton() == MouseButton.PRIMARY) {
+                speedX = (me.getX() - 20 - x) / 20;
+                speedY = (me.getY() - 20 - y) / 20;
+            } else if (me.getButton() == MouseButton.SECONDARY) {
+                x = (int) (me.getX() - 20);
+                y = (int) (me.getY() - 20);
+                speedX = speedY = 0;
+            }
         });
         canvas.setOnMouseClicked(me -> {
-            speedX = (me.getX() - x) / 100;
-            speedY = (me.getY() - 20 - y) / 100;
+            if (me.getButton() == MouseButton.PRIMARY) {
+                speedX = (me.getX() - 20 - x) / 100;
+                speedY = (me.getY() - 20 - y) / 100;
+            } else if (me.getButton() == MouseButton.SECONDARY) {
+                x = (int) (me.getX() - 20);
+                y = (int) (me.getY() - 20);
+                speedX = speedY = 0;
+            }
         });
+
         gc = canvas.getGraphicsContext2D();
         gc.setFill(BLACK);
         gc.fillRect(0, 0, 825, 561);
@@ -139,11 +160,20 @@ public class Frame extends Application implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            x += speedX;
-            y += speedY;
-//            speedX = 0;
-//            speedY = 0;
-            drawShapes(gc);
+            System.out.println("running");
+            if (stage.getScene() == scene2) {
+                x += speedX;
+                y += speedY;
+                drawShapes(gc);
+            } else if (stage.getScene() == scene) {
+                if (opacity >= 1) {
+                    speedOpacity = -0.01;
+                } else if (opacity <= 0.1) {
+                    speedOpacity = 0.01;
+                }
+                opacity += speedOpacity;
+                startTitle.setTextFill(Color.gray(opacity));
+            }
         }
     }
 }
