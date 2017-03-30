@@ -37,8 +37,8 @@ public class Frame extends Application implements Runnable {
     int x = 250;
     int y = 280;
 
-    int speedX = 0;
-    int speedY = 0;
+    double speedX = 0;
+    double speedY = 0;
 
     public static void main(String[] args) {
         launch(args);
@@ -50,11 +50,6 @@ public class Frame extends Application implements Runnable {
         StackPane stackPane = new StackPane();
 
         scene = new Scene(stackPane,1025,561);
-        scene2 = new Scene(new Group(), 1025, 561);
-        scene2.setFill(new LinearGradient(0, 0, 1, 0, true,
-                CycleMethod.REFLECT,
-                new Stop(1, Color.GRAY),
-                new Stop(0, BLACK)));
 
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -69,12 +64,18 @@ public class Frame extends Application implements Runnable {
         Label startTitle = new Label("Click any where to start");
         startTitle.setScaleX(1.5);
         startTitle.setScaleY(1.5);
-        startTitle.setTranslateY(200);
-        startTitle.setTextFill(Color.WHITE);
+        startTitle.setTranslateY(230);
+        startTitle.setTextFill(Color.color(0.7176, 1, 0.5294));
 
         ((StackPane) scene.getRoot()).getChildren().add(screenBtn);
         ((StackPane) scene.getRoot()).getChildren().add(startTitle);
 
+
+        scene2 = new Scene(new Group(), 1025, 561);
+        scene2.setFill(new LinearGradient(0, 0, 1, 0, true,
+                CycleMethod.REFLECT,
+                new Stop(1, Color.GRAY),
+                new Stop(0, BLACK)));
 
         MenuBar menuBar = new MenuBar();
         menuBar.setTranslateX(0);
@@ -101,9 +102,13 @@ public class Frame extends Application implements Runnable {
         Canvas canvas = new Canvas(825, 561);
         canvas.setTranslateX(200);
         canvas.setTranslateY(0);
-        canvas.setOnMouseMoved(me -> {
-            speedX = (int) ((me.getX() - x) / 20);
-            speedY = (int) ((me.getY() - 20 - y) / 20);
+        canvas.setOnMouseDragged(me -> {
+            speedX = (me.getX() - x) / 20;
+            speedY = (me.getY() - 20 - y) / 20;
+        });
+        canvas.setOnMouseClicked(me -> {
+            speedX = (me.getX() - x) / 100;
+            speedY = (me.getY() - 20 - y) / 100;
         });
         gc = canvas.getGraphicsContext2D();
         gc.setFill(BLACK);
@@ -136,8 +141,8 @@ public class Frame extends Application implements Runnable {
             }
             x += speedX;
             y += speedY;
-            speedX = 0;
-            speedY = 0;
+//            speedX = 0;
+//            speedY = 0;
             drawShapes(gc);
         }
     }
