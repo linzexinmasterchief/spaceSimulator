@@ -38,7 +38,7 @@ public class Frame extends Application implements Runnable {
     private static GraphicsContext gc;
 
     double opacity = 1;
-    double speedOpacity = 0.01;
+    double speedOpacity = 0.02;
 
     int x = 250;
     int y = 280;
@@ -59,6 +59,9 @@ public class Frame extends Application implements Runnable {
 
         stage = new Stage();
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setTitle("SpaceSimulator");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("..\\icon.png")));
         stage.setOnCloseRequest(event -> thread.stop());
 
         Image image = new Image(getClass().getResourceAsStream("..\\back.jpg"));
@@ -82,8 +85,8 @@ public class Frame extends Application implements Runnable {
         scene2 = new Scene(new Group(), 1025, 561);
         scene2.setFill(new LinearGradient(0, 0, 1, 0, true,
                 CycleMethod.REFLECT,
-                new Stop(1, Color.GRAY),
-                new Stop(0, BLACK)));
+                new Stop(1, Color.DARKBLUE),
+                new Stop(0, Color.BLACK)));
 
         MenuBar menuBar = new MenuBar();
         menuBar.setTranslateX(0);
@@ -156,20 +159,19 @@ public class Frame extends Application implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(10);
+                Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("running");
             if (stage.getScene() == scene2) {
                 x += speedX;
                 y += speedY;
                 drawShapes(gc);
             } else if (stage.getScene() == scene) {
                 if (opacity >= 1) {
-                    speedOpacity = -0.01;
+                    speedOpacity = -0.02;
                 } else if (opacity <= 0.1) {
-                    speedOpacity = 0.01;
+                    speedOpacity = 0.02;
                 }
                 opacity += speedOpacity;
                 startTitle.setTextFill(Color.gray(opacity));
