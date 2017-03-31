@@ -77,6 +77,7 @@ public class Frame extends Application implements Runnable {
         startTitle.setScaleY(1.5);
         startTitle.setTranslateY(230);
         startTitle.setTextFill(Color.gray(1));
+        startTitle.setOnMouseClicked(me -> stage.setScene(scene2));
 
         ((StackPane) scene.getRoot()).getChildren().add(screenBtn);
         ((StackPane) scene.getRoot()).getChildren().add(startTitle);
