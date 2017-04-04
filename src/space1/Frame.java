@@ -34,6 +34,9 @@ import static javafx.scene.paint.Color.BLACK;
  * TODO 2. use stars list to contain 100 star unit
  * TODO 3. use centerX, centerY to replace x & y, use r to determine the location on the screen
  * TODO 4. gravity (long long time later)
+ * TODO 5. replace the function of right-click from initialize to new star
+ * TODO 6. delete the star if it moves out of the screen
+ * TODO 7. determine if there is still place for a new star
  */
 
 public class Frame extends Application implements Runnable {
@@ -59,7 +62,7 @@ public class Frame extends Application implements Runnable {
 
     @Override
     public void start(Stage pstage) {
-        stars = new Star[100];
+        stars = new Star[50];
 
         Star earth = new Star();
         earth.setCenterX(250);
