@@ -1,4 +1,5 @@
-# spaceSimulator<pr>
+spaceSimulator
+=
 simulate the movement of stars<pr>
 <pr>
 # TODO list<pr>
