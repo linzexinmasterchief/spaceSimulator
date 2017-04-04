@@ -30,6 +30,8 @@ import static javafx.scene.paint.Color.BLACK;
  */
 public class Frame extends Application implements Runnable {
 
+    private static Star[] stars;
+
     private static Stage stage;
     private static Scene scene;
     private static Label startTitle;
@@ -52,6 +54,8 @@ public class Frame extends Application implements Runnable {
 
     @Override
     public void start(Stage pstage) {
+        Star earth = new Star();
+        earth.setCenterX(250);
 
         StackPane stackPane = new StackPane();
 
@@ -66,7 +70,7 @@ public class Frame extends Application implements Runnable {
 
         Image image = new Image(getClass().getResourceAsStream("..\\back.jpg"));
         ImageView imageView = new ImageView(image);
-        Button screenBtn = new Button("", new ImageView(image));
+        Button screenBtn = new Button("", imageView);
         screenBtn.setOnAction((ActionEvent e) -> {
             stage.setScene(scene2);
         });
