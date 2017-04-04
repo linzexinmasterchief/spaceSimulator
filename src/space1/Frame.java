@@ -50,9 +50,6 @@ public class Frame extends Application implements Runnable {
     double opacity = 1;
     double speedOpacity = 0.02;
 
-    int x = 250;
-    int y = 280;
-
     double speedX = 0;
     double speedY = 0;
 
@@ -62,8 +59,12 @@ public class Frame extends Application implements Runnable {
 
     @Override
     public void start(Stage pstage) {
+        stars = new Star[100];
+
         Star earth = new Star();
         earth.setCenterX(250);
+        earth.setCenterY(280);
+        stars[0] = earth;
 
         StackPane stackPane = new StackPane();
 
@@ -128,21 +129,21 @@ public class Frame extends Application implements Runnable {
         canvas.setTranslateY(0);
         canvas.setOnMouseDragged(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
-                speedX = (me.getX() - 20 - x) / 20;
-                speedY = (me.getY() - 20 - y) / 20;
+                speedX = (me.getX() - 20 - earth.getCenterX()) / 20;
+                speedY = (me.getY() - 20 - earth.getCenterY()) / 20;
             } else if (me.getButton() == MouseButton.SECONDARY) {
-                x = (int) (me.getX() - 20);
-                y = (int) (me.getY() - 20);
+                earth.setCenterX(me.getX() - 20);
+                earth.setCenterY(me.getY() - 20);
                 speedX = speedY = 0;
             }
         });
         canvas.setOnMouseClicked(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
-                speedX = (me.getX() - 20 - x) / 100;
-                speedY = (me.getY() - 20 - y) / 100;
+                speedX = (me.getX() - 20 - earth.getCenterX()) / 100;
+                speedY = (me.getY() - 20 - earth.getCenterY()) / 100;
             } else if (me.getButton() == MouseButton.SECONDARY) {
-                x = (int) (me.getX() - 20);
-                y = (int) (me.getY() - 20);
+                earth.setCenterX(me.getX() - 20);
+                earth.setCenterY(me.getY() - 20);
                 speedX = speedY = 0;
             }
         });
@@ -165,7 +166,7 @@ public class Frame extends Application implements Runnable {
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, 825, 561);
         gc.setFill(Color.BLUE);
-        gc.fillOval(x, y, 40, 40);
+        gc.fillOval(stars[0].getCenterX(), stars[0].getCenterY(), 40, 40);
     }
 
     @Override
@@ -177,8 +178,8 @@ public class Frame extends Application implements Runnable {
                 e.printStackTrace();
             }
             if (stage.getScene() == scene2) {
-                x += speedX;
-                y += speedY;
+                stars[0].setCenterX(stars[0].getCenterX() + speedX);
+                stars[0].setCenterY(stars[0].getCenterY() + speedY);
                 drawShapes(gc);
             } else if (stage.getScene() == scene) {
                 if (opacity >= 1) {
