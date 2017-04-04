@@ -28,6 +28,14 @@ import static javafx.scene.paint.Color.BLACK;
 /**
  * Created by lzx on 2017/3/21.
  */
+
+/**
+ * TODO 1. totally separate the star unit into Star.java
+ * TODO 2. use stars list to contain 100 star unit
+ * TODO 3. use centerX, centerY to replace x & y, use r to determine the location on the screen
+ * TODO 4. gravity (long long time later)
+ */
+
 public class Frame extends Application implements Runnable {
 
     private static Star[] stars;
