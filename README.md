@@ -2,7 +2,6 @@
 simulate the movement of stars<pr>
 <pr>
 # TODO list<pr>
-<pr>
  * TODO 1. totally separate the star unit into Star.java<pr>
  * TODO 2. use stars list to contain 100 star unit<pr>
  * TODO 3. use centerX, centerY to replace x \& y, use r to determine the location on the screen<pr>
