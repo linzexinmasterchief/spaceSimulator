@@ -1,29 +1,13 @@
 package space1;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.CycleMethod;
-import javafx.scene.paint.LinearGradient;
-import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
-
-import static javafx.scene.paint.Color.BLACK;
+import scenes.Game;
+import scenes.Start;
 
 /**
  * Created by lzx on 2017/3/21.
@@ -41,20 +25,14 @@ import static javafx.scene.paint.Color.BLACK;
 
 public class Frame extends Application implements Runnable {
 
-    private static Star[] stars;
+    public static Group group;
+    public static StackPane stackPane;
 
-    private static Stage stage;
-    private static Scene scene;
-    private static Label startTitle;
-    private static Scene scene2;
-    private static Thread thread;
-    private static GraphicsContext gc;
+    public static Stage stage;
+    public static Start start;
+    public static Game game;
 
-    double opacity = 1;
-    double speedOpacity = 0.02;
-
-    double speedX = 0;
-    double speedY = 0;
+    public static Thread thread;
 
     public static void main(String[] args) {
         launch(args);
@@ -62,114 +40,23 @@ public class Frame extends Application implements Runnable {
 
     @Override
     public void start(Stage pstage) {
-        stars = new Star[50];
 
-        Star earth = new Star();
-        earth.setCenterX(250);
-        earth.setCenterY(280);
-        stars[0] = earth;
+        group = new Group();
+        game = new Game(group, 1025, 561);
 
-        StackPane stackPane = new StackPane();
-
-        scene = new Scene(stackPane,1025,561);
+        stackPane = new StackPane();
+        start = new Start(stackPane, 1025, 561);
 
         stage = new Stage();
-        stage.setScene(scene);
+        stage.setScene(start);
         stage.setResizable(false);
         stage.setTitle("SpaceSimulator");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("..\\icon.png")));
         stage.setOnCloseRequest(event -> thread.stop());
 
-        Image image = new Image(getClass().getResourceAsStream("..\\back.jpg"));
-        ImageView imageView = new ImageView(image);
-        Button screenBtn = new Button("", imageView);
-        screenBtn.setOnAction((ActionEvent e) -> {
-            stage.setScene(scene2);
-        });
-        screenBtn.setDefaultButton(true);
-
-        startTitle = new Label("Click any where to start");
-        startTitle.setScaleX(1.5);
-        startTitle.setScaleY(1.5);
-        startTitle.setTranslateY(230);
-        startTitle.setTextFill(Color.gray(1));
-        startTitle.setOnMouseClicked(me -> stage.setScene(scene2));
-
-        ((StackPane) scene.getRoot()).getChildren().add(screenBtn);
-        ((StackPane) scene.getRoot()).getChildren().add(startTitle);
-
-
-        scene2 = new Scene(new Group(), 1025, 561);
-        scene2.setFill(new LinearGradient(0, 0, 1, 0, true,
-                CycleMethod.REFLECT,
-                new Stop(1, Color.DARKBLUE),
-                new Stop(0, Color.BLACK)));
-
-        MenuBar menuBar = new MenuBar();
-        menuBar.setTranslateX(0);
-        menuBar.setTranslateY(0);
-        Menu menu1 = new Menu("File");
-        Menu menu2 = new Menu("Options");
-        Menu menu3 = new Menu("Help");
-        menuBar.setPrefWidth(1030);
-        menuBar.getMenus().addAll(menu1, menu2, menu3);
-        menuBar.setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(0), null)));
-
-        Button backBtn = new Button("              Main menu              ");
-        backBtn.setTranslateX(10);
-        backBtn.setTranslateY(30);
-        backBtn.setDefaultButton(true);
-        backBtn.setOnMouseEntered(me -> backBtn.setBackground(new Background(new BackgroundFill(Color.CORNFLOWERBLUE, new CornerRadii(10), null))));
-        backBtn.setOnMouseExited(me -> backBtn.setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(10), null))));
-        backBtn.setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(10), null)));
-        backBtn.setTextFill(Color.WHITE);
-        backBtn.setOnAction((ActionEvent e) -> {
-            stage.setScene(scene);
-        });
-
-        Canvas canvas = new Canvas(825, 561);
-        canvas.setTranslateX(200);
-        canvas.setTranslateY(0);
-        canvas.setOnMouseDragged(me -> {
-            if (me.getButton() == MouseButton.PRIMARY) {
-                speedX = (me.getX() - 20 - earth.getCenterX()) / 20;
-                speedY = (me.getY() - 20 - earth.getCenterY()) / 20;
-            } else if (me.getButton() == MouseButton.SECONDARY) {
-                earth.setCenterX(me.getX() - 20);
-                earth.setCenterY(me.getY() - 20);
-                speedX = speedY = 0;
-            }
-        });
-        canvas.setOnMouseClicked(me -> {
-            if (me.getButton() == MouseButton.PRIMARY) {
-                speedX = (me.getX() - 20 - earth.getCenterX()) / 100;
-                speedY = (me.getY() - 20 - earth.getCenterY()) / 100;
-            } else if (me.getButton() == MouseButton.SECONDARY) {
-                earth.setCenterX(me.getX() - 20);
-                earth.setCenterY(me.getY() - 20);
-                speedX = speedY = 0;
-            }
-        });
-
-        gc = canvas.getGraphicsContext2D();
-        gc.setFill(BLACK);
-        gc.fillRect(0, 0, 825, 561);
-        drawShapes(gc);
-
-        ((Group) scene2.getRoot()).getChildren().add(backBtn);
-        ((Group) scene2.getRoot()).getChildren().add(canvas);
-        ((Group) scene2.getRoot()).getChildren().add(menuBar);
-
         stage.show();
         thread = new Thread(this);
         thread.start();
-    }
-
-    private void drawShapes(GraphicsContext gc) {
-        gc.setFill(Color.BLACK);
-        gc.fillRect(0, 0, 825, 561);
-        gc.setFill(Color.BLUE);
-        gc.fillOval(stars[0].getCenterX(), stars[0].getCenterY(), 40, 40);
     }
 
     @Override
@@ -180,18 +67,18 @@ public class Frame extends Application implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (stage.getScene() == scene2) {
-                stars[0].setCenterX(stars[0].getCenterX() + speedX);
-                stars[0].setCenterY(stars[0].getCenterY() + speedY);
-                drawShapes(gc);
-            } else if (stage.getScene() == scene) {
-                if (opacity >= 1) {
-                    speedOpacity = -0.02;
-                } else if (opacity <= 0.1) {
-                    speedOpacity = 0.02;
+            if (stage.getScene() == game) {
+                Game.stars[0].setCenterX(Game.stars[0].getCenterX() + Game.speedX);
+                Game.stars[0].setCenterY(Game.stars[0].getCenterY() + Game.speedY);
+                Game.drawShapes(Game.gc);
+            } else if (stage.getScene() == start) {
+                if (Game.opacity >= 1) {
+                    Game.speedOpacity = -0.02;
+                } else if (Game.opacity <= 0.1) {
+                    Game.speedOpacity = 0.02;
                 }
-                opacity += speedOpacity;
-                startTitle.setTextFill(Color.gray(opacity));
+                Game.opacity += Game.speedOpacity;
+                Start.startTitle.setTextFill(Color.gray(Game.opacity));
             }
         }
     }
