@@ -14,13 +14,11 @@ import scenes.Start;
  */
 
 /**
- * TODO 1. totally separate the star unit into Star.java
- * TODO 2. use stars list to contain 100 star unit
- * TODO 3. use centerX, centerY to replace x & y, use r to determine the location on the screen
- * TODO 4. gravity (long long time later)
- * TODO 5. replace the function of right-click from initialize to new star
- * TODO 6. delete the star if it moves out of the screen
- * TODO 7. determine if there is still place for a new star
+ * TODO use stars list to contain 100 star unit
+ * TODO gravity (long long time later)
+ * TODO replace the function of right-click from initialize to new star
+ * TODO delete the star if it moves out of the screen
+ * TODO determine if there is still place for a new star
  */
 
 public class Frame extends Application implements Runnable {
