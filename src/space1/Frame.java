@@ -49,7 +49,7 @@ public class Frame extends Application implements Runnable {
         stage.setScene(start);
         stage.setResizable(false);
         stage.setTitle("SpaceSimulator");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("..\\icon.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("..\\pictures\\icon.png")));
         stage.setOnCloseRequest(event -> thread.stop());
 
         stage.show();

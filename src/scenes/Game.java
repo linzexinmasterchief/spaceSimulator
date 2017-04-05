@@ -13,8 +13,8 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
+import models.Star;
 import space1.Frame;
-import space1.Star;
 
 import static javafx.scene.paint.Color.BLACK;
 

@@ -23,7 +23,7 @@ public class Start extends Scene {
     public Start(Parent root, double width, double height) {
         super(root, width, height);
 
-        Image image = new Image(getClass().getResourceAsStream("..\\back.jpg"));
+        Image image = new Image(getClass().getResourceAsStream("..\\pictures\\back.jpg"));
         ImageView imageView = new ImageView(image);
         Button screenBtn = new Button("", imageView);
         screenBtn.setOnAction((ActionEvent e) -> {
