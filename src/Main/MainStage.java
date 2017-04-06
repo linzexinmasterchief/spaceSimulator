@@ -1,4 +1,4 @@
-package space1;
+package Main;
 
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -8,20 +8,13 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import scenes.Game;
 import scenes.Start;
+import scenes.canvas.GameCanvas;
 
 /**
  * Created by lzx on 2017/3/21.
  */
 
-/**
- * TODO use stars list to contain 100 star unit
- * TODO gravity (long long time later)
- * TODO replace the function of right-click from initialize to new star
- * TODO delete the star if it moves out of the screen
- * TODO determine if there is still place for a new star
- */
-
-public class Frame extends Application implements Runnable {
+public class MainStage extends Application implements Runnable {
 
     public static Group group;
     public static StackPane stackPane;
@@ -37,7 +30,7 @@ public class Frame extends Application implements Runnable {
     }
 
     @Override
-    public void start(Stage pstage) {
+    public void start(Stage HAHAstage) {
 
         group = new Group();
         game = new Game(group, 1025, 561);
@@ -66,17 +59,17 @@ public class Frame extends Application implements Runnable {
                 e.printStackTrace();
             }
             if (stage.getScene() == game) {
-                Game.stars[0].setCenterX(Game.stars[0].getCenterX() + Game.speedX);
-                Game.stars[0].setCenterY(Game.stars[0].getCenterY() + Game.speedY);
-                Game.drawShapes(Game.gc);
+                GameCanvas.stars[0].setCenterX(GameCanvas.stars[0].getCenterX() + GameCanvas.speedX);
+                Game.gameCanvas.stars[0].setCenterY(GameCanvas.stars[0].getCenterY() + GameCanvas.speedY);
+                Game.gameCanvas.drawShapes(GameCanvas.gc);
             } else if (stage.getScene() == start) {
-                if (Game.opacity >= 1) {
-                    Game.speedOpacity = -0.02;
-                } else if (Game.opacity <= 0.1) {
-                    Game.speedOpacity = 0.02;
+                if (Start.opacity >= 1) {
+                    Start.speedOpacity = -0.02;
+                } else if (Start.opacity <= 0.1) {
+                    Start.speedOpacity = 0.02;
                 }
-                Game.opacity += Game.speedOpacity;
-                Start.startTitle.setTextFill(Color.gray(Game.opacity));
+                Start.opacity += Start.speedOpacity;
+                Start.startTitle.setTextFill(Color.gray(Start.opacity));
             }
         }
     }

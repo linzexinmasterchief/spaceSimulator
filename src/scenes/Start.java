@@ -1,5 +1,6 @@
 package scenes;
 
+import Main.MainStage;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-import space1.Frame;
 
 /**
  * Created by lzx on 2017/4/5.
@@ -16,9 +16,8 @@ import space1.Frame;
 public class Start extends Scene {
 
     public static Label startTitle;
-    public static Start start;
-    public static Game game;
-    public static Thread thread;
+    public static double opacity = 1;
+    public static double speedOpacity = 0.02;
 
     public Start(Parent root, double width, double height) {
         super(root, width, height);
@@ -27,7 +26,7 @@ public class Start extends Scene {
         ImageView imageView = new ImageView(image);
         Button screenBtn = new Button("", imageView);
         screenBtn.setOnAction((ActionEvent e) -> {
-            Frame.stage.setScene(Frame.game);
+            MainStage.stage.setScene(MainStage.game);
         });
         screenBtn.setDefaultButton(true);
 
@@ -36,10 +35,10 @@ public class Start extends Scene {
         startTitle.setScaleY(1.5);
         startTitle.setTranslateY(230);
         startTitle.setTextFill(Color.gray(1));
-        startTitle.setOnMouseClicked(me -> Frame.stage.setScene(game));
+        startTitle.setOnMouseClicked(me -> MainStage.stage.setScene(MainStage.game));
 
-        Frame.stackPane.getChildren().add(screenBtn);
-        Frame.stackPane.getChildren().add(startTitle);
+        MainStage.stackPane.getChildren().add(screenBtn);
+        MainStage.stackPane.getChildren().add(startTitle);
 
     }
 }
