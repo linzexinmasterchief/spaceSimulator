@@ -4,11 +4,9 @@ import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import scenes.Game;
-import scenes.Start;
-import scenes.canvas.GameCanvas;
+import scenes.GameScene;
+import scenes.TitleScene;
 
 /**
  * Created by lzx on 2017/3/21.
@@ -20,8 +18,8 @@ public class MainStage extends Application implements Runnable {
     public static StackPane stackPane;
 
     public static Stage stage;
-    public static Start start;
-    public static Game game;
+    public static TitleScene titleScene;
+    public static GameScene gameScene;
 
     public static Thread thread;
 
@@ -33,13 +31,14 @@ public class MainStage extends Application implements Runnable {
     public void start(Stage HAHAstage) {
 
         group = new Group();
-        game = new Game(group, 1025, 561);
+        gameScene = new GameScene(group, 1000, 560);
 
         stackPane = new StackPane();
-        start = new Start(stackPane, 1025, 561);
+        titleScene = new TitleScene(stackPane, 1000, 560);
 
         stage = new Stage();
-        stage.setScene(start);
+        stage.setScene(titleScene);
+        stage.sizeToScene();
         stage.setResizable(false);
         stage.setTitle("SpaceSimulator");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("..\\pictures\\icon.png")));
@@ -58,18 +57,10 @@ public class MainStage extends Application implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (stage.getScene() == game) {
-                GameCanvas.stars[0].setCenterX(GameCanvas.stars[0].getCenterX() + GameCanvas.speedX);
-                Game.gameCanvas.stars[0].setCenterY(GameCanvas.stars[0].getCenterY() + GameCanvas.speedY);
-                Game.gameCanvas.drawShapes(GameCanvas.gc);
-            } else if (stage.getScene() == start) {
-                if (Start.opacity >= 1) {
-                    Start.speedOpacity = -0.02;
-                } else if (Start.opacity <= 0.1) {
-                    Start.speedOpacity = 0.02;
-                }
-                Start.opacity += Start.speedOpacity;
-                Start.startTitle.setTextFill(Color.gray(Start.opacity));
+            if (stage.getScene() == gameScene) {
+                GameScene.gameCanvas.GameThread();
+            } else if (stage.getScene() == titleScene) {
+                TitleScene.TitleThread();
             }
         }
     }
