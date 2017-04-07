@@ -16,17 +16,22 @@ public class GameCanvas extends Canvas {
     public static GraphicsContext gc;
     public static Star[] stars = new Star[10];
 
+    private boolean isMousePressed;
+    private boolean isMouseClicked;
+
     public GameCanvas(double width, double height) {
         super(width, height);
+        isMouseClicked = false;
+        isMousePressed = false;
+
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star();
-            stars[i].x = i * 30;
-            stars[i].y = i * 30;
         }
+        stars[0].onScreen = true;
         System.out.println(stars[0].x);
         setTranslateX(200);
         setTranslateY(0);
-        setOnMouseDragged(me -> {
+        setOnMousePressed(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
                 for (int i = 0; i < stars.length; i++) {
                     stars[i].speedX = (me.getX() - stars[i].r - stars[i].x) / 20;
@@ -34,8 +39,7 @@ public class GameCanvas extends Canvas {
                 }
             } else if (me.getButton() == MouseButton.SECONDARY) {
                 for (int i = 0; i < stars.length; i++) {
-                    stars[i].x = me.getX() - stars[i].r;
-                    stars[i].y = me.getY() - stars[i].r;
+                    stars[i].setPosition(me.getX() - stars[i].r, me.getY() - stars[i].r);
                     stars[i].speedX = stars[i].speedY = 0;
                 }
             }
@@ -48,8 +52,7 @@ public class GameCanvas extends Canvas {
                 }
             } else if (me.getButton() == MouseButton.SECONDARY) {
                 for (int i = 0; i < stars.length; i++) {
-                    stars[i].x = me.getX() - stars[i].r;
-                    stars[i].y = me.getY() - stars[i].r;
+                    stars[i].setPosition(me.getX() - stars[i].r, me.getY() - stars[i].r);
                     stars[i].speedX = stars[i].speedY = 0;
                 }
             }
@@ -59,26 +62,30 @@ public class GameCanvas extends Canvas {
         gc.setFill(BLACK);
         gc.fillRect(0, 0, 800, 560);
         drawShapes(gc);
-        System.out.println(stars[0].x);
     }
 
-    public static void drawShapes(GraphicsContext gc) {
+    public void drawShapes(GraphicsContext gc) {
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, 800, 560);
         gc.setFill(Color.BLUE);
 
         for (int i = 0; i < stars.length; i++) {
-            gc.fillOval(stars[i].x, stars[i].y, stars[i].r * 2, stars[i].r * 2);
+            if (stars[i].onScreen) {
+                gc.fillOval(stars[i].x, stars[i].y, stars[i].r * 2, stars[i].r * 2);
+            }
         }
+        System.out.println("painting");
     }
 
-    public static void GameThread() {
+    public void GameThread() {
         for (int i = 0; i < stars.length; i++) {
-            stars[i].x = stars[i].x + stars[i].speedX;
-            stars[i].y = stars[i].y + stars[i].speedY;
+            if (stars[i].onScreen) {
+                stars[i].x = stars[i].x + stars[i].speedX;
+                stars[i].y = stars[i].y + stars[i].speedY;
+            }
         }
         drawShapes(gc);
+        System.out.println("GameRunning");
     }
-
 
 }

@@ -50,5 +50,7 @@ public class TitleScene extends Scene {
         }
         opacity += speedOpacity;
         startTitle.setTextFill(Color.gray(opacity));
+
+        System.out.println("TitleRunning");
     }
 }

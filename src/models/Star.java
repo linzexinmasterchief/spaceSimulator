@@ -19,12 +19,29 @@ public class Star extends Circle{
 
     public boolean onScreen;
 
+    public boolean selected;
+
     public Star() {
+        initialize();
+    }
+
+    public void initialize() {
         mass = 10;
         name = "";
         r = 5;
         speedX = speedY = 0;
         onScreen = false;
+        x = 400;
+        y = 280;
+    }
+
+    public void setPosition(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void showStar() {
+
     }
 
 }
