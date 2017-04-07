@@ -14,77 +14,68 @@ import static javafx.scene.paint.Color.BLACK;
 public class GameCanvas extends Canvas {
 
     public static GraphicsContext gc;
-    public static Star[] stars;
-
+    public static Star[] stars = new Star[10];
 
     public GameCanvas(double width, double height) {
         super(width, height);
-
-        Star earth = new Star();
-        Star.x = 250;
-        Star.y = 280;
-
-        stars = new Star[10];
-        stars[0] = earth;
-
-        for (int i = 1; i < stars.length; i++) {
+        for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star();
-            Star.x = i;
-            Star.y = i;
+            stars[i].x = i * 30;
+            stars[i].y = i * 30;
         }
-
+        System.out.println(stars[0].x);
         setTranslateX(200);
         setTranslateY(0);
         setOnMouseDragged(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
                 for (int i = 0; i < stars.length; i++) {
-                    Star.speedX = (me.getX() - Star.r - Star.x) / 20;
-                    Star.speedY = (me.getY() - Star.r - Star.y) / 20;
+                    stars[i].speedX = (me.getX() - stars[i].r - stars[i].x) / 20;
+                    stars[i].speedY = (me.getY() - stars[i].r - stars[i].y) / 20;
                 }
             } else if (me.getButton() == MouseButton.SECONDARY) {
                 for (int i = 0; i < stars.length; i++) {
-                    Star.x = me.getX() - Star.r;
-                    Star.y = me.getY() - Star.r;
-                    Star.speedX = Star.speedY = 0;
+                    stars[i].x = me.getX() - stars[i].r;
+                    stars[i].y = me.getY() - stars[i].r;
+                    stars[i].speedX = stars[i].speedY = 0;
                 }
             }
         });
         setOnMouseClicked(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
                 for (int i = 0; i < stars.length; i++) {
-                    Star.speedX = (me.getX() - Star.r - Star.x) / 100;
-                    Star.speedY = (me.getY() - Star.r - Star.y) / 100;
+                    stars[i].speedX = (me.getX() - stars[i].r - stars[i].x) / 100;
+                    stars[i].speedY = (me.getY() - stars[i].r - stars[i].y) / 100;
                 }
             } else if (me.getButton() == MouseButton.SECONDARY) {
                 for (int i = 0; i < stars.length; i++) {
-                    Star.x = me.getX() - Star.r;
-                    Star.y = me.getY() - Star.r;
-                    Star.speedX = Star.speedY = 0;
+                    stars[i].x = me.getX() - stars[i].r;
+                    stars[i].y = me.getY() - stars[i].r;
+                    stars[i].speedX = stars[i].speedY = 0;
                 }
             }
-            System.out.println(Star.x + ", " + Star.y);
         });
 
         gc = getGraphicsContext2D();
         gc.setFill(BLACK);
         gc.fillRect(0, 0, 800, 560);
         drawShapes(gc);
-
+        System.out.println(stars[0].x);
     }
 
     public static void drawShapes(GraphicsContext gc) {
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, 800, 560);
         gc.setFill(Color.BLUE);
+
         for (int i = 0; i < stars.length; i++) {
-            gc.fillOval(Star.x, Star.y, Star.r * 2, Star.r * 2);
+            gc.fillOval(stars[i].x, stars[i].y, stars[i].r * 2, stars[i].r * 2);
         }
     }
 
     public static void GameThread() {
         for (int i = 0; i < stars.length; i++) {
-            Star.x = Star.x + Star.speedX;
-            Star.y = Star.y + Star.speedY;
+            stars[i].x = stars[i].x + stars[i].speedX;
+            stars[i].y = stars[i].y + stars[i].speedY;
         }
         drawShapes(gc);
     }

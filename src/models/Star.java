@@ -7,17 +7,17 @@ import javafx.scene.shape.Circle;
  */
 public class Star extends Circle{
 
-    public static double mass;
-    public static String name;
-    public static double r;
+    public double mass;
+    public String name;
+    public double r;
 
-    public static double x;
-    public static double y;
+    public double x;
+    public double y;
 
-    public static double speedX;
-    public static double speedY;
+    public double speedX;
+    public double speedY;
 
-    public static boolean onScreen;
+    public boolean onScreen;
 
     public Star() {
         mass = 10;

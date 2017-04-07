@@ -7,6 +7,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import scenes.GameScene;
 import scenes.TitleScene;
+import scenes.canvas.GameCanvas;
 
 /**
  * Created by lzx on 2017/3/21.
@@ -53,12 +54,12 @@ public class MainStage extends Application implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(20);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             if (stage.getScene() == gameScene) {
-                GameScene.gameCanvas.GameThread();
+                GameCanvas.GameThread();
             } else if (stage.getScene() == titleScene) {
                 TitleScene.TitleThread();
             }
