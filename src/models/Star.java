@@ -40,8 +40,13 @@ public class Star extends Circle{
         this.y = y;
     }
 
-    public void showStar() {
+    public void show() {
 
+    }
+
+    public void remove() {
+        setPosition(400, 280);
+        initialize();
     }
 
 }
