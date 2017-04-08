@@ -28,8 +28,8 @@ public class GameCanvas extends Canvas {
         setOnMouseDragged(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
                 for (int i = 0; i < stars.length; i++) {
-                    stars[i].speedX = (me.getX() - stars[i].r - stars[i].x) / 20;
-                    stars[i].speedY = (me.getY() - stars[i].r - stars[i].y) / 20;
+                    stars[i].accelerationX = (me.getX() - stars[i].r - stars[i].x) / 100;
+                    stars[i].accelerationY = (me.getY() - stars[i].r - stars[i].y) / 100;
                 }
             } else if (me.getButton() == MouseButton.SECONDARY) {
 
@@ -38,8 +38,8 @@ public class GameCanvas extends Canvas {
         setOnMouseClicked(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
                 for (int i = 0; i < stars.length; i++) {
-                    stars[i].speedX = (me.getX() - stars[i].r - stars[i].x) / 100;
-                    stars[i].speedY = (me.getY() - stars[i].r - stars[i].y) / 100;
+                    stars[i].accelerationX = (me.getX() - stars[i].r - stars[i].x) / 300;
+                    stars[i].accelerationY = (me.getY() - stars[i].r - stars[i].y) / 300;
                 }
             } else if (me.getButton() == MouseButton.SECONDARY) {
                 for (int i = 0; i < stars.length; i++) {
@@ -78,6 +78,8 @@ public class GameCanvas extends Canvas {
                 stars[i].remove();
             }
             if (stars[i].onScreen) {
+                stars[i].speedX += stars[i].accelerationX;
+                stars[i].speedY += stars[i].accelerationY;
                 stars[i].x = stars[i].x + stars[i].speedX;
                 stars[i].y = stars[i].y + stars[i].speedY;
             }

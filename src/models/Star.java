@@ -17,6 +17,9 @@ public class Star extends Circle{
     public double speedX;
     public double speedY;
 
+    public double accelerationX;
+    public double accelerationY;
+
     public boolean onScreen;
 
     public boolean selected;
@@ -30,6 +33,8 @@ public class Star extends Circle{
         name = "";
         r = 5;
         speedX = speedY = 0;
+        accelerationX = 0;
+        accelerationY = 0;
         onScreen = false;
         x = 400;
         y = 280;
