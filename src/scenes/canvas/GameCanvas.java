@@ -14,39 +14,44 @@ import static javafx.scene.paint.Color.BLACK;
 public class GameCanvas extends Canvas {
 
     public static GraphicsContext gc;
-    public static Star[] stars = new Star[10];
+    public static Star[] stars = new Star[50];
+    public static double InputMass;
+    public static double InputVectorX;
+    public static double InputVectorY;
 
     public GameCanvas(double width, double height) {
         super(width, height);
+        InputMass = 0;
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star();
         }
-        stars[0].onScreen = true;
-        System.out.println(stars[0].x);
         setTranslateX(200);
         setTranslateY(0);
-        setOnMouseDragged(me -> {
-            if (me.getButton() == MouseButton.PRIMARY) {
-                for (int i = 0; i < stars.length; i++) {
-                    stars[i].accelerationX = (me.getX() - stars[i].r - stars[i].x) / 100;
-                    stars[i].accelerationY = (me.getY() - stars[i].r - stars[i].y) / 100;
-                }
-            } else if (me.getButton() == MouseButton.SECONDARY) {
 
+        setOnMouseDragged(me -> {
+            requestFocus();
+            if (me.getButton() == MouseButton.PRIMARY) {
+//                for (int i = 0; i < stars.length; i++) {
+//                    stars[i].accelerationX = (me.getX() - stars[i].r - stars[i].x) / stars[i].mass;
+//                    stars[i].accelerationY = (me.getY() - stars[i].r - stars[i].y) / stars[i].mass;
+//                }
             }
         });
         setOnMouseClicked(me -> {
+            requestFocus();
             if (me.getButton() == MouseButton.PRIMARY) {
-                for (int i = 0; i < stars.length; i++) {
-                    stars[i].accelerationX = (me.getX() - stars[i].r - stars[i].x) / 300;
-                    stars[i].accelerationY = (me.getY() - stars[i].r - stars[i].y) / 300;
-                }
+//                for (int i = 0; i < stars.length; i++) {
+//                    stars[i].accelerationX = (me.getX() - stars[i].r - stars[i].x) / stars[i].mass;
+//                    stars[i].accelerationY = (me.getY() - stars[i].r - stars[i].y) / stars[i].mass;
+//                }
             } else if (me.getButton() == MouseButton.SECONDARY) {
                 for (int i = 0; i < stars.length; i++) {
                     if (stars[i].onScreen == false) {
-                        stars[i].initialize();
-                        stars[i].onScreen = true;
-                        stars[i].setPosition(me.getX() - stars[i].r, me.getY() - stars[i].r);
+                        stars[i].show(me.getX() - stars[i].r, me.getY() - stars[i].r);
+                        stars[i].mass = InputMass;
+                        stars[i].speedX = InputVectorX;
+                        stars[i].speedY = InputVectorY;
+                        drawShapes(gc);
                         return;
                     }
                 }
@@ -69,23 +74,38 @@ public class GameCanvas extends Canvas {
                 gc.fillOval(stars[i].x, stars[i].y, stars[i].r * 2, stars[i].r * 2);
             }
         }
-        System.out.println("painting");
     }
 
+    public void gravityAcceleration(Star s) {
+        for (int i = 0; i < stars.length; i++) {
+            if (stars[i].onScreen & stars[i] != s) {
+                double xDiff = stars[i].x - s.x;
+                double yDiff = stars[i].y - s.y;
+                double distance = xDiff * xDiff + yDiff * yDiff;
+                if (distance != 0 & s.mass != 0) {
+                    s.accelerationX += 0.6673 * stars[i].mass * s.mass / distance;
+                    s.accelerationY += 0.6673 * stars[i].mass * s.mass / distance;
+                }
+            }
+        }
+    }
+
+    public void clear() {
+        for (int i = 0; i < stars.length; i++) {
+            stars[i].remove();
+        }
+    }
     public void GameThread() {
         for (int i = 0; i < stars.length; i++) {
             if (stars[i].x > 800 | stars[i].y > 560 | stars[i].x < 0 | stars[i].y < 0) {
                 stars[i].remove();
             }
             if (stars[i].onScreen) {
-                stars[i].speedX += stars[i].accelerationX;
-                stars[i].speedY += stars[i].accelerationY;
-                stars[i].x = stars[i].x + stars[i].speedX;
-                stars[i].y = stars[i].y + stars[i].speedY;
+                gravityAcceleration(stars[i]);
+                stars[i].move();
             }
         }
         drawShapes(gc);
-        System.out.println("GameRunning");
     }
 
 }

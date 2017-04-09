@@ -45,6 +45,7 @@ public class MainStage extends Application implements Runnable {
         stage.setOnCloseRequest(event -> thread.stop());
 
         stage.show();
+
         thread = new Thread(this);
         thread.start();
     }
@@ -57,12 +58,11 @@ public class MainStage extends Application implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (stage.getScene() == gameScene) {
+            if (stage.getScene() == gameScene & !gameScene.pause) {
                 GameScene.gameCanvas.GameThread();
             } else if (stage.getScene() == titleScene) {
                 TitleScene.TitleThread();
             }
-            System.out.println("thread running");
         }
     }
 }

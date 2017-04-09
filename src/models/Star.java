@@ -29,7 +29,7 @@ public class Star extends Circle{
     }
 
     public void initialize() {
-        mass = 10;
+        mass = 1;
         name = "";
         r = 5;
         speedX = speedY = 0;
@@ -45,8 +45,17 @@ public class Star extends Circle{
         this.y = y;
     }
 
-    public void show() {
+    public void show(double xin, double yin) {
+        initialize();
+        onScreen = true;
+        setPosition(xin, yin);
+    }
 
+    public void move() {
+        speedX += accelerationX;
+        speedY += accelerationY;
+        x = x + (speedX / 1000);
+        y = y + (speedY / 1000);
     }
 
     public void remove() {
