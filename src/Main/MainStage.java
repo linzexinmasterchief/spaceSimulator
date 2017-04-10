@@ -42,7 +42,9 @@ public class MainStage extends Application implements Runnable {
         stage.setResizable(false);
         stage.setTitle("SpaceSimulator");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("..\\pictures\\icon.png")));
-        stage.setOnCloseRequest(event -> thread.stop());
+        stage.setOnCloseRequest(event -> {
+            System.exit(0);
+        });
 
         stage.show();
 
@@ -54,16 +56,11 @@ public class MainStage extends Application implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(20);
+                Thread.sleep(30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (stage.getScene() == gameScene & !gameScene.pause) {
-                GameScene.gameCanvas.GameThread();
-                gameScene.submit();
-            } else if (stage.getScene() == titleScene) {
-                TitleScene.TitleThread();
-            }
+            TitleScene.TitleThread();
         }
     }
 }

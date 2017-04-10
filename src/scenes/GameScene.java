@@ -63,7 +63,15 @@ public class GameScene extends Scene {
             if (ke.getCode() == KeyCode.ESCAPE) {
                 gameCanvas.requestFocus();
             }
+            try {
+                GameCanvas.InputMass = Double.parseDouble(massTextField.getText());
+                System.out.println(massTextField.getText());
+            } catch (Exception e) {
 
+            }
+            if (massTextField.getText().equals("")) {
+                GameCanvas.InputMass = 0;
+            }
         });
 
         Label massPromt = new Label("Mass:");
@@ -80,7 +88,13 @@ public class GameScene extends Scene {
             if (ke.getCode() == KeyCode.ESCAPE) {
                 gameCanvas.requestFocus();
             }
-
+            try {
+                GameCanvas.InputVectorX = Double.parseDouble(XTextField.getText());
+            } catch (Exception e) {
+            }
+            if (XTextField.getText().equals("")) {
+                GameCanvas.InputVectorX = 0;
+            }
         });
 
         Label XPromt = new Label("VecX:");
@@ -97,7 +111,14 @@ public class GameScene extends Scene {
             if (ke.getCode() == KeyCode.ESCAPE) {
                 gameCanvas.requestFocus();
             }
+            try {
+                GameCanvas.InputVectorY = Double.parseDouble(YTextField.getText());
+            } catch (Exception e) {
 
+            }
+            if (YTextField.getText().equals("")) {
+                GameCanvas.InputVectorY = 0;
+            }
         });
 
         Label YPromt = new Label("VecY:");
@@ -114,7 +135,14 @@ public class GameScene extends Scene {
             if (ke.getCode() == KeyCode.ESCAPE) {
                 gameCanvas.requestFocus();
             }
+            try {
+                GameCanvas.InputAccelerationX = Double.parseDouble(AccelerationXTextField.getText());
+            } catch (Exception e) {
 
+            }
+            if (AccelerationXTextField.getText().equals("")) {
+                GameCanvas.InputAccelerationX = 0;
+            }
         });
 
         Label AccelerationXPromt = new Label("AccX:");
@@ -131,7 +159,14 @@ public class GameScene extends Scene {
             if (ke.getCode() == KeyCode.ESCAPE) {
                 gameCanvas.requestFocus();
             }
+            try {
+                GameCanvas.InputAccelerationY = Double.parseDouble(AccelerationYTextField.getText());
+            } catch (Exception e) {
 
+            }
+            if (AccelerationYTextField.getText().equals("")) {
+                GameCanvas.InputAccelerationY = 0;
+            }
         });
 
         Label AccelerationYPromt = new Label("AccY:");
@@ -173,48 +208,6 @@ public class GameScene extends Scene {
         MainStage.group.getChildren().add(AccelerationYPromt);
         MainStage.group.getChildren().add(gameCanvas);
         MainStage.group.getChildren().add(clearBtn);
-    }
-
-    public void submit() {
-        try {
-            GameCanvas.InputMass = Double.parseDouble(massTextField.getText());
-        } catch (Exception e) {
-
-        }
-        if (massTextField.getText().equals("")) {
-            GameCanvas.InputMass = 0;
-        }
-        try {
-            GameCanvas.InputVectorX = Double.parseDouble(XTextField.getText());
-        } catch (Exception e) {
-        }
-        if (XTextField.getText().equals("")) {
-            GameCanvas.InputVectorX = 0;
-        }
-        try {
-            GameCanvas.InputVectorY = Double.parseDouble(YTextField.getText());
-        } catch (Exception e) {
-
-        }
-        if (YTextField.getText().equals("")) {
-            GameCanvas.InputVectorY = 0;
-        }
-        try {
-            GameCanvas.InputAccelerationX = Double.parseDouble(AccelerationXTextField.getText());
-        } catch (Exception e) {
-
-        }
-        if (AccelerationXTextField.getText().equals("")) {
-            GameCanvas.InputAccelerationX = 0;
-        }
-        try {
-            GameCanvas.InputAccelerationY = Double.parseDouble(AccelerationYTextField.getText());
-        } catch (Exception e) {
-
-        }
-        if (AccelerationYTextField.getText().equals("")) {
-            GameCanvas.InputAccelerationY = 0;
-        }
     }
 
 }
