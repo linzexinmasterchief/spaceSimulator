@@ -54,8 +54,8 @@ public class Star extends Circle{
     public void move() {
         speedX += accelerationX;
         speedY += accelerationY;
-        x = x + (speedX / 1000);
-        y = y + (speedY / 1000);
+        x = x + speedX;
+        y = y + speedY;
     }
 
     public void remove() {

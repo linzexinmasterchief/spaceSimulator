@@ -60,6 +60,7 @@ public class MainStage extends Application implements Runnable {
             }
             if (stage.getScene() == gameScene & !gameScene.pause) {
                 GameScene.gameCanvas.GameThread();
+                gameScene.submit();
             } else if (stage.getScene() == titleScene) {
                 TitleScene.TitleThread();
             }
