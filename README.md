@@ -3,6 +3,8 @@ simulate the movement of stars
 ## TODO list
  * TODO collision box[0%]
 ## logs
+#### version 0.0.2 build1 2017/04/11
+fixed the NaN bug
 ### version 0.0.1 release 2017/04/09
 add the gravity system, now you can set the mass and velocity!
 #### version 0.0.1 build3 2017/04/08

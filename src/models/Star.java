@@ -7,7 +7,7 @@ import javafx.scene.shape.Circle;
  */
 public class Star extends Circle{
 
-    public double mass;
+    public int mass;
     public String name;
     public double r;
 
@@ -52,8 +52,8 @@ public class Star extends Circle{
     }
 
     public void move() {
-        speedX += accelerationX;
-        speedY += accelerationY;
+        speedX = speedX + accelerationX;
+        speedY = speedY + accelerationY;
         x = x + speedX;
         y = y + speedY;
     }

@@ -64,7 +64,7 @@ public class GameScene extends Scene {
                 gameCanvas.requestFocus();
             }
             try {
-                GameCanvas.InputMass = Double.parseDouble(massTextField.getText());
+                GameCanvas.InputMass = Integer.parseInt(massTextField.getText());
                 System.out.println(massTextField.getText());
             } catch (Exception e) {
 

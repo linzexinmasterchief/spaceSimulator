@@ -1,5 +1,6 @@
 package scenes.canvas;
 
+import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseButton;
@@ -17,7 +18,7 @@ public class GameCanvas extends Canvas implements Runnable {
     public static boolean NEW;
     public static int MEX;
     public static int MEY;
-    public static double InputMass;
+    public static int InputMass;
     public static double InputVectorX;
     public static double InputVectorY;
     public static double InputAccelerationX;
@@ -78,19 +79,14 @@ public class GameCanvas extends Canvas implements Runnable {
         gc.fillRect(0, 0, 800, 560);
         gc.setFill(Color.BLUE);
 
-        int c = 0;
         for (int i = 0; i < stars.length; i++) {
             if (stars[i].onScreen) {
                 getGraphicsContext2D().fillOval(stars[i].x, stars[i].y, stars[i].r * 2, stars[i].r * 2);
-                System.out.println(i);
             }
         }
-        getGraphicsContext2D().save();
-        System.out.println(c);
     }
 
     public void gravityAcceleration(Star s) {
-        boolean REMOVE = false;
         s.accelerationX = s.accelerationY = 0;
         for (int i = 0; i < stars.length; i++) {
             if (stars[i].onScreen & stars[i] != s) {
@@ -102,27 +98,28 @@ public class GameCanvas extends Canvas implements Runnable {
                     s.accelerationY += 0.6673 * stars[i].mass * yDiff / Math.pow(distance, 3);
                 }
                 if (distance <= stars[i].r + s.r) {
-                    double R = Math.sqrt(stars[i].r * stars[i].r + s.r * s.r);
-                    double newMass = s.mass + stars[i].mass;
-                    double newSpeedX = ((s.speedX * s.mass) + (stars[i].speedX * stars[i].mass)) / (s.mass + stars[i].mass);
-                    double newSpeedY = ((s.speedY * s.mass) + (stars[i].speedY * stars[i].mass)) / (s.mass + stars[i].mass);
-                    stars[i].accelerationX = ((s.accelerationX * s.mass) + (stars[i].accelerationX * stars[i].mass)) / (s.mass + stars[i].mass);
-                    stars[i].accelerationY = ((s.accelerationY * s.mass) + (stars[i].accelerationY * stars[i].mass)) / (s.mass + stars[i].mass);
                     if (s.r >= stars[i].r) {
-                        stars[i].show(s.x - (s.r - R) / Math.sqrt(Math.pow(s.y - stars[i].y, 2) + Math.pow(s.x - stars[i].x, 2)) * (s.x - stars[i].x), s.y - (s.r - R) / Math.sqrt(Math.pow(s.y - stars[i].y, 2) + Math.pow(s.x - stars[i].x, 2)) * (s.y - stars[i].y));
+                        stars[i].show(s.x, s.y);
                     } else {
-                        stars[i].show(stars[i].x - (stars[i].r - R) / Math.sqrt(Math.pow(stars[i].x - s.x, 2) + Math.pow(stars[i].x - s.x, 2)) * (stars[i].x - s.x), stars[i].y - (stars[i].r - R) / Math.sqrt(Math.pow(stars[i].y - s.y, 2) + Math.pow(stars[i].x - s.x, 2) * (stars[i].y - s.y)));
+                        stars[i].show(stars[i].x, stars[i].y);
                     }
-                    stars[i].speedX = newSpeedX;
-                    stars[i].speedY = newSpeedY;
-                    stars[i].r = R;
+                    stars[i].r = Math.sqrt(stars[i].r * stars[i].r + s.r * s.r);
+                    int newMass = s.mass + stars[i].mass;
+                    double newAX = ((s.accelerationX * s.mass) + (stars[i].accelerationX * stars[i].mass)) / newMass;
+                    double newAY = ((s.accelerationY * s.mass) + (stars[i].accelerationY * stars[i].mass)) / newMass;
+                    double newVX = ((s.speedX * s.mass) + (stars[i].speedX * stars[i].mass)) / newMass;
+                    double newVY = ((s.speedY * s.mass) + (stars[i].speedY * stars[i].mass)) / newMass;
+
+                    stars[i].accelerationX = newAX;
+                    stars[i].accelerationY = newAY;
+                    stars[i].speedX = newVX;
+                    System.out.println(newVX);
+                    stars[i].speedY = newVY;
                     stars[i].mass = newMass;
-                    REMOVE = true;
+                    s.remove();
+                    return;
                 }
             }
-        }
-        if (REMOVE) {
-            s.remove();
         }
         return;
     }
@@ -135,7 +132,10 @@ public class GameCanvas extends Canvas implements Runnable {
     public void GameThread() {
 
         for (int i = 0; i < stars.length; i++) {
-            if (stars[i].x > 810 + (2 * stars[i].r) | stars[i].y > 570 + (2 * stars[i].r) | stars[i].x < -10 - (2 * stars[i].r) | stars[i].y < -10 - (2 * stars[i].r)) {
+            if (stars[i].x > 810 + (2 * stars[i].r)
+                    | stars[i].y > 570 + (2 * stars[i].r)
+                    | stars[i].x < -10 - (2 * stars[i].r)
+                    | stars[i].y < -10 - (2 * stars[i].r)) {
                 stars[i].remove();
             }
             if (stars[i].onScreen) {
@@ -144,9 +144,8 @@ public class GameCanvas extends Canvas implements Runnable {
                     stars[i].move();
                 }
             } else {
-                stars[i].remove();
+                stars[i].initialize();
                 if (NEW) {
-                    stars[i].initialize();
                     stars[i].show(MEX - stars[i].r, MEY - stars[i].r);
                     stars[i].mass = InputMass;
                     stars[i].speedX = InputVectorX;
@@ -157,7 +156,9 @@ public class GameCanvas extends Canvas implements Runnable {
                 }
             }
         }
-        drawShapes();
+        Platform.runLater(() -> {
+            drawShapes();
+        });
     }
 
     @Override
