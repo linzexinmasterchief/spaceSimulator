@@ -2,7 +2,6 @@
 simulate the movement of stars
 ## TODO list
  * redesign interface
- * separate the physical calculation from the graphic
 ## logs
 #### version 0.0.2 build1 2017/04/11
 fixed the NaN bug

@@ -13,6 +13,7 @@ import models.Star;
 public class GameCanvas extends Canvas implements Runnable {
 
     public static GraphicsContext gc;
+    public static GravityCalculate gravityCalculate;
     public static Star[] stars = new Star[50];
     public static Thread thread;
     public static boolean NEW;
@@ -45,21 +46,10 @@ public class GameCanvas extends Canvas implements Runnable {
 
         setOnMouseDragged(me -> {
             requestFocus();
-            if (me.getButton() == MouseButton.PRIMARY) {
-//                for (int i = 0; i < stars.length; i++) {
-//                    stars[i].accelerationX = (me.getX() - stars[i].r - stars[i].x) / stars[i].mass;
-//                    stars[i].accelerationY = (me.getY() - stars[i].r - stars[i].y) / stars[i].mass;
-//                }
-            }
         });
         setOnMouseClicked(me -> {
             requestFocus();
             if (me.getButton() == MouseButton.PRIMARY) {
-//                for (int i = 0; i < stars.length; i++) {
-//                    stars[i].accelerationX = (me.getX() - stars[i].r - stars[i].x) / stars[i].mass;
-//                    stars[i].accelerationY = (me.getY() - stars[i].r - stars[i].y) / stars[i].mass;
-//                }
-            } else if (me.getButton() == MouseButton.SECONDARY) {
                 NEW = true;
                 MEX = (int) me.getX();
                 MEY = (int) me.getY();
@@ -69,6 +59,7 @@ public class GameCanvas extends Canvas implements Runnable {
         gc = getGraphicsContext2D();
 
         drawShapes();
+        gravityCalculate = new GravityCalculate(stars);
         thread = new Thread(this);
         thread.start();
 
@@ -86,54 +77,12 @@ public class GameCanvas extends Canvas implements Runnable {
         }
     }
 
-    public void gravityAcceleration(Star s) {
-        s.accelerationX = s.accelerationY = 0;
-        for (int i = 0; i < stars.length; i++) {
-            if (stars[i].onScreen & stars[i] != s) {
-                double xDiff = (stars[i].x + stars[i].r) - (s.x + s.r);
-                double yDiff = (stars[i].y + stars[i].r) - (s.y + s.r);
-                double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-
-                if (distance > stars[i].r + s.r & s.mass != 0) {
-                    s.accelerationX += 0.6673 * stars[i].mass * xDiff / Math.pow(distance, 3);
-                    s.accelerationY += 0.6673 * stars[i].mass * yDiff / Math.pow(distance, 3);
-                }
-
-                if (distance <= stars[i].r + s.r) {
-
-                    double newR = Math.sqrt(stars[i].r * stars[i].r + s.r * s.r);
-                    int newMass = s.mass + stars[i].mass;
-                    double newAX = ((s.accelerationX * s.mass) + (stars[i].accelerationX * stars[i].mass)) / newMass;
-                    double newAY = ((s.accelerationY * s.mass) + (stars[i].accelerationY * stars[i].mass)) / newMass;
-                    double newVX = ((s.speedX * s.mass) + (stars[i].speedX * stars[i].mass)) / newMass;
-                    double newVY = ((s.speedY * s.mass) + (stars[i].speedY * stars[i].mass)) / newMass;
-
-                    System.out.println(s.speedX + " " + stars[i].speedX);
-                    if (s.r >= stars[i].r) {
-                        stars[i].show(s.x, s.y);
-                    } else {
-                        stars[i].show(stars[i].x, stars[i].y);
-                    }
-                    stars[i].r = newR;
-                    stars[i].accelerationX = newAX;
-                    stars[i].accelerationY = newAY;
-                    stars[i].speedX = newVX;
-                    stars[i].speedY = newVY;
-                    stars[i].mass = newMass;
-                    s.remove();
-                    return;
-                }
-
-            }
-        }
-        return;
-    }
-
     public void clear() {
         for (int i = 0; i < stars.length; i++) {
             stars[i].remove();
         }
     }
+
     public void GameThread() {
 
         for (int i = 0; i < stars.length; i++) {
@@ -147,7 +96,8 @@ public class GameCanvas extends Canvas implements Runnable {
                 stars[i].move();
                 final int F = i;
                 Platform.runLater(() -> {
-                    gravityAcceleration(stars[F]);
+                    gravityCalculate.synchronize(stars);
+                    gravityCalculate.gravityAcceleration(stars[F]);
                 });
 
             } else {
