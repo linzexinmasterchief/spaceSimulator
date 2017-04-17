@@ -1,11 +1,9 @@
 package models;
 
-import javafx.scene.shape.Circle;
-
 /**
  * Created by lzx on 2017/3/27.
  */
-public class Star extends Circle{
+public class Star {
 
     public int mass;
     public String name;
@@ -21,7 +19,6 @@ public class Star extends Circle{
     public double accelerationY;
 
     public boolean onScreen;
-
     public boolean selected;
 
     public Star() {
