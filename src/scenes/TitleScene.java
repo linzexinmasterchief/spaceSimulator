@@ -12,12 +12,13 @@ import javafx.scene.paint.Color;
 
 /**
  * Created by lzx on 2017/4/5.
+ * this is the start title scene
  */
 public class TitleScene extends Scene {
 
-    public static Label startTitle;
-    public static double opacity = 1;
-    public static double speedOpacity = 0.02;
+    private static Label startTitle;
+    private static double opacity = 1;
+    private static double speedOpacity = 0.02;
 
     public TitleScene(Parent root, double width, double height) {
         super(root, width, height);
@@ -25,9 +26,7 @@ public class TitleScene extends Scene {
         Image image = new Image(getClass().getResourceAsStream("..\\pictures\\back.jpg"));
         ImageView imageView = new ImageView(image);
         Button screenBtn = new Button("", imageView);
-        screenBtn.setOnAction((ActionEvent e) -> {
-            MainStage.stage.setScene(MainStage.gameScene);
-        });
+        screenBtn.setOnAction((ActionEvent e) -> MainStage.stage.setScene(MainStage.gameScene));
         screenBtn.setDefaultButton(true);
 
         startTitle = new Label("Click any where to titleScene");

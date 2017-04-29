@@ -9,22 +9,21 @@ import models.Star;
 
 /**
  * Created by lzx on 2017/4/6.
+ * this is the game canvas that will draw the stars
  */
 public class GameCanvas extends Canvas implements Runnable {
 
-    public static GraphicsContext gc;
-    public static GravityCalculate gravityCalculate;
-    public static Star[] stars = new Star[50];
-    public static Thread thread;
-    public static boolean NEW;
-    public static int MEX;
-    public static int MEY;
     public static int InputMass;
     public static double InputVectorX;
     public static double InputVectorY;
     public static double InputAccelerationX;
     public static double InputAccelerationY;
-    Star newStar = new Star();
+    private static GraphicsContext gc;
+    private static GravityCalculate gravityCalculate;
+    private static Star[] stars = new Star[50];
+    private static boolean NEW;
+    private static int MEX;
+    private static int MEY;
 
     public GameCanvas(double width, double height) {
         super(width, height);
@@ -44,9 +43,7 @@ public class GameCanvas extends Canvas implements Runnable {
         setTranslateX(200);
         setTranslateY(0);
 
-        setOnMouseDragged(me -> {
-            requestFocus();
-        });
+        setOnMouseDragged(me -> requestFocus());
         setOnMouseClicked(me -> {
             requestFocus();
             if (me.getButton() == MouseButton.PRIMARY) {
@@ -60,30 +57,30 @@ public class GameCanvas extends Canvas implements Runnable {
 
         drawShapes();
         gravityCalculate = new GravityCalculate(stars);
-        thread = new Thread(this);
+        Thread thread = new Thread(this);
         thread.start();
 
     }
 
-    public void drawShapes() {
+    private void drawShapes() {
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, 800, 560);
         gc.setFill(Color.BLUE);
 
-        for (int i = 0; i < stars.length; i++) {
-            if (stars[i].onScreen) {
-                getGraphicsContext2D().fillOval(stars[i].x, stars[i].y, stars[i].r * 2, stars[i].r * 2);
+        for (Star star : stars) {
+            if (star.onScreen) {
+                getGraphicsContext2D().fillOval(star.x, star.y, star.r * 2, star.r * 2);
             }
         }
     }
 
     public void clear() {
-        for (int i = 0; i < stars.length; i++) {
-            stars[i].remove();
+        for (Star star : stars) {
+            star.remove();
         }
     }
 
-    public void GameThread() {
+    private void GameThread() {
         for (int i = 0; i < stars.length; i++) {
             checkBound(i);
             if (stars[i].x > 810 + (2 * stars[i].r)
@@ -113,9 +110,7 @@ public class GameCanvas extends Canvas implements Runnable {
                 }
             }
         }
-        Platform.runLater(() -> {
-            drawShapes();
-        });
+        Platform.runLater(this::drawShapes);
     }
 
     private void checkBound(int i) {

@@ -18,11 +18,12 @@ import static javafx.scene.paint.Color.DARKGREY;
 
 /**
  * Created by lzx on 2017/4/5.
+ * this class is designed to put the control panel and the game canvas
  */
 public class GameScene extends Scene {
 
-    public static GameCanvas gameCanvas;
-    public boolean pause;
+    private static GameCanvas gameCanvas;
+    private boolean pause;
     private TextField AccelerationXTextField;
     private TextField AccelerationYTextField;
     private TextField YTextField;
@@ -49,9 +50,7 @@ public class GameScene extends Scene {
         backBtn.setOnMouseExited(me -> backBtn.setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(10), null))));
         backBtn.setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(10), null)));
         backBtn.setTextFill(Color.WHITE);
-        backBtn.setOnAction((ActionEvent e) -> {
-            MainStage.stage.setScene(MainStage.titleScene);
-        });
+        backBtn.setOnAction((ActionEvent e) -> MainStage.stage.setScene(MainStage.titleScene));
 
         massTextField = new TextField();
         massTextField.setTranslateX(70);
@@ -72,7 +71,7 @@ public class GameScene extends Scene {
                 }
                 GameCanvas.InputMass = mass;
                 System.out.println(massTextField.getText());
-            } catch (Exception e) {
+            } catch (Exception ignored) {
 
             }
             if (massTextField.getText().equals("")) {
@@ -102,7 +101,7 @@ public class GameScene extends Scene {
                     vex = -1000;
                 }
                 GameCanvas.InputVectorX = vex;
-            } catch (Exception e) {
+            } catch (Exception ignored) {
             }
             if (XTextField.getText().equals("")) {
                 GameCanvas.InputVectorX = 0;
@@ -131,7 +130,7 @@ public class GameScene extends Scene {
                     vey = -1000;
                 }
                 GameCanvas.InputVectorY = vey;
-            } catch (Exception e) {
+            } catch (Exception ignored) {
 
             }
             if (YTextField.getText().equals("")) {
@@ -161,7 +160,7 @@ public class GameScene extends Scene {
                     accx = -500;
                 }
                 GameCanvas.InputAccelerationX = accx;
-            } catch (Exception e) {
+            } catch (Exception ignored) {
 
             }
             if (AccelerationXTextField.getText().equals("")) {
@@ -191,7 +190,7 @@ public class GameScene extends Scene {
                     accy = -500;
                 }
                 GameCanvas.InputAccelerationY = accy;
-            } catch (Exception e) {
+            } catch (Exception ignored) {
 
             }
             if (AccelerationYTextField.getText().equals("")) {

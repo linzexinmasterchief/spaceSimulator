@@ -10,6 +10,7 @@ import scenes.TitleScene;
 
 /**
  * Created by lzx on 2017/3/21.
+ * this is the root class, start stage
  */
 
 public class MainStage extends Application implements Runnable {
@@ -20,8 +21,6 @@ public class MainStage extends Application implements Runnable {
     public static Stage stage;
     public static TitleScene titleScene;
     public static GameScene gameScene;
-
-    public static Thread thread;
 
     public static void main(String[] args) {
         launch(args);
@@ -42,13 +41,11 @@ public class MainStage extends Application implements Runnable {
         stage.setResizable(false);
         stage.setTitle("SpaceSimulator");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("..\\pictures\\icon.png")));
-        stage.setOnCloseRequest(event -> {
-            System.exit(0);
-        });
+        stage.setOnCloseRequest(event -> System.exit(0));
 
         stage.show();
 
-        thread = new Thread(this);
+        Thread thread = new Thread(this);
         thread.start();
     }
 

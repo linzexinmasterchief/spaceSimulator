@@ -2,11 +2,11 @@ package models;
 
 /**
  * Created by lzx on 2017/3/27.
+ * this is a model class for star, every star must be constructed as here
  */
 public class Star {
 
     public int mass;
-    public String name;
     public double r;
 
     public double x;
@@ -19,7 +19,6 @@ public class Star {
     public double accelerationY;
 
     public boolean onScreen;
-    public boolean selected;
 
     public Star() {
         initialize();
@@ -27,7 +26,6 @@ public class Star {
 
     public void initialize() {
         mass = 1;
-        name = "";
         r = 5;
         speedX = speedY = 0;
         accelerationX = 0;
@@ -37,7 +35,7 @@ public class Star {
         y = 280;
     }
 
-    public void setPosition(double x, double y) {
+    private void setPosition(double x, double y) {
         this.x = x;
         this.y = y;
     }
