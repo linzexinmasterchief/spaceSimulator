@@ -4,6 +4,8 @@ simulate the movement of stars
  * change background
  * add music
 ## logs
+#### version 0.0.2 build2 2017/04/29
+the project is nearly finished, now you can input negative mass and see what will happen!
 #### version 0.0.2 build1 2017/04/11
 fixed the NaN bug
 ### version 0.0.1 release 2017/04/09
