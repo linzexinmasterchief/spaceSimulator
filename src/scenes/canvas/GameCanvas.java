@@ -84,8 +84,8 @@ public class GameCanvas extends Canvas implements Runnable {
     }
 
     public void GameThread() {
-
         for (int i = 0; i < stars.length; i++) {
+            checkBound(i);
             if (stars[i].x > 810 + (2 * stars[i].r)
                     | stars[i].y > 570 + (2 * stars[i].r)
                     | stars[i].x < -10 - (2 * stars[i].r)
@@ -118,6 +118,33 @@ public class GameCanvas extends Canvas implements Runnable {
         });
     }
 
+    private void checkBound(int i) {
+        if (stars[i].mass > 5000) {
+            stars[i].mass = 5000;
+        } else if (stars[i].mass < -5000) {
+            stars[i].mass = -5000;
+        }
+        if (stars[i].speedX > 1000) {
+            stars[i].speedX = 1000;
+        } else if (stars[i].speedX < -1000) {
+            stars[i].speedX = -1000;
+        }
+        if (stars[i].speedY > 1000) {
+            stars[i].speedY = 1000;
+        } else if (stars[i].speedY < -1000) {
+            stars[i].speedY = -1000;
+        }
+        if (stars[i].accelerationX > 500) {
+            stars[i].accelerationX = 500;
+        } else if (stars[i].accelerationX < -500) {
+            stars[i].accelerationX = -500;
+        }
+        if (stars[i].accelerationY > 500) {
+            stars[i].accelerationY = 500;
+        } else if (stars[i].accelerationY < -500) {
+            stars[i].accelerationY = -500;
+        }
+    }
     @Override
     public void run() {
         while (true) {

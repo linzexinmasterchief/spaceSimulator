@@ -64,7 +64,13 @@ public class GameScene extends Scene {
                 gameCanvas.requestFocus();
             }
             try {
-                GameCanvas.InputMass = Integer.parseInt(massTextField.getText());
+                int mass = Integer.parseInt(massTextField.getText());
+                if (mass > 5000) {
+                    mass = 5000;
+                } else if (mass < -5000) {
+                    mass = -5000;
+                }
+                GameCanvas.InputMass = mass;
                 System.out.println(massTextField.getText());
             } catch (Exception e) {
 
@@ -89,7 +95,13 @@ public class GameScene extends Scene {
                 gameCanvas.requestFocus();
             }
             try {
-                GameCanvas.InputVectorX = Double.parseDouble(XTextField.getText());
+                double vex = Double.parseDouble(XTextField.getText());
+                if (vex > 1000) {
+                    vex = 1000;
+                } else if (vex < -1000) {
+                    vex = -1000;
+                }
+                GameCanvas.InputVectorX = vex;
             } catch (Exception e) {
             }
             if (XTextField.getText().equals("")) {
@@ -112,7 +124,13 @@ public class GameScene extends Scene {
                 gameCanvas.requestFocus();
             }
             try {
-                GameCanvas.InputVectorY = Double.parseDouble(YTextField.getText());
+                double vey = Double.parseDouble(YTextField.getText());
+                if (vey > 1000) {
+                    vey = 1000;
+                } else if (vey < -1000) {
+                    vey = -1000;
+                }
+                GameCanvas.InputVectorY = vey;
             } catch (Exception e) {
 
             }
@@ -136,7 +154,13 @@ public class GameScene extends Scene {
                 gameCanvas.requestFocus();
             }
             try {
-                GameCanvas.InputAccelerationX = Double.parseDouble(AccelerationXTextField.getText());
+                int accx = Integer.parseInt(AccelerationXTextField.getText());
+                if (accx > 500) {
+                    accx = 500;
+                } else if (accx < -500) {
+                    accx = -500;
+                }
+                GameCanvas.InputAccelerationX = accx;
             } catch (Exception e) {
 
             }
@@ -160,7 +184,13 @@ public class GameScene extends Scene {
                 gameCanvas.requestFocus();
             }
             try {
-                GameCanvas.InputAccelerationY = Double.parseDouble(AccelerationYTextField.getText());
+                int accy = Integer.parseInt(AccelerationYTextField.getText());
+                if (accy > 500) {
+                    accy = 500;
+                } else if (accy < -500) {
+                    accy = -500;
+                }
+                GameCanvas.InputAccelerationY = accy;
             } catch (Exception e) {
 
             }
