@@ -25,6 +25,8 @@ public class GameCanvas extends Canvas implements Runnable {
     private static int MEX;
     private static int MEY;
 
+    public boolean isPause;
+
     public GameCanvas(double width, double height) {
         super(width, height);
         InputMass = 0;
@@ -36,6 +38,8 @@ public class GameCanvas extends Canvas implements Runnable {
         NEW = false;
         MEX = 0;
         MEY = 0;
+
+        isPause = false;
 
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star();
@@ -50,6 +54,23 @@ public class GameCanvas extends Canvas implements Runnable {
                 NEW = true;
                 MEX = (int) me.getX();
                 MEY = (int) me.getY();
+
+                for (int i = 0; i < stars.length; i++) {
+                    checkBound(i);
+                    if (!stars[i].onScreen) {
+                        stars[i].initialize();
+                        if (NEW) {
+                            stars[i].show(MEX - stars[i].r, MEY - stars[i].r);
+                            stars[i].mass = InputMass;
+                            stars[i].speedX = InputVectorX;
+                            stars[i].speedY = InputVectorY;
+                            stars[i].accelerationX = InputAccelerationX;
+                            stars[i].accelerationY = InputAccelerationY;
+                            NEW = false;
+                            drawShapes();
+                        }
+                    }
+                }
             }
         });
 
@@ -81,6 +102,9 @@ public class GameCanvas extends Canvas implements Runnable {
     }
 
     private void GameThread() {
+        if (isPause) {
+            return;
+        }
         for (int i = 0; i < stars.length; i++) {
             checkBound(i);
             if (stars[i].x > 810 + (2 * stars[i].r)

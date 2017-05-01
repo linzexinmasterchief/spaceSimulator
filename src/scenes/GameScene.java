@@ -23,7 +23,6 @@ import static javafx.scene.paint.Color.DARKGREY;
 public class GameScene extends Scene {
 
     private static GameCanvas gameCanvas;
-    private boolean pause;
     private TextField AccelerationXTextField;
     private TextField AccelerationYTextField;
     private TextField YTextField;
@@ -32,13 +31,11 @@ public class GameScene extends Scene {
 
     public GameScene(Parent root, double width, double height) {
         super(root, width, height);
-        pause = false;
 
         setOnKeyTyped(ke -> {
-            if (ke.getCharacter().equals("e")) {
-                pause = !pause;
+            if (ke.getCharacter().equals("p")) {
+                gameCanvas.isPause = !gameCanvas.isPause;
             }
-            System.out.println(pause);
         });
 
         Button backBtn = new Button("Main menu");
@@ -70,7 +67,6 @@ public class GameScene extends Scene {
                     mass = -5000;
                 }
                 GameCanvas.InputMass = mass;
-                System.out.println(massTextField.getText());
             } catch (Exception ignored) {
 
             }

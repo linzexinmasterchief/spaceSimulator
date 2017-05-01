@@ -39,7 +39,6 @@ class GravityCalculate {
                     double newVX = ((s.speedX * s.mass) + (star.speedX * star.mass)) / newMass;
                     double newVY = ((s.speedY * s.mass) + (star.speedY * star.mass)) / newMass;
 
-                    System.out.println(s.speedX + " " + star.speedX);
                     if (s.r >= star.r) {
                         star.show(s.x, s.y);
                     } else {
