@@ -7,6 +7,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import scenes.GameScene;
 import scenes.TitleScene;
+import sounds.Music;
 
 /**
  * Created by lzx on 2017/3/21.
@@ -37,16 +38,19 @@ public class MainStage extends Application implements Runnable {
 
         stage = new Stage();
         stage.setScene(titleScene);
-        stage.sizeToScene();
         stage.setResizable(false);
         stage.setTitle("SpaceSimulator");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("..\\pictures\\icon.png")));
         stage.setOnCloseRequest(event -> System.exit(0));
-
+        stage.sizeToScene();
         stage.show();
 
         Thread thread = new Thread(this);
         thread.start();
+
+        Music music = new Music();
+        Thread thread2 = new Thread(music);
+        thread2.start();
     }
 
     @Override
