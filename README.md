@@ -1,9 +1,14 @@
 # spaceSimulator
-simulate the movement of stars
+simulate the universe
 ## TODO list
- * change background
- * add music
-## logs
+* redesign gravity system
+* add collide system for planets
+* create separate worlds for each planet
+* optimize control system
+* give stars and planets different colors (or pictures)
+## update logs
+### version 0.1.0 build1 2017/05/16
+relaunched the project with a greater target, I planned to create planets and worlds on them, it is pretty difficult, so good luck to myself!
 #### version 0.0.2 build2 2017/04/29
 the project is nearly finished, now you can input negative mass and see what will happen!
 #### version 0.0.2 build1 2017/04/11
