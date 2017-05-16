@@ -13,23 +13,21 @@ import models.Star;
  */
 public class GameCanvas extends Canvas implements Runnable {
 
-    public static int InputMass;
-    public static double InputVectorX;
-    public static double InputVectorY;
-    public static double InputAccelerationX;
-    public static double InputAccelerationY;
-    private static GraphicsContext gc;
-    private static GravityCalculate gravityCalculate;
-    private static Star[] stars = new Star[50];
-    private static boolean NEW;
-    private static int MEX;
-    private static int MEY;
-
+    public int InputMass;
+    public double InputVectorX;
+    public double InputVectorY;
+    public double InputAccelerationX;
+    public double InputAccelerationY;
     public boolean isPause;
+    private GraphicsContext gc;
+    private GravityCalculate gravityCalculate;
+    private Star[] stars = new Star[50];
+    private boolean NEW;
+    private int MEX;
+    private int MEY;
 
-    public GameCanvas(double width, double height) {
-        super(width, height);
-        InputMass = 0;
+    public GameCanvas() {
+        InputMass = 1;
         InputVectorX = 0;
         InputVectorY = 0;
         InputAccelerationX = 0;
@@ -44,12 +42,18 @@ public class GameCanvas extends Canvas implements Runnable {
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star();
         }
-        setTranslateX(200);
-        setTranslateY(0);
 
-        setOnMouseDragged(me -> requestFocus());
-        setOnMouseClicked(me -> {
-            requestFocus();
+        double[] cord = new double[2];
+        setOnMousePressed(me -> {
+            cord[0] = me.getX();
+            cord[1] = me.getY();
+        });
+
+        setOnMouseReleased(me -> {
+            System.out.println("Mouse drag exited");
+            InputVectorX = (me.getX() - cord[0]) / 100;
+            InputVectorY = (me.getY() - cord[1]) / 100;
+
             if (me.getButton() == MouseButton.PRIMARY) {
                 NEW = true;
                 MEX = (int) me.getX();
@@ -72,6 +76,9 @@ public class GameCanvas extends Canvas implements Runnable {
                     }
                 }
             }
+            if (me.getButton() == MouseButton.SECONDARY) {
+                clear();
+            }
         });
 
         gc = getGraphicsContext2D();
@@ -85,7 +92,7 @@ public class GameCanvas extends Canvas implements Runnable {
 
     private void drawShapes() {
         gc.setFill(Color.BLACK);
-        gc.fillRect(0, 0, 800, 560);
+        gc.fillRect(0, 0, this.getWidth(), this.getHeight());
         gc.setFill(Color.BLUE);
 
         for (Star star : stars) {
@@ -107,8 +114,8 @@ public class GameCanvas extends Canvas implements Runnable {
         }
         for (int i = 0; i < stars.length; i++) {
             checkBound(i);
-            if (stars[i].x > 810 + (2 * stars[i].r)
-                    | stars[i].y > 570 + (2 * stars[i].r)
+            if (stars[i].x > this.getWidth() + 10 + (2 * stars[i].r)
+                    | stars[i].y > this.getHeight() + 10 + (2 * stars[i].r)
                     | stars[i].x < -10 - (2 * stars[i].r)
                     | stars[i].y < -10 - (2 * stars[i].r)) {
                 stars[i].remove();
