@@ -1,4 +1,4 @@
-package scenes.canvas;
+package physics;
 
 import models.Star;
 
@@ -6,18 +6,18 @@ import models.Star;
  * Created by lzx on 2017/4/13.
  * this class is used to perform collisions and gravities between stars
  */
-class GravityCalculate {
+public class GravityCalculate {
     private static Star[] stars;
 
-    GravityCalculate(Star[] stars) {
+    public GravityCalculate(Star[] stars) {
         synchronize(stars);
     }
 
-    void synchronize(Star[] stars) {
+    public void synchronize(Star[] stars) {
         GravityCalculate.stars = stars;
     }
 
-    void gravityAcceleration(Star s) {
+    public void gravityAcceleration(Star s) {
         s.accelerationX = s.accelerationY = 0;
         for (Star star : stars) {
             if (star.onScreen & star != s) {

@@ -6,6 +6,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseButton;
 import javafx.scene.paint.Color;
 import models.Star;
+import physics.GravityCalculate;
 
 /**
  * Created by lzx on 2017/4/6.
