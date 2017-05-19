@@ -7,14 +7,14 @@ import models.Star;
  * this class is used to perform collisions and gravities between stars
  */
 public class GravityCalculate {
-    private static Star[] stars;
+    private Star[] stars;
 
     public GravityCalculate(Star[] stars) {
         synchronize(stars);
     }
 
     public void synchronize(Star[] stars) {
-        GravityCalculate.stars = stars;
+        this.stars = stars;
     }
 
     public void gravityAcceleration(Star s) {
@@ -32,12 +32,13 @@ public class GravityCalculate {
 
                 if (distance <= star.r + s.r) {
 
+                    //think carefully before you try to replace these codes with a buffer star
                     double newR = Math.sqrt(star.r * star.r + s.r * s.r);
-                    int newMass = s.mass + star.mass;
+                    double newMass = s.mass + star.mass;
                     double newAX = ((s.accelerationX * s.mass) + (star.accelerationX * star.mass)) / newMass;
                     double newAY = ((s.accelerationY * s.mass) + (star.accelerationY * star.mass)) / newMass;
-                    double newVX = ((s.speedX * s.mass) + (star.speedX * star.mass)) / newMass;
-                    double newVY = ((s.speedY * s.mass) + (star.speedY * star.mass)) / newMass;
+                    double newVX = ((s.vectorX * s.mass) + (star.vectorX * star.mass)) / newMass;
+                    double newVY = ((s.vectorY * s.mass) + (star.vectorY * star.mass)) / newMass;
 
                     if (s.r >= star.r) {
                         star.show(s.centerX, s.centerY);
@@ -47,8 +48,8 @@ public class GravityCalculate {
                     star.r = newR;
                     star.accelerationX = newAX;
                     star.accelerationY = newAY;
-                    star.speedX = newVX;
-                    star.speedY = newVY;
+                    star.vectorX = newVX;
+                    star.vectorY = newVY;
                     star.mass = newMass;
                     s.remove();
                     return;
