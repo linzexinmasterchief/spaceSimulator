@@ -14,64 +14,59 @@ import physics.GravityCalculate;
  */
 public class GameCanvas extends Canvas implements Runnable {
 
-    public int InputMass;
-    public double InputVectorX;
-    public double InputVectorY;
-    public double InputAccelerationX;
-    public double InputAccelerationY;
-    public boolean isPause;
+    private Star bufferStar;
     private GraphicsContext gc;
     private GravityCalculate gravityCalculate;
     private Star[] stars = new Star[50];
-    private boolean NEW;
-    private int MEX;
-    private int MEY;
+
+    private int mouseEventX;
+    private int mouseEventY;
+
+    private boolean isExit;
+    private boolean isPause;
+    private boolean isNewStarExist;
 
     public GameCanvas() {
-        InputMass = 1;
-        InputVectorX = 0;
-        InputVectorY = 0;
-        InputAccelerationX = 0;
-        InputAccelerationY = 0;
+        bufferStar = new Star();
 
-        NEW = false;
-        MEX = 0;
-        MEY = 0;
+        mouseEventX = 0;
+        mouseEventY = 0;
 
+        isExit = false;
         isPause = false;
+        isNewStarExist = false;
 
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star();
         }
 
-        double[] cord = new double[2];
+        double[] mouse_coordinate = new double[2];
         setOnMousePressed(me -> {
-            cord[0] = me.getX();
-            cord[1] = me.getY();
+            mouse_coordinate[0] = me.getX();
+            mouse_coordinate[1] = me.getY();
         });
 
         setOnMouseReleased(me -> {
             System.out.println("Mouse drag exited");
-            InputVectorX = (me.getX() - cord[0]) / 100;
-            InputVectorY = (me.getY() - cord[1]) / 100;
+            bufferStar.vectorX = (me.getX() - mouse_coordinate[0]) / 100;
+            bufferStar.vectorY = (me.getY() - mouse_coordinate[1]) / 100;
 
             if (me.getButton() == MouseButton.PRIMARY) {
-                NEW = true;
-                MEX = (int) me.getX();
-                MEY = (int) me.getY();
+                isNewStarExist = true;
+                mouseEventX = (int) me.getX();
+                mouseEventY = (int) me.getY();
 
                 for (int i = 0; i < stars.length; i++) {
                     checkBound(i);
                     if (!stars[i].onScreen) {
                         stars[i].initialize();
-                        if (NEW) {
-                            stars[i].show(MEX, MEY);
-                            stars[i].mass = InputMass;
-                            stars[i].speedX = InputVectorX;
-                            stars[i].speedY = InputVectorY;
-                            stars[i].accelerationX = InputAccelerationX;
-                            stars[i].accelerationY = InputAccelerationY;
-                            NEW = false;
+                        if (isNewStarExist) {
+                            stars[i] = new Star(bufferStar);
+                            bufferStar.remove();
+
+                            stars[i].show(mouseEventX, mouseEventY);
+                            stars[i].onScreen = true;
+                            isNewStarExist = false;
                             drawShapes();
                         }
                     }
@@ -103,7 +98,7 @@ public class GameCanvas extends Canvas implements Runnable {
         }
     }
 
-    public void clear() {
+    private void clear() {
         for (Star star : stars) {
             star.remove();
         }
@@ -115,12 +110,14 @@ public class GameCanvas extends Canvas implements Runnable {
         }
         for (int i = 0; i < stars.length; i++) {
             checkBound(i);
+
             if (stars[i].centerX - stars[i].r > this.getWidth() + 10 + (2 * stars[i].r)
                     | stars[i].centerY - stars[i].r > this.getHeight() + 10 + (2 * stars[i].r)
                     | stars[i].centerX - stars[i].r < -10 - (2 * stars[i].r)
                     | stars[i].centerY - stars[i].r < -10 - (2 * stars[i].r)) {
                 stars[i].remove();
             }
+
             if (stars[i].onScreen) {
                 stars[i].move();
                 final int F = i;
@@ -128,17 +125,15 @@ public class GameCanvas extends Canvas implements Runnable {
                     gravityCalculate.synchronize(stars);
                     gravityCalculate.gravityAcceleration(stars[F]);
                 });
-
             } else {
                 stars[i].initialize();
-                if (NEW) {
-                    stars[i].show(MEX, MEY);
-                    stars[i].mass = InputMass;
-                    stars[i].speedX = InputVectorX;
-                    stars[i].speedY = InputVectorY;
-                    stars[i].accelerationX = InputAccelerationX;
-                    stars[i].accelerationY = InputAccelerationY;
-                    NEW = false;
+                if (isNewStarExist) {
+                    stars[i] = new Star(bufferStar);
+                    bufferStar.remove();
+
+                    stars[i].show(mouseEventX, mouseEventY);
+                    stars[i].onScreen = true;
+                    isNewStarExist = false;
                 }
             }
         }
@@ -151,15 +146,15 @@ public class GameCanvas extends Canvas implements Runnable {
         } else if (stars[i].mass < -5000) {
             stars[i].mass = -5000;
         }
-        if (stars[i].speedX > 1000) {
-            stars[i].speedX = 1000;
-        } else if (stars[i].speedX < -1000) {
-            stars[i].speedX = -1000;
+        if (stars[i].vectorX > 1000) {
+            stars[i].vectorX = 1000;
+        } else if (stars[i].vectorX < -1000) {
+            stars[i].vectorX = -1000;
         }
-        if (stars[i].speedY > 1000) {
-            stars[i].speedY = 1000;
-        } else if (stars[i].speedY < -1000) {
-            stars[i].speedY = -1000;
+        if (stars[i].vectorY > 1000) {
+            stars[i].vectorY = 1000;
+        } else if (stars[i].vectorY < -1000) {
+            stars[i].vectorY = -1000;
         }
         if (stars[i].accelerationX > 500) {
             stars[i].accelerationX = 500;
@@ -174,7 +169,7 @@ public class GameCanvas extends Canvas implements Runnable {
     }
     @Override
     public void run() {
-        while (true) {
+        while (!isExit) {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
