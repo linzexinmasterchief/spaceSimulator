@@ -21,13 +21,13 @@ public class GravityCalculate {
         s.accelerationX = s.accelerationY = 0;
         for (Star star : stars) {
             if (star.onScreen & star != s) {
-                double xDiff = (star.x + star.r) - (s.x + s.r);
-                double yDiff = (star.y + star.r) - (s.y + s.r);
+                double xDiff = star.centerX - s.centerX;
+                double yDiff = star.centerY - s.centerY;
                 double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
 
                 if (distance > star.r + s.r & s.mass != 0) {
-                    s.accelerationX += 0.6673 * star.mass * xDiff / Math.pow(distance, 3);
-                    s.accelerationY += 0.6673 * star.mass * yDiff / Math.pow(distance, 3);
+                    s.accelerationX = (6.673 * star.mass / Math.pow(distance, 2)) * (xDiff / distance);
+                    s.accelerationY = (6.673 * star.mass / Math.pow(distance, 2)) * (yDiff / distance);
                 }
 
                 if (distance <= star.r + s.r) {
@@ -40,9 +40,9 @@ public class GravityCalculate {
                     double newVY = ((s.speedY * s.mass) + (star.speedY * star.mass)) / newMass;
 
                     if (s.r >= star.r) {
-                        star.show(s.x, s.y);
+                        star.show(s.centerX, s.centerY);
                     } else {
-                        star.show(star.x, star.y);
+                        star.show(star.centerX, star.centerY);
                     }
                     star.r = newR;
                     star.accelerationX = newAX;

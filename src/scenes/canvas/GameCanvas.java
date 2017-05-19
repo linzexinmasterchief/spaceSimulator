@@ -65,7 +65,7 @@ public class GameCanvas extends Canvas implements Runnable {
                     if (!stars[i].onScreen) {
                         stars[i].initialize();
                         if (NEW) {
-                            stars[i].show(MEX - stars[i].r, MEY - stars[i].r);
+                            stars[i].show(MEX, MEY);
                             stars[i].mass = InputMass;
                             stars[i].speedX = InputVectorX;
                             stars[i].speedY = InputVectorY;
@@ -98,7 +98,7 @@ public class GameCanvas extends Canvas implements Runnable {
 
         for (Star star : stars) {
             if (star.onScreen) {
-                getGraphicsContext2D().fillOval(star.x, star.y, star.r * 2, star.r * 2);
+                getGraphicsContext2D().fillOval(star.centerX - star.r, star.centerY - star.r, star.r * 2, star.r * 2);
             }
         }
     }
@@ -115,10 +115,10 @@ public class GameCanvas extends Canvas implements Runnable {
         }
         for (int i = 0; i < stars.length; i++) {
             checkBound(i);
-            if (stars[i].x > this.getWidth() + 10 + (2 * stars[i].r)
-                    | stars[i].y > this.getHeight() + 10 + (2 * stars[i].r)
-                    | stars[i].x < -10 - (2 * stars[i].r)
-                    | stars[i].y < -10 - (2 * stars[i].r)) {
+            if (stars[i].centerX - stars[i].r > this.getWidth() + 10 + (2 * stars[i].r)
+                    | stars[i].centerY - stars[i].r > this.getHeight() + 10 + (2 * stars[i].r)
+                    | stars[i].centerX - stars[i].r < -10 - (2 * stars[i].r)
+                    | stars[i].centerY - stars[i].r < -10 - (2 * stars[i].r)) {
                 stars[i].remove();
             }
             if (stars[i].onScreen) {
@@ -132,7 +132,7 @@ public class GameCanvas extends Canvas implements Runnable {
             } else {
                 stars[i].initialize();
                 if (NEW) {
-                    stars[i].show(MEX - stars[i].r, MEY - stars[i].r);
+                    stars[i].show(MEX, MEY);
                     stars[i].mass = InputMass;
                     stars[i].speedX = InputVectorX;
                     stars[i].speedY = InputVectorY;

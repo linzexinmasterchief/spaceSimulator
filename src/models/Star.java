@@ -9,8 +9,8 @@ public class Star {
     public int mass;
     public double r;
 
-    public double x;
-    public double y;
+    public double centerX;
+    public double centerY;
 
     public double speedX;
     public double speedY;
@@ -31,26 +31,25 @@ public class Star {
         accelerationX = 0;
         accelerationY = 0;
         onScreen = false;
-        x = 400;
-        y = 280;
+        centerX = 0;
+        centerY = 0;
     }
 
-    private void setPosition(double x, double y) {
-        this.x = x;
-        this.y = y;
+    private void setPosition(double input_centerX, double input_centerY) {
+        centerX = input_centerX;
+        centerY = input_centerY;
     }
 
-    public void show(double xin, double yin) {
+    public void show(double input_centerX, double input_centerY) {
         initialize();
         onScreen = true;
-        setPosition(xin, yin);
+        setPosition(input_centerX, input_centerY);
     }
 
     public void move() {
         speedX = speedX + accelerationX;
         speedY = speedY + accelerationY;
-        x = x + speedX;
-        y = y + speedY;
+        setPosition(centerX + speedX, centerY + speedY);
     }
 
     public void remove() {
