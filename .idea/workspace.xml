@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c15efc50-1ad8-4e22-aaf0-cc73705fb2ec" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/sounds/Music.java" afterPath="" />
+    <list default="true" id="c15efc50-1ad8-4e22-aaf0-cc73705fb2ec" name="Default" comment="added">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/models/Star.class" afterPath="$PROJECT_DIR$/bin/models/Star.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/scenes/canvas/GameCanvas.class" afterPath="$PROJECT_DIR$/bin/scenes/canvas/GameCanvas.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Star.java" afterPath="$PROJECT_DIR$/src/models/Star.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/physics/GravityCalculate.java" afterPath="$PROJECT_DIR$/src/physics/GravityCalculate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scenes/canvas/GameCanvas.java" afterPath="$PROJECT_DIR$/src/scenes/canvas/GameCanvas.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,32 +27,37 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameCanvas.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameCanvas.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scenes/canvas/GameCanvas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1433">
-              <caret line="184" column="5" lean-forward="true" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="2000">
+              <caret line="179" column="5" lean-forward="true" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Star.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Star.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/Star.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="37" column="74" lean-forward="true" selection-start-line="37" selection-start-column="74" selection-end-line="37" selection-end-column="74" />
+            <state relative-caret-position="701">
+              <caret line="54" column="66" lean-forward="false" selection-start-line="54" selection-start-column="66" selection-end-line="54" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GravityCalculate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/physics/GravityCalculate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-120">
-              <caret line="28" column="44" lean-forward="false" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
-              <folding />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="105">
+                <caret line="7" column="55" lean-forward="true" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -101,9 +102,9 @@
         <option value="$PROJECT_DIR$/src/Main/MainStage.java" />
         <option value="$PROJECT_DIR$/src/scenes/GameScene.java" />
         <option value="$PROJECT_DIR$/src/scenes/canvas/GravityCalculate.java" />
-        <option value="$PROJECT_DIR$/src/scenes/canvas/GameCanvas.java" />
-        <option value="$PROJECT_DIR$/src/physics/GravityCalculate.java" />
         <option value="$PROJECT_DIR$/src/models/Star.java" />
+        <option value="$PROJECT_DIR$/src/physics/GravityCalculate.java" />
+        <option value="$PROJECT_DIR$/src/scenes/canvas/GameCanvas.java" />
       </list>
     </option>
   </component>
@@ -787,7 +788,35 @@
       <option name="project" value="LOCAL" />
       <updated>1495116366521</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="replaced x and y by centerX and centerY">
+      <created>1495164694234</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1495164694234</updated>
+    </task>
+    <task id="LOCAL-00045" summary="added a new constructor to the star model class in order to copy data from another star, avoided the bug caused by two pointer pointing the same star">
+      <created>1495167186166</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1495167186166</updated>
+    </task>
+    <task id="LOCAL-00046" summary="failed to optimize the code with a buffer star, added a warning to it">
+      <created>1495167321316</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1495167321316</updated>
+    </task>
+    <task id="LOCAL-00047" summary="fixed some variable names, nearly done with the reconstructing of code">
+      <created>1495167688509</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1495167688509</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -803,7 +832,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -860,10 +889,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="solved the &quot;title can't click&quot; problem" />
-    <MESSAGE value="start to separate the star unit into a single class" />
-    <MESSAGE value="added the TODO list to help me keep the ideas" />
-    <MESSAGE value="forgot to add the icon" />
     <MESSAGE value="separate the scene and the stage" />
     <MESSAGE value="updated the readme file" />
     <MESSAGE value="updated the readme file, made some change to the project structure" />
@@ -885,7 +910,11 @@
     <MESSAGE value="clean" />
     <MESSAGE value="add sound and new background image" />
     <MESSAGE value="clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean up" />
+    <MESSAGE value="replaced x and y by centerX and centerY" />
+    <MESSAGE value="added a new constructor to the star model class in order to copy data from another star, avoided the bug caused by two pointer pointing the same star" />
+    <MESSAGE value="failed to optimize the code with a buffer star, added a warning to it" />
+    <MESSAGE value="fixed some variable names, nearly done with the reconstructing of code" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some variable names, nearly done with the reconstructing of code" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1168,18 +1197,11 @@
     <entry file="file://$PROJECT_DIR$/src/pictures/back.jpg" />
     <entry file="file://$PROJECT_DIR$/src/sounds/Music.java" />
     <entry file="file://$PROJECT_DIR$/src/scenes/TitleScene.java" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="105">
-            <caret line="7" column="55" lean-forward="true" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/src/Main/MainStage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1191,35 +1213,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/MainStage.java">
+    <entry file="file://$PROJECT_DIR$/src/physics/GravityCalculate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="225">
+          <caret line="34" column="90" lean-forward="false" selection-start-line="34" selection-start-column="90" selection-end-line="34" selection-end-column="90" />
+          <folding>
+            <element signature="e#252#253#0" expanded="true" />
+            <element signature="e#286#287#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/physics/GravityCalculate.java">
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="105">
+            <caret line="7" column="55" lean-forward="true" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Star.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="28" column="44" lean-forward="false" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+        <state relative-caret-position="701">
+          <caret line="54" column="66" lean-forward="false" selection-start-line="54" selection-start-column="66" selection-end-line="54" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scenes/canvas/GameCanvas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1433">
-          <caret line="184" column="5" lean-forward="true" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/Star.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="37" column="74" lean-forward="true" selection-start-line="37" selection-start-column="74" selection-end-line="37" selection-end-column="74" />
-          <folding />
+        <state relative-caret-position="2000">
+          <caret line="179" column="5" lean-forward="true" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
