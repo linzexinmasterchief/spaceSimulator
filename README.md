@@ -6,6 +6,8 @@ simulate the universe
 * create separate worlds for each planet
 * optimize control system
 * give stars and planets different colors (or pictures)
+* allow zoom in and out
+* add menu
 ## update logs
 ### version 0.1.0 build1 2017/05/16
 relaunched the project with a greater target, I planned to create planets and worlds on them, it is pretty difficult, so good luck to myself!
