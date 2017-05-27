@@ -1,7 +1,6 @@
 package models;
 
 import javafx.application.Platform;
-import javafx.scene.canvas.GraphicsContext;
 import physics.GravityCalculate;
 
 /**
@@ -12,12 +11,8 @@ public class Universe implements Runnable {
     private double height;
 
     private Star bufferStar;
-    private GraphicsContext gc;
     private GravityCalculate gravityCalculate;
     private Star[] stars;
-
-    private int mouseEventX;
-    private int mouseEventY;
 
     private boolean isExit;
     private boolean isPause;
@@ -42,9 +37,6 @@ public class Universe implements Runnable {
 
         bufferStar = new Star();
 
-        mouseEventX = 0;
-        mouseEventY = 0;
-
         isExit = false;
         isPause = false;
         isNewStarExist = false;
@@ -61,9 +53,10 @@ public class Universe implements Runnable {
         if (isPause) {
             return;
         }
+
         for (int i = 0; i < stars.length; i++) {
 //            checkBound(i);
-
+//
             if (stars[i].centerX - stars[i].r > width + 10 + (2 * stars[i].r)
                     | stars[i].centerY - stars[i].r > height + 10 + (2 * stars[i].r)
                     | stars[i].centerX - stars[i].r < -10 - (2 * stars[i].r)
@@ -78,22 +71,33 @@ public class Universe implements Runnable {
                     gravityCalculate.synchronize(stars);
                     gravityCalculate.gravityAcceleration(stars[F]);
                 });
-            } else {
-                stars[i].initialize();
-                if (isNewStarExist) {
-                    stars[i] = new Star(bufferStar);
-                    bufferStar.remove();
-
-                    stars[i].show(mouseEventX, mouseEventY);
-                    stars[i].onScreen = true;
-                    isNewStarExist = false;
-                }
+//            } else {
+//                stars[i].initialize();
+//                if (isNewStarExist) {
+//                    stars[i] = new Star(bufferStar);
+//                    bufferStar.remove();
+//
+//                    stars[i].onScreen = true;
+//                    isNewStarExist = false;
+//                }
             }
         }
     }
 
     public Star[] getStars() {
         return stars;
+    }
+
+    public Star getBufferStar() {
+        return bufferStar;
+    }
+
+    public boolean getNewStarExist() {
+        return isNewStarExist;
+    }
+
+    public void setNewStarExist(boolean isNewStarExist) {
+        this.isNewStarExist = isNewStarExist;
     }
 
     @Override

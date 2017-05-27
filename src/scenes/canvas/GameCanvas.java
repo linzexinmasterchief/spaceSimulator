@@ -15,25 +15,16 @@ import models.Universe;
 public class GameCanvas extends Canvas implements Runnable {
 
     private Universe universe;
-    private Star[] stars;
-
-    private Star bufferStar;
-    private boolean isNewStarExist;
 
     private GraphicsContext gc;
 
     private int mouseEventX;
     private int mouseEventY;
 
-
     public GameCanvas() {
-        universe = new Universe(this.getWidth(), this.getHeight());
-        stars = universe.getStars();
+        universe = new Universe(1000, 1000);
         Thread universeThread = new Thread(universe);
         universeThread.start();
-
-        bufferStar = new Star();
-        isNewStarExist = false;
 
         mouseEventX = 0;
         mouseEventY = 0;
@@ -47,25 +38,25 @@ public class GameCanvas extends Canvas implements Runnable {
         });
 
         setOnMouseReleased(me -> {
-            bufferStar.vectorX = (me.getX() - mouse_coordinate[0]) / 100;
-            bufferStar.vectorY = (me.getY() - mouse_coordinate[1]) / 100;
+            universe.getBufferStar().vectorX = (me.getX() - mouse_coordinate[0]) / 100;
+            universe.getBufferStar().vectorY = (me.getY() - mouse_coordinate[1]) / 100;
 
             if (me.getButton() == MouseButton.PRIMARY) {
-                isNewStarExist = true;
+                universe.setNewStarExist(true);
                 mouseEventX = (int) me.getX();
                 mouseEventY = (int) me.getY();
 
-                for (int i = 0; i < stars.length; i++) {
+                for (int i = 0; i < universe.getStars().length; i++) {
 //                    checkBound(i);
-                    if (!stars[i].onScreen) {
-                        stars[i].initialize();
-                        if (isNewStarExist) {
-                            stars[i] = new Star(bufferStar);
-                            bufferStar.remove();
+                    if (!universe.getStars()[i].onScreen) {
+                        universe.getStars()[i].initialize();
+                        if (universe.getNewStarExist()) {
+                            universe.getStars()[i] = new Star(universe.getBufferStar());
+                            universe.getBufferStar().remove();
 
-                            stars[i].show(mouseEventX, mouseEventY);
-                            stars[i].onScreen = true;
-                            isNewStarExist = false;
+                            universe.getStars()[i].show(mouseEventX, mouseEventY);
+                            universe.getStars()[i].onScreen = true;
+                            universe.setNewStarExist(false);
                             drawShapes();
                         }
                     }
@@ -87,7 +78,7 @@ public class GameCanvas extends Canvas implements Runnable {
         gc.fillRect(0, 0, this.getWidth(), this.getHeight());
         gc.setFill(Color.BLUE);
 
-        for (Star star : stars) {
+        for (Star star : universe.getStars()) {
             if (star.onScreen) {
                 getGraphicsContext2D().fillOval(star.centerX - star.r, star.centerY - star.r, star.r * 2, star.r * 2);
             }
@@ -95,7 +86,7 @@ public class GameCanvas extends Canvas implements Runnable {
     }
 
     private void clear() {
-        for (Star star : stars) {
+        for (Star star : universe.getStars()) {
             star.remove();
         }
     }
