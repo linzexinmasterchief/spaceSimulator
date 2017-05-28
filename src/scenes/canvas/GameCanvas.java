@@ -5,6 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseButton;
 import javafx.scene.paint.Color;
+import models.Camera;
 import models.Star;
 import models.Universe;
 
@@ -15,16 +16,21 @@ import models.Universe;
 public class GameCanvas extends Canvas implements Runnable {
 
     private Universe universe;
+    private Camera camera;
 
     private GraphicsContext gc;
 
     private int mouseEventX;
     private int mouseEventY;
 
+    private final double HeightWidthScale = 0.56;
+
     public GameCanvas() {
-        universe = new Universe(1000, 1000);
+        universe = new Universe(2000, 2000);
         Thread universeThread = new Thread(universe);
         universeThread.start();
+
+        camera = new Camera(1000, 560, 1000,1000);
 
         mouseEventX = 0;
         mouseEventY = 0;
@@ -54,7 +60,12 @@ public class GameCanvas extends Canvas implements Runnable {
                             universe.getStars()[i] = new Star(universe.getBufferStar());
                             universe.getBufferStar().remove();
 
-                            universe.getStars()[i].show(mouseEventX, mouseEventY);
+                            universe.getStars()[i].show(
+                                    ((camera.getWidth() / 1000) - 1) * (1000 / 2)
+                                            - (camera.getWidth() / 1000) * (mouseEventX - camera.getCenterX()),
+                                    ((camera.getHeight() / 560) - 1) * (560 / 2)
+                                            - (camera.getHeight() / 560) * (mouseEventY - camera.getCenterY())
+                            );
                             universe.getStars()[i].onScreen = true;
                             universe.setNewStarExist(false);
                             drawShapes();
@@ -64,6 +75,16 @@ public class GameCanvas extends Canvas implements Runnable {
             }
             if (me.getButton() == MouseButton.SECONDARY) {
                 clear();
+            }
+        });
+
+        setOnScroll(se -> {
+            if (se.getDeltaY() < 0) {
+                camera.setWidth(camera.getWidth() - 10);
+                camera.setHeight(camera.getHeight() - 10 * HeightWidthScale);
+            }else {
+                camera.setWidth(camera.getWidth() + 10);
+                camera.setHeight(camera.getHeight() + 10 * HeightWidthScale);
             }
         });
 
@@ -80,7 +101,19 @@ public class GameCanvas extends Canvas implements Runnable {
 
         for (Star star : universe.getStars()) {
             if (star.onScreen) {
-                getGraphicsContext2D().fillOval(star.centerX - star.r, star.centerY - star.r, star.r * 2, star.r * 2);
+                getGraphicsContext2D().fillOval(
+                        (1 - (camera.getWidth() / 1000)) * (1000 / 2)
+                                + (camera.getWidth() / 1000) * (star.centerX - camera.getCenterX())
+                                - star.r,
+                        (1 - (camera.getHeight() / 560)) * (560 / 2)
+                                + (camera.getHeight() / 560) * (star.centerY - camera.getCenterY())
+                                - star.r,
+                        star.r * 2 * (camera.getWidth() / this.getWidth()),
+                        star.r * 2 * (camera.getHeight() / this.getHeight())
+                );
+                System.out.println((1 - (camera.getWidth() / 1000)) * (1000 / 2)
+                        - (camera.getWidth() / 1000) * (star.centerX - camera.getCenterX())
+                        - star.r);
             }
         }
     }
@@ -90,36 +123,6 @@ public class GameCanvas extends Canvas implements Runnable {
             star.remove();
         }
     }
-
-
-//
-//    private void checkBound(int i) {
-//        if (stars[i].mass > 5000) {
-//            stars[i].mass = 5000;
-//        } else if (stars[i].mass < -5000) {
-//            stars[i].mass = -5000;
-//        }
-//        if (stars[i].vectorX > 1000) {
-//            stars[i].vectorX = 1000;
-//        } else if (stars[i].vectorX < -1000) {
-//            stars[i].vectorX = -1000;
-//        }
-//        if (stars[i].vectorY > 1000) {
-//            stars[i].vectorY = 1000;
-//        } else if (stars[i].vectorY < -1000) {
-//            stars[i].vectorY = -1000;
-//        }
-//        if (stars[i].accelerationX > 500) {
-//            stars[i].accelerationX = 500;
-//        } else if (stars[i].accelerationX < -500) {
-//            stars[i].accelerationX = -500;
-//        }
-//        if (stars[i].accelerationY > 500) {
-//            stars[i].accelerationY = 500;
-//        } else if (stars[i].accelerationY < -500) {
-//            stars[i].accelerationY = -500;
-//        }
-//    }
 
     @Override
     public void run() {

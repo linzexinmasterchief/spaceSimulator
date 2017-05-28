@@ -5,15 +5,57 @@ package models;
  */
 public class Camera {
 
-    private int cameraWidth;
-    private int cameraLength;
-    private int cameraCenterX;
-    private int cameraCenterY;
+    private double width;
+    private double height;
+    private double centerX;
+    private double centerY;
 
     public Camera() {
-        cameraWidth = 0;
-        cameraLength = 0;
-        cameraCenterX = 0;
-        cameraCenterY = 0;
+        this.width = 100;
+        this.height = 100;
+    }
+
+    public Camera(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public Camera(double width, double height, double centerX, double centerY) {
+        this.width = width;
+        this.height = height;
+        this.centerX = centerX;
+        this.centerY = centerY;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public double getCenterX() {
+        return centerX;
+    }
+
+    public void setCenterX(double centerX) {
+        this.centerX = centerX;
+    }
+
+    public double getCenterY() {
+        return centerY;
+    }
+
+    public void setCenterY(double centerY) {
+        this.centerY = centerY;
     }
 }
