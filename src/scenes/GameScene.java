@@ -12,7 +12,7 @@ public class GameScene extends Scene {
     public GameScene(Group root, double width, double height) {
         super(root, width, height);
         setFill(Color.BLACK);
-        gameCanvas = new GameCanvas();
+        gameCanvas = new GameCanvas(1000, 560);
         gameCanvas.setWidth(1000);
         gameCanvas.setHeight(560);
         root.getChildren().add(gameCanvas);

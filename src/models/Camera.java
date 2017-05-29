@@ -5,6 +5,9 @@ package models;
  */
 public class Camera {
 
+    private double originalWidth;
+    private double originalHeight;
+
     private double width;
     private double height;
     private double centerX;
@@ -13,11 +16,17 @@ public class Camera {
     public Camera() {
         this.width = 100;
         this.height = 100;
+
+        originalWidth = this.width;
+        originalHeight = this.height;
     }
 
     public Camera(double width, double height) {
         this.width = width;
         this.height = height;
+
+        originalWidth = this.width;
+        originalHeight = this.height;
     }
 
     public Camera(double width, double height, double centerX, double centerY) {
@@ -25,6 +34,10 @@ public class Camera {
         this.height = height;
         this.centerX = centerX;
         this.centerY = centerY;
+
+
+        originalWidth = this.width;
+        originalHeight = this.height;
     }
 
     public double getWidth() {
@@ -57,5 +70,21 @@ public class Camera {
 
     public void setCenterY(double centerY) {
         this.centerY = centerY;
+    }
+
+    public double getOriginalWidth() {
+        return originalWidth;
+    }
+
+    public void setOriginalWidth(double originalWidth) {
+        this.originalWidth = originalWidth;
+    }
+
+    public double getOriginalHeight() {
+        return originalHeight;
+    }
+
+    public void setOriginalHeight(double originalHeight) {
+        this.originalHeight = originalHeight;
     }
 }

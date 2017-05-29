@@ -15,22 +15,26 @@ import models.Universe;
  */
 public class GameCanvas extends Canvas implements Runnable {
 
+    private final double HeightWidthScale = 0.56;
     private Universe universe;
     private Camera camera;
 
     private GraphicsContext gc;
+    private double mouseEventX;
+    private double mouseEventY;
 
-    private int mouseEventX;
-    private int mouseEventY;
+    //determine how fast the star moves with the same drag distance
+    private int dragSpeedConstant = 100;
+    //determine how fast the camera enlarge/minify
+    private int sizeChangeSpeed = 10;
 
-    private final double HeightWidthScale = 0.56;
-
-    public GameCanvas() {
+    public GameCanvas(double width, double height) {
+        super(width, height);
         universe = new Universe(2000, 2000);
         Thread universeThread = new Thread(universe);
         universeThread.start();
 
-        camera = new Camera(1000, 560, 1000,1000);
+        camera = new Camera(this.getWidth(), this.getHeight(), universe.getWidth() / 2, universe.getHeight() / 2);
 
         mouseEventX = 0;
         mouseEventY = 0;
@@ -44,16 +48,15 @@ public class GameCanvas extends Canvas implements Runnable {
         });
 
         setOnMouseReleased(me -> {
-            universe.getBufferStar().vectorX = (me.getX() - mouse_coordinate[0]) / 100;
-            universe.getBufferStar().vectorY = (me.getY() - mouse_coordinate[1]) / 100;
+            universe.getBufferStar().vectorX = (me.getX() - mouse_coordinate[0]) / dragSpeedConstant;
+            universe.getBufferStar().vectorY = (me.getY() - mouse_coordinate[1]) / dragSpeedConstant;
 
             if (me.getButton() == MouseButton.PRIMARY) {
                 universe.setNewStarExist(true);
-                mouseEventX = (int) me.getX();
-                mouseEventY = (int) me.getY();
+                mouseEventX = me.getX();
+                mouseEventY = me.getY();
 
                 for (int i = 0; i < universe.getStars().length; i++) {
-//                    checkBound(i);
                     if (!universe.getStars()[i].onScreen) {
                         universe.getStars()[i].initialize();
                         if (universe.getNewStarExist()) {
@@ -61,10 +64,12 @@ public class GameCanvas extends Canvas implements Runnable {
                             universe.getBufferStar().remove();
 
                             universe.getStars()[i].show(
-                                    ((camera.getWidth() / 1000) - 1) * (1000 / 2)
-                                            - (camera.getWidth() / 1000) * (mouseEventX - camera.getCenterX()),
-                                    ((camera.getHeight() / 560) - 1) * (560 / 2)
-                                            - (camera.getHeight() / 560) * (mouseEventY - camera.getCenterY())
+                                    (camera.getCenterX() - universe.getWidth() / 2)
+                                            + (universe.getWidth() - camera.getWidth()) / 2
+                                            + mouseEventX * (camera.getWidth() / camera.getOriginalWidth()),
+                                    (camera.getCenterY() - universe.getHeight() / 2)
+                                            + (universe.getHeight() - camera.getHeight()) / 2
+                                            + mouseEventY * (camera.getHeight() / camera.getOriginalHeight())
                             );
                             universe.getStars()[i].onScreen = true;
                             universe.setNewStarExist(false);
@@ -79,12 +84,21 @@ public class GameCanvas extends Canvas implements Runnable {
         });
 
         setOnScroll(se -> {
+            mouseEventX = se.getX();
+            mouseEventY = se.getY();
+
             if (se.getDeltaY() < 0) {
-                camera.setWidth(camera.getWidth() - 10);
-                camera.setHeight(camera.getHeight() - 10 * HeightWidthScale);
-            }else {
-                camera.setWidth(camera.getWidth() + 10);
-                camera.setHeight(camera.getHeight() + 10 * HeightWidthScale);
+                camera.setWidth(camera.getWidth() + sizeChangeSpeed);
+                camera.setHeight(camera.getHeight() + sizeChangeSpeed * HeightWidthScale);
+
+                camera.setCenterX(camera.getCenterX() - (mouseEventX - this.getWidth() / 2) / this.getWidth() * 10);
+                camera.setCenterY(camera.getCenterY() - (mouseEventY - this.getHeight() / 2) / this.getHeight() * 10);
+            } else {
+                camera.setWidth(camera.getWidth() - sizeChangeSpeed);
+                camera.setHeight(camera.getHeight() - sizeChangeSpeed * HeightWidthScale);
+
+                camera.setCenterX(camera.getCenterX() + (mouseEventX - this.getWidth() / 2) / this.getWidth() * 10);
+                camera.setCenterY(camera.getCenterY() + (mouseEventY - this.getHeight() / 2) / this.getHeight() * 10);
             }
         });
 
@@ -100,20 +114,34 @@ public class GameCanvas extends Canvas implements Runnable {
         gc.setFill(Color.BLUE);
 
         for (Star star : universe.getStars()) {
+            double scaleX = camera.getOriginalWidth() / camera.getWidth();
+            double scaleY = camera.getOriginalHeight() / camera.getHeight();
+
+            double starWidth = star.r * 2 * scaleX;
+            double starHeight = star.r * 2 * scaleY;
+            if (starWidth < 1) {
+                starWidth = 1;
+            }
+            if (starHeight < 1) {
+                starHeight = 1;
+            }
             if (star.onScreen) {
                 getGraphicsContext2D().fillOval(
-                        (1 - (camera.getWidth() / 1000)) * (1000 / 2)
-                                + (camera.getWidth() / 1000) * (star.centerX - camera.getCenterX())
+                        (
+                                star.centerX - (camera.getCenterX() - universe.getWidth() / 2)
+                                        - (universe.getWidth() - camera.getWidth()) / 2
+                        )
+                                * scaleX
                                 - star.r,
-                        (1 - (camera.getHeight() / 560)) * (560 / 2)
-                                + (camera.getHeight() / 560) * (star.centerY - camera.getCenterY())
+                        (
+                                star.centerY - (camera.getCenterY() - universe.getHeight() / 2)
+                                        - (universe.getHeight() - camera.getHeight()) / 2
+                        )
+                                * scaleY
                                 - star.r,
-                        star.r * 2 * (camera.getWidth() / this.getWidth()),
-                        star.r * 2 * (camera.getHeight() / this.getHeight())
+                        starWidth,
+                        starHeight
                 );
-                System.out.println((1 - (camera.getWidth() / 1000)) * (1000 / 2)
-                        - (camera.getWidth() / 1000) * (star.centerX - camera.getCenterX())
-                        - star.r);
             }
         }
     }
