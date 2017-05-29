@@ -3,7 +3,7 @@ package Main;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.stage.Stage;
-import scenes.GameScene;
+import scenes.gameScene.GameScene;
 
 /**
  * Created by lzx on 2017/3/21.

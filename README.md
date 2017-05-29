@@ -2,7 +2,7 @@
 simulate the universe
 ## TODO list
 * redesign gravity system
-    *faster
+    * faster
 * add collide system for planets
 * optimize control system
 * give stars and planets different colors (or pictures)

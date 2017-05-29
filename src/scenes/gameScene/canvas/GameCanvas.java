@@ -1,4 +1,4 @@
-package scenes.canvas;
+package scenes.gameScene.canvas;
 
 import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
