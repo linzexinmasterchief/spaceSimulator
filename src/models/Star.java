@@ -21,7 +21,7 @@ public class Star {
     public boolean onScreen;
 
     //normal constructor
-    public Star() {
+    Star() {
         initialize();
     }
 
