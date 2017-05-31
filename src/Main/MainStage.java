@@ -12,22 +12,32 @@ import scenes.gameScene.GameScene;
 
 public class MainStage extends Application {
 
-    public static GameScene gameScene;
-
+    //launch the application
     public static void main(String[] args) {
         launch(args);
     }
 
+    //override the default constructor
     @Override
+    //initialize the application
     public void start(Stage stage) {
-        gameScene = new GameScene(new Group(), 1000, 560);
+        //create an object of the game scene
+        GameScene gameScene = new GameScene(new Group(), 1000, 560);
 
+        //create an object of the stage
         stage = new Stage();
+        //give the stage an start scene
         stage.setScene(gameScene);
+        //set non-resizable to avoid problems caused by different resolutions
+        //this may be removed if I find out how to deal with it
         stage.setResizable(false);
+        //give the application a title
         stage.setTitle("SpaceSimulator");
+        //exit on close
         stage.setOnCloseRequest(event -> System.exit(0));
+        //make sure the stage is completely filled with game scene
         stage.sizeToScene();
+        //show the window
         stage.show();
     }
 }
