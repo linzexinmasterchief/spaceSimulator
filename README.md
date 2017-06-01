@@ -4,10 +4,11 @@ simulate the universe
 * redesign gravity system
     * faster
 * add collide system for planets
-* optimize control system
 * give stars and planets different colors (or pictures)
-* add menu
+* design menu
 ## update logs
+#### version 0.1.2 alpha build1 2017/6/1
+happy children's day! the program is optimized and a menu is added
 ### ```version 0.1.1 beta```
 `now you can resize on a point you want`
 #### version 0.1.0 alpha build2 2017/05/29

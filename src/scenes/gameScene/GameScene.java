@@ -13,14 +13,19 @@ public class GameScene extends Scene {
 
     private static GameCanvas gameCanvas;
 
+    //constructor
     public GameScene(Group root, double width, double height) {
+
+        //construct the game scene as a scene
         super(root, width, height);
-        setFill(Color.BLACK);
+
+        //initialize the canvas
+        //size
         gameCanvas = new GameCanvas(1000, 560);
-        gameCanvas.setWidth(1000);
-        gameCanvas.setHeight(560);
+        //add game canvas
         root.getChildren().add(gameCanvas);
 
+        //add a menu
         MenuButton menuButton = new MenuButton("=");
         menuButton.getItems().addAll(new MenuItem("ha"));
         menuButton.setTranslateX(10);
