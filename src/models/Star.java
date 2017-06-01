@@ -56,7 +56,7 @@ public class Star {
         centerY = 0;
     }
 
-    //move (or more like t) to another point
+    //move (or more like teleporting) to another point
     private void setPosition(double input_centerX, double input_centerY) {
         centerX = input_centerX;
         centerY = input_centerY;
@@ -70,8 +70,12 @@ public class Star {
 
     //update the position
     void move() {
+
+        //calculate the speed of the star
         vectorX = vectorX + accelerationX;
         vectorY = vectorY + accelerationY;
+
+        //calculate the position of the star
         setPosition(centerX + vectorX, centerY + vectorY);
     }
 
