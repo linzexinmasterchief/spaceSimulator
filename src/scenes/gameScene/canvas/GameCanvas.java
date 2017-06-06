@@ -190,12 +190,10 @@ public class GameCanvas extends Canvas implements Runnable {
 
         //paint the screen the first time to have a graphic instead of blank
         drawShapes();
-
         //initialize the graphic thread
-        Thread thread = new Thread(this);
-
+        Thread graphicThread = new Thread(this);
         //launch the graphic thread
-        thread.start();
+        graphicThread.start();
 
     }
 
@@ -259,6 +257,22 @@ public class GameCanvas extends Canvas implements Runnable {
     private void clear() {
         for (Star star : universe.getStars()) {
             star.remove();
+        }
+    }
+
+    public Camera getCamera() {
+        return camera;
+    }
+
+    public double getScaleX_OVERIDE() {
+        return scaleX;
+    }
+
+    public void graphicSleep(int time) {
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
