@@ -27,6 +27,8 @@ public class GameCanvas extends Canvas implements Runnable {
 
     //define a graphic context to operate the graphics on the screen
     private GraphicsContext gc;
+    //for canvas to stop update (exit)
+    private boolean isExit;
 
     //variables used to store mouse operations
     private double mouseEventX;
@@ -75,6 +77,9 @@ public class GameCanvas extends Canvas implements Runnable {
         mouseEventX = 0;
         mouseEventY = 0;
         mouse_coordinate = new double[2];
+
+        //initialize exit condition
+        isExit = false;
 
         //let the graphical context be a pointer to the real screen context
         //they are pointing to the same object so the operations on graphical
@@ -186,6 +191,10 @@ public class GameCanvas extends Canvas implements Runnable {
                 camera.setCenterX(camera.getCenterX() + (mouseEventX - this.getWidth() / 2) / this.getWidth() * cameraMoveSpeed);
                 camera.setCenterY(camera.getCenterY() + (mouseEventY - this.getHeight() / 2) / this.getHeight() * cameraMoveSpeed);
             }
+
+            //calculate the scale between camera and original camera
+            scaleX = camera.getWidth() / camera.getOriginalWidth();
+            scaleY = camera.getHeight() / camera.getOriginalHeight();
         });
 
         //paint the screen the first time to have a graphic instead of blank
@@ -207,9 +216,13 @@ public class GameCanvas extends Canvas implements Runnable {
         //change the color of pen to blue to paint the stars
         gc.setFill(Color.RED);
 
-
         //iterate the star list to draw all the exist stars in the universe
         for (Star star : universe.getStars()) {
+            star.onScreen = true;
+            star.onScreen = !(star.centerX < camera.getCenterX() - camera.getWidth() / 2 - star.r
+                    || star.centerX > camera.getCenterX() + camera.getWidth() / 2 + star.r
+                    || star.centerY < camera.getCenterY() - camera.getHeight() / 2 - star.r
+                    || star.centerY > camera.getCenterY() + camera.getHeight() / 2 + star.r);
 
             //calculate the actual display size according to the scale
             double starWidth = star.r * 2 / scaleX;
@@ -260,36 +273,15 @@ public class GameCanvas extends Canvas implements Runnable {
         }
     }
 
-    public Camera getCamera() {
-        return camera;
-    }
-
-    public double getScaleX_OVERIDE() {
-        return scaleX;
-    }
-
-    public void graphicSleep(int time) {
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
     //the graphic thread operation function
     @Override
     public void run() {
-        while (true) {
+        while (!isExit) {
             try {
                 Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            //calculate the scale between camera and original camera
-            scaleX = camera.getWidth() / camera.getOriginalWidth();
-            scaleY = camera.getHeight() / camera.getOriginalHeight();
-
             //send the rendering job to a background thread
             Platform.runLater(this::drawShapes);
         }
