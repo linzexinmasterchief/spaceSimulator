@@ -30,15 +30,17 @@ public class Universe implements Runnable {
     private boolean isPause;
     private boolean isNewStarExist;
 
-    //first constructor
-    public Universe() {
-        //give a default universe size
-        width = 0;
-        height = 0;
+    //unused constructor
 
-        //call the function to initialize all the stars in the universe
-        initialize();
-    }
+//    //first constructor
+//    public Universe() {
+//        //give a default universe size
+//        width = 0;
+//        height = 0;
+//
+//        //call the function to initialize all the stars in the universe
+//        initialize();
+//    }
 
     //second constructor
     public Universe(double width, double height) {
@@ -123,16 +125,8 @@ public class Universe implements Runnable {
         return width;
     }
 
-    public void setWidth(double width) {
-        this.width = width;
-    }
-
     public double getHeight() {
         return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
     }
 
     //the main thread cycle of the universe
