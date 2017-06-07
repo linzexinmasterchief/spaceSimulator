@@ -7,33 +7,31 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import scenes.gameScene.canvas.GameCanvas;
 
 public class GameScene extends Scene {
 
-    private static GameCanvas gameCanvas;
     private boolean clicked;
 
     //constructor
-    public GameScene(Group root, double width, double height, Stage rootStage) {
+    public GameScene(Group root, double width, double height) {
 
         //construct the game scene as a scene
         super(root, width, height);
 
-        setFill(Color.BLACK);
-
         clicked = false;
-        //add a menu
-        Button Menu01 = new Button("Button");
-        Menu01.setMinWidth(200);
-        root.getChildren().add(Menu01);
 
         //initialize the canvas
         //size
-        gameCanvas = new GameCanvas(1000, 560);
+        GameCanvas gameCanvas = new GameCanvas(1000, 560);
         //add game canvas
         root.getChildren().add(gameCanvas);
+
+        //add a menu
+        Button Menu01 = new Button("Button");
+        Menu01.setMinWidth(200);
+        Menu01.setTranslateX(-200);
+        root.getChildren().add(Menu01);
 
         //add a menu button
         Button button = new Button("=");
@@ -43,13 +41,11 @@ public class GameScene extends Scene {
         button.setOnMouseClicked(me -> {
             setClicked(!isClicked());
             if (isClicked()) {
-                gameCanvas.setTranslateX(200);
-                gameCanvas.setWidth(gameCanvas.getWidth() - 200);
-                gameCanvas.getCamera().setCenterX(gameCanvas.getCamera().getCenterX() + 200 * gameCanvas.getScaleX_OVERIDE());
+                //pop out
+                Menu01.setTranslateX(0);
             } else {
-                gameCanvas.setWidth(gameCanvas.getWidth() + 200);
-                gameCanvas.setTranslateX(0);
-                gameCanvas.getCamera().setCenterX(gameCanvas.getCamera().getCenterX() - 200 * gameCanvas.getScaleX_OVERIDE());
+                //goes back
+                Menu01.setTranslateX(-200);
             }
         });
         button.setTranslateX(10);
@@ -58,11 +54,11 @@ public class GameScene extends Scene {
     }
 
 
-    public boolean isClicked() {
+    private boolean isClicked() {
         return clicked;
     }
 
-    public void setClicked(boolean clicked) {
+    private void setClicked(boolean clicked) {
         this.clicked = clicked;
     }
 }
