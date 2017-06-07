@@ -7,10 +7,12 @@ simulate the universe
 * give stars and planets different colors (or pictures)
 * design menu
 ## update logs
+#### version 0.1.2 alpha build2 2017/6/7
+now you have a menu! although it is still not completed, I will try to add some interesting controls into it. The graphic is also redesigned to make refresh faster.
 #### version 0.1.2 alpha build1 2017/6/1
-happy children's day! the program is optimized and a menu is added
+happy children's day! the program is optimized and a menu is added.
 ### ```version 0.1.1 beta```
-`now you can resize on a point you want`
+`now you can resize on a point you want.`
 #### version 0.1.0 alpha build2 2017/05/29
 added size control system, now you have a larger universe and the ability to resize your view!
 ### version 0.1.0 alpha build1 2017/05/16
@@ -18,11 +20,11 @@ relaunched the project with a greater target, I planned to create planets and wo
 #### version 0.0.2 alpha build2 2017/04/29
 the project is nearly finished, now you can input negative mass and see what will happen!
 #### version 0.0.2 alpha build1 2017/04/11
-fixed the NaN bug
+fixed the NaN bug.
 ### ```version 0.0.1 beta 2017/04/09```
 `add the gravity system, now you can set the mass and velocity!`
 #### version 0.0.1 alpha build3 2017/04/08
-fixed a few bugs, added the proto-acceleration system
+fixed a few bugs, added the proto-acceleration system.
 #### version 0.0.1 alpha build2 2017/04/05
 made some impressive progress on code deploying, separating the code into different files makes code easier to manage. 
 #### version 0.0.1 alpha build1 2017/04/01
