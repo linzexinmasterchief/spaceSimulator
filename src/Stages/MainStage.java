@@ -1,4 +1,4 @@
-package Main;
+package Stages;
 
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -22,7 +22,7 @@ public class MainStage extends Application {
     //initialize the application
     public void start(Stage stage) {
         //create an object of the game scene
-        GameScene gameScene = new GameScene(new Group(), 1000, 560, stage);
+        GameScene gameScene = new GameScene(new Group(), 1000, 560);
 
         //create an object of the stage
         stage = new Stage();
