@@ -27,6 +27,14 @@ public class GameScene extends Scene {
         //add game canvas
         root.getChildren().add(gameCanvas);
 
+        //listener for activating the console
+        setOnKeyTyped(ke -> {
+            if (ke.getCharacter().equals('~')
+                    | ke.getCharacter().equals('`')) {
+
+            }
+        });
+
         //add a menu
         Button Menu01 = new Button("Button");
         Menu01.setMinWidth(200);
