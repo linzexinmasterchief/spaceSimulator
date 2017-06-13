@@ -90,7 +90,7 @@ public class GameEngine implements Runnable {
                 stars[i].remove();
             }
 
-            if (stars[i].onScreen) {
+            if (stars[i].inUniverse) {
                 stars[i].move();
                 final int F = i;
                 Platform.runLater(() -> {
