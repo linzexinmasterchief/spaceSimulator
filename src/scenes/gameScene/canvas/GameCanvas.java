@@ -258,6 +258,11 @@ public class GameCanvas extends Canvas implements Runnable {
         }
     }
 
+    //getters and setters
+    public void setExit(boolean exit) {
+        isExit = exit;
+    }
+
     //the graphic thread operation function
     @Override
     public void run() {

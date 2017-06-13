@@ -32,7 +32,11 @@ public class MainStage extends Application {
         //give the application a title
         stage.setTitle("SpaceSimulator");
         //exit on close
-        stage.setOnCloseRequest(event -> System.exit(0));
+        stage.setOnCloseRequest(event -> {
+            gameEngine.setExit(true);
+            gameEngine.gameScene.getGameCanvas().setExit(true);
+            System.exit(0);
+        });
         //make sure the stage is completely filled with game scene
         stage.sizeToScene();
         //show the window

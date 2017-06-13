@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="spaceSimulator:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c15efc50-1ad8-4e22-aaf0-cc73705fb2ec" name="Default" comment="reconstructed the code, there is some bugs however.The stars become strange when they are suppose to be disappear. I'm trying to fix them.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MyEngine/GameEngine.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/Main/MainStage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/scenes/startScene/StartScene.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Stages/ControlStage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/scenes/startScene/StartScene.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/models/Camera.class" afterPath="$PROJECT_DIR$/bin/models/Camera.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/models/Star.class" afterPath="$PROJECT_DIR$/bin/models/Star.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/models/Universe.class" afterPath="$PROJECT_DIR$/bin/models/Universe.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/physics/GravityCalculate.class" afterPath="$PROJECT_DIR$/bin/physics/GravityCalculate.class" />
+    <list default="true" id="c15efc50-1ad8-4e22-aaf0-cc73705fb2ec" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/spaceSimulator_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/scenes/gameScene/GameScene.class" afterPath="$PROJECT_DIR$/bin/scenes/gameScene/GameScene.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/scenes/gameScene/canvas/GameCanvas.class" afterPath="$PROJECT_DIR$/bin/scenes/gameScene/canvas/GameCanvas.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MyEngine/GameEngine.java" afterPath="$PROJECT_DIR$/src/MyEngine/GameEngine.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Stages/MainStage.java" afterPath="$PROJECT_DIR$/src/Stages/MainStage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Camera.java" afterPath="$PROJECT_DIR$/src/models/Camera.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Star.java" afterPath="$PROJECT_DIR$/src/models/Star.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/Universe.java" afterPath="$PROJECT_DIR$/src/models/Universe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/physics/GravityCalculate.java" afterPath="$PROJECT_DIR$/src/physics/GravityCalculate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scenes/gameScene/GameScene.java" afterPath="$PROJECT_DIR$/src/scenes/gameScene/GameScene.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/scenes/gameScene/canvas/GameCanvas.java" afterPath="$PROJECT_DIR$/src/scenes/gameScene/canvas/GameCanvas.java" />
     </list>
@@ -46,82 +41,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Universe.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Universe.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameScene.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/scenes/gameScene/GameScene.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="37" column="42" lean-forward="false" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
-              <folding>
-                <element signature="e#2371#2372#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Star.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Star.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="70" column="26" lean-forward="false" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/Camera.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GameEngine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MyEngine/GameEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-592">
-              <caret line="56" column="8" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
+            <state relative-caret-position="235">
+              <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="122" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3305#3306#0" expanded="true" />
-                <element signature="e#3334#3335#0" expanded="true" />
-                <element signature="e#3371#3372#0" expanded="true" />
-                <element signature="e#3402#3403#0" expanded="true" />
+                <element signature="e#3307#3308#0" expanded="true" />
+                <element signature="e#3336#3337#0" expanded="true" />
+                <element signature="e#3373#3374#0" expanded="true" />
+                <element signature="e#3404#3405#0" expanded="true" />
+                <element signature="e#3444#3445#0" expanded="true" />
+                <element signature="e#3473#3474#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GravityCalculate.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/physics/GravityCalculate.java">
+      <file leaf-file-name="GameScene.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/scenes/gameScene/GameScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="296">
+              <caret line="85" column="26" lean-forward="false" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
+              <folding>
+                <element signature="e#2501#2502#0" expanded="true" />
+                <element signature="e#2534#2535#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainStage.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainStage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Stages/MainStage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="213">
+              <caret line="31" column="38" lean-forward="true" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -129,9 +85,12 @@
       <file leaf-file-name="GameCanvas.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scenes/gameScene/canvas/GameCanvas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2685">
-              <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="172">
+              <caret line="263" column="5" lean-forward="false" selection-start-line="263" selection-start-column="5" selection-end-line="263" selection-end-column="5" />
+              <folding>
+                <element signature="e#12430#12431#0" expanded="true" />
+                <element signature="e#12459#12460#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -190,18 +149,18 @@
         <option value="$PROJECT_DIR$/src/scenes/gameScene/menus/MenuScene.java" />
         <option value="$PROJECT_DIR$/src/scenes/gameScene/menus/MainMenu.java" />
         <option value="$PROJECT_DIR$/src/Main/MainStage.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/Stages/ControlStage.java" />
         <option value="$PROJECT_DIR$/src/physics/GravityCalculate.java" />
         <option value="$PROJECT_DIR$/src/physics/Engine.java" />
-        <option value="$PROJECT_DIR$/src/Stages/MainStage.java" />
         <option value="$PROJECT_DIR$/src/models/Universe.java" />
         <option value="$PROJECT_DIR$/src/physics/GameEngine.java" />
         <option value="$PROJECT_DIR$/src/models/Camera.java" />
         <option value="$PROJECT_DIR$/src/models/Star.java" />
-        <option value="$PROJECT_DIR$/src/scenes/gameScene/canvas/GameCanvas.java" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/MyEngine/GameEngine.java" />
         <option value="$PROJECT_DIR$/src/scenes/gameScene/GameScene.java" />
+        <option value="$PROJECT_DIR$/src/scenes/gameScene/canvas/GameCanvas.java" />
+        <option value="$PROJECT_DIR$/src/Stages/MainStage.java" />
       </list>
     </option>
   </component>
@@ -383,10 +342,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/build" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -704,27 +663,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1485854240596</updated>
-    </task>
-    <task id="LOCAL-00023" summary="updated the readme file, made some change to the project structure">
-      <created>1491392082779</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1491392082779</updated>
-    </task>
-    <task id="LOCAL-00024" summary="separated the canvas from the game scene">
-      <created>1491451167355</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1491451167355</updated>
-    </task>
-    <task id="LOCAL-00025" summary="can't solve the problem of storing star's data">
-      <created>1491487122819</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1491487122819</updated>
     </task>
     <task id="LOCAL-00026" summary="solved the multi-star problem">
       <created>1491529738142</created>
@@ -1048,7 +986,28 @@
       <option name="project" value="LOCAL" />
       <updated>1496930105825</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="reconstructed the code, there is some bugs however.The stars become strange when they are suppose to be disappear. I'm trying to fix them.">
+      <created>1497359603040</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1497359603041</updated>
+    </task>
+    <task id="LOCAL-00073" summary="bug mentioned last time was fixed. The problem is caused by a small mistake which I mixed star's &quot;inUniverse&quot; and &quot;onScreen&quot; property">
+      <created>1497359884273</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1497359884273</updated>
+    </task>
+    <task id="LOCAL-00074" summary="readme update">
+      <created>1497360129068</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1497360129068</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1066,13 +1025,13 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37592867" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37592867" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1130,7 +1089,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="clean up" />
     <MESSAGE value="replaced x and y by centerX and centerY" />
     <MESSAGE value="added a new constructor to the star model class in order to copy data from another star, avoided the bug caused by two pointer pointing the same star" />
     <MESSAGE value="failed to optimize the code with a buffer star, added a warning to it" />
@@ -1150,12 +1108,13 @@
     <MESSAGE value="fixed the bug of menu pop out affect the canvas drawing, made the painting faster" />
     <MESSAGE value="bug fixing" />
     <MESSAGE value="build" />
-    <MESSAGE value="readme update" />
     <MESSAGE value="start to create a setting window" />
     <MESSAGE value="add console activation key" />
     <MESSAGE value="no change" />
     <MESSAGE value="reconstructed the code, there is some bugs however.The stars become strange when they are suppose to be disappear. I'm trying to fix them." />
-    <option name="LAST_COMMIT_MESSAGE" value="reconstructed the code, there is some bugs however.The stars become strange when they are suppose to be disappear. I'm trying to fix them." />
+    <MESSAGE value="bug mentioned last time was fixed. The problem is caused by a small mistake which I mixed star's &quot;inUniverse&quot; and &quot;onScreen&quot; property" />
+    <MESSAGE value="readme update" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme update" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1391,21 +1350,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scenes/gameScene/menus/MenuScene.java" />
     <entry file="file://$PROJECT_DIR$/src/scenes/gameScene/menus/MainMenu.java" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="135">
-            <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Stages/ControlStage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1430,19 +1374,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Stages/MainStage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/physics/GravityCalculate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
+        <state relative-caret-position="-37">
           <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
           <folding />
         </state>
@@ -1464,35 +1398,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scenes/gameScene/canvas/GameCanvas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2685">
-          <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="3" lean-forward="false" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MyEngine/GameEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-592">
-          <caret line="56" column="8" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3305#3306#0" expanded="true" />
-            <element signature="e#3334#3335#0" expanded="true" />
-            <element signature="e#3371#3372#0" expanded="true" />
-            <element signature="e#3402#3403#0" expanded="true" />
-          </folding>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="135">
+            <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/scenes/gameScene/GameScene.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="37" column="42" lean-forward="false" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
+        <state relative-caret-position="296">
+          <caret line="85" column="26" lean-forward="false" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
           <folding>
-            <element signature="e#2371#2372#0" expanded="true" />
+            <element signature="e#2501#2502#0" expanded="true" />
+            <element signature="e#2534#2535#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyEngine/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="122" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3307#3308#0" expanded="true" />
+            <element signature="e#3336#3337#0" expanded="true" />
+            <element signature="e#3373#3374#0" expanded="true" />
+            <element signature="e#3404#3405#0" expanded="true" />
+            <element signature="e#3444#3445#0" expanded="true" />
+            <element signature="e#3473#3474#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scenes/gameScene/canvas/GameCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="263" column="5" lean-forward="false" selection-start-line="263" selection-start-column="5" selection-end-line="263" selection-end-column="5" />
+          <folding>
+            <element signature="e#12430#12431#0" expanded="true" />
+            <element signature="e#12459#12460#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Stages/MainStage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="31" column="38" lean-forward="true" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1501,11 +1465,18 @@
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
-          <artifact-editor />
+          <artifact-editor>
+            <show-content>
+              <type id="artifact" />
+              <type id="library" />
+            </show-content>
+          </artifact-editor>
+          <last-edited>spaceSimulator:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

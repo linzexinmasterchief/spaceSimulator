@@ -17,6 +17,9 @@ public class GameScene extends Scene {
     //create reference to root game engine
     private GameEngine gameEngine;
 
+    //give access to the canvas
+    private GameCanvas gameCanvas;
+
     //constructor
     public GameScene(Group root, double width, double height, GameEngine rootEngine) {
 
@@ -28,7 +31,7 @@ public class GameScene extends Scene {
 
         //initialize the canvas
         //size
-        GameCanvas gameCanvas = new GameCanvas(1000, 560, this);
+        gameCanvas = new GameCanvas(1000, 560, this);
         //add game canvas
         root.getChildren().add(gameCanvas);
 
@@ -77,5 +80,9 @@ public class GameScene extends Scene {
 
     public GameEngine getRootEngine() {
         return gameEngine;
+    }
+
+    public GameCanvas getGameCanvas() {
+        return gameCanvas;
     }
 }

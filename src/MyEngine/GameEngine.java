@@ -118,6 +118,10 @@ public class GameEngine implements Runnable {
         return universe;
     }
 
+    public void setExit(boolean exit) {
+        isExit = exit;
+    }
+
     //the main thread cycle of the universe
     @Override
     public void run() {
