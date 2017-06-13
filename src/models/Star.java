@@ -19,9 +19,10 @@ public class Star {
     public double accelerationY;
 
     public boolean onScreen;
+    public boolean inUniverse;
 
     //normal constructor
-    Star() {
+    public Star() {
         initialize();
     }
 
@@ -40,6 +41,7 @@ public class Star {
         accelerationX = star.accelerationX;
         accelerationY = star.accelerationY;
         onScreen = star.onScreen;
+        inUniverse = star.inUniverse;
         centerX = star.centerX;
         centerY = star.centerY;
     }
@@ -52,6 +54,7 @@ public class Star {
         accelerationX = 0;
         accelerationY = 0;
         onScreen = false;
+        inUniverse = false;
         centerX = 0;
         centerY = 0;
     }
@@ -65,11 +68,12 @@ public class Star {
     //allow the star thee show on screen
     public void show(double input_centerX, double input_centerY) {
         onScreen = true;
+        inUniverse = true;
         setPosition(input_centerX, input_centerY);
     }
 
     //update the position
-    void move() {
+    public void move() {
 
         //calculate the speed of the star
         vectorX = vectorX + accelerationX;

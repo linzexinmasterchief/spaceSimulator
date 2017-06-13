@@ -1,9 +1,8 @@
 package Stages;
 
+import MyEngine.GameEngine;
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.stage.Stage;
-import scenes.gameScene.GameScene;
 
 /**
  * Created by lzx on 2017/3/21.
@@ -21,13 +20,12 @@ public class MainStage extends Application {
     @Override
     //initialize the application
     public void start(Stage stage) {
-        //create an object of the game scene
-        GameScene gameScene = new GameScene(new Group(), 1000, 560);
+        GameEngine gameEngine = new GameEngine();
 
         //create an object of the stage
         stage = new Stage();
         //give the stage an start scene
-        stage.setScene(gameScene);
+        stage.setScene(gameEngine.gameScene);
         //set non-resizable to avoid problems caused by different resolutions
         //this may be removed if I find out how to deal with it
         stage.setResizable(false);

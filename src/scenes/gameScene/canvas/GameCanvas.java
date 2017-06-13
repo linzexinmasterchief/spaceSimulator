@@ -5,9 +5,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseButton;
 import javafx.scene.paint.Color;
-import models.Camera;
 import models.Star;
-import models.Universe;
+import scenes.gameScene.GameScene;
 
 /**
  * Created by lzx on 2017/4/6.
@@ -19,16 +18,16 @@ import models.Universe;
  */
 public class GameCanvas extends Canvas implements Runnable {
 
-    //define a universe to display
-    private Universe universe;
-
-    //define a camera used for display
-    private Camera camera;
+    //create reference to rootScene
+    private GameScene gameScene;
 
     //define a graphic context to operate the graphics on the screen
     private GraphicsContext gc;
     //for canvas to stop update (exit)
     private boolean isExit;
+
+    //new star lock
+    private boolean isNewStarExist;
 
     //variables used to store mouse operations
     private double mouseEventX;
@@ -50,25 +49,12 @@ public class GameCanvas extends Canvas implements Runnable {
 
 
     //constructor
-    public GameCanvas(double width, double height) {
+    public GameCanvas(double width, double height, GameScene rootScene) {
         //width and height is pretty necessary for things like
         //"this.getWidth()" to work properly
         super(width, height);
 
-        //initialize the universe to display
-        universe = new Universe(2000, 2000);
-        //initialize the physics thread of the universe
-        Thread universeThread = new Thread(universe);
-        //start the physics thread of the universe
-        universeThread.start();
-
-        //initialize the camera
-        camera = new Camera(
-                this.getWidth(),
-                this.getHeight(),
-                universe.getWidth() / 2,
-                universe.getHeight() / 2
-        );
+        gameScene = rootScene;
 
         //initialize the scale between height and width
         HeightWidthScale = this.getHeight() / this.getWidth();
@@ -80,6 +66,9 @@ public class GameCanvas extends Canvas implements Runnable {
 
         //initialize exit condition
         isExit = false;
+
+        //close new star lock
+        isNewStarExist = false;
 
         //let the graphical context be a pointer to the real screen context
         //they are pointing to the same object so the operations on graphical
@@ -101,57 +90,55 @@ public class GameCanvas extends Canvas implements Runnable {
             //left click to new a star
             if (me.getButton() == MouseButton.PRIMARY) {
                 //open the new star lock
-                universe.setNewStarExist(true);
+                isNewStarExist = true;
 
                 //get the mouse release coordinate
                 mouseEventX = me.getX();
                 mouseEventY = me.getY();
 
                 //give the buffer star speed based on the distance mouse dragged
-                universe.getBufferStar().vectorX = (mouseEventX - mouse_coordinate[0]) / dragSpeedConstant;
-                universe.getBufferStar().vectorY = (mouseEventY - mouse_coordinate[1]) / dragSpeedConstant;
+                gameScene.getRootEngine().getBufferStar().vectorX = (mouseEventX - mouse_coordinate[0]) / dragSpeedConstant;
+                gameScene.getRootEngine().getBufferStar().vectorY = (mouseEventY - mouse_coordinate[1]) / dragSpeedConstant;
 
                 //check if the new star lock is opened
                 //to avoid unnecessary star list iterations
-                if (universe.getNewStarExist()) {
-                    //check if there is empty star slot for a new star
-                    for (int i = 0; i < universe.getStars().length; i++) {
-                        if (universe.getNewStarExist()) {
-                            //not on screen means it is safe to clear
-                            if (!universe.getStars()[i].onScreen) {
+                //check if there is empty star slot for a new star
+                if (isNewStarExist) {
+                    for (int i = 0; i < gameScene.getRootEngine().getStars().length; i++) {
+                        //not on screen means it is safe to clear
+                        if (isNewStarExist & !gameScene.getRootEngine().getStars()[i].inUniverse) {
 
-                                //prepare the empty slot for new star
-                                universe.getStars()[i].remove();
-                                universe.getStars()[i].initialize();
+                            //prepare the empty slot for new star
+                            gameScene.getRootEngine().getStars()[i].remove();
+                            gameScene.getRootEngine().getStars()[i].initialize();
 
-                                //give the properties of buffer star to the empty star slot
-                                universe.getStars()[i] = new Star(universe.getBufferStar());
-                                //remove the buffer star (clear the values to default)
-                                universe.getBufferStar().remove();
+                            //give the properties of buffer star to the empty star slot
+                            gameScene.getRootEngine().getStars()[i] = new Star(gameScene.getRootEngine().getBufferStar());
+                            //remove the buffer star (clear the values to default)
+                            gameScene.getRootEngine().getBufferStar().remove();
 
-                                //show the star according to the size of window(camera)
-                                //and the enlarge scales
-                                universe.getStars()[i].show(
-                                        //convert the coordinate on screen to coordinate in the universe
-                                        //it's hard to explain the math, but it will be easy to understand
-                                        //once you draw it out on the paper, be careful changing it anyway
-                                        (camera.getCenterX() - universe.getWidth() / 2)
-                                                + (universe.getWidth() - camera.getWidth()) / 2
-                                                + mouseEventX * scaleX,
-                                        (camera.getCenterY() - universe.getHeight() / 2)
-                                                + (universe.getHeight() - camera.getHeight()) / 2
-                                                + mouseEventY * scaleY
-                                );
+                            //show the star according to the size of window(camera)
+                            //and the enlarge scales
+                            gameScene.getRootEngine().getStars()[i].show(
+                                    //convert the coordinate on screen to coordinate in the universe
+                                    //it's hard to explain the math, but it will be easy to understand
+                                    //once you draw it out on the paper, be careful changing it anyway
+                                    (gameScene.getRootEngine().getCamera().getCenterX() - gameScene.getRootEngine().getUniverse().getWidth() / 2)
+                                            + (gameScene.getRootEngine().getUniverse().getWidth() - gameScene.getRootEngine().getCamera().getWidth()) / 2
+                                            + mouseEventX * scaleX,
+                                    (gameScene.getRootEngine().getCamera().getCenterY() - gameScene.getRootEngine().getUniverse().getHeight() / 2)
+                                            + (gameScene.getRootEngine().getUniverse().getHeight() - gameScene.getRootEngine().getCamera().getHeight()) / 2
+                                            + mouseEventY * scaleY
+                            );
 
-                                //change the slot property from empty to full
-                                universe.getStars()[i].onScreen = true;
+                            //change the slot property from empty to full
+                            gameScene.getRootEngine().getStars()[i].inUniverse = true;
 
-                                //close the new star lock
-                                universe.setNewStarExist(false);
+                            //close the new star lock
+                            isNewStarExist = false;
 
-                                //refresh the screen
-                                drawShapes();
-                            }
+                            //refresh the screen
+                            drawShapes();
                         }
                     }
                 }
@@ -176,29 +163,27 @@ public class GameCanvas extends Canvas implements Runnable {
             if (se.getDeltaY() < 0) {
 
                 //change the size of the camera (+)
-                camera.setWidth(camera.getWidth() + sizeChangeSpeed);
-                camera.setHeight(camera.getHeight() + sizeChangeSpeed * HeightWidthScale);
+                gameScene.getRootEngine().getCamera().setWidth(gameScene.getRootEngine().getCamera().getWidth() + sizeChangeSpeed);
+                gameScene.getRootEngine().getCamera().setHeight(gameScene.getRootEngine().getCamera().getHeight() + sizeChangeSpeed * HeightWidthScale);
 
                 //move the camera to the mouse coordinate to create an effect
-                camera.setCenterX(camera.getCenterX() - (mouseEventX - this.getWidth() / 2) / this.getWidth() * cameraMoveSpeed);
-                camera.setCenterY(camera.getCenterY() - (mouseEventY - this.getHeight() / 2) / this.getHeight() * cameraMoveSpeed);
+                gameScene.getRootEngine().getCamera().setCenterX(gameScene.getRootEngine().getCamera().getCenterX() - (mouseEventX - this.getWidth() / 2) / this.getWidth() * cameraMoveSpeed);
+                gameScene.getRootEngine().getCamera().setCenterY(gameScene.getRootEngine().getCamera().getCenterY() - (mouseEventY - this.getHeight() / 2) / this.getHeight() * cameraMoveSpeed);
             } else {
                 //on mouse wheel rolling back (enlarge)
-                camera.setWidth(camera.getWidth() - sizeChangeSpeed);
-                camera.setHeight(camera.getHeight() - sizeChangeSpeed * HeightWidthScale);
+                gameScene.getRootEngine().getCamera().setWidth(gameScene.getRootEngine().getCamera().getWidth() - sizeChangeSpeed);
+                gameScene.getRootEngine().getCamera().setHeight(gameScene.getRootEngine().getCamera().getHeight() - sizeChangeSpeed * HeightWidthScale);
 
                 //move the camera to the mouse coordinate to create an effect
-                camera.setCenterX(camera.getCenterX() + (mouseEventX - this.getWidth() / 2) / this.getWidth() * cameraMoveSpeed);
-                camera.setCenterY(camera.getCenterY() + (mouseEventY - this.getHeight() / 2) / this.getHeight() * cameraMoveSpeed);
+                gameScene.getRootEngine().getCamera().setCenterX(gameScene.getRootEngine().getCamera().getCenterX() + (mouseEventX - this.getWidth() / 2) / this.getWidth() * cameraMoveSpeed);
+                gameScene.getRootEngine().getCamera().setCenterY(gameScene.getRootEngine().getCamera().getCenterY() + (mouseEventY - this.getHeight() / 2) / this.getHeight() * cameraMoveSpeed);
             }
 
             //calculate the scale between camera and original camera
-            scaleX = camera.getWidth() / camera.getOriginalWidth();
-            scaleY = camera.getHeight() / camera.getOriginalHeight();
+            scaleX = gameScene.getRootEngine().getCamera().getWidth() / gameScene.getRootEngine().getCamera().getOriginalWidth();
+            scaleY = gameScene.getRootEngine().getCamera().getHeight() / gameScene.getRootEngine().getCamera().getOriginalHeight();
         });
 
-        //paint the screen the first time to have a graphic instead of blank
-        drawShapes();
         //initialize the graphic thread
         Thread graphicThread = new Thread(this);
         //launch the graphic thread
@@ -217,12 +202,12 @@ public class GameCanvas extends Canvas implements Runnable {
         gc.setFill(Color.RED);
 
         //iterate the star list to draw all the exist stars in the universe
-        for (Star star : universe.getStars()) {
+        for (Star star : gameScene.getRootEngine().getStars()) {
             star.onScreen = true;
-            star.onScreen = !(star.centerX < camera.getCenterX() - camera.getWidth() / 2 - star.r
-                    || star.centerX > camera.getCenterX() + camera.getWidth() / 2 + star.r
-                    || star.centerY < camera.getCenterY() - camera.getHeight() / 2 - star.r
-                    || star.centerY > camera.getCenterY() + camera.getHeight() / 2 + star.r);
+            star.onScreen = !(star.centerX < gameScene.getRootEngine().getCamera().getCenterX() - gameScene.getRootEngine().getCamera().getWidth() / 2 - star.r
+                    || star.centerX > gameScene.getRootEngine().getCamera().getCenterX() + gameScene.getRootEngine().getCamera().getWidth() / 2 + star.r
+                    || star.centerY < gameScene.getRootEngine().getCamera().getCenterY() - gameScene.getRootEngine().getCamera().getHeight() / 2 - star.r
+                    || star.centerY > gameScene.getRootEngine().getCamera().getCenterY() + gameScene.getRootEngine().getCamera().getHeight() / 2 + star.r);
 
             //calculate the actual display size according to the scale
             double starWidth = star.r * 2 / scaleX;
@@ -247,14 +232,14 @@ public class GameCanvas extends Canvas implements Runnable {
 
                         //this is convert the universe coordinates to display coordinates
                         (
-                                star.centerX - (camera.getCenterX() - universe.getWidth() / 2)
-                                        - (universe.getWidth() - camera.getWidth()) / 2
+                                star.centerX - (gameScene.getRootEngine().getCamera().getCenterX() - gameScene.getRootEngine().getUniverse().getWidth() / 2)
+                                        - (gameScene.getRootEngine().getUniverse().getWidth() - gameScene.getRootEngine().getCamera().getWidth()) / 2
                         )
                                 / scaleX
                                 - starWidth / 2,
                         (
-                                star.centerY - (camera.getCenterY() - universe.getHeight() / 2)
-                                        - (universe.getHeight() - camera.getHeight()) / 2
+                                star.centerY - (gameScene.getRootEngine().getCamera().getCenterY() - gameScene.getRootEngine().getUniverse().getHeight() / 2)
+                                        - (gameScene.getRootEngine().getUniverse().getHeight() - gameScene.getRootEngine().getCamera().getHeight()) / 2
                         )
                                 / scaleY
                                 - starHeight / 2,
@@ -268,7 +253,7 @@ public class GameCanvas extends Canvas implements Runnable {
     //function designed for screen cleaning
     //calling it will remove all the stars in the universe
     private void clear() {
-        for (Star star : universe.getStars()) {
+        for (Star star : gameScene.getRootEngine().getStars()) {
             star.remove();
         }
     }

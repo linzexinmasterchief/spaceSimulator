@@ -18,27 +18,28 @@ public class Camera {
     private double centerX;
     private double centerY;
 
-    //first constructor
-    public Camera() {
-        //give default values to width and height
-        this.width = 100;
-        this.height = 100;
-
-        //store these initial data for scale calculations
-        originalWidth = this.width;
-        originalHeight = this.height;
-    }
-
-    //second constructor
-    public Camera(double width, double height) {
-        //take in width and height
-        this.width = width;
-        this.height = height;
-
-        //store these initial data for scale calculations
-        originalWidth = this.width;
-        originalHeight = this.height;
-    }
+    //unused constructors
+//    //first constructor
+//    public Camera() {
+//        //give default values to width and height
+//        this.width = 100;
+//        this.height = 100;
+//
+//        //store these initial data for scale calculations
+//        originalWidth = this.width;
+//        originalHeight = this.height;
+//    }
+//
+//    //second constructor
+//    public Camera(double width, double height) {
+//        //take in width and height
+//        this.width = width;
+//        this.height = height;
+//
+//        //store these initial data for scale calculations
+//        originalWidth = this.width;
+//        originalHeight = this.height;
+//    }
 
     //third constructor
     public Camera(double width, double height, double centerX, double centerY) {
@@ -89,15 +90,8 @@ public class Camera {
         return originalWidth;
     }
 
-    public void setOriginalWidth(double originalWidth) {
-        this.originalWidth = originalWidth;
-    }
-
     public double getOriginalHeight() {
         return originalHeight;
     }
 
-    public void setOriginalHeight(double originalHeight) {
-        this.originalHeight = originalHeight;
-    }
 }

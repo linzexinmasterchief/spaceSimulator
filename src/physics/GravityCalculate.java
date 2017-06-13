@@ -20,7 +20,7 @@ public class GravityCalculate {
     public void gravityAcceleration(Star s) {
         s.accelerationX = s.accelerationY = 0;
         for (Star star : stars) {
-            if (star.onScreen & star != s) {
+            if (star.inUniverse & star != s) {
                 double xDiff = star.centerX - s.centerX;
                 double yDiff = star.centerY - s.centerY;
                 double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);

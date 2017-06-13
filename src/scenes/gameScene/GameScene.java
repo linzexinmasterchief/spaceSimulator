@@ -1,5 +1,6 @@
 package scenes.gameScene;
 
+import MyEngine.GameEngine;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,27 +14,31 @@ public class GameScene extends Scene {
 
     private boolean clicked;
 
+    //create reference to root game engine
+    private GameEngine gameEngine;
+
     //constructor
-    public GameScene(Group root, double width, double height) {
+    public GameScene(Group root, double width, double height, GameEngine rootEngine) {
 
         //construct the game scene as a scene
         super(root, width, height);
+        gameEngine = rootEngine;
 
         clicked = false;
 
         //initialize the canvas
         //size
-        GameCanvas gameCanvas = new GameCanvas(1000, 560);
+        GameCanvas gameCanvas = new GameCanvas(1000, 560, this);
         //add game canvas
         root.getChildren().add(gameCanvas);
 
         //listener for activating the console
-        setOnKeyTyped(ke -> {
-            if (ke.getCharacter().equals('~')
-                    | ke.getCharacter().equals('`')) {
-
-            }
-        });
+//        setOnKeyTyped(ke -> {
+//            if (ke.getCharacter().equals('~')
+//                    | ke.getCharacter().equals('`')) {
+//
+//            }
+//        });
 
         //add a menu
         Button Menu01 = new Button("Button");
@@ -68,5 +73,9 @@ public class GameScene extends Scene {
 
     private void setClicked(boolean clicked) {
         this.clicked = clicked;
+    }
+
+    public GameEngine getRootEngine() {
+        return gameEngine;
     }
 }
