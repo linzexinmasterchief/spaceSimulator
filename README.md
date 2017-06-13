@@ -9,6 +9,8 @@ simulate the universe
 * add settings
 * add console
 ## update logs
+#### version 0.1.2 alpha build3 2017/6/13
+ok, I know I'm updating really slow, I'm sorry but I'm working all on my own so... anyway, I still fixed some bugs and made the program more flexible to add new options.
 #### version 0.1.2 alpha build2 2017/6/7
 now you have a menu! although it is still not completed, I will try to add some interesting controls into it. The graphic is also redesigned to make refresh faster.
 #### version 0.1.2 alpha build1 2017/6/1
