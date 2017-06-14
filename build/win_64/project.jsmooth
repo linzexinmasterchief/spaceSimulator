@@ -14,7 +14,7 @@
 <iconLocation>pic.png</iconLocation>
 <initialMemoryHeap>-1</initialMemoryHeap>
 <jarLocation>spaceSimulator.jar</jarLocation>
-<mainClassName>Stages.MainStage</mainClassName>
+<mainClassName>Stages.MainStage.MainStage</mainClassName>
 <maximumMemoryHeap>-1</maximumMemoryHeap>
 <maximumVersion></maximumVersion>
 <minimumVersion></minimumVersion>

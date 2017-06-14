@@ -1,4 +1,4 @@
-package Stages;
+package Stages.MainStage;
 
 import MyEngine.GameEngine;
 import javafx.application.Application;
@@ -39,7 +39,7 @@ public class MainStage extends Application {
         });
         //make sure the stage is completely filled with game scene
         stage.sizeToScene();
-        //show the window
+        //add the window
         stage.show();
     }
 }
