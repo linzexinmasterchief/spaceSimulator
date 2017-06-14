@@ -5,8 +5,8 @@ import javafx.scene.Group;
 import models.Camera;
 import models.Star;
 import models.Universe;
-import physics.GravityCalculate;
-import scenes.gameScene.GameScene;
+import MyEngine.physics.GravityCalculate;
+import Stages.MainStage.gameScene.GameScene;
 
 /**
  * Created by lzx on 2017/6/13.
@@ -75,7 +75,7 @@ public class GameEngine implements Runnable {
 
     }
 
-    //this is the function called on every physics cycle
+    //this is the function called on every MyEngine.physics cycle
     //kind of like "fixed update" in unity
     private void PhysicsUpdate() {
         if (isPause) {

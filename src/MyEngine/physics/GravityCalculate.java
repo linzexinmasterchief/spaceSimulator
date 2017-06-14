@@ -1,4 +1,4 @@
-package physics;
+package MyEngine.physics;
 
 import models.Star;
 
@@ -41,9 +41,9 @@ public class GravityCalculate {
                     double newVY = ((s.vectorY * s.mass) + (star.vectorY * star.mass)) / newMass;
 
                     if (s.r >= star.r) {
-                        star.show(s.centerX, s.centerY);
+                        star.add(s.centerX, s.centerY);
                     } else {
-                        star.show(star.centerX, star.centerY);
+                        star.add(star.centerX, star.centerY);
                     }
                     star.r = newR;
                     star.accelerationX = newAX;

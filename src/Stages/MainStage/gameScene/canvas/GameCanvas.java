@@ -1,4 +1,4 @@
-package scenes.gameScene.canvas;
+package Stages.MainStage.gameScene.canvas;
 
 import javafx.application.Platform;
 import javafx.scene.canvas.Canvas;
@@ -6,7 +6,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseButton;
 import javafx.scene.paint.Color;
 import models.Star;
-import scenes.gameScene.GameScene;
+import Stages.MainStage.gameScene.GameScene;
 
 /**
  * Created by lzx on 2017/4/6.
@@ -42,7 +42,7 @@ public class GameCanvas extends Canvas implements Runnable {
     //determine how fast the camera enlarge/minify
     private int sizeChangeSpeed = 20;
     //determine how fast the camera moves to the mouse coordinate when scrolling on a point
-    private int cameraMoveSpeed = 10;
+    private int cameraMoveSpeed = 20;
 
     private double scaleX = 1;
     private double scaleY = 1;
@@ -112,14 +112,17 @@ public class GameCanvas extends Canvas implements Runnable {
                             gameScene.getRootEngine().getStars()[i].remove();
                             gameScene.getRootEngine().getStars()[i].initialize();
 
+                            //give buffer star properties
+                            gameScene.getRootEngine().getBufferStar().mass = gameScene.getMass();
+
                             //give the properties of buffer star to the empty star slot
                             gameScene.getRootEngine().getStars()[i] = new Star(gameScene.getRootEngine().getBufferStar());
                             //remove the buffer star (clear the values to default)
                             gameScene.getRootEngine().getBufferStar().remove();
 
-                            //show the star according to the size of window(camera)
+                            //add the star according to the size of window(camera)
                             //and the enlarge scales
-                            gameScene.getRootEngine().getStars()[i].show(
+                            gameScene.getRootEngine().getStars()[i].add(
                                     //convert the coordinate on screen to coordinate in the universe
                                     //it's hard to explain the math, but it will be easy to understand
                                     //once you draw it out on the paper, be careful changing it anyway
@@ -268,7 +271,7 @@ public class GameCanvas extends Canvas implements Runnable {
     public void run() {
         while (!isExit) {
             try {
-                Thread.sleep(20);
+                Thread.sleep(15);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

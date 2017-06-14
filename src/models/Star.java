@@ -65,8 +65,8 @@ public class Star {
         centerY = input_centerY;
     }
 
-    //allow the star thee show on screen
-    public void show(double input_centerX, double input_centerY) {
+    //allow the star thee add on screen
+    public void add(double input_centerX, double input_centerY) {
         onScreen = true;
         inUniverse = true;
         setPosition(input_centerX, input_centerY);
