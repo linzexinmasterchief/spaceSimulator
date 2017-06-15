@@ -8,11 +8,18 @@ import javafx.scene.control.Slider;
  */
 public class MenuSliderPrefab extends Slider {
 
-    public MenuSliderPrefab(){
-        setMinWidth(200);
+    public MenuSliderPrefab(double yPos, double start){
+        setMinWidth(150);
         setVisible(false);
         setShowTickLabels(true);
         setShowTickMarks(true);
+        setTranslateX(5);
+        setMin(0);
+        setValue(start);
+        setMajorTickUnit(20);
+        setMinorTickCount(5);
+        setBlockIncrement(5);
+        setTranslateY(yPos);
     }
 
 }

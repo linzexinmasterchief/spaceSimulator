@@ -12,7 +12,8 @@ import javafx.scene.paint.Color;
 public class MenuButtonPrefab extends Button {
     public MenuButtonPrefab(String Text){
         setText(Text);
-        setMinWidth(200);
+        setTranslateX(5);
+        setMinWidth(150);
         setVisible(false);
         setBackground(new Background(new BackgroundFill(Color.DARKGRAY,null,null)));
         setOnMouseEntered(me -> setBackground(new Background(new BackgroundFill(Color.GRAY, null, null))));

@@ -41,7 +41,7 @@ public class GameEngine implements Runnable {
     //function used to initialize all the stars to their default value
     private void initialize() {
         //initialize the universe
-        universe = new Universe(2000, 2000);
+        universe = new Universe(10000, 10000);
         //initialize the star list of the universe
         stars = new Star[50];
         //initialize every star in the star list
@@ -118,8 +118,16 @@ public class GameEngine implements Runnable {
         return universe;
     }
 
+    public boolean isPause(){
+        return isPause;
+    }
+
     public void setExit(boolean exit) {
         isExit = exit;
+    }
+
+    public void setPause(boolean pause){
+        isPause = pause;
     }
 
     //the main thread cycle of the universe

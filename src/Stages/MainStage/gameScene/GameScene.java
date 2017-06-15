@@ -26,6 +26,7 @@ public class GameScene extends Scene {
     //menu components
     private MenuButtonPrefab settingBtn;
     private MenuSliderPrefab massSlider;
+    private MenuSliderPrefab raiusSlider;
 
     //menu toggle
     private Button menuButton;
@@ -65,6 +66,7 @@ public class GameScene extends Scene {
         //add a menu
         //setting menuButton
         settingBtn = new MenuButtonPrefab("setting");
+        settingBtn.setTranslateY(5);
         settingBtn.setOnAction(ae -> {
             settingToggled = !settingToggled;
             if (settingToggled) {
@@ -75,16 +77,12 @@ public class GameScene extends Scene {
         });
         root.getChildren().add(settingBtn);
 
-        massSlider = new MenuSliderPrefab();
-        massSlider.setMin(0);
-        massSlider.setMax(100);
-        massSlider.setValue(10);
-        massSlider.setMajorTickUnit(50);
-        massSlider.setMinorTickCount(5);
-        massSlider.setBlockIncrement(10);
-//        massSlider.setMaxHeight(1);
-        massSlider.setTranslateY(30);
+        massSlider = new MenuSliderPrefab(40, 10);
         root.getChildren().add(massSlider);
+
+        raiusSlider = new MenuSliderPrefab(80, 5);
+        raiusSlider.setMax(20);
+        root.getChildren().add(raiusSlider);
 
         //add a menu menuButton
         menuButton = new Button("+");
@@ -94,18 +92,27 @@ public class GameScene extends Scene {
         menuButton.setOnMouseClicked(me -> {
             setClicked(!isClicked());
             if (isClicked()) {
+                //menuButton change
+                menuButton.setTranslateX(170);
+                menuButton.setText("-");
                 //pop out
                 settingBtn.setVisible(true);
                 massSlider.setVisible(true);
+                raiusSlider.setVisible(true);
 
             } else {
+                //menuButton change
+                menuButton.setTranslateX(10);
+                menuButton.setText("+");
                 //goes back
                 settingBtn.setVisible(false);
                 massSlider.setVisible(false);
+                raiusSlider.setVisible(false);
             }
         });
         menuButton.setTranslateX(10);
         menuButton.setTranslateY(10);
+        menuButton.setMinWidth(24);
         root.getChildren().add(menuButton);
     }
 
@@ -128,6 +135,10 @@ public class GameScene extends Scene {
 
     public double getMass(){
         return massSlider.getValue();
+    }
+
+    public double getRadius(){
+        return raiusSlider.getValue();
     }
 
 }

@@ -80,6 +80,10 @@ public class GameCanvas extends Canvas implements Runnable {
             //get the mouse press coordinate
             mouse_coordinate[0] = me.getX();
             mouse_coordinate[1] = me.getY();
+
+            if (me.getButton() == MouseButton.MIDDLE){
+                rootScene.getRootEngine().setPause(!rootScene.getRootEngine().isPause());
+            }
         });
 
         //set operations on mouse release
@@ -114,6 +118,7 @@ public class GameCanvas extends Canvas implements Runnable {
 
                             //give buffer star properties
                             gameScene.getRootEngine().getBufferStar().mass = gameScene.getMass();
+                            gameScene.getRootEngine().getBufferStar().r = gameScene.getRadius();
 
                             //give the properties of buffer star to the empty star slot
                             gameScene.getRootEngine().getStars()[i] = new Star(gameScene.getRootEngine().getBufferStar());
@@ -201,11 +206,18 @@ public class GameCanvas extends Canvas implements Runnable {
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, this.getWidth(), this.getHeight());
 
-        //change the color of pen to blue to paint the stars
-        gc.setFill(Color.RED);
-
         //iterate the star list to draw all the exist stars in the universe
         for (Star star : gameScene.getRootEngine().getStars()) {
+
+            //change the color of pen according to the mass of the star to paint the stars
+            if (star.mass > 500){
+                gc.setFill(Color.rgb(0, 0, 255));
+            }else if (star.mass < 0){
+                gc.setFill(Color.WHITE);
+            }else {
+                gc.setFill(Color.rgb((int)(255 - star.mass / 2), 0, (int) star.mass / 2));
+            }
+
             star.onScreen = true;
             star.onScreen = !(star.centerX < gameScene.getRootEngine().getCamera().getCenterX() - gameScene.getRootEngine().getCamera().getWidth() / 2 - star.r
                     || star.centerX > gameScene.getRootEngine().getCamera().getCenterX() + gameScene.getRootEngine().getCamera().getWidth() / 2 + star.r
