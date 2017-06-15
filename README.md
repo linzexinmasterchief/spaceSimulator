@@ -9,6 +9,8 @@ simulate the universe
 * add settings
 * add console
 ## update logs
+#### version 0.1.2 alpha build4 2017/6/15
+added mass and radius modifier, the color will now change according the mass, you can also pause the game by clicking middle button
 #### version 0.1.2 alpha build3 2017/6/13
 ok, I know I'm updating really slow, I'm sorry but I'm working all on my own so... anyway, I still fixed some bugs and made the program more flexible to add new options.
 #### version 0.1.2 alpha build2 2017/6/7

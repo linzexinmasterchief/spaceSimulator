@@ -1,8 +1,14 @@
 package Stages.MainStage;
 
 import MyEngine.GameEngine;
+import com.sun.imageio.plugins.common.ImageUtil;
 import javafx.application.Application;
+import javafx.scene.image.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * Created by lzx on 2017/3/21.
@@ -39,6 +45,10 @@ public class MainStage extends Application {
         });
         //make sure the stage is completely filled with game scene
         stage.sizeToScene();
+
+        //icon
+        stage.getIcons().add(new Image("/resources/icon.png"));
+
         //add the window
         stage.show();
     }

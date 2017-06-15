@@ -7,15 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/spaceSimulator_jar.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/spaceSimulator.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/MyEngine/GameEngine.class" afterPath="$PROJECT_DIR$/bin/MyEngine/GameEngine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/MyEngine/physics/GravityCalculate.class" afterPath="$PROJECT_DIR$/bin/MyEngine/physics/GravityCalculate.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Stages/MainStage/gameScene/canvas/GameCanvas.class" afterPath="$PROJECT_DIR$/bin/Stages/MainStage/gameScene/canvas/GameCanvas.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/models/MenuButtonPrefab.class" afterPath="$PROJECT_DIR$/bin/models/MenuButtonPrefab.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/models/MenuSliderPrefab.class" afterPath="$PROJECT_DIR$/bin/models/MenuSliderPrefab.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/resources/icon.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/project.jsmooth" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/build/win_64/spaceSimulator alpha build 3.jar" afterPath="$PROJECT_DIR$/build/jar/spaceSimulator 0.1.2 alpha build 3.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Stages/MainStage/MainStage.java" afterPath="$PROJECT_DIR$/src/Stages/MainStage/MainStage.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,12 +24,22 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="MainStage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Stages/MainStage/MainStage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="60">
-                <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+              <first_editor relative-caret-position="90">
+                <caret line="12" column="131" lean-forward="false" selection-start-line="12" selection-start-column="131" selection-end-line="12" selection-end-column="131" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -60,6 +66,8 @@
         <option value="$PROJECT_DIR$/src/Stages/MainStage/gameScene/GameScene.java" />
         <option value="$PROJECT_DIR$/src/MyEngine/GameEngine.java" />
         <option value="$PROJECT_DIR$/src/Stages/MainStage/gameScene/canvas/GameCanvas.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/Stages/MainStage/MainStage.java" />
       </list>
     </option>
   </component>
@@ -68,6 +76,9 @@
     <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="784" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -108,20 +119,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spaceSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spaceSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -144,24 +141,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spaceSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spaceSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -175,6 +154,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/build" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\projects\spaceSimulator\src\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\projects\spaceSimulator\build\jar" />
     </key>
@@ -466,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497503761305</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="build">
+      <created>1497504067288</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1497504067288</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -508,7 +497,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="added mass picker and radius picker, the color now will change according to the mass if the star, press middle mouse button to pause" />
-    <option name="LAST_COMMIT_MESSAGE" value="added mass picker and radius picker, the color now will change according to the mass if the star, press middle mouse button to pause" />
+    <MESSAGE value="build" />
+    <option name="LAST_COMMIT_MESSAGE" value="build" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -523,14 +513,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Stages/MainStage/MainStage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="49" lean-forward="true" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -590,11 +572,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Stages/MainStage/MainStage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="48" column="14" lean-forward="true" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="60">
-            <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
+          <first_editor relative-caret-position="90">
+            <caret line="12" column="131" lean-forward="false" selection-start-line="12" selection-start-column="131" selection-end-line="12" selection-end-column="131" />
             <folding />
           </first_editor>
           <second_editor />
