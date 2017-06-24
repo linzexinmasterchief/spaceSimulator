@@ -4,10 +4,11 @@ simulate the universe
 * redesign gravity system
     * faster
 * add collide system for planets
-* give stars and planets different colors (or pictures)
 * design menu
 * add settings
 * add console
+* add map files
+* optimize color changes
 ## update logs
 #### version 0.1.2 alpha build4 2017/6/15
 added mass and radius modifier, the color will now change according the mass, you can also pause the game by clicking middle button
