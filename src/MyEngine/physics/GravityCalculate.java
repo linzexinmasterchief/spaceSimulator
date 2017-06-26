@@ -26,8 +26,8 @@ public class GravityCalculate {
                 double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
 
                 if (distance > star.r + s.r & s.mass != 0) {
-                    s.accelerationX = (0.6673 * star.mass / Math.pow(distance, 2)) * (xDiff / distance);
-                    s.accelerationY = (0.6673 * star.mass / Math.pow(distance, 2)) * (yDiff / distance);
+                    s.accelerationX = (0.06673 * star.mass / Math.pow(distance, 2)) * (xDiff / distance);
+                    s.accelerationY = (0.06673 * star.mass / Math.pow(distance, 2)) * (yDiff / distance);
                 }
 
                 if (distance <= star.r + s.r) {

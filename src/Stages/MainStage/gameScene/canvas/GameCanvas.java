@@ -38,7 +38,8 @@ public class GameCanvas extends Canvas implements Runnable {
     //a variable used to store the scale between height and width
     private double HeightWidthScale;
     //determine how fast the star moves with the same drag distance
-    private int dragSpeedConstant = 100;
+    //larger the value, slower the speed
+    private int dragSpeedConstant = 1000;
     //determine how fast the camera enlarge/minify
     private int sizeChangeSpeed = 20;
     //determine how fast the camera moves to the mouse coordinate when scrolling on a point
@@ -209,14 +210,31 @@ public class GameCanvas extends Canvas implements Runnable {
         //iterate the star list to draw all the exist stars in the universe
         for (Star star : gameScene.getRootEngine().getStars()) {
 
+            int r = 0;
+            int g = 0;
+            int b = 0;
+
             //change the color of pen according to the mass of the star to paint the stars
             if (star.mass > 500){
-                gc.setFill(Color.rgb(0, 0, 255));
+                r = 0;
+                g = 0;
+                b = 255;
             }else if (star.mass < 0){
-                gc.setFill(Color.WHITE);
+                r = 255;
+                g = 0;
+                b = 0;
             }else {
-                gc.setFill(Color.rgb((int)(255 - star.mass / 2), 0, (int) star.mass / 2));
+                if (star.mass > 255){
+                    r = (int) (500 - star.mass);
+                    g = (int) (500 - star.mass);
+                    b = 255;
+                }else {
+                    r = 255;
+                    g = (int) star.mass;
+                    b = (int) star.mass;
+                }
             }
+            gc.setFill(Color.rgb(r, g, b));
 
             star.onScreen = true;
             star.onScreen = !(star.centerX < gameScene.getRootEngine().getCamera().getCenterX() - gameScene.getRootEngine().getCamera().getWidth() / 2 - star.r
