@@ -7,10 +7,208 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Stages/MainStage/MainStage.class" afterPath="$PROJECT_DIR$/bin/Stages/MainStage/MainStage.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/COPYRIGHT" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/README.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/THIRDPARTYLICENSEREADME-JAVAFX.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/THIRDPARTYLICENSEREADME.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/Welcome.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/JAWTAccessBridge-64.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/JavaAccessBridge-64.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/WindowsAccessBridge-64.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/attach.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/awt.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/bci.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/dcpr.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/decora_sse.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/deploy.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/dt_shmem.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/dt_socket.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/dtplugin/deployJava1.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/dtplugin/npdeployJava1.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/eula.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/fontmanager.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/fxplugins.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/glass.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/glib-lite.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/gstreamer-lite.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/hprof.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/instrument.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/j2pcsc.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/j2pkcs11.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jaas_nt.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jabswitch.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/java-rmi.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/java.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/java.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/java_crw_demo.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/javacpl.cpl" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/javacpl.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/javafx_font.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/javafx_font_t2k.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/javafx_iio.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/javaw.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/javaws.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jawt.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jdwp.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jfr.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jfxmedia.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jfxwebkit.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jjs.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jli.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jp2iexp.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jp2launcher.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jp2native.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jp2ssv.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jpeg.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jsdt.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jsound.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/jsoundds.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/kcms.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/keytool.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/kinit.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/klist.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/ktab.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/lcms.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/management.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/mlib_image.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/msvcp120.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/msvcr100.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/msvcr120.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/net.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/nio.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/npt.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/orbd.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/pack200.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/plugin2/msvcr100.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/plugin2/npjp2.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/policytool.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/prism_common.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/prism_d3d.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/prism_sw.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/resource.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/rmid.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/rmiregistry.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/sawindbg.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/server/Xusage.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/server/classes.jsa" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/server/jvm.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/servertool.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/splashscreen.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/ssv.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/ssvagent.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/sunec.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/sunmscapi.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/t2k.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/tnameserv.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/unpack.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/unpack200.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/verify.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/w2k_lsa_auth.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/wsdetect.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/bin/zip.dll" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/accessibility.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/amd64/jvm.cfg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/calendars.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/charsets.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/classlist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/cmm/CIEXYZ.pf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/cmm/GRAY.pf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/cmm/LINEAR_RGB.pf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/cmm/PYCC.pf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/cmm/sRGB.pf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/content-types.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/currency.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/ffjcext.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages_de.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages_es.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages_fr.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages_it.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages_ja.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages_ko.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages_pt_BR.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages_sv.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages_zh_CN.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages_zh_HK.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/messages_zh_TW.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/splash.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/splash@2x.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/splash_11-lic.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/deploy/splash_11@2x-lic.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/access-bridge-64.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/cldrdata.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/dnsns.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/jaccess.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/jfxrt.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/localedata.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/meta-index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/nashorn.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/sunec.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/sunjce_provider.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/sunmscapi.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/sunpkcs11.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/ext/zipfs.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/flavormap.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/fontconfig.bfc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/fontconfig.properties.src" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/fonts/LucidaBrightDemiBold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/fonts/LucidaBrightDemiItalic.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/fonts/LucidaBrightItalic.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/fonts/LucidaBrightRegular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/fonts/LucidaSansDemiBold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/fonts/LucidaSansRegular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/fonts/LucidaTypewriterBold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/fonts/LucidaTypewriterRegular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/hijrah-config-umalqura.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/images/cursors/cursors.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/images/cursors/invalid32x32.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/images/cursors/win32_CopyDrop32x32.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/images/cursors/win32_CopyNoDrop32x32.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/images/cursors/win32_LinkDrop32x32.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/images/cursors/win32_LinkNoDrop32x32.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/images/cursors/win32_MoveDrop32x32.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/images/cursors/win32_MoveNoDrop32x32.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/javafx.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/javaws.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/jce.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/jfr.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/jfr/default.jfc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/jfr/profile.jfc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/jfxswt.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/jsse.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/jvm.hprof.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/logging.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/management-agent.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/management/jmxremote.access" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/management/jmxremote.password.template" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/management/management.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/management/snmp.acl.template" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/meta-index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/net.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/plugin.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/psfont.properties.ja" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/psfontj2d.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/resources.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/rt.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/security/US_export_policy.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/security/blacklist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/security/blacklisted.certs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/security/cacerts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/security/java.policy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/security/java.security" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/security/javaws.policy" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/security/local_policy.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/security/trusted.libraries" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/sound.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/tzdb.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/jre/lib/tzmappings" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/pic.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/win_64/spaceSimulator alpha build 3.exe" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/MyEngine/physics/GravityCalculate.class" afterPath="$PROJECT_DIR$/bin/MyEngine/physics/GravityCalculate.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Stages/MainStage/gameScene/canvas/GameCanvas.class" afterPath="$PROJECT_DIR$/bin/Stages/MainStage/gameScene/canvas/GameCanvas.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MyEngine/physics/GravityCalculate.java" afterPath="$PROJECT_DIR$/src/MyEngine/physics/GravityCalculate.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Stages/MainStage/gameScene/canvas/GameCanvas.java" afterPath="$PROJECT_DIR$/src/Stages/MainStage/gameScene/canvas/GameCanvas.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +224,8 @@
       <file leaf-file-name="GameCanvas.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Stages/MainStage/gameScene/canvas/GameCanvas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="41" column="39" lean-forward="false" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+            <state relative-caret-position="369">
+              <caret line="215" column="0" lean-forward="true" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -36,7 +234,7 @@
       <file leaf-file-name="GravityCalculate.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MyEngine/physics/GravityCalculate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="375">
               <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
               <folding />
             </state>
@@ -46,7 +244,7 @@
       <file leaf-file-name="GameEngine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MyEngine/GameEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
+            <state relative-caret-position="1590">
               <caret line="120" column="29" lean-forward="false" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
               <folding>
                 <element signature="e#3495#3496#0" expanded="true" />
@@ -103,6 +301,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -266,10 +466,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -595,7 +807,14 @@
       <option name="project" value="LOCAL" />
       <updated>1498278862547</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="adjusted some of the color changes and values">
+      <created>1498491572170</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1498491572170</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -604,13 +823,12 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -627,6 +845,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -640,7 +859,8 @@
     <MESSAGE value="build" />
     <MESSAGE value="add icon" />
     <MESSAGE value="readme update" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme update" />
+    <MESSAGE value="adjusted some of the color changes and values" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjusted some of the color changes and values" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -651,12 +871,37 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Stages/MainStage/gameScene/canvas/GameCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyEngine/physics/GravityCalculate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MyEngine/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="120" column="29" lean-forward="false" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
+          <folding>
+            <element signature="e#3495#3496#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -702,7 +947,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="15">
             <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -710,7 +954,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MyEngine/physics/GravityCalculate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="375">
           <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
           <folding />
         </state>
@@ -718,7 +962,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MyEngine/GameEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
+        <state relative-caret-position="1590">
           <caret line="120" column="29" lean-forward="false" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
           <folding>
             <element signature="e#3495#3496#0" expanded="true" />
@@ -728,8 +972,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Stages/MainStage/gameScene/canvas/GameCanvas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="41" column="39" lean-forward="false" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
+        <state relative-caret-position="369">
+          <caret line="215" column="0" lean-forward="true" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
           <folding />
         </state>
       </provider>
