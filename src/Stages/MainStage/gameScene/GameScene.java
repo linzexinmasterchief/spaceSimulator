@@ -125,7 +125,7 @@ public class GameScene extends Scene {
         this.clicked = clicked;
     }
 
-    public GameEngine getRootEngine() {
+    public GameEngine getGameEngine() {
         return gameEngine;
     }
 

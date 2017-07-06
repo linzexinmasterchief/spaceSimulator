@@ -14,6 +14,10 @@ public class PhysicsThread implements Runnable{
     private GameEngine engine;
     private Star[] stars;
 
+    //some properties of the program
+    private boolean isExit;
+    private boolean isPause;
+
     //install the gravity module
     private GravityCalculate gravityCalculate;
 
@@ -21,12 +25,16 @@ public class PhysicsThread implements Runnable{
         engine = root_engine;
         //initialize the gravity module object
         gravityCalculate = new GravityCalculate(stars);
+
+        //initialize program properties
+        isExit = false;
+        isPause = false;
     }
 
     //this is the function called on every MyEngine.physics cycle
     //kind of like "fixed update" in unity
     private void PhysicsUpdate() {
-        if (engine.isPause()) {
+        if (isPause()) {
             return;
         }
 
@@ -55,10 +63,26 @@ public class PhysicsThread implements Runnable{
         engine.setUniverse(universe);
     }
 
+    public boolean isPause(){
+        return isPause;
+    }
+
+    public void setPause(boolean pause){
+        isPause = pause;
+    }
+
+    public boolean isExit(){
+        return isExit;
+    }
+
+    public void setExit(boolean exit) {
+        isExit = exit;
+    }
+
     //the main thread cycle of the universe
     @Override
     public void run() {
-        while (!engine.isExit()) {
+        while (!isExit()) {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {

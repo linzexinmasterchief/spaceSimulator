@@ -1,11 +1,13 @@
 package MyEngine;
 
+import MyEngine.graphics.GraphicsThread;
 import MyEngine.physics.PhysicsThread;
-import javafx.scene.Group;
+import Stages.MainStage.GameStage;
+import Stages.MainStarter;
+import javafx.stage.Stage;
 import models.Camera;
 import models.Star;
 import models.Universe;
-import Stages.MainStage.gameScene.GameScene;
 
 /**
  * Created by lzx on 2017/6/13.
@@ -13,9 +15,13 @@ import Stages.MainStage.gameScene.GameScene;
  */
 public class GameEngine{
 
+    private MainStarter mainStarter;
+    private GameStage gameStage;
+
+    private PhysicsThread physicsThread;
+    private GraphicsThread graphicsThread;
+
     //used components
-    //create an object of the game scene
-    public GameScene gameScene;
     //generate a universe
     private Universe universe;
     //store all the stars in this universe
@@ -25,12 +31,10 @@ public class GameEngine{
     //define a camera used for display
     private Camera camera;
 
-    //some properties of the program
-    private boolean isExit;
-    private boolean isPause;
-
-    public GameEngine() {
-
+    //this game stage is at the same level as game engine
+    //they both belong to MainStarter
+    public GameEngine(MainStarter starter) {
+        mainStarter = starter;
         //call the function to initialize all the stars in the universe
         initialize();
     }
@@ -50,9 +54,6 @@ public class GameEngine{
         //initialize the buffer star
         bufferStar = new Star();
 
-        //initialize components
-        gameScene = new GameScene(new Group(), 1000, 560, this);
-
         //initialize the camera
         camera = new Camera(
                 1000,
@@ -61,17 +62,22 @@ public class GameEngine{
                 universe.getHeight() / 2
         );
 
-        //initialize program properties
-        isExit = false;
-        isPause = false;
-
-
-        PhysicsThread physicsThread = new PhysicsThread(this);
+        //physics module
+        physicsThread = new PhysicsThread(this);
         Thread physics = new Thread(physicsThread);
         physics.start();
 
+        //graphics module
+        graphicsThread = new GraphicsThread(this);
+        Thread graphics = new Thread(graphicsThread);
+        graphics.start();
+
     }
 
+    public void EXIT(){
+        physicsThread.setExit(true);
+        graphicsThread.setExit(true);
+    }
 
     //getter and setters
     public Star[] getStars() {
@@ -90,22 +96,21 @@ public class GameEngine{
         return universe;
     }
 
-    public boolean isPause(){
-        return isPause;
+    public PhysicsThread getPhysicsThread(){
+        return physicsThread;
     }
 
-    public boolean isExit(){
-        return isExit;
+    public GraphicsThread getGraphicsThread(){
+        return graphicsThread;
     }
 
-    public void setExit(boolean exit) {
-        isExit = exit;
+    public GameStage getGameStage(){
+        return gameStage;
     }
 
-    public void setPause(boolean pause){
-        isPause = pause;
+    public void setGameStage(){
+        gameStage = mainStarter.getGameStage();
     }
-
 
     public void setStars(Star[] stars) {
         this.stars = stars;
