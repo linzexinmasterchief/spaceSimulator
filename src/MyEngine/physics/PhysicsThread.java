@@ -50,6 +50,9 @@ public class PhysicsThread implements Runnable{
                 });
             }
         }
+
+        engine.setStars(stars);
+        engine.setUniverse(universe);
     }
 
     //the main thread cycle of the universe
