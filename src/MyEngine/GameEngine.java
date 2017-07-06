@@ -1,18 +1,17 @@
 package MyEngine;
 
-import javafx.application.Platform;
+import MyEngine.physics.PhysicsThread;
 import javafx.scene.Group;
 import models.Camera;
 import models.Star;
 import models.Universe;
-import MyEngine.physics.GravityCalculate;
 import Stages.MainStage.gameScene.GameScene;
 
 /**
  * Created by lzx on 2017/6/13.
  * initialize at start, then every components are created under it
  */
-public class GameEngine implements Runnable {
+public class GameEngine{
 
     //used components
     //create an object of the game scene
@@ -23,8 +22,6 @@ public class GameEngine implements Runnable {
     private Star[] stars;
     //use a bufferStar for new input star
     private Star bufferStar;
-    //install the gravity module
-    private GravityCalculate gravityCalculate;
     //define a camera used for display
     private Camera camera;
 
@@ -55,8 +52,7 @@ public class GameEngine implements Runnable {
 
         //initialize components
         gameScene = new GameScene(new Group(), 1000, 560, this);
-        //initialize the gravity module object
-        gravityCalculate = new GravityCalculate(stars);
+
         //initialize the camera
         camera = new Camera(
                 1000,
@@ -70,36 +66,12 @@ public class GameEngine implements Runnable {
         isPause = false;
 
 
-        Thread physics = new Thread(this);
+        PhysicsThread physicsThread = new PhysicsThread(this);
+        Thread physics = new Thread(physicsThread);
         physics.start();
 
     }
 
-    //this is the function called on every MyEngine.physics cycle
-    //kind of like "fixed update" in unity
-    private void PhysicsUpdate() {
-        if (isPause) {
-            return;
-        }
-
-        for (int i = 0; i < stars.length; i++) {
-            if (((stars[i].centerX - stars[i].r) > (universe.getWidth() + 10 + (2 * stars[i].r)))
-                    | ((stars[i].centerY - stars[i].r) > (universe.getHeight() + 10 + (2 * stars[i].r)))
-                    | ((stars[i].centerX - stars[i].r) < (-10 - (2 * stars[i].r)))
-                    | ((stars[i].centerY - stars[i].r) < (-10 - (2 * stars[i].r)))) {
-                stars[i].remove();
-            }
-
-            if (stars[i].inUniverse) {
-                stars[i].move();
-                final int F = i;
-                Platform.runLater(() -> {
-                    gravityCalculate.synchronize(stars);
-                    gravityCalculate.gravityAcceleration(stars[F]);
-                });
-            }
-        }
-    }
 
     //getter and setters
     public Star[] getStars() {
@@ -122,6 +94,10 @@ public class GameEngine implements Runnable {
         return isPause;
     }
 
+    public boolean isExit(){
+        return isExit;
+    }
+
     public void setExit(boolean exit) {
         isExit = exit;
     }
@@ -130,18 +106,6 @@ public class GameEngine implements Runnable {
         isPause = pause;
     }
 
-    //the main thread cycle of the universe
-    @Override
-    public void run() {
-        while (!isExit) {
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            //call the specific used function
-            PhysicsUpdate();
-        }
-    }
+
 
 }
