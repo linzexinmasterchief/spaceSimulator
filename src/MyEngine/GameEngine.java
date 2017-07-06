@@ -107,5 +107,11 @@ public class GameEngine{
     }
 
 
+    public void setStars(Star[] stars) {
+        this.stars = stars;
+    }
 
+    public void setUniverse(Universe universe) {
+        this.universe = universe;
+    }
 }
