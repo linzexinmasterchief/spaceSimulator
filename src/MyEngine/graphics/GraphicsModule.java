@@ -12,11 +12,10 @@ import models.Star;
  * Created by lzx on 2017/7/6.
  * graphics processor module
  */
-public class GraphicsThread implements Runnable{
+public class GraphicsModule implements Runnable{
 
     private GameEngine engine;
 
-    private GameScene gameScene;
     private GameCanvas gameCanvas;
     private GraphicsContext gc;
 
@@ -29,28 +28,24 @@ public class GraphicsThread implements Runnable{
     private double scaleX = 1;
     private double scaleY = 1;
 
-    public GraphicsThread(GameEngine root_engine){
+    public GraphicsModule(GameEngine root_engine){
         engine = root_engine;
         isPause = true;
+
     }
 
     public void initialize(){
-        engine.setGameStage();
-        gameScene = engine.getGameStage().getGameScene();
+        GameScene gameScene = engine.getGameStage().getGameScene();
         gameCanvas = gameScene.getGameCanvas();
         gc = gameCanvas.getGraphicsContext2D();
 
         //initialize program properties
-        isExit = false;
-        isPause = false;
+        setExit(false);
+        setPause(false);
     }
 
     //screen painting function
     public void drawShapes() {
-
-        if (isPause){
-            return;
-        }
 
         //fill the back ground with black color
         gc.setFill(Color.BLACK);
@@ -59,9 +54,7 @@ public class GraphicsThread implements Runnable{
         //iterate the star list to draw all the exist stars in the universe
         for (Star star : engine.getStars()) {
 
-            int r = 0;
-            int g = 0;
-            int b = 0;
+            int r, g, b;
 
             //change the color of pen according to the mass of the star to paint the stars
             if (star.mass > 500){
@@ -149,10 +142,6 @@ public class GraphicsThread implements Runnable{
         isPause = pause;
     }
 
-    public boolean isExit(){
-        return isExit;
-    }
-
     public void setExit(boolean exit) {
         isExit = exit;
     }
@@ -181,6 +170,9 @@ public class GraphicsThread implements Runnable{
                 Thread.sleep(15);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
+            if (isPause){
+                continue;
             }
             //send the rendering job to a background thread
             Platform.runLater(this::drawShapes);

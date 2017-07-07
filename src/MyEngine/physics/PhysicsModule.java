@@ -9,7 +9,7 @@ import models.Universe;
  * Created by lzx on 2017/7/6.
  * physics thread is a independent module
  */
-public class PhysicsThread implements Runnable{
+public class PhysicsModule implements Runnable{
 
     private GameEngine engine;
     private Star[] stars;
@@ -21,20 +21,20 @@ public class PhysicsThread implements Runnable{
     //install the gravity module
     private GravityCalculate gravityCalculate;
 
-    public PhysicsThread(GameEngine root_engine){
+    public PhysicsModule(GameEngine root_engine){
         engine = root_engine;
         //initialize the gravity module object
         gravityCalculate = new GravityCalculate(stars);
 
         //initialize program properties
-        isExit = false;
-        isPause = false;
+        setExit(false);
+        setPause(false);
     }
 
     //this is the function called on every MyEngine.physics cycle
     //kind of like "fixed update" in unity
     private void PhysicsUpdate() {
-        if (isPause()) {
+        if (isPause) {
             return;
         }
 
@@ -71,10 +71,6 @@ public class PhysicsThread implements Runnable{
         isPause = pause;
     }
 
-    public boolean isExit(){
-        return isExit;
-    }
-
     public void setExit(boolean exit) {
         isExit = exit;
     }
@@ -82,7 +78,7 @@ public class PhysicsThread implements Runnable{
     //the main thread cycle of the universe
     @Override
     public void run() {
-        while (!isExit()) {
+        while (!isExit) {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {

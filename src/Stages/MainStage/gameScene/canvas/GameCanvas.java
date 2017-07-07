@@ -68,8 +68,8 @@ public class GameCanvas extends Canvas{
             mouse_coordinate[1] = me.getY();
 
             if (me.getButton() == MouseButton.MIDDLE){
-                gameEngine.getPhysicsThread().setPause(!gameEngine.getPhysicsThread().isPause());
-                gameEngine.getGraphicsThread().setPause(!gameEngine.getGraphicsThread().isPause());
+                gameEngine.getPhysicsModule().setPause(!gameEngine.getPhysicsModule().isPause());
+                gameEngine.getGraphicsModule().setPause(!gameEngine.getGraphicsModule().isPause());
             }
         });
 
@@ -120,10 +120,10 @@ public class GameCanvas extends Canvas{
                                     //once you draw it out on the paper, be careful changing it anyway
                                     (gameEngine.getCamera().getCenterX() - gameEngine.getUniverse().getWidth() / 2)
                                             + (gameEngine.getUniverse().getWidth() - gameEngine.getCamera().getWidth()) / 2
-                                            + mouseEventX * gameEngine.getGraphicsThread().getScaleX(),
+                                            + mouseEventX * gameEngine.getGraphicsModule().getScaleX(),
                                     (gameScene.getGameEngine().getCamera().getCenterY() - gameScene.getGameEngine().getUniverse().getHeight() / 2)
                                             + (gameScene.getGameEngine().getUniverse().getHeight() - gameScene.getGameEngine().getCamera().getHeight()) / 2
-                                            + mouseEventY * gameEngine.getGraphicsThread().getScaleY()
+                                            + mouseEventY * gameEngine.getGraphicsModule().getScaleY()
                             );
 
                             //change the slot property from empty to full
@@ -133,7 +133,7 @@ public class GameCanvas extends Canvas{
                             isNewStarExist = false;
 
                             //refresh the screen
-                            gameEngine.getGraphicsThread().drawShapes();
+                            gameEngine.getGraphicsModule().drawShapes();
                         }
                     }
                 }
@@ -142,7 +142,7 @@ public class GameCanvas extends Canvas{
             //right click the mouse to clean the screen
             //remove all the stars from the universe
             if (me.getButton() == MouseButton.SECONDARY) {
-                gameEngine.getGraphicsThread().clear();
+                gameEngine.getGraphicsModule().clear();
             }
         });
 
@@ -175,8 +175,11 @@ public class GameCanvas extends Canvas{
             }
 
             //calculate the scale between camera and original camera
-            gameEngine.getGraphicsThread().setScaleX(gameEngine.getCamera().getWidth() / gameEngine.getCamera().getOriginalWidth());
-            gameEngine.getGraphicsThread().setScaleY(gameEngine.getCamera().getHeight() / gameEngine.getCamera().getOriginalHeight());
+            gameEngine.getGraphicsModule().setScaleX(gameEngine.getCamera().getWidth() / gameEngine.getCamera().getOriginalWidth());
+            gameEngine.getGraphicsModule().setScaleY(gameEngine.getCamera().getHeight() / gameEngine.getCamera().getOriginalHeight());
+
+            //refresh the screen
+            gameEngine.getGraphicsModule().drawShapes();
         });
 
     }

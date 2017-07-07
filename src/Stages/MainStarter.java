@@ -35,7 +35,14 @@ public class MainStarter extends Application {
         //I am totally unsure if this piece of weired code would be a problem
         gameStage = (GameStage) stage;
 
-        gameEngine.getGraphicsThread().initialize();
+        //initialize the stage reference in game engine
+        gameEngine.setGameStage();
+        gameEngine.getGraphicsModule().initialize();
+
+        //start the threads after canvas is initialized
+        gameEngine.getPhysics().start();
+        gameEngine.getGraphics().start();
+
         //add the window
         stage.show();
     }
