@@ -1,15 +1,17 @@
 # spaceSimulator
 simulate the universe
 ## TODO list
-* redesign gravity system
-    * faster
 * add collide system for planets
 * design menu
 * add settings
 * add console
 * add map files
 * optimize color changes
+* better collisions
+* changeable time speed
 ## update logs
+#### version 0.1.2 alpha build5 2017/7/7
+added icon, did some optimations to the code
 #### version 0.1.2 alpha build4 2017/6/15
 added mass and radius modifier, the color will now change according the mass, you can also pause the game by clicking middle button
 #### version 0.1.2 alpha build3 2017/6/13
