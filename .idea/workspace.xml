@@ -7,15 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MainStage.xmind" afterPath="$PROJECT_DIR$/MainStage.xmind" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/MyEngine/GameEngine.class" afterPath="$PROJECT_DIR$/bin/MyEngine/GameEngine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/Stages/MainStage/gameScene/canvas/GameCanvas.class" afterPath="$PROJECT_DIR$/bin/Stages/MainStage/gameScene/canvas/GameCanvas.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/jar/spaceSimulator 0.1.2 alpha build 5.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/spaceSimulator_jar/spaceSimulator.jar" afterPath="$PROJECT_DIR$/out/artifacts/spaceSimulator_jar/spaceSimulator.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MyEngine/GameEngine.java" afterPath="$PROJECT_DIR$/src/MyEngine/GameEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Stages/MainStage/gameScene/canvas/GameCanvas.java" afterPath="$PROJECT_DIR$/src/Stages/MainStage/gameScene/canvas/GameCanvas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Stages/MainStarter.java" afterPath="$PROJECT_DIR$/src/Stages/MainStarter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/MyEngine/graphics/GraphicsThread.java" afterPath="$PROJECT_DIR$/src/MyEngine/graphics/GraphicsModule.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/MyEngine/physics/PhysicsThread.java" afterPath="$PROJECT_DIR$/src/MyEngine/physics/PhysicsModule.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +26,21 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="195">
+                <caret line="13" column="44" lean-forward="false" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,7 +62,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/models/MenuButtonPrefab.java" />
         <option value="$PROJECT_DIR$/src/models/MenuSliderPrefab.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/MyEngine/physics/GravityCalculate.java" />
         <option value="$PROJECT_DIR$/src/MyEngine/graphics/GraphicThread.java" />
         <option value="$PROJECT_DIR$/src/MyEngine/physics/PhysicsThread.java" />
@@ -70,6 +77,7 @@
         <option value="$PROJECT_DIR$/src/Stages/MainStage/gameScene/canvas/GameCanvas.java" />
         <option value="$PROJECT_DIR$/src/MyEngine/graphics/GraphicsModule.java" />
         <option value="$PROJECT_DIR$/src/MyEngine/physics/PhysicsModule.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -295,6 +303,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jar" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -695,7 +721,21 @@
       <option name="project" value="LOCAL" />
       <updated>1499354287282</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fixed some bugs">
+      <created>1499401145065</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1499401145065</updated>
+    </task>
+    <task id="LOCAL-00017" summary="readme update">
+      <created>1499409736922</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1499409736922</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -717,7 +757,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -740,14 +780,15 @@
     <MESSAGE value="added mass picker and radius picker, the color now will change according to the mass if the star, press middle mouse button to pause" />
     <MESSAGE value="build" />
     <MESSAGE value="add icon" />
-    <MESSAGE value="readme update" />
     <MESSAGE value="adjusted some of the color changes and values" />
     <MESSAGE value="delete exe version to save space" />
     <MESSAGE value="." />
     <MESSAGE value="add mind map(using xmind)" />
     <MESSAGE value="separate physics module from the engine" />
     <MESSAGE value="unfinished separation of graphics module and main engine" />
-    <option name="LAST_COMMIT_MESSAGE" value="unfinished separation of graphics module and main engine" />
+    <MESSAGE value="fixed some bugs" />
+    <MESSAGE value="readme update" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -988,16 +1029,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="15">
-            <caret line="5" column="32" lean-forward="false" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MyEngine/physics/GravityCalculate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
@@ -1084,6 +1115,17 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="195">
+            <caret line="13" column="44" lean-forward="false" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
