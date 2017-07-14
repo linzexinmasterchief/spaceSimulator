@@ -11,7 +11,7 @@ simulate the universe
 * changeable time speed
 ## update logs
 #### version 0.1.2 alpha build6 2017/7/14
-reconstruct code, made it easier and faster to add new things.
+added a star counter, reconstructed code, made it easier and faster to add new things.
 #### version 0.1.2 alpha build5 2017/7/7
 added icon, did some optimizations to the code.
 #### version 0.1.2 alpha build4 2017/6/15
