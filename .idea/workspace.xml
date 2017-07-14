@@ -6,30 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Engine/gameSettings/Speed.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/Engine/operation/OperationModule.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/canvas/GameCanvas.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/system/SystemSettings.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/system/SystemStatus.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/SystemComponents/ThreadModule.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/MyEngine/GameEngine.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/MyEngine/physics/GravityCalculate.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/Stages/MainStage/gameScene/GameScene.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/Stages/MainStage/gameScene/canvas/GameCanvas.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/Stages/SettingStage/SettingStage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Stages/MainStage/gameScene/canvas/GameCanvas.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MainStage.xmind" afterPath="$PROJECT_DIR$/MainStage.xmind" />
+    <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="build update">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/jar/spaceSimulator 0.1.2 alpha build 6.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/spaceSimulator_jar/spaceSimulator.jar" afterPath="$PROJECT_DIR$/out/artifacts/spaceSimulator_jar/spaceSimulator.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/build/META-INF/MANIFEST.MF" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/MyEngine/GameEngine.java" afterPath="$PROJECT_DIR$/src/Application/Engine/Engine.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/MyEngine/graphics/GraphicsModule.java" afterPath="$PROJECT_DIR$/src/Application/Engine/graphics/GraphicsModule.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/MyEngine/physics/GravityCalculate.java" afterPath="$PROJECT_DIR$/src/Application/Engine/physics/GravityCalculate.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/MyEngine/physics/PhysicsModule.java" afterPath="$PROJECT_DIR$/src/Application/Engine/physics/PhysicsModule.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Stages/MainStage/GameStage.java" afterPath="$PROJECT_DIR$/src/Application/stages/MainStage/GameStage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Stages/MainStage/gameScene/GameScene.java" afterPath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/GameScene.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Stages/MainStarter.java" afterPath="$PROJECT_DIR$/src/Application/Launcher.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Stages/SettingStage/SettingStage.java" afterPath="$PROJECT_DIR$/src/Application/stages/SettingStage/SettingStage.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,80 +27,15 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Launcher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Launcher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="46" column="34" lean-forward="false" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OperationModule.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Application/Engine/operation/OperationModule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#437#438#0" expanded="true" />
-                <element signature="e#471#472#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Engine.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Engine/Engine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="114" column="5" lean-forward="false" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ThreadModule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/SystemComponents/ThreadModule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
-              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PhysicsModule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Engine/physics/PhysicsModule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#540#541#0" expanded="true" />
-                <element signature="e#574#575#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphicsModule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Engine/graphics/GraphicsModule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="26" column="27" lean-forward="false" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#755#756#0" expanded="true" />
-                <element signature="e#789#790#0" expanded="true" />
-                <element signature="e#4679#4680#0" expanded="true" />
-                <element signature="e#4708#4709#0" expanded="true" />
-              </folding>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="98">
+                <caret line="13" column="35" lean-forward="false" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -160,7 +75,6 @@
         <option value="$PROJECT_DIR$/src/Stages/MainStarter.java" />
         <option value="$PROJECT_DIR$/src/MyEngine/graphics/GraphicsModule.java" />
         <option value="$PROJECT_DIR$/src/MyEngine/physics/PhysicsModule.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test/stage.java" />
         <option value="$PROJECT_DIR$/src/MyEngine/system/SystemModule.java" />
         <option value="$PROJECT_DIR$/src/MyEngine/system/SystemProperties.java" />
@@ -185,6 +99,7 @@
         <option value="$PROJECT_DIR$/src/Application/Launcher.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/graphics/GraphicsModule.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/operation/OperationModule.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -400,6 +315,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="gameSettings" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="artifacts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator_jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jar" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -844,7 +813,28 @@
       <option name="project" value="LOCAL" />
       <updated>1499409932499</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="reconstruct">
+      <created>1500029753696</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1500029753696</updated>
+    </task>
+    <task id="LOCAL-00020" summary="readme update">
+      <created>1500029848019</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1500029848019</updated>
+    </task>
+    <task id="LOCAL-00021" summary="readme update">
+      <created>1500029927984</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1500029927984</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -896,9 +886,10 @@
     <MESSAGE value="separate physics module from the engine" />
     <MESSAGE value="unfinished separation of graphics module and main engine" />
     <MESSAGE value="fixed some bugs" />
-    <MESSAGE value="readme update" />
     <MESSAGE value="new build" />
-    <option name="LAST_COMMIT_MESSAGE" value="new build" />
+    <MESSAGE value="reconstruct" />
+    <MESSAGE value="readme update" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1186,16 +1177,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/stage.java" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="203">
-            <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MyEngine/system.java" />
     <entry file="file://$PROJECT_DIR$/src/models/Universe.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1231,6 +1212,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1364,6 +1346,17 @@
             <element signature="e#437#438#0" expanded="true" />
             <element signature="e#471#472#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="98">
+            <caret line="13" column="35" lean-forward="false" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
