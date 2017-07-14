@@ -1,4 +1,4 @@
-package MyEngine.physics;
+package Application.Engine.physics;
 
 import models.Star;
 

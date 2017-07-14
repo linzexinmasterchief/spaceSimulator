@@ -1,10 +1,9 @@
-package Stages.MainStage;
+package Application.stages.MainStage;
 
-import MyEngine.GameEngine;
-import Stages.MainStage.gameScene.GameScene;
-import Stages.MainStarter;
+import Application.Engine.Engine;
+import Application.Launcher;
+import Application.stages.MainStage.gameScene.GameScene;
 import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -14,18 +13,22 @@ import javafx.stage.Stage;
  */
 public class GameStage extends Stage{
 
-    //gameEngine is at the same level as ganeStage
-    private GameEngine gameEngine;
+    private Launcher launcher;
+
+    //engine is at the same level as ganeStage
+    private Engine engine;
 
     //create an object of the game scene
     private GameScene gameScene;
 
-    public GameStage(MainStarter starter){
+    public GameStage(Launcher starter){
 
-        gameEngine = starter.getGameEngine();
+        launcher = starter;
+
+        engine = starter.getEngine();
 
         //initialize components
-        gameScene = new GameScene(new Group(), 1000, 560, gameEngine);
+        gameScene = new GameScene(new Group(), 1000, 560, this);
 
         //give the stage an start scene
         setScene(gameScene);
@@ -36,7 +39,6 @@ public class GameStage extends Stage{
         setTitle("SpaceSimulator");
         //exit on close
         setOnCloseRequest(event -> {
-            gameEngine.EXIT();
             System.exit(0);
         });
         //make sure the stage is completely filled with game scene
@@ -49,6 +51,10 @@ public class GameStage extends Stage{
 
     public GameScene getGameScene(){
         return gameScene;
+    }
+
+    public Launcher getLauncher(){
+        return launcher;
     }
 
 }

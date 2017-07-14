@@ -1,8 +1,8 @@
-package Stages.MainStage.gameScene;
+package Application.stages.MainStage.gameScene;
 
-import MyEngine.GameEngine;
-import Stages.MainStage.gameScene.canvas.GameCanvas;
-import Stages.SettingStage.SettingStage;
+import Application.stages.MainStage.GameStage;
+import Application.stages.MainStage.gameScene.canvas.GameCanvas;
+import Application.stages.SettingStage.SettingStage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,8 +17,8 @@ public class GameScene extends Scene {
 
     private boolean clicked;
 
-    //create reference to root game engine
-    private GameEngine gameEngine;
+    //create reference to root game stage
+    private GameStage gameStage;
 
     //give access to the canvas
     private GameCanvas gameCanvas;
@@ -36,11 +36,11 @@ public class GameScene extends Scene {
     private boolean settingToggled;
 
     //constructor
-    public GameScene(Group root, double width, double height, GameEngine rootEngine) {
+    public GameScene(Group root, double width, double height, GameStage gameStage) {
 
         //construct the game scene as a scene
         super(root, width, height);
-        gameEngine = rootEngine;
+        this.gameStage = gameStage;
 
         clicked = false;
 
@@ -125,8 +125,8 @@ public class GameScene extends Scene {
         this.clicked = clicked;
     }
 
-    public GameEngine getGameEngine() {
-        return gameEngine;
+    public GameStage getGameStage() {
+        return gameStage;
     }
 
     public GameCanvas getGameCanvas() {

@@ -1,47 +1,51 @@
-package MyEngine.physics;
+package Application.Engine.physics;
 
-import MyEngine.GameEngine;
+import Application.Engine.Engine;
+import Application.system.SystemStatus;
 import javafx.application.Platform;
 import models.Star;
+import models.SystemComponents.ThreadModule;
 import models.Universe;
 
 /**
  * Created by lzx on 2017/7/6.
  * physics thread is a independent module
  */
-public class PhysicsModule implements Runnable{
+public class PhysicsModule extends ThreadModule implements Runnable{
 
-    private GameEngine engine;
     private Star[] stars;
-
-    //some properties of the program
-    private boolean isExit;
-    private boolean isPause;
 
     //install the gravity module
     private GravityCalculate gravityCalculate;
 
-    public PhysicsModule(GameEngine root_engine){
-        engine = root_engine;
-        //initialize the gravity module object
-        gravityCalculate = new GravityCalculate(stars);
-
-        //initialize program properties
-        setExit(false);
-        setPause(false);
+    public PhysicsModule(Engine root_engine){
+        super(root_engine);
     }
 
-    //this is the function called on every MyEngine.physics cycle
+    @Override
+    public void initialize(){
+        //override default initialize block
+        gravityCalculate = new GravityCalculate(stars);
+    }
+
+    //this is the function called on every Application.Engine.physics cycle
     //kind of like "fixed update" in unity
     private void PhysicsUpdate() {
-        if (isPause) {
+        if (isPause()) {
             return;
         }
+
+        systemStatus.setStarAmount(0);
 
         stars = engine.getStars();
         Universe universe = engine.getUniverse();
 
         for (int i = 0; i < stars.length; i++) {
+
+            if (stars[i].inUniverse){
+                systemStatus.setStarAmount(systemStatus.getStarAmount() + 1);
+            }
+
             if (((stars[i].centerX - stars[i].r) > (universe.getWidth() + 10 + (2 * stars[i].r)))
                     | ((stars[i].centerY - stars[i].r) > (universe.getHeight() + 10 + (2 * stars[i].r)))
                     | ((stars[i].centerX - stars[i].r) < (-10 - (2 * stars[i].r)))
@@ -63,22 +67,18 @@ public class PhysicsModule implements Runnable{
         engine.setUniverse(universe);
     }
 
-    public boolean isPause(){
-        return isPause;
-    }
-
-    public void setPause(boolean pause){
-        isPause = pause;
-    }
-
-    public void setExit(boolean exit) {
-        isExit = exit;
+    //function designed for screen cleaning
+    //calling it will remove all the stars in the universe
+    public void clear() {
+        for (Star star : engine.getStars()) {
+            star.remove();
+        }
     }
 
     //the main thread cycle of the universe
     @Override
     public void run() {
-        while (!isExit) {
+        while (!isExit()) {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
@@ -86,6 +86,7 @@ public class PhysicsModule implements Runnable{
             }
             //call the specific used function
             PhysicsUpdate();
+
         }
     }
 

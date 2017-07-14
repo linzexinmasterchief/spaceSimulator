@@ -1,9 +1,10 @@
-package MyEngine;
+package Application.Engine;
 
-import MyEngine.graphics.GraphicsModule;
-import MyEngine.physics.PhysicsModule;
-import Stages.MainStage.GameStage;
-import Stages.MainStarter;
+import Application.Engine.graphics.GraphicsModule;
+import Application.Engine.operation.OperationModule;
+import Application.Engine.physics.PhysicsModule;
+import Application.stages.MainStage.GameStage;
+import Application.Launcher;
 import models.Camera;
 import models.Star;
 import models.Universe;
@@ -12,19 +13,17 @@ import models.Universe;
  * Created by lzx on 2017/6/13.
  * initialize at start, then every components are created under it
  */
-public class GameEngine{
+public class Engine {
 
-    private MainStarter mainStarter;
+    private Launcher launcher;
 
     //this game stage is at the same level as game engine
-    //they both belong to MainStarter
+    //they both belong to Launcher
     private GameStage gameStage;
 
     private PhysicsModule physicsModule;
     private GraphicsModule graphicsModule;
-
-    private Thread physics;
-    private Thread graphics;
+    private OperationModule operationModule;
 
     //used components
     //generate a universe
@@ -36,8 +35,9 @@ public class GameEngine{
     //define a camera used for display
     private Camera camera;
 
-    public GameEngine(MainStarter starter) {
-        mainStarter = starter;
+
+    public Engine(Launcher starter) {
+        launcher = starter;
         //call the function to initialize all the stars in the universe
         initialize();
     }
@@ -47,7 +47,7 @@ public class GameEngine{
         //initialize the universe
         universe = new Universe(10000, 10000);
         //initialize the star list of the universe
-        stars = new Star[50];
+        stars = new Star[200];
         //initialize every star in the star list
         //this is very important and necessary, do not delete it
         for (int i = 0; i < stars.length; i++) {
@@ -65,23 +65,31 @@ public class GameEngine{
                 universe.getHeight() / 2
         );
 
+
+        //>>>>>>>>>>>>>>>>>>|[THREADS]|<<<<<<<<<<<<<<<<<<<<
         //physics module
         physicsModule = new PhysicsModule(this);
-        physics = new Thread(physicsModule);
+        Thread physics = new Thread(physicsModule);
+        physics.start();
         //halt until game canvas is initialized
 
         //graphics module
         graphicsModule = new GraphicsModule(this);
-        graphics = new Thread(graphicsModule);
+        Thread graphics = new Thread(graphicsModule);
+        graphics.start();
+        //halt until game canvas is initialized
+
+        operationModule = new OperationModule(this);
+        Thread operation = new Thread(operationModule);
+        operation.start();
         //halt until game canvas is initialized
     }
 
-    public void EXIT(){
-        physicsModule.setExit(true);
-        graphicsModule.setExit(true);
+    //getter and setters
+    public Launcher getLauncher(){
+        return launcher;
     }
 
-    //getter and setters
     public Star[] getStars() {
         return stars;
     }
@@ -104,22 +112,6 @@ public class GameEngine{
 
     public GraphicsModule getGraphicsModule(){
         return graphicsModule;
-    }
-
-    public Thread getPhysics(){
-        return physics;
-    }
-
-    public Thread getGraphics(){
-        return graphics;
-    }
-
-    public GameStage getGameStage(){
-        return gameStage;
-    }
-
-    public void setGameStage(){
-        gameStage = mainStarter.getGameStage();
     }
 
     public void setStars(Star[] stars) {

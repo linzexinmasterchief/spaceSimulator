@@ -1,4 +1,4 @@
-package Stages.SettingStage;
+package Application.stages.SettingStage;
 
 import javafx.stage.Stage;
 

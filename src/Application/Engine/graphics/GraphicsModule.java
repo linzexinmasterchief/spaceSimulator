@@ -1,41 +1,36 @@
-package MyEngine.graphics;
+package Application.Engine.graphics;
 
-import MyEngine.GameEngine;
-import Stages.MainStage.gameScene.GameScene;
-import Stages.MainStage.gameScene.canvas.GameCanvas;
+import Application.Engine.Engine;
+import Application.stages.MainStage.gameScene.GameScene;
+import Application.stages.MainStage.gameScene.canvas.GameCanvas;
 import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import models.Star;
+import models.SystemComponents.ThreadModule;
 
 /**
  * Created by lzx on 2017/7/6.
  * graphics processor module
  */
-public class GraphicsModule implements Runnable{
-
-    private GameEngine engine;
+public class GraphicsModule extends ThreadModule implements Runnable{
 
     private GameCanvas gameCanvas;
     private GraphicsContext gc;
-
-    //some properties of the program
-    private boolean isExit;
-    private boolean isPause;
 
     //the scale between graphics and physics
     //original is 1:1
     private double scaleX = 1;
     private double scaleY = 1;
 
-    public GraphicsModule(GameEngine root_engine){
-        engine = root_engine;
-        isPause = true;
-
+    public GraphicsModule(Engine root_engine){
+        super(root_engine);
     }
 
+    @Override
     public void initialize(){
-        GameScene gameScene = engine.getGameStage().getGameScene();
+        //override default initialize block
+        GameScene gameScene = engine.getLauncher().getGameStage().getGameScene();
         gameCanvas = gameScene.getGameCanvas();
         gc = gameCanvas.getGraphicsContext2D();
 
@@ -78,7 +73,6 @@ public class GraphicsModule implements Runnable{
             }
             gc.setFill(Color.rgb(r, g, b));
 
-            star.onScreen = true;
             star.onScreen = !(star.centerX < engine.getCamera().getCenterX() - engine.getCamera().getWidth() / 2 - star.r
                     || star.centerX > engine.getCamera().getCenterX() + engine.getCamera().getWidth() / 2 + star.r
                     || star.centerY < engine.getCamera().getCenterY() - engine.getCamera().getHeight() / 2 - star.r
@@ -99,6 +93,7 @@ public class GraphicsModule implements Runnable{
             //only display the star if it is on screen
             //in the camera range
             if (star.onScreen) {
+
                 gc.fillOval(
 
                         //a little math here, should be reliable after 6 changes
@@ -123,28 +118,11 @@ public class GraphicsModule implements Runnable{
                 );
             }
         }
-    }
 
-    //function designed for screen cleaning
-    //calling it will remove all the stars in the universe
-    public void clear() {
-        for (Star star : engine.getStars()) {
-            star.remove();
-        }
+        gc.fillText(""+systemStatus.getStarAmount(),400,15);
     }
 
     //getters and setters
-    public boolean isPause(){
-        return isPause;
-    }
-
-    public void setPause(boolean pause){
-        isPause = pause;
-    }
-
-    public void setExit(boolean exit) {
-        isExit = exit;
-    }
 
     public double getScaleX(){
         return scaleX;
@@ -165,13 +143,13 @@ public class GraphicsModule implements Runnable{
     //the graphic thread operation function
     @Override
     public void run() {
-        while (!isExit) {
+        while (!isExit()) {
             try {
                 Thread.sleep(15);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (isPause){
+            if (isPause()){
                 continue;
             }
             //send the rendering job to a background thread
