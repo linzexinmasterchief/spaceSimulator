@@ -6,7 +6,7 @@ import Application.stages.MainStage.gameScene.canvas.GameCanvas;
 import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import models.Star;
+import models.PhysicsComponents.Star;
 import models.SystemComponents.ThreadModule;
 
 /**
@@ -15,6 +15,7 @@ import models.SystemComponents.ThreadModule;
  */
 public class GraphicsModule extends ThreadModule implements Runnable{
 
+    private GameScene gameScene;
     private GameCanvas gameCanvas;
     private GraphicsContext gc;
 
@@ -30,7 +31,7 @@ public class GraphicsModule extends ThreadModule implements Runnable{
     @Override
     public void initialize(){
         //override default initialize block
-        GameScene gameScene = engine.getLauncher().getGameStage().getGameScene();
+        gameScene = engine.getLauncher().getGameStage().getGameScene();
         gameCanvas = gameScene.getGameCanvas();
         gc = gameCanvas.getGraphicsContext2D();
 
@@ -119,7 +120,8 @@ public class GraphicsModule extends ThreadModule implements Runnable{
             }
         }
 
-        gc.fillText(""+systemStatus.getStarAmount(),400,15);
+//        gc.fillText(""+systemStatus.getStarAmount(),400,15);
+
     }
 
     //getters and setters

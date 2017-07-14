@@ -3,7 +3,8 @@ package Application.Engine.operation;
 import Application.Engine.Engine;
 import Application.Engine.gameSettings.Speed;
 import Application.stages.MainStage.gameScene.GameScene;
-import models.Star;
+import javafx.application.Platform;
+import models.PhysicsComponents.Star;
 import models.SystemComponents.ThreadModule;
 
 /**
@@ -103,6 +104,7 @@ public class OperationModule extends ThreadModule implements Runnable{
                         systemStatus.setDragLine(dragline);
                         break;
                 }
+                Platform.runLater(() -> gameScene.getStatusBar().update());
             }
 
             if (systemStatus.isMouseReleased()) {

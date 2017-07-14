@@ -1,11 +1,10 @@
 package Application.Engine.physics;
 
 import Application.Engine.Engine;
-import Application.system.SystemStatus;
 import javafx.application.Platform;
-import models.Star;
+import models.PhysicsComponents.Star;
 import models.SystemComponents.ThreadModule;
-import models.Universe;
+import models.PhysicsComponents.Universe;
 
 /**
  * Created by lzx on 2017/7/6.

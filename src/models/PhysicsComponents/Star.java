@@ -1,4 +1,4 @@
-package models;
+package models.PhysicsComponents;
 
 /**
  * Created by lzx on 2017/3/27.

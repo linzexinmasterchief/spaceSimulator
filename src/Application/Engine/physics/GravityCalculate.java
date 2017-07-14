@@ -1,6 +1,6 @@
 package Application.Engine.physics;
 
-import models.Star;
+import models.PhysicsComponents.Star;
 
 /**
  * Created by lzx on 2017/4/13.

@@ -5,9 +5,9 @@ import Application.Engine.operation.OperationModule;
 import Application.Engine.physics.PhysicsModule;
 import Application.stages.MainStage.GameStage;
 import Application.Launcher;
-import models.Camera;
-import models.Star;
-import models.Universe;
+import models.PhysicsComponents.Camera;
+import models.PhysicsComponents.Star;
+import models.PhysicsComponents.Universe;
 
 /**
  * Created by lzx on 2017/6/13.

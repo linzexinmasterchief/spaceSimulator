@@ -5,13 +5,10 @@ import Application.stages.MainStage.gameScene.canvas.GameCanvas;
 import Application.stages.SettingStage.SettingStage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.paint.Color;
-import models.MenuButtonPrefab;
-import models.MenuSliderPrefab;
+import models.UIComponents.BottomStatusBar;
+import models.UIComponents.CircularButton;
+import models.UIComponents.MenuButtonPrefab;
+import models.UIComponents.MenuSliderPrefab;
 
 public class GameScene extends Scene {
 
@@ -28,8 +25,9 @@ public class GameScene extends Scene {
     private MenuSliderPrefab massSlider;
     private MenuSliderPrefab raiusSlider;
 
+    private BottomStatusBar bottomStatusBar;
     //menu toggle
-    private Button menuButton;
+    private CircularButton menuToggleButton;
 
     //option menu
     private SettingStage settingWindow;
@@ -67,6 +65,8 @@ public class GameScene extends Scene {
         //setting menuButton
         settingBtn = new MenuButtonPrefab("setting");
         settingBtn.setTranslateY(5);
+        settingBtn.setTranslateX(5);
+        settingBtn.setMinWidth(150);
         settingBtn.setOnAction(ae -> {
             settingToggled = !settingToggled;
             if (settingToggled) {
@@ -84,17 +84,17 @@ public class GameScene extends Scene {
         raiusSlider.setMax(20);
         root.getChildren().add(raiusSlider);
 
-        //add a menu menuButton
-        menuButton = new Button("+");
-        menuButton.setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(20), null)));
-        menuButton.setOnMouseEntered(me -> menuButton.setBackground(new Background(new BackgroundFill(Color.DARKGRAY, new CornerRadii(20), null))));
-        menuButton.setOnMouseExited(me -> menuButton.setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(20), null))));
-        menuButton.setOnMouseClicked(me -> {
+        //add a menuButton
+        menuToggleButton = new CircularButton("+");
+        menuToggleButton.setTranslateX(5);
+        menuToggleButton.setTranslateY(5);
+        menuToggleButton.setMinWidth(24);
+        menuToggleButton.setOnMouseClicked(me -> {
             setClicked(!isClicked());
             if (isClicked()) {
                 //menuButton change
-                menuButton.setTranslateX(170);
-                menuButton.setText("-");
+                menuToggleButton.setTranslateX(170);
+                menuToggleButton.setText("-");
                 //pop out
                 settingBtn.setVisible(true);
                 massSlider.setVisible(true);
@@ -102,18 +102,24 @@ public class GameScene extends Scene {
 
             } else {
                 //menuButton change
-                menuButton.setTranslateX(10);
-                menuButton.setText("+");
+                menuToggleButton.setTranslateX(5);
+                menuToggleButton.setText("+");
                 //goes back
                 settingBtn.setVisible(false);
                 massSlider.setVisible(false);
                 raiusSlider.setVisible(false);
             }
         });
-        menuButton.setTranslateX(10);
-        menuButton.setTranslateY(10);
-        menuButton.setMinWidth(24);
-        root.getChildren().add(menuButton);
+        root.getChildren().add(menuToggleButton);
+
+        //add bottom status bar
+        bottomStatusBar = new BottomStatusBar(this);
+        MenuButtonPrefab[] statusBar = bottomStatusBar.getStatusElements();
+        for (MenuButtonPrefab aStatusBar : statusBar) {
+            if (aStatusBar != null) {
+                root.getChildren().add(aStatusBar);
+            }
+        }
     }
 
 
@@ -131,6 +137,10 @@ public class GameScene extends Scene {
 
     public GameCanvas getGameCanvas() {
         return gameCanvas;
+    }
+
+    public BottomStatusBar getStatusBar(){
+        return bottomStatusBar;
     }
 
     public double getMass(){

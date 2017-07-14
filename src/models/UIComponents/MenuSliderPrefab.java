@@ -1,4 +1,4 @@
-package models;
+package models.UIComponents;
 
 import javafx.scene.control.Slider;
 
