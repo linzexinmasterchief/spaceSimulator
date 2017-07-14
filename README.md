@@ -10,8 +10,10 @@ simulate the universe
 * better collisions
 * changeable time speed
 ## update logs
+#### version 0.1.2 alpha build6 2017/7/14
+reconstruct code, made it easier and faster to add new things.
 #### version 0.1.2 alpha build5 2017/7/7
-added icon, did some optimations to the code
+added icon, did some optimizations to the code.
 #### version 0.1.2 alpha build4 2017/6/15
 added mass and radius modifier, the color will now change according the mass, you can also pause the game by clicking middle button
 #### version 0.1.2 alpha build3 2017/6/13
