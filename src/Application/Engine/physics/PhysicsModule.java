@@ -36,7 +36,7 @@ public class PhysicsModule extends ThreadModule implements Runnable{
 
         systemStatus.setStarAmount(0);
 
-        stars = engine.getStars();
+        stars = engine.getUniverse().getStars();
         Universe universe = engine.getUniverse();
 
         for (int i = 0; i < stars.length; i++) {
@@ -62,14 +62,14 @@ public class PhysicsModule extends ThreadModule implements Runnable{
             }
         }
 
-        engine.setStars(stars);
+        engine.getUniverse().setStars(stars);
         engine.setUniverse(universe);
     }
 
     //function designed for screen cleaning
     //calling it will remove all the stars in the universe
     public void clear() {
-        for (Star star : engine.getStars()) {
+        for (Star star : engine.getUniverse().getStars()) {
             star.remove();
         }
     }

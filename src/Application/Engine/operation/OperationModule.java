@@ -38,26 +38,26 @@ public class OperationModule extends ThreadModule implements Runnable{
         //check if the new star lock is opened to avoid unnecessary star list iterations
         //check if there is empty star slot for a new star
         if (systemStatus.isNewStarExist()) {
-            for (int i = 0; i < engine.getStars().length; i++) {
+            for (int i = 0; i < engine.getUniverse().getStars().length; i++) {
                 //not on screen means it is safe to clear
-                if (systemStatus.isNewStarExist() & !engine.getStars()[i].inUniverse) {
+                if (systemStatus.isNewStarExist() & !engine.getUniverse().getStars()[i].inUniverse) {
 
                     //prepare the empty slot for new star
-                    engine.getStars()[i].remove();
-                    engine.getStars()[i].initialize();
+                    engine.getUniverse().getStars()[i].remove();
+                    engine.getUniverse().getStars()[i].initialize();
 
                     //give buffer star properties
                     engine.getBufferStar().mass = gameScene.getMass();
                     engine.getBufferStar().r = gameScene.getRadius();
 
                     //give the properties of buffer star to the empty star slot
-                    engine.getStars()[i] = new Star(engine.getBufferStar());
+                    engine.getUniverse().getStars()[i] = new Star(engine.getBufferStar());
                     //remove the buffer star (clear the values to default)
                     engine.getBufferStar().remove();
 
                     //add the star according to the size of window(camera)
                     //and the enlarge scales
-                    engine.getStars()[i].add(
+                    engine.getUniverse().getStars()[i].add(
                             //convert the coordinate on screen to coordinate in the universe
                             //it's hard to explain the math, but it will be easy to understand
                             //once you draw it out on the paper, be careful changing it anyway
@@ -70,7 +70,7 @@ public class OperationModule extends ThreadModule implements Runnable{
                     );
 
                     //change the slot property from empty to full
-                    engine.getStars()[i].inUniverse = true;
+                    engine.getUniverse().getStars()[i].inUniverse = true;
 
                     //close the new star lock
                     systemStatus.setNewStarExist(false);

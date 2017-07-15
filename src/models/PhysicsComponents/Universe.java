@@ -13,6 +13,8 @@ public class Universe {
     private double width;
     private double height;
     private double unitTimeSpeed;
+    //store all the stars in this universe
+    private Star[] stars;
 
     //unused constructor
 
@@ -32,6 +34,14 @@ public class Universe {
         this.width = width;
         this.height = height;
 
+        //initialize the star list of the universe
+        stars = new Star[200];
+        //initialize every star in the star list
+        //this is very important and necessary, do not delete it
+        for (int i = 0; i < stars.length; i++) {
+            stars[i] = new Star();
+        }
+
     }
 
     public double getWidth() {
@@ -48,5 +58,13 @@ public class Universe {
 
     public void setUnitTimeSpeed(double unitTimeSpeed) {
         this.unitTimeSpeed = unitTimeSpeed;
+    }
+
+    public Star[] getStars() {
+        return stars;
+    }
+
+    public void setStars(Star[] stars) {
+        this.stars = stars;
     }
 }

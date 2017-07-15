@@ -48,7 +48,7 @@ public class GraphicsModule extends ThreadModule implements Runnable{
         gc.fillRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
 
         //iterate the star list to draw all the exist stars in the universe
-        for (Star star : engine.getStars()) {
+        for (Star star : engine.getUniverse().getStars()) {
 
             int r, g, b;
 

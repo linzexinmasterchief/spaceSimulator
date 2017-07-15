@@ -28,8 +28,7 @@ public class Engine {
     //used components
     //generate a universe
     private Universe universe;
-    //store all the stars in this universe
-    private Star[] stars;
+
     //use a bufferStar for new input star
     private Star bufferStar;
     //define a camera used for display
@@ -46,13 +45,7 @@ public class Engine {
     private void initialize() {
         //initialize the universe
         universe = new Universe(10000, 10000);
-        //initialize the star list of the universe
-        stars = new Star[200];
-        //initialize every star in the star list
-        //this is very important and necessary, do not delete it
-        for (int i = 0; i < stars.length; i++) {
-            stars[i] = new Star();
-        }
+
 
         //initialize the buffer star
         bufferStar = new Star();
@@ -90,10 +83,6 @@ public class Engine {
         return launcher;
     }
 
-    public Star[] getStars() {
-        return stars;
-    }
-
     public Star getBufferStar() {
         return bufferStar;
     }
@@ -112,10 +101,6 @@ public class Engine {
 
     public GraphicsModule getGraphicsModule(){
         return graphicsModule;
-    }
-
-    public void setStars(Star[] stars) {
-        this.stars = stars;
     }
 
     public void setUniverse(Universe universe) {
