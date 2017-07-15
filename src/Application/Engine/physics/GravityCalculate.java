@@ -37,8 +37,8 @@ public class GravityCalculate {
                     double newMass = s.mass + star.mass;
                     double newAX = ((s.accelerationX * s.mass) + (star.accelerationX * star.mass)) / newMass;
                     double newAY = ((s.accelerationY * s.mass) + (star.accelerationY * star.mass)) / newMass;
-                    double newVX = ((s.vectorX * s.mass) + (star.vectorX * star.mass)) / newMass;
-                    double newVY = ((s.vectorY * s.mass) + (star.vectorY * star.mass)) / newMass;
+                    double newVX = ((s.velocityX * s.mass) + (star.velocityX * star.mass)) / newMass;
+                    double newVY = ((s.velocityY * s.mass) + (star.velocityY * star.mass)) / newMass;
 
                     if (s.r >= star.r) {
                         star.add(s.centerX, s.centerY);
@@ -48,8 +48,8 @@ public class GravityCalculate {
                     star.r = newR;
                     star.accelerationX = newAX;
                     star.accelerationY = newAY;
-                    star.vectorX = newVX;
-                    star.vectorY = newVY;
+                    star.velocityX = newVX;
+                    star.velocityY = newVY;
                     star.mass = newMass;
                     s.remove();
                     return;

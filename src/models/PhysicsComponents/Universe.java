@@ -12,7 +12,7 @@ public class Universe {
     //define the size of the universe
     private double width;
     private double height;
-
+    private double unitTimeSpeed;
 
     //unused constructor
 
@@ -42,4 +42,11 @@ public class Universe {
         return height;
     }
 
+    public double getUnitTimeSpeed() {
+        return unitTimeSpeed;
+    }
+
+    public void setUnitTimeSpeed(double unitTimeSpeed) {
+        this.unitTimeSpeed = unitTimeSpeed;
+    }
 }

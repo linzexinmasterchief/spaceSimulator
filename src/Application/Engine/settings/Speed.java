@@ -1,4 +1,4 @@
-package Application.Engine.gameSettings;
+package Application.Engine.settings;
 
 /**
  * Created by lzx on 2017/7/13.

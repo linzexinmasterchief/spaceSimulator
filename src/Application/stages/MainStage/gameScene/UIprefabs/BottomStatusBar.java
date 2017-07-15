@@ -1,9 +1,10 @@
-package models.UIComponents;
+package Application.stages.MainStage.gameScene.UIprefabs;
 
 import Application.stages.MainStage.gameScene.GameScene;
 import Application.system.SystemStatus;
-
-import java.security.acl.Group;
+import javafx.geometry.Pos;
+import javafx.scene.text.Font;
+import models.UIComponents.MenuButtonModel;
 
 /**
  * Created by lzx on 2017/7/14.
@@ -18,7 +19,7 @@ public class BottomStatusBar {
     private double x;
     private double y;
 
-    private MenuButtonPrefab[] statusBar;
+    private MenuButtonModel[] statusBar;
 
     public BottomStatusBar(GameScene scene){
 
@@ -27,26 +28,28 @@ public class BottomStatusBar {
         //initialize game scene reference
         gameScene = scene;
         width = scene.getWidth();
-        height = 25;
+        height = 20;
         x = 0;
         y = scene.getHeight() - height;
 
         //initialize button group
-        statusBar = new MenuButtonPrefab[10];
+        statusBar = new MenuButtonModel[10];
 
         //add buttons in it
-        MenuButtonPrefab starAmountStatus = new MenuButtonPrefab("star amount:");
+        MenuButtonModel starAmountStatus = new MenuButtonModel("star amount :");
         starAmountStatus.setTranslateX(x + 0);
         starAmountStatus.setTranslateY(y);
         starAmountStatus.setMinWidth(width * 0.2);
         starAmountStatus.setMinHeight(height);
         starAmountStatus.setVisible(true);
+        starAmountStatus.setAlignment(Pos.CENTER_LEFT);
+        starAmountStatus.setFont(Font.font(10));
         statusBar[0] = starAmountStatus;
         System.out.println(height);
 
     }
 
-    public MenuButtonPrefab[] getStatusElements(){
+    public MenuButtonModel[] getStatusElements(){
         return statusBar;
     }
 

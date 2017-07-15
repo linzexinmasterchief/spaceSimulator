@@ -5,10 +5,10 @@ import Application.stages.MainStage.gameScene.canvas.GameCanvas;
 import Application.stages.SettingStage.SettingStage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import models.UIComponents.BottomStatusBar;
-import models.UIComponents.CircularButton;
-import models.UIComponents.MenuButtonPrefab;
-import models.UIComponents.MenuSliderPrefab;
+import Application.stages.MainStage.gameScene.UIprefabs.BottomStatusBar;
+import Application.stages.MainStage.gameScene.UIprefabs.CircularButton;
+import models.UIComponents.MenuButtonModel;
+import models.UIComponents.MenuSliderModel;
 
 public class GameScene extends Scene {
 
@@ -21,9 +21,9 @@ public class GameScene extends Scene {
     private GameCanvas gameCanvas;
 
     //menu components
-    private MenuButtonPrefab settingBtn;
-    private MenuSliderPrefab massSlider;
-    private MenuSliderPrefab raiusSlider;
+    private MenuButtonModel settingBtn;
+    private MenuSliderModel massSlider;
+    private MenuSliderModel raiusSlider;
 
     private BottomStatusBar bottomStatusBar;
     //menu toggle
@@ -63,7 +63,7 @@ public class GameScene extends Scene {
 
         //add a menu
         //setting menuButton
-        settingBtn = new MenuButtonPrefab("setting");
+        settingBtn = new MenuButtonModel("setting");
         settingBtn.setTranslateY(5);
         settingBtn.setTranslateX(5);
         settingBtn.setMinWidth(150);
@@ -77,10 +77,10 @@ public class GameScene extends Scene {
         });
         root.getChildren().add(settingBtn);
 
-        massSlider = new MenuSliderPrefab(40, 10);
+        massSlider = new MenuSliderModel(40, 10);
         root.getChildren().add(massSlider);
 
-        raiusSlider = new MenuSliderPrefab(80, 5);
+        raiusSlider = new MenuSliderModel(80, 5);
         raiusSlider.setMax(20);
         root.getChildren().add(raiusSlider);
 
@@ -112,10 +112,10 @@ public class GameScene extends Scene {
         });
         root.getChildren().add(menuToggleButton);
 
-        //add bottom status bar
+        //add bottom physicsStatus bar
         bottomStatusBar = new BottomStatusBar(this);
-        MenuButtonPrefab[] statusBar = bottomStatusBar.getStatusElements();
-        for (MenuButtonPrefab aStatusBar : statusBar) {
+        MenuButtonModel[] statusBar = bottomStatusBar.getStatusElements();
+        for (MenuButtonModel aStatusBar : statusBar) {
             if (aStatusBar != null) {
                 root.getChildren().add(aStatusBar);
             }

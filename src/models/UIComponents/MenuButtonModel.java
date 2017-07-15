@@ -10,8 +10,8 @@ import javafx.scene.paint.Color;
  * Created by lzx on 2017/6/14.
  * a pre-made model of button, used in menu
  */
-public class MenuButtonPrefab extends Button {
-    public MenuButtonPrefab(String Text){
+public class MenuButtonModel extends Button {
+    public MenuButtonModel(String Text){
         setText(Text);
         setTextFill(Color.WHITE);
         setVisible(false);

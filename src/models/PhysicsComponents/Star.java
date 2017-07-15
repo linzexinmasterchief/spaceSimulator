@@ -12,8 +12,8 @@ public class Star {
     public double centerX;
     public double centerY;
 
-    public double vectorX;
-    public double vectorY;
+    public double velocityX;
+    public double velocityY;
 
     public double accelerationX;
     public double accelerationY;
@@ -36,8 +36,8 @@ public class Star {
         //this should be pretty straight forward to understand
         mass = star.mass;
         r = star.r;
-        vectorX = star.vectorX;
-        vectorY = star.vectorY;
+        velocityX = star.velocityX;
+        velocityY = star.velocityY;
         accelerationX = star.accelerationX;
         accelerationY = star.accelerationY;
         onScreen = star.onScreen;
@@ -50,7 +50,7 @@ public class Star {
     public void initialize() {
         mass = 1;
         r = 5;
-        vectorX = vectorY = 0;
+        velocityX = velocityY = 0;
         accelerationX = 0;
         accelerationY = 0;
         onScreen = false;
@@ -76,11 +76,11 @@ public class Star {
     public void move() {
 
         //calculate the speed of the star
-        vectorX = vectorX + accelerationX;
-        vectorY = vectorY + accelerationY;
+        velocityX = velocityX + accelerationX;
+        velocityY = velocityY + accelerationY;
 
         //calculate the position of the star
-        setPosition(centerX + vectorX, centerY + vectorY);
+        setPosition(centerX + velocityX, centerY + velocityY);
     }
 
     //like it's name

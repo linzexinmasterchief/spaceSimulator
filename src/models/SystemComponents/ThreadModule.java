@@ -18,7 +18,7 @@ public class ThreadModule {
     public ThreadModule(Engine root_engine){
         engine = root_engine;
 
-        //initialize reference to system status
+        //initialize reference to system physicsStatus
         systemStatus = engine.getLauncher().getSystemStatus();
 
         //initialize program properties

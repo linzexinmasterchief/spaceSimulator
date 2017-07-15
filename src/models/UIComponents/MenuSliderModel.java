@@ -6,9 +6,9 @@ import javafx.scene.control.Slider;
  * Created by lzx on 2017/6/14.
  * a menu slider model
  */
-public class MenuSliderPrefab extends Slider {
+public class MenuSliderModel extends Slider {
 
-    public MenuSliderPrefab(double yPos, double start){
+    public MenuSliderModel(double yPos, double start){
         setMinWidth(150);
         setVisible(false);
         setShowTickLabels(true);

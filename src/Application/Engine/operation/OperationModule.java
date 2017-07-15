@@ -1,7 +1,7 @@
 package Application.Engine.operation;
 
 import Application.Engine.Engine;
-import Application.Engine.gameSettings.Speed;
+import Application.Engine.settings.Speed;
 import Application.stages.MainStage.gameScene.GameScene;
 import javafx.application.Platform;
 import models.PhysicsComponents.Star;
@@ -32,8 +32,8 @@ public class OperationModule extends ThreadModule implements Runnable{
         systemStatus.setNewStarExist(true);
 
         //give the buffer star speed based on the distance mouse dragged
-        engine.getBufferStar().vectorX = (systemStatus.getDragLine()[2] - systemStatus.getDragLine()[0]) / Speed.getDragSpeedConstant();
-        engine.getBufferStar().vectorY = (systemStatus.getDragLine()[3] - systemStatus.getDragLine()[1]) / Speed.getDragSpeedConstant();
+        engine.getBufferStar().velocityX = (systemStatus.getDragLine()[2] - systemStatus.getDragLine()[0]) / Speed.getDragSpeedConstant();
+        engine.getBufferStar().velocityY = (systemStatus.getDragLine()[3] - systemStatus.getDragLine()[1]) / Speed.getDragSpeedConstant();
 
         //check if the new star lock is opened to avoid unnecessary star list iterations
         //check if there is empty star slot for a new star
