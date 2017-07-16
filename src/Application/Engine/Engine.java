@@ -3,7 +3,6 @@ package Application.Engine;
 import Application.Engine.graphics.GraphicsModule;
 import Application.Engine.operation.OperationModule;
 import Application.Engine.physics.PhysicsModule;
-import Application.stages.MainStage.GameStage;
 import Application.Launcher;
 import models.PhysicsComponents.Camera;
 import models.PhysicsComponents.Star;
@@ -16,10 +15,6 @@ import models.PhysicsComponents.Universe;
 public class Engine {
 
     private Launcher launcher;
-
-    //this game stage is at the same level as game engine
-    //they both belong to Launcher
-    private GameStage gameStage;
 
     private PhysicsModule physicsModule;
     private GraphicsModule graphicsModule;

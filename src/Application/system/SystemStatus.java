@@ -4,8 +4,12 @@ import javafx.scene.input.MouseButton;
 
 /**
  * Created by lzx on 2017/7/13.
+ * record current system status
  */
 public class SystemStatus {
+
+    //is create star menu out or not
+    private boolean isCreateStarMenuOut;
 
     //new star lock
     private boolean isNewStarExist;
@@ -35,6 +39,8 @@ public class SystemStatus {
     private double HeightWidthScale;
 
     public SystemStatus(){
+        //initialize crate star menu lock
+        isCreateStarMenuOut = false;
 
         //close new star lock
         isNewStarExist = false;
@@ -53,7 +59,8 @@ public class SystemStatus {
         MouseScrolled = false;
 
         //initialize current canvas properties
-
+        canvasWidth = 0;
+        canvasHeight = 0;
 
         //initialize the scale between height and width
         HeightWidthScale = 1;
@@ -153,5 +160,13 @@ public class SystemStatus {
 
     public void setStarAmount(int starAmount) {
         this.starAmount = starAmount;
+    }
+
+    public boolean isCreateStarMenuOut() {
+        return isCreateStarMenuOut;
+    }
+
+    public void setCreateStarMenuOut(boolean createStarMenuOut) {
+        isCreateStarMenuOut = createStarMenuOut;
     }
 }

@@ -1,4 +1,4 @@
-package Application.stages.MainStage.gameScene.UIprefabs;
+package models.UIComponents;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;

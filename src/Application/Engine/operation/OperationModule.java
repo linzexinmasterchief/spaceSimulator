@@ -161,6 +161,11 @@ public class OperationModule extends ThreadModule implements Runnable{
             systemStatus.setMouseReleased(false);
             systemStatus.setMousePressed(false);
             systemStatus.setMouseScrolled(false);
+            
+            gameScene.getSettingBtn().setVisible(systemStatus.isCreateStarMenuOut());
+            gameScene.getMassSlider().setVisible(systemStatus.isCreateStarMenuOut());
+            gameScene.getRaiusSlider().setVisible(systemStatus.isCreateStarMenuOut());
         }
+
     }
 }

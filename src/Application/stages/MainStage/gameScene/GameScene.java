@@ -1,18 +1,17 @@
 package Application.stages.MainStage.gameScene;
 
 import Application.stages.MainStage.GameStage;
+import Application.stages.MainStage.gameScene.UIprefabs.CreateStarMenuSwitch;
 import Application.stages.MainStage.gameScene.canvas.GameCanvas;
 import Application.stages.SettingStage.SettingStage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import Application.stages.MainStage.gameScene.UIprefabs.BottomStatusBar;
-import Application.stages.MainStage.gameScene.UIprefabs.CircularButton;
+import Application.stages.MainStage.gameScene.UIprefabs.universeStatusBar.UniverseStatusBar;
+import models.UIComponents.CircularButton;
 import models.UIComponents.MenuButtonModel;
 import models.UIComponents.MenuSliderModel;
 
 public class GameScene extends Scene {
-
-    private boolean clicked;
 
     //create reference to root game stage
     private GameStage gameStage;
@@ -25,9 +24,9 @@ public class GameScene extends Scene {
     private MenuSliderModel massSlider;
     private MenuSliderModel raiusSlider;
 
-    private BottomStatusBar bottomStatusBar;
+    private UniverseStatusBar UniverseStatusBar;
     //menu toggle
-    private CircularButton menuToggleButton;
+    private CreateStarMenuSwitch createStarMenuSwitch;
 
     //option menu
     private SettingStage settingWindow;
@@ -39,8 +38,6 @@ public class GameScene extends Scene {
         //construct the game scene as a scene
         super(root, width, height);
         this.gameStage = gameStage;
-
-        clicked = false;
 
         //initialize the canvas
         //size
@@ -85,50 +82,18 @@ public class GameScene extends Scene {
         root.getChildren().add(raiusSlider);
 
         //add a menuButton
-        menuToggleButton = new CircularButton("+");
-        menuToggleButton.setTranslateX(5);
-        menuToggleButton.setTranslateY(5);
-        menuToggleButton.setMinWidth(24);
-        menuToggleButton.setOnMouseClicked(me -> {
-            setClicked(!isClicked());
-            if (isClicked()) {
-                //menuButton change
-                menuToggleButton.setTranslateX(170);
-                menuToggleButton.setText("-");
-                //pop out
-                settingBtn.setVisible(true);
-                massSlider.setVisible(true);
-                raiusSlider.setVisible(true);
+        createStarMenuSwitch = new CreateStarMenuSwitch("+",this);
 
-            } else {
-                //menuButton change
-                menuToggleButton.setTranslateX(5);
-                menuToggleButton.setText("+");
-                //goes back
-                settingBtn.setVisible(false);
-                massSlider.setVisible(false);
-                raiusSlider.setVisible(false);
-            }
-        });
-        root.getChildren().add(menuToggleButton);
+        root.getChildren().add(createStarMenuSwitch);
 
         //add bottom physicsStatus bar
-        bottomStatusBar = new BottomStatusBar(this);
-        MenuButtonModel[] statusBar = bottomStatusBar.getStatusElements();
+        UniverseStatusBar = new UniverseStatusBar(this);
+        MenuButtonModel[] statusBar = UniverseStatusBar.getStatusElements();
         for (MenuButtonModel aStatusBar : statusBar) {
             if (aStatusBar != null) {
                 root.getChildren().add(aStatusBar);
             }
         }
-    }
-
-
-    private boolean isClicked() {
-        return clicked;
-    }
-
-    private void setClicked(boolean clicked) {
-        this.clicked = clicked;
     }
 
     public GameStage getGameStage() {
@@ -139,8 +104,20 @@ public class GameScene extends Scene {
         return gameCanvas;
     }
 
-    public BottomStatusBar getStatusBar(){
-        return bottomStatusBar;
+    public UniverseStatusBar getStatusBar(){
+        return UniverseStatusBar;
+    }
+
+    public MenuButtonModel getSettingBtn(){
+        return settingBtn;
+    }
+
+    public MenuSliderModel getMassSlider(){
+        return massSlider;
+    }
+
+    public MenuSliderModel getRaiusSlider(){
+        return raiusSlider;
     }
 
     public double getMass(){

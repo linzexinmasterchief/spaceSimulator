@@ -1,4 +1,4 @@
-package Application.stages.MainStage.gameScene.UIprefabs;
+package Application.stages.MainStage.gameScene.UIprefabs.universeStatusBar;
 
 import Application.stages.MainStage.gameScene.GameScene;
 import Application.system.SystemStatus;
@@ -8,8 +8,9 @@ import models.UIComponents.MenuButtonModel;
 
 /**
  * Created by lzx on 2017/7/14.
+ * status bar in universe
  */
-public class BottomStatusBar {
+public class UniverseStatusBar {
 
     private SystemStatus systemStatus;
 
@@ -21,7 +22,7 @@ public class BottomStatusBar {
 
     private MenuButtonModel[] statusBar;
 
-    public BottomStatusBar(GameScene scene){
+    public UniverseStatusBar(GameScene scene){
 
         systemStatus = scene.getGameStage().getLauncher().getSystemStatus();
 
@@ -45,7 +46,6 @@ public class BottomStatusBar {
         starAmountStatus.setAlignment(Pos.CENTER_LEFT);
         starAmountStatus.setFont(Font.font(10));
         statusBar[0] = starAmountStatus;
-        System.out.println(height);
 
     }
 
