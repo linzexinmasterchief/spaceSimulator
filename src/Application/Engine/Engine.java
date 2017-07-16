@@ -1,8 +1,8 @@
 package Application.Engine;
 
-import Application.Engine.graphics.GraphicsModule;
-import Application.Engine.operation.OperationModule;
-import Application.Engine.physics.PhysicsModule;
+import Application.Engine.graphics.GraphicsModuleModel;
+import Application.Engine.operation.OperationModuleModel;
+import Application.Engine.physics.PhysicsModuleModel;
 import Application.Launcher;
 import models.PhysicsComponents.Camera;
 import models.PhysicsComponents.Star;
@@ -16,9 +16,9 @@ public class Engine {
 
     private Launcher launcher;
 
-    private PhysicsModule physicsModule;
-    private GraphicsModule graphicsModule;
-    private OperationModule operationModule;
+    private PhysicsModuleModel physicsModule;
+    private GraphicsModuleModel graphicsModule;
+    private OperationModuleModel operationModule;
 
     //used components
     //generate a universe
@@ -56,18 +56,18 @@ public class Engine {
 
         //>>>>>>>>>>>>>>>>>>|[THREADS]|<<<<<<<<<<<<<<<<<<<<
         //physics module
-        physicsModule = new PhysicsModule(this);
+        physicsModule = new PhysicsModuleModel(this);
         Thread physics = new Thread(physicsModule);
         physics.start();
         //halt until game canvas is initialized
 
         //graphics module
-        graphicsModule = new GraphicsModule(this);
+        graphicsModule = new GraphicsModuleModel(this);
         Thread graphics = new Thread(graphicsModule);
         graphics.start();
         //halt until game canvas is initialized
 
-        operationModule = new OperationModule(this);
+        operationModule = new OperationModuleModel(this);
         Thread operation = new Thread(operationModule);
         operation.start();
         //halt until game canvas is initialized
@@ -90,11 +90,11 @@ public class Engine {
         return universe;
     }
 
-    public PhysicsModule getPhysicsModule(){
+    public PhysicsModuleModel getPhysicsModule(){
         return physicsModule;
     }
 
-    public GraphicsModule getGraphicsModule(){
+    public GraphicsModuleModel getGraphicsModule(){
         return graphicsModule;
     }
 

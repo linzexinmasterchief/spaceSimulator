@@ -6,7 +6,7 @@ import Application.system.SystemStatus;
 /**
  * Created by lzx on 2017/7/14.
  */
-public class ThreadModule {
+public class ThreadModuleModel implements Runnable{
 
     protected Engine engine;
     protected SystemStatus systemStatus;
@@ -15,7 +15,7 @@ public class ThreadModule {
     private boolean isExit;
     private boolean isPause;
 
-    public ThreadModule(Engine root_engine){
+    public ThreadModuleModel(Engine root_engine){
         engine = root_engine;
 
         //initialize reference to system physicsStatus
@@ -48,4 +48,8 @@ public class ThreadModule {
         isExit = exit;
     }
 
+    @Override
+    public void run() {
+
+    }
 }

@@ -7,13 +7,13 @@ import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import models.PhysicsComponents.Star;
-import models.SystemComponents.ThreadModule;
+import models.SystemComponents.ThreadModuleModel;
 
 /**
  * Created by lzx on 2017/7/6.
  * graphics processor module
  */
-public class GraphicsModule extends ThreadModule implements Runnable{
+public class GraphicsModuleModel extends ThreadModuleModel {
 
     private GameScene gameScene;
     private GameCanvas gameCanvas;
@@ -24,7 +24,7 @@ public class GraphicsModule extends ThreadModule implements Runnable{
     private double scaleX = 1;
     private double scaleY = 1;
 
-    public GraphicsModule(Engine root_engine){
+    public GraphicsModuleModel(Engine root_engine){
         super(root_engine);
     }
 

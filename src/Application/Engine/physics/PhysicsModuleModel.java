@@ -3,21 +3,21 @@ package Application.Engine.physics;
 import Application.Engine.Engine;
 import javafx.application.Platform;
 import models.PhysicsComponents.Star;
-import models.SystemComponents.ThreadModule;
+import models.SystemComponents.ThreadModuleModel;
 import models.PhysicsComponents.Universe;
 
 /**
  * Created by lzx on 2017/7/6.
  * physics thread is a independent module
  */
-public class PhysicsModule extends ThreadModule implements Runnable{
+public class PhysicsModuleModel extends ThreadModuleModel {
 
     private Star[] stars;
 
     //install the gravity module
     private GravityCalculate gravityCalculate;
 
-    public PhysicsModule(Engine root_engine){
+    public PhysicsModuleModel(Engine root_engine){
         super(root_engine);
     }
 

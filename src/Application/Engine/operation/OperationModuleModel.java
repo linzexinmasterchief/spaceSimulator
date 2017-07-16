@@ -5,17 +5,17 @@ import Application.Engine.settings.Speed;
 import Application.stages.MainStage.gameScene.GameScene;
 import javafx.application.Platform;
 import models.PhysicsComponents.Star;
-import models.SystemComponents.ThreadModule;
+import models.SystemComponents.ThreadModuleModel;
 
 /**
  * Created by lzx on 2017/7/13.
  *
  */
-public class OperationModule extends ThreadModule implements Runnable{
+public class OperationModuleModel extends ThreadModuleModel {
 
     private GameScene gameScene;
 
-    public OperationModule(Engine root_engine){
+    public OperationModuleModel(Engine root_engine){
         super(root_engine);
     }
 
