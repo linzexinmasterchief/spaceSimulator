@@ -11,11 +11,11 @@ public class SystemStatus {
     //is create star menu out or not
     private boolean isCreateStarMenuOut;
 
+    //is setting window out
+    private boolean isSettingStageOut;
+
     //new star lock
     private boolean isNewStarExist;
-
-    //active star amount
-    private int starAmount;
 
     //drag line
     private double[] dragLine;
@@ -42,10 +42,11 @@ public class SystemStatus {
         //initialize crate star menu lock
         isCreateStarMenuOut = false;
 
+        //initialize setting window lock
+        isSettingStageOut = false;
+
         //close new star lock
         isNewStarExist = false;
-
-        //initialize star amount;
 
         //initialize drag line
         dragLine = new double[4];
@@ -154,19 +155,19 @@ public class SystemStatus {
         this.canvasHeight = canvasHeight;
     }
 
-    public int getStarAmount() {
-        return starAmount;
-    }
-
-    public void setStarAmount(int starAmount) {
-        this.starAmount = starAmount;
-    }
-
     public boolean isCreateStarMenuOut() {
         return isCreateStarMenuOut;
     }
 
     public void setCreateStarMenuOut(boolean createStarMenuOut) {
         isCreateStarMenuOut = createStarMenuOut;
+    }
+
+    public boolean isSettingStageOut() {
+        return isSettingStageOut;
+    }
+
+    public void setSettingStageOut(boolean settingStageOut) {
+        isSettingStageOut = settingStageOut;
     }
 }

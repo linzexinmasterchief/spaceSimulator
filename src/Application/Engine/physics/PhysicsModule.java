@@ -34,7 +34,7 @@ public class PhysicsModule extends ThreadModule implements Runnable{
             return;
         }
 
-        systemStatus.setStarAmount(0);
+        engine.getUniverse().setStarAmount(0);
 
         stars = engine.getUniverse().getStars();
         Universe universe = engine.getUniverse();
@@ -42,7 +42,7 @@ public class PhysicsModule extends ThreadModule implements Runnable{
         for (int i = 0; i < stars.length; i++) {
 
             if (stars[i].inUniverse){
-                systemStatus.setStarAmount(systemStatus.getStarAmount() + 1);
+                engine.getUniverse().setStarAmount(engine.getUniverse().getStarAmount() + 1);
             }
 
             if (((stars[i].centerX - stars[i].r) > (universe.getWidth() + 10 + (2 * stars[i].r)))

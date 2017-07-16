@@ -2,10 +2,13 @@ package Application;
 
 import Application.Engine.Engine;
 import Application.stages.MainStage.GameStage;
+import Application.stages.SettingStage.SettingStage;
 import Application.system.SystemSettings;
 import Application.system.SystemStatus;
 import javafx.application.Application;
 import javafx.stage.Stage;
+
+import java.util.Set;
 
 
 /**
@@ -23,6 +26,8 @@ public class Launcher extends Application {
     private Engine engine;
 
     private GameStage gameStage;
+    //option menu
+    private SettingStage settingStage;
 
     //launch the application
     public static void main(String[] args) {
@@ -43,6 +48,11 @@ public class Launcher extends Application {
         //I am totally unsure if this piece of weired code would be a problem
         gameStage = (GameStage) stage;
 
+        //setting window
+        settingStage = new SettingStage(400, 400, 400, 400);
+        settingStage.setOnCloseRequest(event -> systemStatus.setSettingStageOut(false));
+        systemStatus.setSettingStageOut(false);
+
         //the position is critical
         engine = new Engine(this);
 
@@ -53,11 +63,17 @@ public class Launcher extends Application {
     public SystemStatus getSystemStatus(){
         return systemStatus;
     }
+
     public Engine getEngine(){
         return engine;
     }
+
     public GameStage getGameStage(){
         return gameStage;
+    }
+
+    public SettingStage getSettingStage(){
+        return settingStage;
     }
 
     public SystemSettings getSystemSettings() {

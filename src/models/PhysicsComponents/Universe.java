@@ -16,6 +16,9 @@ public class Universe {
     //store all the stars in this universe
     private Star[] stars;
 
+    //active star amount
+    private int starAmount;
+
     //unused constructor
 
 //    //first constructor
@@ -42,6 +45,9 @@ public class Universe {
             stars[i] = new Star();
         }
 
+        //initialize star amount;
+        starAmount = 0;
+
     }
 
     public double getWidth() {
@@ -66,5 +72,13 @@ public class Universe {
 
     public void setStars(Star[] stars) {
         this.stars = stars;
+    }
+
+    public int getStarAmount() {
+        return starAmount;
+    }
+
+    public void setStarAmount(int starAmount) {
+        this.starAmount = starAmount;
     }
 }

@@ -2,14 +2,11 @@ package Application.stages.MainStage.gameScene;
 
 import Application.stages.MainStage.GameStage;
 import Application.stages.MainStage.gameScene.UIprefabs.CreateStarMenuSwitch;
+import Application.stages.MainStage.gameScene.UIprefabs.createStarMenu.CreateStarMenu;
 import Application.stages.MainStage.gameScene.canvas.GameCanvas;
-import Application.stages.SettingStage.SettingStage;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import Application.stages.MainStage.gameScene.UIprefabs.universeStatusBar.UniverseStatusBar;
-import models.UIComponents.CircularButton;
-import models.UIComponents.MenuButtonModel;
-import models.UIComponents.MenuSliderModel;
 
 public class GameScene extends Scene {
 
@@ -19,18 +16,12 @@ public class GameScene extends Scene {
     //give access to the canvas
     private GameCanvas gameCanvas;
 
-    //menu components
-    private MenuButtonModel settingBtn;
-    private MenuSliderModel massSlider;
-    private MenuSliderModel raiusSlider;
+    private UniverseStatusBar universeStatusBar;
 
-    private UniverseStatusBar UniverseStatusBar;
+    private CreateStarMenu createStarMenu;
+
     //menu toggle
     private CreateStarMenuSwitch createStarMenuSwitch;
-
-    //option menu
-    private SettingStage settingWindow;
-    private boolean settingToggled;
 
     //constructor
     public GameScene(Group root, double width, double height, GameStage gameStage) {
@@ -53,33 +44,12 @@ public class GameScene extends Scene {
 //            }
 //        });
 
-        //setting window
-        settingWindow = new SettingStage(400, 400, 400, 400);
-        settingWindow.setOnCloseRequest(event -> settingToggled = false);
-        settingToggled = false;
-
         //add a menu
+        createStarMenu = new CreateStarMenu(this);
         //setting menuButton
-        settingBtn = new MenuButtonModel("setting");
-        settingBtn.setTranslateY(5);
-        settingBtn.setTranslateX(5);
-        settingBtn.setMinWidth(150);
-        settingBtn.setOnAction(ae -> {
-            settingToggled = !settingToggled;
-            if (settingToggled) {
-                settingWindow.show();
-            }else {
-                settingWindow.hide();
-            }
-        });
-        root.getChildren().add(settingBtn);
-
-        massSlider = new MenuSliderModel(40, 10);
-        root.getChildren().add(massSlider);
-
-        raiusSlider = new MenuSliderModel(80, 5);
-        raiusSlider.setMax(20);
-        root.getChildren().add(raiusSlider);
+        root.getChildren().add(createStarMenu.getSettingBtn());
+        root.getChildren().add(createStarMenu.getMassSlider());
+        root.getChildren().add(createStarMenu.getRaiusSlider());
 
         //add a menuButton
         createStarMenuSwitch = new CreateStarMenuSwitch("+",this);
@@ -87,13 +57,8 @@ public class GameScene extends Scene {
         root.getChildren().add(createStarMenuSwitch);
 
         //add bottom physicsStatus bar
-        UniverseStatusBar = new UniverseStatusBar(this);
-        MenuButtonModel[] statusBar = UniverseStatusBar.getStatusElements();
-        for (MenuButtonModel aStatusBar : statusBar) {
-            if (aStatusBar != null) {
-                root.getChildren().add(aStatusBar);
-            }
-        }
+        universeStatusBar = UniverseStatusBar.createUniverseStatusBar(this);
+        root.getChildren().add(universeStatusBar.getStarAmountStatus());
     }
 
     public GameStage getGameStage() {
@@ -105,27 +70,19 @@ public class GameScene extends Scene {
     }
 
     public UniverseStatusBar getStatusBar(){
-        return UniverseStatusBar;
+        return universeStatusBar;
     }
 
-    public MenuButtonModel getSettingBtn(){
-        return settingBtn;
-    }
-
-    public MenuSliderModel getMassSlider(){
-        return massSlider;
-    }
-
-    public MenuSliderModel getRaiusSlider(){
-        return raiusSlider;
+    public CreateStarMenu getCreateStarMenu(){
+        return createStarMenu;
     }
 
     public double getMass(){
-        return massSlider.getValue();
+        return createStarMenu.getMassSlider().getValue();
     }
 
     public double getRadius(){
-        return raiusSlider.getValue();
+        return createStarMenu.getRaiusSlider().getValue();
     }
 
 }

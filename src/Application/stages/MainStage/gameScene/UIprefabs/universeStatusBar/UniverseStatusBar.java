@@ -20,9 +20,9 @@ public class UniverseStatusBar {
     private double x;
     private double y;
 
-    private MenuButtonModel[] statusBar;
+    private MenuButtonModel starAmountStatus;
 
-    public UniverseStatusBar(GameScene scene){
+    private UniverseStatusBar(GameScene scene){
 
         systemStatus = scene.getGameStage().getLauncher().getSystemStatus();
 
@@ -33,11 +33,8 @@ public class UniverseStatusBar {
         x = 0;
         y = scene.getHeight() - height;
 
-        //initialize button group
-        statusBar = new MenuButtonModel[10];
-
         //add buttons in it
-        MenuButtonModel starAmountStatus = new MenuButtonModel("star amount :");
+        starAmountStatus = new MenuButtonModel("star amount :");
         starAmountStatus.setTranslateX(x + 0);
         starAmountStatus.setTranslateY(y);
         starAmountStatus.setMinWidth(width * 0.2);
@@ -45,16 +42,19 @@ public class UniverseStatusBar {
         starAmountStatus.setVisible(true);
         starAmountStatus.setAlignment(Pos.CENTER_LEFT);
         starAmountStatus.setFont(Font.font(10));
-        statusBar[0] = starAmountStatus;
 
     }
 
-    public MenuButtonModel[] getStatusElements(){
-        return statusBar;
+    public static UniverseStatusBar createUniverseStatusBar(GameScene scene) {
+        return new UniverseStatusBar(scene);
+    }
+
+    public MenuButtonModel getStarAmountStatus(){
+        return starAmountStatus;
     }
 
     public void update(){
-        getStatusElements()[0].setText("star amount : " + systemStatus.getStarAmount());
+        starAmountStatus.setText("star amount : " + gameScene.getGameStage().getLauncher().getEngine().getUniverse().getStarAmount());
 
     }
 

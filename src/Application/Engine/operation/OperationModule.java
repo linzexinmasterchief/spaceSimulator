@@ -104,7 +104,6 @@ public class OperationModule extends ThreadModule implements Runnable{
                         systemStatus.setDragLine(dragline);
                         break;
                 }
-                Platform.runLater(() -> gameScene.getStatusBar().update());
             }
 
             if (systemStatus.isMouseReleased()) {
@@ -161,10 +160,18 @@ public class OperationModule extends ThreadModule implements Runnable{
             systemStatus.setMouseReleased(false);
             systemStatus.setMousePressed(false);
             systemStatus.setMouseScrolled(false);
-            
-            gameScene.getSettingBtn().setVisible(systemStatus.isCreateStarMenuOut());
-            gameScene.getMassSlider().setVisible(systemStatus.isCreateStarMenuOut());
-            gameScene.getRaiusSlider().setVisible(systemStatus.isCreateStarMenuOut());
+
+            gameScene.getCreateStarMenu().getSettingBtn().setVisible(systemStatus.isCreateStarMenuOut());
+            gameScene.getCreateStarMenu().getMassSlider().setVisible(systemStatus.isCreateStarMenuOut());
+            gameScene.getCreateStarMenu().getRaiusSlider().setVisible(systemStatus.isCreateStarMenuOut());
+
+            if (systemStatus.isSettingStageOut()) {
+                Platform.runLater(() -> engine.getLauncher().getSettingStage().show());
+            }else {
+                Platform.runLater(() -> engine.getLauncher().getSettingStage().hide());
+            }
+
+            Platform.runLater(() -> gameScene.getStatusBar().update());
         }
 
     }
