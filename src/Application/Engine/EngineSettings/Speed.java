@@ -1,7 +1,8 @@
-package Application.Engine.settings;
+package Application.Engine.EngineSettings;
 
 /**
  * Created by lzx on 2017/7/13.
+ * class used to store speed settings
  */
 public class Speed {
     //determine how fast the star moves with the same drag distance
