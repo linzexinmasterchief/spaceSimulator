@@ -1,7 +1,7 @@
 package Application.Engine.operation;
 
 import Application.Engine.Engine;
-import Application.Engine.settings.Speed;
+import Application.Engine.EngineSettings.Speed;
 import Application.stages.MainStage.gameScene.GameScene;
 import javafx.application.Platform;
 import Application.Engine.physics.physicsPrefabs.Star;

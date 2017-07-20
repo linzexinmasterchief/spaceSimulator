@@ -20,7 +20,7 @@ public class Launcher extends Application {
 
     //object used to store system information
     private SystemStatus systemStatus;
-    //game settings
+    //game EngineSettings
     private SystemSettings systemSettings;
 
     private Engine engine;
@@ -40,7 +40,7 @@ public class Launcher extends Application {
     public void start(Stage stage) {
         //initialize system properties
         systemStatus = new SystemStatus();
-        //initialize system settings
+        //initialize system EngineSettings
         systemSettings = new SystemSettings();
 
         //create an object of the stage
