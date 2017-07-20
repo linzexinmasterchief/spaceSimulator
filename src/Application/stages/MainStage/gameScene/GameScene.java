@@ -45,20 +45,14 @@ public class GameScene extends Scene {
 //        });
 
         //add a menu
-        createStarMenu = new CreateStarMenu(this);
-        //setting menuButton
-        root.getChildren().add(createStarMenu.getSettingBtn());
-        root.getChildren().add(createStarMenu.getMassSlider());
-        root.getChildren().add(createStarMenu.getRaiusSlider());
+        createStarMenu = new CreateStarMenu(this, root);
 
         //add a menuButton
         createStarMenuSwitch = new CreateStarMenuSwitch("+",this);
-
         root.getChildren().add(createStarMenuSwitch);
 
         //add bottom physicsStatus bar
-        universeStatusBar = UniverseStatusBar.createUniverseStatusBar(this);
-        root.getChildren().add(universeStatusBar.getStarAmountStatus());
+        universeStatusBar = UniverseStatusBar.createUniverseStatusBar(this, root);
     }
 
     public GameStage getGameStage() {

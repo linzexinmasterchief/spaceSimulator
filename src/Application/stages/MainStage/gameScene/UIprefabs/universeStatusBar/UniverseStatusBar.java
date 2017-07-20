@@ -3,6 +3,7 @@ package Application.stages.MainStage.gameScene.UIprefabs.universeStatusBar;
 import Application.stages.MainStage.gameScene.GameScene;
 import Application.system.SystemStatus;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.text.Font;
 import models.UIComponents.MenuButtonModel;
 
@@ -22,7 +23,7 @@ public class UniverseStatusBar {
 
     private MenuButtonModel starAmountStatus;
 
-    private UniverseStatusBar(GameScene scene){
+    private UniverseStatusBar(GameScene scene, Group group){
 
         systemStatus = scene.getGameStage().getLauncher().getSystemStatus();
 
@@ -42,11 +43,12 @@ public class UniverseStatusBar {
         starAmountStatus.setVisible(true);
         starAmountStatus.setAlignment(Pos.CENTER_LEFT);
         starAmountStatus.setFont(Font.font(10));
+        group.getChildren().add(starAmountStatus);
 
     }
 
-    public static UniverseStatusBar createUniverseStatusBar(GameScene scene) {
-        return new UniverseStatusBar(scene);
+    public static UniverseStatusBar createUniverseStatusBar(GameScene scene, Group group) {
+        return new UniverseStatusBar(scene, group);
     }
 
     public MenuButtonModel getStarAmountStatus(){
