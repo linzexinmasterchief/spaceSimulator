@@ -6,7 +6,7 @@ import Application.stages.MainStage.gameScene.canvas.GameCanvas;
 import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import models.PhysicsComponents.Star;
+import Application.Engine.physics.physicsPrefabs.Star;
 import models.SystemComponents.ThreadModuleModel;
 
 /**

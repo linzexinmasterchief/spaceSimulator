@@ -2,9 +2,9 @@ package Application.Engine.physics;
 
 import Application.Engine.Engine;
 import javafx.application.Platform;
-import models.PhysicsComponents.Star;
+import Application.Engine.physics.physicsPrefabs.Star;
 import models.SystemComponents.ThreadModuleModel;
-import models.PhysicsComponents.Universe;
+import Application.Engine.physics.physicsPrefabs.Universe;
 
 /**
  * Created by lzx on 2017/7/6.

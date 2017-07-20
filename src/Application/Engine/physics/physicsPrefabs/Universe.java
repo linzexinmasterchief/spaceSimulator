@@ -1,4 +1,4 @@
-package models.PhysicsComponents;
+package Application.Engine.physics.physicsPrefabs;
 
 /**
  * Created by lzx on 2017/5/26.

@@ -4,9 +4,9 @@ import Application.Engine.graphics.GraphicsModuleModel;
 import Application.Engine.operation.OperationModuleModel;
 import Application.Engine.physics.PhysicsModuleModel;
 import Application.Launcher;
-import models.PhysicsComponents.Camera;
-import models.PhysicsComponents.Star;
-import models.PhysicsComponents.Universe;
+import Application.Engine.physics.physicsPrefabs.Camera;
+import Application.Engine.physics.physicsPrefabs.Star;
+import Application.Engine.physics.physicsPrefabs.Universe;
 
 /**
  * Created by lzx on 2017/6/13.
