@@ -10,6 +10,8 @@ simulate the universe
 * better collisions
 * changeable time speed
 ## update logs
+#### version 0.1.2 alpha build7 2017/7/21
+I made a better slider ui myself instead of using the ugly default one, you can now see the value of the slider directly in a more convenient way!
 #### version 0.1.2 alpha build6 2017/7/14
 added a star counter, reconstructed code, made it easier and faster to add new things.
 #### version 0.1.2 alpha build5 2017/7/7
