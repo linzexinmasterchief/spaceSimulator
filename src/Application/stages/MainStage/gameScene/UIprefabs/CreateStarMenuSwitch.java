@@ -19,14 +19,12 @@ public class CreateStarMenuSwitch extends CircularButton {
 
         clicked = false;
 
-        setTranslateX(5);
-        setTranslateY(5);
         setMinWidth(24);
         setOnMouseClicked(me -> {
             setClicked(!isClicked());
             if (isClicked()) {
                 //CreateStarMenuSwitch change
-                setTranslateX(170);
+                setTranslateX(160);
                 setText("-");
                 //pop out
                 systemStatus.setCreateStarMenuOut(true);

@@ -51,6 +51,14 @@ public class UniverseStatusBar {
         return new UniverseStatusBar(scene, group);
     }
 
+    public double getX(){
+        return x;
+    }
+
+    public double getY(){
+        return y;
+    }
+
     public MenuButtonModel getStarAmountStatus(){
         return starAmountStatus;
     }

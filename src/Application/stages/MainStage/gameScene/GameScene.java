@@ -49,6 +49,8 @@ public class GameScene extends Scene {
 
         //add a menuButton
         createStarMenuSwitch = new CreateStarMenuSwitch("+",this);
+        createStarMenuSwitch.setTranslateX(5);
+        createStarMenuSwitch.setTranslateY(5);
         root.getChildren().add(createStarMenuSwitch);
 
         //add bottom physicsStatus bar

@@ -29,17 +29,28 @@ public class CreateStarMenu {
         settingBtn = new MenuButtonModel("setting");
         settingBtn.setTranslateY(5);
         settingBtn.setTranslateX(5);
+        settingBtn.setMaxHeight(25);
+        settingBtn.setMinHeight(25);
         settingBtn.setMinWidth(150);
         settingBtn.setOnAction(ae -> {
             systemStatus.setSettingStageOut(!systemStatus.isSettingStageOut());
         });
         group.getChildren().add(settingBtn);
 
-        massSlider = new MenuSliderModel(40, 10);
+        massSlider = new MenuSliderModel();
+        massSlider.setTranslateX(5);
+        massSlider.setTranslateY(35);
+        massSlider.setMaxHeight(25);
+        massSlider.setMinHeight(25);
+        massSlider.setValue(10);
         group.getChildren().add(massSlider);
 
-        raiusSlider = new MenuSliderModel(80, 5);
-        raiusSlider.setMax(20);
+        raiusSlider = new MenuSliderModel();
+        raiusSlider.setTranslateX(5);
+        raiusSlider.setTranslateY(65);
+        raiusSlider.setMaxHeight(25);
+        raiusSlider.setMinHeight(25);
+        raiusSlider.setValue(5);
         group.getChildren().add(raiusSlider);
     }
 
