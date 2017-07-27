@@ -13,7 +13,7 @@ import models.SystemComponents.ThreadModuleModel;
  * Created by lzx on 2017/7/6.
  * graphics processor module
  */
-public class GraphicsModuleModel extends ThreadModuleModel {
+public class GraphicsModule extends ThreadModuleModel {
 
     private GameScene gameScene;
     private GameCanvas gameCanvas;
@@ -24,7 +24,7 @@ public class GraphicsModuleModel extends ThreadModuleModel {
     private double scaleX = 1;
     private double scaleY = 1;
 
-    public GraphicsModuleModel(Engine root_engine){
+    public GraphicsModule(Engine root_engine){
         super(root_engine);
     }
 

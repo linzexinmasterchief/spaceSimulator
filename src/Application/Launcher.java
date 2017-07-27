@@ -3,12 +3,12 @@ package Application;
 import Application.Engine.Engine;
 import Application.stages.MainStage.GameStage;
 import Application.stages.SettingStage.SettingStage;
+import Application.status.CanvasStatus;
+import Application.status.EngineStatus;
 import Application.system.SystemSettings;
-import Application.system.SystemStatus;
+import Application.status.SystemStatus;
 import javafx.application.Application;
 import javafx.stage.Stage;
-
-import java.util.Set;
 
 
 /**
@@ -18,8 +18,14 @@ import java.util.Set;
 
 public class Launcher extends Application {
 
+    //object used to store engine information
+    private EngineStatus engineStatus;
     //object used to store system information
     private SystemStatus systemStatus;
+    //object used to store canvas information
+    private CanvasStatus canvasStatus;
+
+
     //game EngineSettings
     private SystemSettings systemSettings;
 
@@ -38,8 +44,13 @@ public class Launcher extends Application {
     @Override
     //initialize the application
     public void start(Stage stage) {
-        //initialize system properties
+        //initialize engine status
+        engineStatus = new EngineStatus();
+        //initialize system status
         systemStatus = new SystemStatus();
+        //initialize canvas status
+        canvasStatus = new CanvasStatus();
+
         //initialize system EngineSettings
         systemSettings = new SystemSettings();
 
@@ -82,5 +93,21 @@ public class Launcher extends Application {
 
     public void setSystemSettings(SystemSettings systemSettings) {
         this.systemSettings = systemSettings;
+    }
+
+    public EngineStatus getEngineStatus() {
+        return engineStatus;
+    }
+
+    public void setEngineStatus(EngineStatus engineStatus) {
+        this.engineStatus = engineStatus;
+    }
+
+    public CanvasStatus getCanvasStatus() {
+        return canvasStatus;
+    }
+
+    public void setCanvasStatus(CanvasStatus canvasStatus) {
+        this.canvasStatus = canvasStatus;
     }
 }

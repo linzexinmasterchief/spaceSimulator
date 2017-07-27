@@ -1,7 +1,8 @@
 package models.SystemComponents;
 
 import Application.Engine.Engine;
-import Application.system.SystemStatus;
+import Application.status.CanvasStatus;
+import Application.status.SystemStatus;
 
 /**
  * Created by lzx on 2017/7/14.

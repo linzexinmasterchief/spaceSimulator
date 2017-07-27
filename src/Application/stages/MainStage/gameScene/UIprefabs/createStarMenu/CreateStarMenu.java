@@ -1,7 +1,7 @@
 package Application.stages.MainStage.gameScene.UIprefabs.createStarMenu;
 
 import Application.stages.MainStage.gameScene.GameScene;
-import Application.system.SystemStatus;
+import Application.status.SystemStatus;
 import javafx.scene.Group;
 import models.UIComponents.MenuButtonModel;
 import models.UIComponents.MenuSliderModel;

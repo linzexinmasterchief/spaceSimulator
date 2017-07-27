@@ -1,8 +1,8 @@
 package Application.Engine;
 
-import Application.Engine.graphics.GraphicsModuleModel;
-import Application.Engine.operation.OperationModuleModel;
-import Application.Engine.physics.PhysicsModuleModel;
+import Application.Engine.graphics.GraphicsModule;
+import Application.Engine.operation.OperationModule;
+import Application.Engine.physics.PhysicsModule;
 import Application.Launcher;
 import Application.Engine.physics.physicsPrefabs.Camera;
 import Application.Engine.physics.physicsPrefabs.Star;
@@ -16,9 +16,9 @@ public class Engine {
 
     private Launcher launcher;
 
-    private PhysicsModuleModel physicsModule;
-    private GraphicsModuleModel graphicsModule;
-    private OperationModuleModel operationModule;
+    private PhysicsModule physicsModule;
+    private GraphicsModule graphicsModule;
+    private OperationModule operationModule;
 
     //used components
     //generate a universe
@@ -56,18 +56,18 @@ public class Engine {
 
         //>>>>>>>>>>>>>>>>>>|[THREADS]|<<<<<<<<<<<<<<<<<<<<
         //physics module
-        physicsModule = new PhysicsModuleModel(this);
+        physicsModule = new PhysicsModule(this);
         Thread physics = new Thread(physicsModule);
         physics.start();
         //halt until game canvas is initialized
 
         //graphics module
-        graphicsModule = new GraphicsModuleModel(this);
+        graphicsModule = new GraphicsModule(this);
         Thread graphics = new Thread(graphicsModule);
         graphics.start();
         //halt until game canvas is initialized
 
-        operationModule = new OperationModuleModel(this);
+        operationModule = new OperationModule(this);
         Thread operation = new Thread(operationModule);
         operation.start();
         //halt until game canvas is initialized
@@ -90,11 +90,11 @@ public class Engine {
         return universe;
     }
 
-    public PhysicsModuleModel getPhysicsModule(){
+    public PhysicsModule getPhysicsModule(){
         return physicsModule;
     }
 
-    public GraphicsModuleModel getGraphicsModule(){
+    public GraphicsModule getGraphicsModule(){
         return graphicsModule;
     }
 

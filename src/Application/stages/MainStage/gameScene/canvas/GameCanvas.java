@@ -1,6 +1,7 @@
 package Application.stages.MainStage.gameScene.canvas;
 
-import Application.system.SystemStatus;
+import Application.status.CanvasStatus;
+import Application.status.SystemStatus;
 import javafx.scene.canvas.Canvas;
 import Application.stages.MainStage.gameScene.GameScene;
 import javafx.scene.input.MouseButton;
@@ -15,8 +16,10 @@ import javafx.scene.input.MouseButton;
  */
 public class GameCanvas extends Canvas{
 
-    //create reference to system properties
-    private SystemStatus systemStatus;
+    //create reference to system status
+    private final SystemStatus systemStatus;
+    //create reference to canvas status
+    private final CanvasStatus canvasStatus;
 
     //constructor
     public GameCanvas(double width, double height, GameScene rootScene) {
@@ -24,11 +27,12 @@ public class GameCanvas extends Canvas{
         //"this.getWidth()" to work properly
         super(width, height);
 
-        //create reference to rootScene
         systemStatus = rootScene.getGameStage().getLauncher().getSystemStatus();
-        systemStatus.setHeightWidthScale(this.getHeight() / this.getWidth());
-        systemStatus.setCanvasHeight(this.getHeight());
-        systemStatus.setCanvasWidth(this.getWidth());
+        systemStatus.setHeightWidthScale(getHeight() / getWidth());
+
+        canvasStatus = rootScene.getGameStage().getLauncher().getCanvasStatus();
+        canvasStatus.setCanvasHeight(getHeight());
+        canvasStatus.setCanvasWidth(getWidth());
 
         setOnMouseMoved(me -> systemStatus.setMouse_coordinate(new double[]{me.getX(),me.getY()}));
 

@@ -15,17 +15,12 @@ public class GameStage extends Stage{
 
     private Launcher launcher;
 
-    //engine is at the same level as ganeStage
-    private Engine engine;
-
     //create an object of the game scene
     private GameScene gameScene;
 
     public GameStage(Launcher starter){
 
         launcher = starter;
-
-        engine = starter.getEngine();
 
         //initialize components
         gameScene = new GameScene(new Group(), 1000, 560, this);

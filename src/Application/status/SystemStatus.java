@@ -1,4 +1,4 @@
-package Application.system;
+package Application.status;
 
 import javafx.scene.input.MouseButton;
 
@@ -31,10 +31,6 @@ public class SystemStatus {
     private boolean MouseReleased;
     private boolean MouseScrolled;
 
-    //current canvas property
-    private double canvasWidth;
-    private double canvasHeight;
-
     //a variable used to store the scale between height and width
     private double HeightWidthScale;
 
@@ -58,10 +54,6 @@ public class SystemStatus {
         MousePressed = false;
         MouseReleased = false;
         MouseScrolled = false;
-
-        //initialize current canvas properties
-        canvasWidth = 0;
-        canvasHeight = 0;
 
         //initialize the scale between height and width
         HeightWidthScale = 1;
@@ -137,22 +129,6 @@ public class SystemStatus {
 
     public void setMouseScrollValue(double mouseScrollValue) {
         this.mouseScrollValue = mouseScrollValue;
-    }
-
-    public double getCanvasWidth() {
-        return canvasWidth;
-    }
-
-    public void setCanvasWidth(double canvasWidth) {
-        this.canvasWidth = canvasWidth;
-    }
-
-    public double getCanvasHeight() {
-        return canvasHeight;
-    }
-
-    public void setCanvasHeight(double canvasHeight) {
-        this.canvasHeight = canvasHeight;
     }
 
     public boolean isCreateStarMenuOut() {

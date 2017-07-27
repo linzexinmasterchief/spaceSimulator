@@ -1,7 +1,7 @@
 package Application.stages.MainStage.gameScene.UIprefabs.universeStatusBar;
 
 import Application.stages.MainStage.gameScene.GameScene;
-import Application.system.SystemStatus;
+import Application.status.SystemStatus;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.text.Font;

@@ -3,6 +3,7 @@ package Application.Engine.operation;
 import Application.Engine.Engine;
 import Application.Engine.EngineSettings.Speed;
 import Application.stages.MainStage.gameScene.GameScene;
+import Application.status.CanvasStatus;
 import javafx.application.Platform;
 import Application.Engine.physics.physicsPrefabs.Star;
 import models.SystemComponents.ThreadModuleModel;
@@ -11,11 +12,12 @@ import models.SystemComponents.ThreadModuleModel;
  * Created by lzx on 2017/7/13.
  *
  */
-public class OperationModuleModel extends ThreadModuleModel {
+public class OperationModule extends ThreadModuleModel {
 
     private GameScene gameScene;
+    private CanvasStatus canvasStatus;
 
-    public OperationModuleModel(Engine root_engine){
+    public OperationModule(Engine root_engine){
         super(root_engine);
     }
 
@@ -23,6 +25,8 @@ public class OperationModuleModel extends ThreadModuleModel {
     public void initialize(){
         //override default initialize block
         gameScene = engine.getLauncher().getGameStage().getGameScene();
+
+        canvasStatus = engine.getLauncher().getCanvasStatus();
     }
 
     //determine if a new star should be created
@@ -32,8 +36,12 @@ public class OperationModuleModel extends ThreadModuleModel {
         systemStatus.setNewStarExist(true);
 
         //give the buffer star speed based on the distance mouse dragged
-        engine.getBufferStar().velocityX = (systemStatus.getDragLine()[2] - systemStatus.getDragLine()[0]) / Speed.getDragSpeedConstant();
-        engine.getBufferStar().velocityY = (systemStatus.getDragLine()[3] - systemStatus.getDragLine()[1]) / Speed.getDragSpeedConstant();
+        engine.getBufferStar().velocityX = (systemStatus.getDragLine()[2]
+                - systemStatus.getDragLine()[0])
+                / Speed.getDragSpeedConstant();
+        engine.getBufferStar().velocityY = (systemStatus.getDragLine()[3]
+                - systemStatus.getDragLine()[1])
+                / Speed.getDragSpeedConstant();
 
         //check if the new star lock is opened to avoid unnecessary star list iterations
         //check if there is empty star slot for a new star
@@ -134,19 +142,32 @@ public class OperationModuleModel extends ThreadModuleModel {
 
                     //change the size of the camera (+)
                     engine.getCamera().setWidth(engine.getCamera().getWidth() + Speed.getSizeChangeSpeed());
-                    engine.getCamera().setHeight(engine.getCamera().getHeight() + Speed.getSizeChangeSpeed() * systemStatus.getHeightWidthScale());
+                    engine.getCamera().setHeight(engine.getCamera().getHeight()
+                            + Speed.getSizeChangeSpeed() * systemStatus.getHeightWidthScale());
 
                     //move the camera to the mouse coordinate to create an effect
-                    engine.getCamera().setCenterX(engine.getCamera().getCenterX() - (systemStatus.getMouse_coordinate()[0] - systemStatus.getCanvasWidth() / 2) / systemStatus.getCanvasWidth() * Speed.getCameraMoveSpeed());
-                    engine.getCamera().setCenterY(engine.getCamera().getCenterY() - (systemStatus.getMouse_coordinate()[1] - systemStatus.getCanvasHeight() / 2) / systemStatus.getCanvasHeight() * Speed.getCameraMoveSpeed());
+                    engine.getCamera().setCenterX(engine.getCamera().getCenterX()
+                                    - (systemStatus.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
+                                    / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed()
+                    );
+                    engine.getCamera().setCenterY(engine.getCamera().getCenterY()
+                            - (systemStatus.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
+                            / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed()
+                    );
                 } else if (systemStatus.getMouseScrollValue() > 0) {
                     //on mouse wheel rolling back (enlarge)
                     engine.getCamera().setWidth(engine.getCamera().getWidth() - Speed.getSizeChangeSpeed());
-                    engine.getCamera().setHeight(engine.getCamera().getHeight() - Speed.getSizeChangeSpeed() * systemStatus.getHeightWidthScale());
+                    engine.getCamera().setHeight(engine.getCamera().getHeight()
+                            - Speed.getSizeChangeSpeed() * systemStatus.getHeightWidthScale()
+                    );
 
                     //move the camera to the mouse coordinate to create an effect
-                    engine.getCamera().setCenterX(engine.getCamera().getCenterX() + (systemStatus.getMouse_coordinate()[0] - systemStatus.getCanvasWidth() / 2) / systemStatus.getCanvasWidth() * Speed.getCameraMoveSpeed());
-                    engine.getCamera().setCenterY(engine.getCamera().getCenterY() + (systemStatus.getMouse_coordinate()[1] - systemStatus.getCanvasHeight() / 2) / systemStatus.getCanvasHeight() * Speed.getCameraMoveSpeed());
+                    engine.getCamera().setCenterX(engine.getCamera().getCenterX()
+                            + (systemStatus.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
+                            / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed());
+                    engine.getCamera().setCenterY(engine.getCamera().getCenterY()
+                            + (systemStatus.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
+                            / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed());
                 }
 
                 //calculate the scale between camera and original camera

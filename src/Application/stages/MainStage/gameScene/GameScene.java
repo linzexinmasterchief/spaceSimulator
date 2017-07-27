@@ -55,6 +55,7 @@ public class GameScene extends Scene {
 
         //add bottom physicsStatus bar
         universeStatusBar = UniverseStatusBar.createUniverseStatusBar(this, root);
+
     }
 
     public GameStage getGameStage() {

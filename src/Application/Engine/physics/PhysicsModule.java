@@ -10,14 +10,14 @@ import Application.Engine.physics.physicsPrefabs.Universe;
  * Created by lzx on 2017/7/6.
  * physics thread is a independent module
  */
-public class PhysicsModuleModel extends ThreadModuleModel {
+public class PhysicsModule extends ThreadModuleModel {
 
     private Star[] stars;
 
     //install the gravity module
     private GravityCalculate gravityCalculate;
 
-    public PhysicsModuleModel(Engine root_engine){
+    public PhysicsModule(Engine root_engine){
         super(root_engine);
     }
 
