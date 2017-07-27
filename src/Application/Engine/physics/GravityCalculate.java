@@ -17,7 +17,7 @@ public class GravityCalculate {
         this.stars = stars;
     }
 
-    public void gravityAcceleration(Star s) {
+    public void fire(Star s) {
         s.accelerationX = s.accelerationY = 0;
         for (Star star : stars) {
             if (star.inUniverse & star != s) {
@@ -25,13 +25,14 @@ public class GravityCalculate {
                 double yDiff = star.centerY - s.centerY;
                 double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
 
-                if (distance > star.r + s.r & s.mass != 0) {
+                //normal move
+                if (distance > star.r + s.r) {
                     s.accelerationX = (0.06673 * star.mass / Math.pow(distance, 2)) * (xDiff / distance);
                     s.accelerationY = (0.06673 * star.mass / Math.pow(distance, 2)) * (yDiff / distance);
                 }
 
                 if (distance <= star.r + s.r) {
-
+                    //collide
                     //think carefully before you try to replace these codes with a buffer star
                     double newR = Math.sqrt(star.r * star.r + s.r * s.r);
                     double newMass = s.mass + star.mass;
