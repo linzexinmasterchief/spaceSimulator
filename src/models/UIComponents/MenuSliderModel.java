@@ -30,7 +30,6 @@ public class MenuSliderModel extends Button {
                 } else if (value > getWidth()) {
                     value = getWidth();
                 }
-                System.out.println(value);
             }
             refresh();
         });
@@ -43,7 +42,6 @@ public class MenuSliderModel extends Button {
                 }else if (value > getWidth()){
                     value = getWidth();
                 }
-                System.out.println(value);
             }
             refresh();
         });
