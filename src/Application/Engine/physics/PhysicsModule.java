@@ -34,17 +34,19 @@ public class PhysicsModule extends ThreadModuleModel {
             return;
         }
 
+        //initialize star amount
         engine.getUniverse().setStarAmount(0);
 
+        //create reference of star list
         stars = engine.getUniverse().getStars();
+
+        //create reference of universe
         Universe universe = engine.getUniverse();
 
+        //iterate star list
         for (int i = 0; i < stars.length; i++) {
 
-            if (stars[i].inUniverse){
-                engine.getUniverse().setStarAmount(engine.getUniverse().getStarAmount() + 1);
-            }
-
+            //remove the star from star list if it move out the universe
             if (((stars[i].centerX - stars[i].r) > (universe.getWidth() + 10 + (2 * stars[i].r)))
                     | ((stars[i].centerY - stars[i].r) > (universe.getHeight() + 10 + (2 * stars[i].r)))
                     | ((stars[i].centerX - stars[i].r) < (-10 - (2 * stars[i].r)))
@@ -53,17 +55,22 @@ public class PhysicsModule extends ThreadModuleModel {
             }
 
             if (stars[i].inUniverse) {
+                //count the amount of stars in the universe + 1
+                engine.getUniverse().setStarAmount(engine.getUniverse().getStarAmount() + 1);
+
+                //set the next position of star according to star speed
                 stars[i].move();
+
+                //use multi-thread to calculate the acceleration of star
                 final int F = i;
                 Platform.runLater(() -> {
                     gravityCalculate.synchronize(stars);
-                    gravityCalculate.gravityAcceleration(stars[F]);
+                    gravityCalculate.fire(stars[F]);
                 });
             }
         }
 
         engine.getUniverse().setStars(stars);
-        engine.setUniverse(universe);
     }
 
     //function designed for screen cleaning
