@@ -1,13 +1,13 @@
 package Application.logicUnit.worldComponents.graphics;
 
-import Application.logicUnit.world;
+import Application.logicUnit.World;
 import Application.graphicUnit.mainStageComponents.GameScene;
 import Application.graphicUnit.mainStageComponents.gameSceneComponents.GameCanvas;
 import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
-import models.SystemComponentModels.ThreadModuleModel;
+import models.systemComponentModels.ThreadModuleModel;
 
 /**
  * Created by lzx on 2017/7/6.
@@ -24,14 +24,14 @@ public class GraphicsModule extends ThreadModuleModel {
     private double scaleX = 1;
     private double scaleY = 1;
 
-    public GraphicsModule(world root_world){
+    public GraphicsModule(World root_world){
         super(root_world);
     }
 
     @Override
     public void initialize(){
         //override default initialize block
-        gameScene = world.getLauncher().getGameStage().getGameScene();
+        gameScene = World.getLauncher().getGameStage().getGameScene();
         gameCanvas = gameScene.getGameCanvas();
         gc = gameCanvas.getGraphicsContext2D();
 
@@ -48,7 +48,7 @@ public class GraphicsModule extends ThreadModuleModel {
         gc.fillRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
 
         //iterate the star list to draw all the exist stars in the universe
-        for (Star star : world.getUniverse().getStars()) {
+        for (Star star : World.getUniverse().getStars()) {
 
             int r, g, b;
 
@@ -74,10 +74,10 @@ public class GraphicsModule extends ThreadModuleModel {
             }
             gc.setFill(Color.rgb(r, g, b));
 
-            star.onScreen = !(star.centerX < world.getCamera().getCenterX() - world.getCamera().getWidth() / 2 - star.r
-                    || star.centerX > world.getCamera().getCenterX() + world.getCamera().getWidth() / 2 + star.r
-                    || star.centerY < world.getCamera().getCenterY() - world.getCamera().getHeight() / 2 - star.r
-                    || star.centerY > world.getCamera().getCenterY() + world.getCamera().getHeight() / 2 + star.r);
+            star.onScreen = !(star.centerX < World.getCamera().getCenterX() - World.getCamera().getWidth() / 2 - star.r
+                    || star.centerX > World.getCamera().getCenterX() + World.getCamera().getWidth() / 2 + star.r
+                    || star.centerY < World.getCamera().getCenterY() - World.getCamera().getHeight() / 2 - star.r
+                    || star.centerY > World.getCamera().getCenterY() + World.getCamera().getHeight() / 2 + star.r);
 
             //calculate the actual display size according to the scale
             double starWidth = star.r * 2 / scaleX;
@@ -103,14 +103,14 @@ public class GraphicsModule extends ThreadModuleModel {
 
                         //this is convert the universe coordinates to display coordinates
                         (
-                                star.centerX - (world.getCamera().getCenterX() - world.getUniverse().getWidth() / 2)
-                                        - (world.getUniverse().getWidth() - world.getCamera().getWidth()) / 2
+                                star.centerX - (World.getCamera().getCenterX() - World.getUniverse().getWidth() / 2)
+                                        - (World.getUniverse().getWidth() - World.getCamera().getWidth()) / 2
                         )
                                 / scaleX
                                 - starWidth / 2,
                         (
-                                star.centerY - (world.getCamera().getCenterY() - world.getUniverse().getHeight() / 2)
-                                        - (world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2
+                                star.centerY - (World.getCamera().getCenterY() - World.getUniverse().getHeight() / 2)
+                                        - (World.getUniverse().getHeight() - World.getCamera().getHeight()) / 2
                         )
                                 / scaleY
                                 - starHeight / 2,

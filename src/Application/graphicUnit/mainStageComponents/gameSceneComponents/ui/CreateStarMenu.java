@@ -3,8 +3,8 @@ package Application.graphicUnit.mainStageComponents.gameSceneComponents.ui;
 import Application.graphicUnit.mainStageComponents.GameScene;
 import Application.status.SystemStatus;
 import javafx.scene.Group;
-import models.UIComponentModels.MenuButton;
-import models.UIComponentModels.MenuSlider;
+import models.uiComponentModels.MenuButton;
+import models.uiComponentModels.MenuSlider;
 
 /**
  * Created by lzx on 2017/7/15.

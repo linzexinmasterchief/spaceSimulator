@@ -26,7 +26,7 @@ public class SystemStatus {
     private double mouseScrollValue;
     //activated mouse button
     private MouseButton activatedMouseButton;
-    //mouse physicsStatus
+    //mouse PhysicsStatus
     private boolean MousePressed;
     private boolean MouseReleased;
     private boolean MouseScrolled;

@@ -1,6 +1,6 @@
-package models.SystemComponentModels;
+package models.systemComponentModels;
 
-import Application.logicUnit.world;
+import Application.logicUnit.World;
 import Application.status.SystemStatus;
 
 /**
@@ -8,18 +8,18 @@ import Application.status.SystemStatus;
  */
 public class ThreadModuleModel implements Runnable{
 
-    protected world world;
+    protected World World;
     protected SystemStatus systemStatus;
 
     //some properties of the program
     private boolean isExit;
     private boolean isPause;
 
-    public ThreadModuleModel(world root_world){
-        world = root_world;
+    public ThreadModuleModel(World root_world){
+        World = root_world;
 
-        //initialize reference to system physicsStatus
-        systemStatus = world.getLauncher().getSystemStatus();
+        //initialize reference to system PhysicsStatus
+        systemStatus = World.getLauncher().getSystemStatus();
 
         //initialize program properties
         setExit(false);

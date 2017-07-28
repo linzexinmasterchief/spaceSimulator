@@ -5,7 +5,7 @@ import Application.status.SystemStatus;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.text.Font;
-import models.UIComponentModels.MenuButton;
+import models.uiComponentModels.MenuButton;
 
 /**
  * Created by lzx on 2017/7/14.

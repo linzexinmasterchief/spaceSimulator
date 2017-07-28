@@ -2,7 +2,7 @@ package Application.graphicUnit.mainStageComponents.gameSceneComponents.ui;
 
 import Application.graphicUnit.mainStageComponents.GameScene;
 import Application.status.SystemStatus;
-import models.UIComponentModels.CircularButton;
+import models.uiComponentModels.CircularButton;
 
 /**
  * Created by lzx on 2017/7/15.

@@ -1,6 +1,6 @@
 package Application;
 
-import Application.logicUnit.world;
+import Application.logicUnit.World;
 import Application.graphicUnit.GameStage;
 import Application.graphicUnit.SettingStage;
 import Application.status.CanvasStatus;
@@ -20,7 +20,7 @@ import java.awt.*;
 
 public class Launcher extends Application {
 
-    //object used to store world information
+    //object used to store World information
     private EngineStatus engineStatus;
     //object used to store system information
     private SystemStatus systemStatus;
@@ -35,7 +35,7 @@ public class Launcher extends Application {
     //game worldSettings
     private SystemSettings systemSettings;
 
-    private world world;
+    private World World;
 
     private GameStage gameStage;
     //option menu
@@ -50,7 +50,7 @@ public class Launcher extends Application {
     @Override
     //initialize the application
     public void start(Stage stage) {
-        //initialize world status
+        //initialize World status
         engineStatus = new EngineStatus();
         //initialize system status
         systemStatus = new SystemStatus();
@@ -71,7 +71,7 @@ public class Launcher extends Application {
         systemStatus.setSettingStageOut(false);
 
         //the position is critical
-        world = new world(this);
+        World = new World(this);
 
         //add the window
         stage.show();
@@ -81,8 +81,8 @@ public class Launcher extends Application {
         return systemStatus;
     }
 
-    public world getWorld(){
-        return world;
+    public World getWorld(){
+        return World;
     }
 
     public GameStage getGameStage(){

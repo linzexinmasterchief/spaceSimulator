@@ -53,7 +53,7 @@ public class GameScene extends Scene {
         createStarMenuSwitch.setTranslateY(5);
         root.getChildren().add(createStarMenuSwitch);
 
-        //add bottom physicsStatus bar
+        //add bottom PhysicsStatus bar
         universeStatusBar = UniverseStatusBar.createUniverseStatusBar(this, root);
 
     }

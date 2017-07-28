@@ -1,4 +1,4 @@
-package models.UIComponentModels;
+package models.uiComponentModels;
 
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;

@@ -1,12 +1,12 @@
 package Application.logicUnit.worldComponents.operation;
 
-import Application.logicUnit.world;
+import Application.logicUnit.World;
 import Application.logicUnit.worldComponents.worldSettings.Speed;
 import Application.graphicUnit.mainStageComponents.GameScene;
 import Application.status.CanvasStatus;
 import javafx.application.Platform;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
-import models.SystemComponentModels.ThreadModuleModel;
+import models.systemComponentModels.ThreadModuleModel;
 
 /**
  * Created by lzx on 2017/7/13.
@@ -17,16 +17,16 @@ public class OperationModule extends ThreadModuleModel {
     private GameScene gameScene;
     private CanvasStatus canvasStatus;
 
-    public OperationModule(world root_world){
+    public OperationModule(World root_world){
         super(root_world);
     }
 
     @Override
     public void initialize(){
         //override default initialize block
-        gameScene = world.getLauncher().getGameStage().getGameScene();
+        gameScene = World.getLauncher().getGameStage().getGameScene();
 
-        canvasStatus = world.getLauncher().getCanvasStatus();
+        canvasStatus = World.getLauncher().getCanvasStatus();
     }
 
     //determine if a new star should be created
@@ -36,55 +36,55 @@ public class OperationModule extends ThreadModuleModel {
         systemStatus.setNewStarExist(true);
 
         //give the buffer star speed based on the distance mouse dragged
-        world.getBufferStar().velocityX = (systemStatus.getDragLine()[2]
+        World.getBufferStar().velocityX = (systemStatus.getDragLine()[2]
                 - systemStatus.getDragLine()[0])
                 / Speed.getDragSpeedConstant();
-        world.getBufferStar().velocityY = (systemStatus.getDragLine()[3]
+        World.getBufferStar().velocityY = (systemStatus.getDragLine()[3]
                 - systemStatus.getDragLine()[1])
                 / Speed.getDragSpeedConstant();
 
         //check if the new star lock is opened to avoid unnecessary star list iterations
         //check if there is empty star slot for a new star
         if (systemStatus.isNewStarExist()) {
-            for (int i = 0; i < world.getUniverse().getStars().length; i++) {
+            for (int i = 0; i < World.getUniverse().getStars().length; i++) {
                 //not on screen means it is safe to clear
-                if (systemStatus.isNewStarExist() & !world.getUniverse().getStars()[i].inUniverse) {
+                if (systemStatus.isNewStarExist() & !World.getUniverse().getStars()[i].inUniverse) {
 
                     //prepare the empty slot for new star
-                    world.getUniverse().getStars()[i].remove();
-                    world.getUniverse().getStars()[i].initialize();
+                    World.getUniverse().getStars()[i].remove();
+                    World.getUniverse().getStars()[i].initialize();
 
                     //give buffer star properties
-                    world.getBufferStar().mass = gameScene.getMass();
-                    world.getBufferStar().r = gameScene.getRadius();
+                    World.getBufferStar().mass = gameScene.getMass();
+                    World.getBufferStar().r = gameScene.getRadius();
 
                     //give the properties of buffer star to the empty star slot
-                    world.getUniverse().getStars()[i] = new Star(world.getBufferStar());
+                    World.getUniverse().getStars()[i] = new Star(World.getBufferStar());
                     //remove the buffer star (clear the values to default)
-                    world.getBufferStar().remove();
+                    World.getBufferStar().remove();
 
                     //add the star according to the size of window(camera)
                     //and the enlarge scales
-                    world.getUniverse().getStars()[i].add(
+                    World.getUniverse().getStars()[i].add(
                             //convert the coordinate on screen to coordinate in the universe
                             //it's hard to explain the math, but it will be easy to understand
                             //once you draw it out on the paper, be careful changing it anyway
-                            (world.getCamera().getCenterX() - world.getUniverse().getWidth() / 2)
-                                    + (world.getUniverse().getWidth() - world.getCamera().getWidth()) / 2
-                                    + systemStatus.getMouse_coordinate()[0] * world.getGraphicsModule().getScaleX(),
-                            (world.getCamera().getCenterY() - world.getUniverse().getHeight() / 2)
-                                    + (world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2
-                                    + systemStatus.getMouse_coordinate()[1] * world.getGraphicsModule().getScaleY()
+                            (World.getCamera().getCenterX() - World.getUniverse().getWidth() / 2)
+                                    + (World.getUniverse().getWidth() - World.getCamera().getWidth()) / 2
+                                    + systemStatus.getMouse_coordinate()[0] * World.getGraphicsModule().getScaleX(),
+                            (World.getCamera().getCenterY() - World.getUniverse().getHeight() / 2)
+                                    + (World.getUniverse().getHeight() - World.getCamera().getHeight()) / 2
+                                    + systemStatus.getMouse_coordinate()[1] * World.getGraphicsModule().getScaleY()
                     );
 
                     //change the slot property from empty to full
-                    world.getUniverse().getStars()[i].inUniverse = true;
+                    World.getUniverse().getStars()[i].inUniverse = true;
 
                     //close the new star lock
                     systemStatus.setNewStarExist(false);
 
                     //refresh the screen
-                    world.getGraphicsModule().drawShapes();
+                    World.getGraphicsModule().drawShapes();
                 }
             }
         }
@@ -125,11 +125,11 @@ public class OperationModule extends ThreadModuleModel {
                         addNewStar();
                         break;
                     case SECONDARY:
-                        world.getPhysicsModule().clear();
+                        World.getPhysicsModule().clear();
                         break;
                     case MIDDLE:
                         //change pause value if middle button pressed
-                        world.getPhysicsModule().setPause(!world.getPhysicsModule().isPause());
+                        World.getPhysicsModule().setPause(!World.getPhysicsModule().isPause());
                         break;
                 }
             }
@@ -141,41 +141,41 @@ public class OperationModule extends ThreadModuleModel {
                 if (systemStatus.getMouseScrollValue() < 0) {
 
                     //change the size of the camera (+)
-                    world.getCamera().setWidth(world.getCamera().getWidth() + Speed.getSizeChangeSpeed());
-                    world.getCamera().setHeight(world.getCamera().getHeight()
+                    World.getCamera().setWidth(World.getCamera().getWidth() + Speed.getSizeChangeSpeed());
+                    World.getCamera().setHeight(World.getCamera().getHeight()
                             + Speed.getSizeChangeSpeed() * systemStatus.getHeightWidthScale());
 
                     //move the camera to the mouse coordinate to create an effect
-                    world.getCamera().setCenterX(world.getCamera().getCenterX()
+                    World.getCamera().setCenterX(World.getCamera().getCenterX()
                                     - (systemStatus.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
                                     / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed()
                     );
-                    world.getCamera().setCenterY(world.getCamera().getCenterY()
+                    World.getCamera().setCenterY(World.getCamera().getCenterY()
                             - (systemStatus.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
                             / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed()
                     );
                 } else if (systemStatus.getMouseScrollValue() > 0) {
                     //on mouse wheel rolling back (enlarge)
-                    world.getCamera().setWidth(world.getCamera().getWidth() - Speed.getSizeChangeSpeed());
-                    world.getCamera().setHeight(world.getCamera().getHeight()
+                    World.getCamera().setWidth(World.getCamera().getWidth() - Speed.getSizeChangeSpeed());
+                    World.getCamera().setHeight(World.getCamera().getHeight()
                             - Speed.getSizeChangeSpeed() * systemStatus.getHeightWidthScale()
                     );
 
                     //move the camera to the mouse coordinate to create an effect
-                    world.getCamera().setCenterX(world.getCamera().getCenterX()
+                    World.getCamera().setCenterX(World.getCamera().getCenterX()
                             + (systemStatus.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
                             / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed());
-                    world.getCamera().setCenterY(world.getCamera().getCenterY()
+                    World.getCamera().setCenterY(World.getCamera().getCenterY()
                             + (systemStatus.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
                             / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed());
                 }
 
                 //calculate the scale between camera and original camera
-                world.getGraphicsModule().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
-                world.getGraphicsModule().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
+                World.getGraphicsModule().setScaleX(World.getCamera().getWidth() / World.getCamera().getOriginalWidth());
+                World.getGraphicsModule().setScaleY(World.getCamera().getHeight() / World.getCamera().getOriginalHeight());
 
                 //refresh the screen
-                world.getGraphicsModule().drawShapes();
+                World.getGraphicsModule().drawShapes();
             }
 
             systemStatus.setMouseReleased(false);
@@ -187,9 +187,9 @@ public class OperationModule extends ThreadModuleModel {
             gameScene.getCreateStarMenu().getRaiusSlider().setVisible(systemStatus.isCreateStarMenuOut());
 
             if (systemStatus.isSettingStageOut()) {
-                Platform.runLater(() -> world.getLauncher().getSettingStage().show());
+                Platform.runLater(() -> World.getLauncher().getSettingStage().show());
             }else {
-                Platform.runLater(() -> world.getLauncher().getSettingStage().hide());
+                Platform.runLater(() -> World.getLauncher().getSettingStage().hide());
             }
 
             Platform.runLater(() -> gameScene.getStatusBar().update());
