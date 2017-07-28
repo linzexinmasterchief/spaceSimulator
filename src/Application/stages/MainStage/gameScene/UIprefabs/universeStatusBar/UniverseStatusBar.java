@@ -64,7 +64,7 @@ public class UniverseStatusBar {
     }
 
     public void update(){
-        starAmountStatus.setText("star amount : " + gameScene.getGameStage().getLauncher().getEngine().getUniverse().getStarAmount());
+        starAmountStatus.setText("star amount : " + gameScene.getGameStage().getLauncher().getWorld().getUniverse().getStarAmount());
 
     }
 

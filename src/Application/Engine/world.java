@@ -14,7 +14,7 @@ import java.awt.*;
  * Created by lzx on 2017/6/13.
  * initialize at start, then every components are created under it
  */
-public class Engine {
+public class world {
 
     private Launcher launcher;
 
@@ -32,7 +32,7 @@ public class Engine {
     private Camera camera;
 
 
-    public Engine(Launcher starter) {
+    public world(Launcher starter) {
         launcher = starter;
         //call the function to initialize all the stars in the universe
         initialize();

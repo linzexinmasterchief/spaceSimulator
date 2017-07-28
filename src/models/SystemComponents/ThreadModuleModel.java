@@ -1,7 +1,6 @@
 package models.SystemComponents;
 
-import Application.Engine.Engine;
-import Application.status.CanvasStatus;
+import Application.Engine.world;
 import Application.status.SystemStatus;
 
 /**
@@ -9,18 +8,18 @@ import Application.status.SystemStatus;
  */
 public class ThreadModuleModel implements Runnable{
 
-    protected Engine engine;
+    protected world world;
     protected SystemStatus systemStatus;
 
     //some properties of the program
     private boolean isExit;
     private boolean isPause;
 
-    public ThreadModuleModel(Engine root_engine){
-        engine = root_engine;
+    public ThreadModuleModel(world root_world){
+        world = root_world;
 
         //initialize reference to system physicsStatus
-        systemStatus = engine.getLauncher().getSystemStatus();
+        systemStatus = world.getLauncher().getSystemStatus();
 
         //initialize program properties
         setExit(false);

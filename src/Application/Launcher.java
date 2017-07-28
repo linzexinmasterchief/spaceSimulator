@@ -1,6 +1,6 @@
 package Application;
 
-import Application.Engine.Engine;
+import Application.Engine.world;
 import Application.stages.MainStage.GameStage;
 import Application.stages.SettingStage.SettingStage;
 import Application.status.CanvasStatus;
@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 public class Launcher extends Application {
 
-    //object used to store engine information
+    //object used to store world information
     private EngineStatus engineStatus;
     //object used to store system information
     private SystemStatus systemStatus;
@@ -29,7 +29,7 @@ public class Launcher extends Application {
     //game EngineSettings
     private SystemSettings systemSettings;
 
-    private Engine engine;
+    private world world;
 
     private GameStage gameStage;
     //option menu
@@ -44,7 +44,7 @@ public class Launcher extends Application {
     @Override
     //initialize the application
     public void start(Stage stage) {
-        //initialize engine status
+        //initialize world status
         engineStatus = new EngineStatus();
         //initialize system status
         systemStatus = new SystemStatus();
@@ -65,7 +65,7 @@ public class Launcher extends Application {
         systemStatus.setSettingStageOut(false);
 
         //the position is critical
-        engine = new Engine(this);
+        world = new world(this);
 
         //add the window
         stage.show();
@@ -75,8 +75,8 @@ public class Launcher extends Application {
         return systemStatus;
     }
 
-    public Engine getEngine(){
-        return engine;
+    public world getWorld(){
+        return world;
     }
 
     public GameStage getGameStage(){

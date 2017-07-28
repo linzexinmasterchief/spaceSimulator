@@ -1,6 +1,6 @@
 package Application.Engine.graphics;
 
-import Application.Engine.Engine;
+import Application.Engine.world;
 import Application.stages.MainStage.gameScene.GameScene;
 import Application.stages.MainStage.gameScene.canvas.GameCanvas;
 import javafx.application.Platform;
@@ -24,14 +24,14 @@ public class GraphicsModule extends ThreadModuleModel {
     private double scaleX = 1;
     private double scaleY = 1;
 
-    public GraphicsModule(Engine root_engine){
-        super(root_engine);
+    public GraphicsModule(world root_world){
+        super(root_world);
     }
 
     @Override
     public void initialize(){
         //override default initialize block
-        gameScene = engine.getLauncher().getGameStage().getGameScene();
+        gameScene = world.getLauncher().getGameStage().getGameScene();
         gameCanvas = gameScene.getGameCanvas();
         gc = gameCanvas.getGraphicsContext2D();
 
@@ -48,7 +48,7 @@ public class GraphicsModule extends ThreadModuleModel {
         gc.fillRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
 
         //iterate the star list to draw all the exist stars in the universe
-        for (Star star : engine.getUniverse().getStars()) {
+        for (Star star : world.getUniverse().getStars()) {
 
             int r, g, b;
 
@@ -74,10 +74,10 @@ public class GraphicsModule extends ThreadModuleModel {
             }
             gc.setFill(Color.rgb(r, g, b));
 
-            star.onScreen = !(star.centerX < engine.getCamera().getCenterX() - engine.getCamera().getWidth() / 2 - star.r
-                    || star.centerX > engine.getCamera().getCenterX() + engine.getCamera().getWidth() / 2 + star.r
-                    || star.centerY < engine.getCamera().getCenterY() - engine.getCamera().getHeight() / 2 - star.r
-                    || star.centerY > engine.getCamera().getCenterY() + engine.getCamera().getHeight() / 2 + star.r);
+            star.onScreen = !(star.centerX < world.getCamera().getCenterX() - world.getCamera().getWidth() / 2 - star.r
+                    || star.centerX > world.getCamera().getCenterX() + world.getCamera().getWidth() / 2 + star.r
+                    || star.centerY < world.getCamera().getCenterY() - world.getCamera().getHeight() / 2 - star.r
+                    || star.centerY > world.getCamera().getCenterY() + world.getCamera().getHeight() / 2 + star.r);
 
             //calculate the actual display size according to the scale
             double starWidth = star.r * 2 / scaleX;
@@ -103,14 +103,14 @@ public class GraphicsModule extends ThreadModuleModel {
 
                         //this is convert the universe coordinates to display coordinates
                         (
-                                star.centerX - (engine.getCamera().getCenterX() - engine.getUniverse().getWidth() / 2)
-                                        - (engine.getUniverse().getWidth() - engine.getCamera().getWidth()) / 2
+                                star.centerX - (world.getCamera().getCenterX() - world.getUniverse().getWidth() / 2)
+                                        - (world.getUniverse().getWidth() - world.getCamera().getWidth()) / 2
                         )
                                 / scaleX
                                 - starWidth / 2,
                         (
-                                star.centerY - (engine.getCamera().getCenterY() - engine.getUniverse().getHeight() / 2)
-                                        - (engine.getUniverse().getHeight() - engine.getCamera().getHeight()) / 2
+                                star.centerY - (world.getCamera().getCenterY() - world.getUniverse().getHeight() / 2)
+                                        - (world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2
                         )
                                 / scaleY
                                 - starHeight / 2,

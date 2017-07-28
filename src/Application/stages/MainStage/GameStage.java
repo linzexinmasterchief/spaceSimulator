@@ -1,6 +1,5 @@
 package Application.stages.MainStage;
 
-import Application.Engine.Engine;
 import Application.Launcher;
 import Application.stages.MainStage.gameScene.GameScene;
 import javafx.scene.Group;

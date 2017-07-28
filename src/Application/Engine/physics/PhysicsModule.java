@@ -1,6 +1,6 @@
 package Application.Engine.physics;
 
-import Application.Engine.Engine;
+import Application.Engine.world;
 import javafx.application.Platform;
 import Application.Engine.physics.physicsPrefabs.Star;
 import models.SystemComponents.ThreadModuleModel;
@@ -17,8 +17,8 @@ public class PhysicsModule extends ThreadModuleModel {
     //install the gravity module
     private GravityCalculate gravityCalculate;
 
-    public PhysicsModule(Engine root_engine){
-        super(root_engine);
+    public PhysicsModule(world root_world){
+        super(root_world);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class PhysicsModule extends ThreadModuleModel {
         gravityCalculate = new GravityCalculate(stars);
     }
 
-    //this is the function called on every Application.Engine.physics cycle
+    //this is the function called on every Application.world.physics cycle
     //kind of like "fixed update" in unity
     private void PhysicsUpdate() {
         if (isPause()) {
@@ -35,13 +35,13 @@ public class PhysicsModule extends ThreadModuleModel {
         }
 
         //initialize star amount
-        engine.getUniverse().setStarAmount(0);
+        world.getUniverse().setStarAmount(0);
 
         //create reference of star list
-        stars = engine.getUniverse().getStars();
+        stars = world.getUniverse().getStars();
 
         //create reference of universe
-        Universe universe = engine.getUniverse();
+        Universe universe = world.getUniverse();
 
         //iterate star list
         for (int i = 0; i < stars.length; i++) {
@@ -56,7 +56,7 @@ public class PhysicsModule extends ThreadModuleModel {
 
             if (stars[i].inUniverse) {
                 //count the amount of stars in the universe + 1
-                engine.getUniverse().setStarAmount(engine.getUniverse().getStarAmount() + 1);
+                world.getUniverse().setStarAmount(world.getUniverse().getStarAmount() + 1);
 
                 //set the next position of star according to star speed
                 stars[i].move();
@@ -70,13 +70,13 @@ public class PhysicsModule extends ThreadModuleModel {
             }
         }
 
-        engine.getUniverse().setStars(stars);
+        world.getUniverse().setStars(stars);
     }
 
     //function designed for screen cleaning
     //calling it will remove all the stars in the universe
     public void clear() {
-        for (Star star : engine.getUniverse().getStars()) {
+        for (Star star : world.getUniverse().getStars()) {
             star.remove();
         }
     }
