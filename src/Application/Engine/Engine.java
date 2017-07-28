@@ -8,6 +8,8 @@ import Application.Engine.physics.physicsPrefabs.Camera;
 import Application.Engine.physics.physicsPrefabs.Star;
 import Application.Engine.physics.physicsPrefabs.Universe;
 
+import java.awt.*;
+
 /**
  * Created by lzx on 2017/6/13.
  * initialize at start, then every components are created under it
@@ -41,14 +43,14 @@ public class Engine {
         //initialize the universe
         universe = new Universe(10000, 10000);
 
-
         //initialize the buffer star
         bufferStar = new Star();
 
         //initialize the camera
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         camera = new Camera(
-                1000,
-                560,
+                screenSize.width,
+                screenSize.height,
                 universe.getWidth() / 2,
                 universe.getHeight() / 2
         );

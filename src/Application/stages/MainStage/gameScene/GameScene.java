@@ -32,7 +32,7 @@ public class GameScene extends Scene {
 
         //initialize the canvas
         //size
-        gameCanvas = new GameCanvas(1000, 560, this);
+        gameCanvas = new GameCanvas(getWidth(), getHeight(), this);
         //add game canvas
         root.getChildren().add(gameCanvas);
 

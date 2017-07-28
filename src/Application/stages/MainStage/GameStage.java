@@ -7,6 +7,8 @@ import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 /**
  * Created by lzx on 2017/7/6.
  * game stage
@@ -22,8 +24,9 @@ public class GameStage extends Stage{
 
         launcher = starter;
 
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         //initialize components
-        gameScene = new GameScene(new Group(), 1000, 560, this);
+        gameScene = new GameScene(new Group(), screenSize.width, screenSize.height, this);
 
         //give the stage an start scene
         setScene(gameScene);
@@ -41,6 +44,8 @@ public class GameStage extends Stage{
 
         //icon
         getIcons().add(new Image("/resources/icon.png"));
+
+        setFullScreen(true);
 
     }
 

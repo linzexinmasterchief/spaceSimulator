@@ -7,23 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/status/CanvasStatus.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Engine/Engine.java" afterPath="$PROJECT_DIR$/src/Application/Engine/Engine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Launcher.java" afterPath="$PROJECT_DIR$/src/Application/Launcher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/stages/MainStage/GameStage.java" afterPath="$PROJECT_DIR$/src/Application/stages/MainStage/GameStage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/GameScene.java" afterPath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/GameScene.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/CreateStarMenuSwitch.java" afterPath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/CreateStarMenuSwitch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/createStarMenu/CreateStarMenu.java" afterPath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/createStarMenu/CreateStarMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/universeStatusBar/UniverseStatusBar.java" afterPath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/universeStatusBar/UniverseStatusBar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/canvas/GameCanvas.java" afterPath="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/canvas/GameCanvas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/system/SystemSettings.java" afterPath="$PROJECT_DIR$/src/Application/system/SystemSettings.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/SystemComponents/ThreadModuleModel.java" afterPath="$PROJECT_DIR$/src/models/SystemComponents/ThreadModuleModel.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/Engine/EngineStatus.java" afterPath="$PROJECT_DIR$/src/Application/status/EngineStatus.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/Engine/graphics/GraphicsModuleModel.java" afterPath="$PROJECT_DIR$/src/Application/Engine/graphics/GraphicsModule.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/Engine/operation/OperationModuleModel.java" afterPath="$PROJECT_DIR$/src/Application/Engine/operation/OperationModule.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/Engine/physics/PhysicsModuleModel.java" afterPath="$PROJECT_DIR$/src/Application/Engine/physics/PhysicsModule.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/system/SystemStatus.java" afterPath="$PROJECT_DIR$/src/Application/status/SystemStatus.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,51 +27,32 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="SystemStatus.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/status/SystemStatus.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="GravityCalculate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Engine/physics/GravityCalculate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="131" column="5" lean-forward="false" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
+            <state relative-caret-position="255">
+              <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CanvasStatus.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/status/CanvasStatus.java">
+      <file leaf-file-name="Engine.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Application/Engine/Engine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
-              <folding>
-                <element signature="e#364#365#0" expanded="true" />
-                <element signature="e#398#399#0" expanded="true" />
-                <element signature="e#452#453#0" expanded="true" />
-                <element signature="e#498#499#0" expanded="true" />
-                <element signature="e#537#538#0" expanded="true" />
-                <element signature="e#572#573#0" expanded="true" />
-                <element signature="e#628#629#0" expanded="true" />
-                <element signature="e#676#677#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameCanvas.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/canvas/GameCanvas.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+            <state relative-caret-position="-210">
+              <caret line="52" column="33" lean-forward="false" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OperationModule.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Application/Engine/operation/OperationModule.java">
+      <file leaf-file-name="GameScene.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/GameScene.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="43" column="16" lean-forward="false" selection-start-line="43" selection-start-column="16" selection-end-line="43" selection-end-column="16" />
+            <state relative-caret-position="251">
+              <caret line="34" column="59" lean-forward="false" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,21 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThreadModuleModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/SystemComponents/ThreadModuleModel.java">
+      <file leaf-file-name="PhysicsModule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Engine/physics/PhysicsModule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EngineStatus.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/status/EngineStatus.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+            <state relative-caret-position="15">
+              <caret line="72" column="45" lean-forward="false" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -115,40 +73,9 @@
       <file leaf-file-name="GameStage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/GameStage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+            <state relative-caret-position="135">
+              <caret line="26" column="75" lean-forward="true" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Launcher.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/Launcher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
-              <folding>
-                <element signature="e#2590#2591#0" expanded="true" />
-                <element signature="e#2625#2626#0" expanded="true" />
-                <element signature="e#2687#2688#0" expanded="true" />
-                <element signature="e#2735#2736#0" expanded="true" />
-                <element signature="e#2780#2781#0" expanded="true" />
-                <element signature="e#2815#2816#0" expanded="true" />
-                <element signature="e#2877#2878#0" expanded="true" />
-                <element signature="e#2925#2926#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameScene.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/GameScene.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -174,7 +101,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Application/MainStage/gameScene/GameScene.java" />
         <option value="$PROJECT_DIR$/src/Application/MainStage/GameStage.java" />
         <option value="$PROJECT_DIR$/src/Application/system/SystemProperties.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/GameEngine.java" />
@@ -199,24 +125,19 @@
         <option value="$PROJECT_DIR$/src/models/UIComponents/CircularButton.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/universeStatusBar/universeStatusBar.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/createStarMenuSwitch.java" />
-        <option value="$PROJECT_DIR$/src/Application/Engine/Engine.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/createStarMenu/createStarMenu.java" />
         <option value="$PROJECT_DIR$/src/models/PhysicsComponents/Universe.java" />
         <option value="$PROJECT_DIR$/src/Application/system/SystemStatus.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/operation/OperationModuleTest.groovy" />
         <option value="$PROJECT_DIR$/src/models/SystemComponents/ThreadModule.java" />
-        <option value="$PROJECT_DIR$/src/Application/Engine/physics/PhysicsModule.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/graphics/GraphicsModule.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/physics/physicsPrefabs/Universe.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/EngineSettings/Speed.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/universeStatusBar/UniverseStatusBar.java" />
-        <option value="$PROJECT_DIR$/src/models/UIComponents/MenuSliderModel.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/createStarMenu/CreateStarMenu.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/CreateStarMenuSwitch.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/Application/system/SystemSettings.java" />
-        <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/GameScene.java" />
-        <option value="$PROJECT_DIR$/src/Application/stages/MainStage/GameStage.java" />
         <option value="$PROJECT_DIR$/src/Application/system/EngineStatus.java" />
         <option value="$PROJECT_DIR$/src/Application/status/EngineStatus.java" />
         <option value="$PROJECT_DIR$/src/Application/status/SystemStatus.java" />
@@ -225,6 +146,12 @@
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/canvas/GameCanvas.java" />
         <option value="$PROJECT_DIR$/src/models/SystemComponents/ThreadModuleModel.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/operation/OperationModule.java" />
+        <option value="$PROJECT_DIR$/src/models/UIComponents/MenuSliderModel.java" />
+        <option value="$PROJECT_DIR$/src/Application/Engine/physics/PhysicsModule.java" />
+        <option value="$PROJECT_DIR$/src/Application/Engine/physics/GravityCalculate.java" />
+        <option value="$PROJECT_DIR$/src/Application/stages/MainStage/GameStage.java" />
+        <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/GameScene.java" />
+        <option value="$PROJECT_DIR$/src/Application/Engine/Engine.java" />
       </list>
     </option>
   </component>
@@ -274,6 +201,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -297,6 +227,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UIComponents" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -764,9 +716,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1341,7 +1290,35 @@
       <option name="project" value="LOCAL" />
       <updated>1500645565290</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fixed some bugs">
+      <created>1501158429064</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1501158429064</updated>
+    </task>
+    <task id="LOCAL-00037" summary="removed debug code">
+      <created>1501158609095</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1501158609095</updated>
+    </task>
+    <task id="LOCAL-00038" summary="add comments">
+      <created>1501159919720</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1501159919720</updated>
+    </task>
+    <task id="LOCAL-00039" summary="add comments fixed some bugs">
+      <created>1501161445262</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1501161445262</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1363,7 +1340,6 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24743778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1376,14 +1352,13 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32986626" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="commit" />
-    <MESSAGE value="added mass picker and radius picker, the color now will change according to the mass if the star, press middle mouse button to pause" />
     <MESSAGE value="build" />
     <MESSAGE value="add icon" />
     <MESSAGE value="adjusted some of the color changes and values" />
@@ -1397,7 +1372,6 @@
     <MESSAGE value="better star counter" />
     <MESSAGE value="added some model classes for future developing" />
     <MESSAGE value="move star array to universe" />
-    <MESSAGE value="fixed some bugs" />
     <MESSAGE value="fixed some bugs, it seems that something weired happened and my editor reports warning like crazy" />
     <MESSAGE value="implements runnable in thread module model instead of each thread module" />
     <MESSAGE value="simplified some code" />
@@ -1406,7 +1380,11 @@
     <MESSAGE value="new slider ui" />
     <MESSAGE value="readme update" />
     <MESSAGE value="build update" />
-    <option name="LAST_COMMIT_MESSAGE" value="build update" />
+    <MESSAGE value="fixed some bugs" />
+    <MESSAGE value="removed debug code" />
+    <MESSAGE value="add comments" />
+    <MESSAGE value="add comments fixed some bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="add comments fixed some bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1497,13 +1475,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Engine/physics/GravityCalculate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/stage.java" />
     <entry file="file://$PROJECT_DIR$/src/MyEngine/system.java" />
     <entry file="file://$PROJECT_DIR$/src/Application/system/SystemModule.java" />
@@ -1554,34 +1525,12 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/UIComponents/CircularButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/universeStatusBar/package-info.java" />
     <entry file="file://$PROJECT_DIR$/src/Application/Engine/operation/OperationModuleTest.groovy" />
     <entry file="jar://E:/Java/jdk1.8.0_121/src.zip!/java/lang/Runnable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
           <caret line="67" column="25" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Engine/physics/PhysicsModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="12" column="57" lean-forward="false" selection-start-line="12" selection-start-column="57" selection-end-line="12" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Engine/physics/physicsPrefabs/Camera.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1610,7 +1559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1627,20 +1575,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/UIComponents/MenuSliderModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="63" column="18" lean-forward="false" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1482#1483#0" expanded="false" />
-            <element signature="e#1517#1518#0" expanded="false" />
-            <element signature="e#1549#1550#0" expanded="false" />
-            <element signature="e#1577#1578#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/CreateStarMenuSwitch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1648,24 +1582,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/createStarMenu/CreateStarMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/UIComponents/MenuButtonModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" column="101" lean-forward="false" selection-start-line="17" selection-start-column="101" selection-end-line="17" selection-end-column="101" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1687,36 +1603,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/GameScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Engine/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-607">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/system/SystemSettings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/GameStage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -1742,23 +1632,15 @@
         <state relative-caret-position="510">
           <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
           <folding>
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#398#399#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-            <element signature="e#572#573#0" expanded="true" />
-            <element signature="e#628#629#0" expanded="true" />
-            <element signature="e#676#677#0" expanded="true" />
+            <element signature="e#364#365#0" expanded="false" />
+            <element signature="e#398#399#0" expanded="false" />
+            <element signature="e#452#453#0" expanded="false" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#537#538#0" expanded="false" />
+            <element signature="e#572#573#0" expanded="false" />
+            <element signature="e#628#629#0" expanded="false" />
+            <element signature="e#676#677#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/status/EngineStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1767,14 +1649,14 @@
         <state relative-caret-position="92">
           <caret line="25" column="34" lean-forward="false" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
           <folding>
-            <element signature="e#2590#2591#0" expanded="true" />
-            <element signature="e#2625#2626#0" expanded="true" />
-            <element signature="e#2687#2688#0" expanded="true" />
-            <element signature="e#2735#2736#0" expanded="true" />
-            <element signature="e#2780#2781#0" expanded="true" />
-            <element signature="e#2815#2816#0" expanded="true" />
-            <element signature="e#2877#2878#0" expanded="true" />
-            <element signature="e#2925#2926#0" expanded="true" />
+            <element signature="e#2590#2591#0" expanded="false" />
+            <element signature="e#2625#2626#0" expanded="false" />
+            <element signature="e#2687#2688#0" expanded="false" />
+            <element signature="e#2735#2736#0" expanded="false" />
+            <element signature="e#2780#2781#0" expanded="false" />
+            <element signature="e#2815#2816#0" expanded="false" />
+            <element signature="e#2877#2878#0" expanded="false" />
+            <element signature="e#2925#2926#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1783,6 +1665,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
           <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/status/EngineStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="27" lean-forward="false" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -1802,6 +1692,90 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/createStarMenu/CreateStarMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-300">
+          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/UIComponents/MenuSliderModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="29" column="48" lean-forward="true" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/UIComponents/MenuButtonModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="101" lean-forward="false" selection-start-line="17" selection-start-column="101" selection-end-line="17" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/UIComponents/CircularButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Engine/physics/GravityCalculate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Engine/physics/physicsPrefabs/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-495">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Engine/physics/PhysicsModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="72" column="45" lean-forward="false" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/GameScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="34" column="59" lean-forward="false" selection-start-line="34" selection-start-column="59" selection-end-line="34" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/stages/MainStage/GameStage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="26" column="75" lean-forward="true" selection-start-line="26" selection-start-column="75" selection-end-line="26" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Engine/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210">
+          <caret line="52" column="33" lean-forward="false" selection-start-line="52" selection-start-column="33" selection-end-line="52" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
