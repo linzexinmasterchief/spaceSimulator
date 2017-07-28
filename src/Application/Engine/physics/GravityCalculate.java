@@ -25,13 +25,11 @@ public class GravityCalculate {
                 double yDiff = star.centerY - s.centerY;
                 double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
 
-                //normal move
-                if (distance > star.r + s.r) {
+                if (distance > (star.r + s.r) / 3 * 2) {
+                    //normal acceleration
                     s.accelerationX = (0.06673 * star.mass / Math.pow(distance, 2)) * (xDiff / distance);
                     s.accelerationY = (0.06673 * star.mass / Math.pow(distance, 2)) * (yDiff / distance);
-                }
-
-                if (distance <= star.r + s.r) {
+                }else{
                     //collide
                     //think carefully before you try to replace these codes with a buffer star
                     double newR = Math.sqrt(star.r * star.r + s.r * s.r);
