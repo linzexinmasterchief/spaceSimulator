@@ -1,6 +1,6 @@
 package Application.Engine.physics;
 
-import Application.Engine.physics.physicsPrefabs.Star;
+import Application.Engine.physics.physicsComponents.universeComponents.Star;
 
 /**
  * Created by lzx on 2017/4/13.

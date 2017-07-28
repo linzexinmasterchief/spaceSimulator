@@ -3,8 +3,8 @@ package Application.stages.MainStage.gameScene.UIprefabs.createStarMenu;
 import Application.stages.MainStage.gameScene.GameScene;
 import Application.status.SystemStatus;
 import javafx.scene.Group;
-import models.UIComponents.MenuButtonModel;
-import models.UIComponents.MenuSliderModel;
+import models.UIComponentModels.MenuButton;
+import models.UIComponentModels.MenuSlider;
 
 /**
  * Created by lzx on 2017/7/15.
@@ -17,16 +17,16 @@ public class CreateStarMenu {
     private GameScene gameScene;
 
     //menu components
-    private MenuButtonModel settingBtn;
-    private MenuSliderModel massSlider;
-    private MenuSliderModel raiusSlider;
+    private MenuButton settingBtn;
+    private MenuSlider massSlider;
+    private MenuSlider raiusSlider;
 
     public CreateStarMenu(GameScene scene, Group group){
         systemStatus = scene.getGameStage().getLauncher().getSystemStatus();
 
         gameScene = scene;
 
-        settingBtn = new MenuButtonModel("setting");
+        settingBtn = new MenuButton("setting");
         settingBtn.setTranslateY(5);
         settingBtn.setTranslateX(5);
         settingBtn.setMaxHeight(25);
@@ -37,7 +37,7 @@ public class CreateStarMenu {
         });
         group.getChildren().add(settingBtn);
 
-        massSlider = new MenuSliderModel();
+        massSlider = new MenuSlider();
         massSlider.setTranslateX(5);
         massSlider.setTranslateY(35);
         massSlider.setMaxHeight(25);
@@ -45,7 +45,7 @@ public class CreateStarMenu {
         massSlider.setValue(10);
         group.getChildren().add(massSlider);
 
-        raiusSlider = new MenuSliderModel();
+        raiusSlider = new MenuSlider();
         raiusSlider.setTranslateX(5);
         raiusSlider.setTranslateY(65);
         raiusSlider.setMaxHeight(25);
@@ -54,15 +54,15 @@ public class CreateStarMenu {
         group.getChildren().add(raiusSlider);
     }
 
-    public MenuButtonModel getSettingBtn(){
+    public MenuButton getSettingBtn(){
         return settingBtn;
     }
 
-    public MenuSliderModel getMassSlider(){
+    public MenuSlider getMassSlider(){
         return massSlider;
     }
 
-    public MenuSliderModel getRaiusSlider(){
+    public MenuSlider getRaiusSlider(){
         return raiusSlider;
     }
 

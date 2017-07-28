@@ -1,4 +1,4 @@
-package models.SystemComponents;
+package models.SystemComponentModels;
 
 import Application.Engine.world;
 import Application.status.SystemStatus;

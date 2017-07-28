@@ -1,4 +1,4 @@
-package models.UIComponents;
+package models.UIComponentModels;
 
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
@@ -11,11 +11,11 @@ import javafx.scene.paint.Color;
  * Created by lzx on 2017/6/14.
  * a menu slider model
  */
-public class MenuSliderModel extends Button {
+public class MenuSlider extends Button {
 
     private double value;
 
-    public MenuSliderModel(){
+    public MenuSlider(){
         setMinWidth(150);
         setVisible(false);
         setTextFill(Color.WHITE);

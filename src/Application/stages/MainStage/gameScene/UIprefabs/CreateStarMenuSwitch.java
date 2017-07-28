@@ -2,7 +2,7 @@ package Application.stages.MainStage.gameScene.UIprefabs;
 
 import Application.stages.MainStage.gameScene.GameScene;
 import Application.status.SystemStatus;
-import models.UIComponents.CircularButton;
+import models.UIComponentModels.CircularButton;
 
 /**
  * Created by lzx on 2017/7/15.

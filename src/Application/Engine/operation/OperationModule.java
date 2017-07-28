@@ -5,8 +5,8 @@ import Application.Engine.EngineSettings.Speed;
 import Application.stages.MainStage.gameScene.GameScene;
 import Application.status.CanvasStatus;
 import javafx.application.Platform;
-import Application.Engine.physics.physicsPrefabs.Star;
-import models.SystemComponents.ThreadModuleModel;
+import Application.Engine.physics.physicsComponents.universeComponents.Star;
+import models.SystemComponentModels.ThreadModuleModel;
 
 /**
  * Created by lzx on 2017/7/13.

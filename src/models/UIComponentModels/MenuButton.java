@@ -1,4 +1,4 @@
-package models.UIComponents;
+package models.UIComponentModels;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
@@ -10,8 +10,8 @@ import javafx.scene.paint.Color;
  * Created by lzx on 2017/6/14.
  * a pre-made model of button, used in menu
  */
-public class MenuButtonModel extends Button {
-    public MenuButtonModel(String Text){
+public class MenuButton extends Button {
+    public MenuButton(String Text){
         setText(Text);
         setTextFill(Color.WHITE);
         setVisible(false);

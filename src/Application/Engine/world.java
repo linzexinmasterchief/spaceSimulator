@@ -4,9 +4,9 @@ import Application.Engine.graphics.GraphicsModule;
 import Application.Engine.operation.OperationModule;
 import Application.Engine.physics.PhysicsModule;
 import Application.Launcher;
-import Application.Engine.physics.physicsPrefabs.Camera;
-import Application.Engine.physics.physicsPrefabs.Star;
-import Application.Engine.physics.physicsPrefabs.Universe;
+import Application.Engine.physics.physicsComponents.Camera;
+import Application.Engine.physics.physicsComponents.universeComponents.Star;
+import Application.Engine.physics.physicsComponents.Universe;
 
 import java.awt.*;
 
@@ -47,7 +47,7 @@ public class world {
         bufferStar = new Star();
 
         //initialize the camera
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension screenSize = launcher.getScreenSize();
         camera = new Camera(
                 screenSize.width,
                 screenSize.height,
@@ -100,7 +100,4 @@ public class world {
         return graphicsModule;
     }
 
-    public void setUniverse(Universe universe) {
-        this.universe = universe;
-    }
 }

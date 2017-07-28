@@ -23,9 +23,9 @@ public class GameStage extends Stage{
 
         launcher = starter;
 
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
         //initialize components
-        gameScene = new GameScene(new Group(), screenSize.width, screenSize.height, this);
+        gameScene = new GameScene(new Group(), launcher.getScreenSize().width, launcher.getScreenSize().height, this);
 
         //give the stage an start scene
         setScene(gameScene);

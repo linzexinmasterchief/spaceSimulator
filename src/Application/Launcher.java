@@ -10,6 +10,8 @@ import Application.status.SystemStatus;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 
 /**
  * Created by lzx on 2017/3/21.
@@ -24,6 +26,10 @@ public class Launcher extends Application {
     private SystemStatus systemStatus;
     //object used to store canvas information
     private CanvasStatus canvasStatus;
+
+
+    //get screen size
+    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
 
     //game EngineSettings
@@ -109,5 +115,13 @@ public class Launcher extends Application {
 
     public void setCanvasStatus(CanvasStatus canvasStatus) {
         this.canvasStatus = canvasStatus;
+    }
+
+    public Dimension getScreenSize() {
+        return screenSize;
+    }
+
+    public void setScreenSize(Dimension screenSize) {
+        this.screenSize = screenSize;
     }
 }

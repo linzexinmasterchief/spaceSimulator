@@ -5,7 +5,7 @@ import Application.status.SystemStatus;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.text.Font;
-import models.UIComponents.MenuButtonModel;
+import models.UIComponentModels.MenuButton;
 
 /**
  * Created by lzx on 2017/7/14.
@@ -21,7 +21,7 @@ public class UniverseStatusBar {
     private double x;
     private double y;
 
-    private MenuButtonModel starAmountStatus;
+    private MenuButton starAmountStatus;
 
     private UniverseStatusBar(GameScene scene, Group group){
 
@@ -35,7 +35,7 @@ public class UniverseStatusBar {
         y = scene.getHeight() - height;
 
         //add buttons in it
-        starAmountStatus = new MenuButtonModel("star amount :");
+        starAmountStatus = new MenuButton("star amount :");
         starAmountStatus.setTranslateX(x + 0);
         starAmountStatus.setTranslateY(y);
         starAmountStatus.setMinWidth(width * 0.2);
@@ -59,7 +59,7 @@ public class UniverseStatusBar {
         return y;
     }
 
-    public MenuButtonModel getStarAmountStatus(){
+    public MenuButton getStarAmountStatus(){
         return starAmountStatus;
     }
 
