@@ -1,6 +1,6 @@
 package models.SystemComponentModels;
 
-import Application.Engine.world;
+import Application.logicUnit.world;
 import Application.status.SystemStatus;
 
 /**

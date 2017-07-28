@@ -1,8 +1,8 @@
 package Application;
 
-import Application.Engine.world;
-import Application.stages.MainStage.GameStage;
-import Application.stages.SettingStage.SettingStage;
+import Application.logicUnit.world;
+import Application.graphicUnit.GameStage;
+import Application.graphicUnit.SettingStage;
 import Application.status.CanvasStatus;
 import Application.status.EngineStatus;
 import Application.system.SystemSettings;
@@ -32,7 +32,7 @@ public class Launcher extends Application {
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
 
-    //game EngineSettings
+    //game worldSettings
     private SystemSettings systemSettings;
 
     private world world;
@@ -57,7 +57,7 @@ public class Launcher extends Application {
         //initialize canvas status
         canvasStatus = new CanvasStatus();
 
-        //initialize system EngineSettings
+        //initialize system worldSettings
         systemSettings = new SystemSettings();
 
         //create an object of the stage
