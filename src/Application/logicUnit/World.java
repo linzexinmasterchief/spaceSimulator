@@ -1,8 +1,8 @@
 package Application.logicUnit;
 
-import Application.logicUnit.worldComponents.graphics.GraphicsModule;
-import Application.logicUnit.worldComponents.operation.OperationModule;
-import Application.logicUnit.worldComponents.physics.PhysicsModule;
+import Application.logicUnit.worldComponents.graphics.GraphicsThread;
+import Application.logicUnit.worldComponents.operation.OperationThread;
+import Application.logicUnit.worldComponents.physics.PhysicsThread;
 import Application.Launcher;
 import Application.logicUnit.worldComponents.physics.physicsComponents.Camera;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
@@ -18,9 +18,9 @@ public class World {
 
     private Launcher launcher;
 
-    private PhysicsModule physicsModule;
-    private GraphicsModule graphicsModule;
-    private OperationModule operationModule;
+    private PhysicsThread physicsThreadModule;
+    private GraphicsThread graphicsThreadModule;
+    private OperationThread operationThreadModule;
 
     //used components
     //generate a universe
@@ -58,19 +58,19 @@ public class World {
 
         //>>>>>>>>>>>>>>>>>>|[THREADS]|<<<<<<<<<<<<<<<<<<<<
         //physics module
-        physicsModule = new PhysicsModule(this);
-        Thread physics = new Thread(physicsModule);
+        physicsThreadModule = new PhysicsThread(this);
+        Thread physics = new Thread(physicsThreadModule);
         physics.start();
         //halt until game canvas is initialized
 
         //graphics module
-        graphicsModule = new GraphicsModule(this);
-        Thread graphics = new Thread(graphicsModule);
+        graphicsThreadModule = new GraphicsThread(this);
+        Thread graphics = new Thread(graphicsThreadModule);
         graphics.start();
         //halt until game canvas is initialized
 
-        operationModule = new OperationModule(this);
-        Thread operation = new Thread(operationModule);
+        operationThreadModule = new OperationThread(this);
+        Thread operation = new Thread(operationThreadModule);
         operation.start();
         //halt until game canvas is initialized
     }
@@ -92,12 +92,12 @@ public class World {
         return universe;
     }
 
-    public PhysicsModule getPhysicsModule(){
-        return physicsModule;
+    public PhysicsThread getPhysicsThreadModule(){
+        return physicsThreadModule;
     }
 
-    public GraphicsModule getGraphicsModule(){
-        return graphicsModule;
+    public GraphicsThread getGraphicsThreadModule(){
+        return graphicsThreadModule;
     }
 
 }

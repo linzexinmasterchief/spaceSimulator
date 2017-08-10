@@ -21,6 +21,8 @@ public class UniverseStatusBar {
     private double x;
     private double y;
 
+    private int starAmount;
+
     private MenuButton starAmountStatus;
 
     private UniverseStatusBar(GameScene scene, Group group){
@@ -34,8 +36,10 @@ public class UniverseStatusBar {
         x = 0;
         y = scene.getHeight() - height;
 
+        starAmount = 0;
+
         //add buttons in it
-        starAmountStatus = new MenuButton("star amount :");
+        starAmountStatus = new MenuButton("star amount :" + starAmount);
         starAmountStatus.setTranslateX(x + 0);
         starAmountStatus.setTranslateY(y);
         starAmountStatus.setMinWidth(width * 0.2);
@@ -64,8 +68,11 @@ public class UniverseStatusBar {
     }
 
     public void update(){
-        starAmountStatus.setText("star amount : " + gameScene.getGameStage().getLauncher().getWorld().getUniverse().getStarAmount());
+        starAmountStatus.setText("star amount : " + starAmount);
 
     }
 
+    public void setStarAmount(int starAmount) {
+        this.starAmount = starAmount;
+    }
 }

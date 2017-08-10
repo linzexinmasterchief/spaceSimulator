@@ -6,20 +6,20 @@ import Application.status.SystemStatus;
 /**
  * Created by lzx on 2017/7/14.
  */
-public class ThreadModuleModel implements Runnable{
+public class ThreadModel implements Runnable{
 
-    protected World World;
+    protected World world;
     protected SystemStatus systemStatus;
 
     //some properties of the program
     private boolean isExit;
     private boolean isPause;
 
-    public ThreadModuleModel(World root_world){
-        World = root_world;
+    public ThreadModel(World root_world){
+        world = root_world;
 
         //initialize reference to system PhysicsStatus
-        systemStatus = World.getLauncher().getSystemStatus();
+        systemStatus = world.getLauncher().getSystemStatus();
 
         //initialize program properties
         setExit(false);

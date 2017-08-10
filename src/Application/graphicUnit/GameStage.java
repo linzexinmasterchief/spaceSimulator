@@ -23,13 +23,12 @@ public class GameStage extends Stage{
 
 
         //initialize components
-        gameScene = new GameScene(new Group(), launcher.getScreenSize().width, launcher.getScreenSize().height, this);
+        gameScene = new GameScene(new Group(), launcher.getScreenSize().width, launcher.getScreenSize().height - 35, this);
 
         //give the stage an start scene
         setScene(gameScene);
         //set non-resizable to avoid problems caused by different resolutions
         //this may be removed if I find out how to deal with it
-        setResizable(false);
         //give the application a title
         setTitle("SpaceSimulator");
         //exit on close
@@ -42,7 +41,7 @@ public class GameStage extends Stage{
         //icon
         getIcons().add(new Image("/resources/icon.png"));
 
-        setFullScreen(true);
+        sizeToScene();
 
     }
 

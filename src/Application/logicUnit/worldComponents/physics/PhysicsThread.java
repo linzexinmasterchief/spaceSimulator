@@ -3,21 +3,21 @@ package Application.logicUnit.worldComponents.physics;
 import Application.logicUnit.World;
 import javafx.application.Platform;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
-import models.systemComponentModels.ThreadModuleModel;
+import models.systemComponentModels.ThreadModel;
 import Application.logicUnit.worldComponents.physics.physicsComponents.Universe;
 
 /**
  * Created by lzx on 2017/7/6.
  * physics thread is a independent module
  */
-public class PhysicsModule extends ThreadModuleModel {
+public class PhysicsThread extends ThreadModel {
 
     private Star[] stars;
 
     //install the gravity module
     private GravityCalculate gravityCalculate;
 
-    public PhysicsModule(World root_world){
+    public PhysicsThread(World root_world){
         super(root_world);
     }
 
@@ -27,7 +27,7 @@ public class PhysicsModule extends ThreadModuleModel {
         gravityCalculate = new GravityCalculate(stars);
     }
 
-    //this is the function called on every Application.World.physics cycle
+    //this is the function called on every Application.world.physics cycle
     //kind of like "fixed update" in unity
     private void PhysicsUpdate() {
         if (isPause()) {
@@ -35,13 +35,13 @@ public class PhysicsModule extends ThreadModuleModel {
         }
 
         //initialize star amount
-        World.getUniverse().setStarAmount(0);
+        world.getUniverse().setStarAmount(0);
 
         //create reference of star list
-        stars = World.getUniverse().getStars();
+        stars = world.getUniverse().getStars();
 
         //create reference of universe
-        Universe universe = World.getUniverse();
+        Universe universe = world.getUniverse();
 
         //iterate star list
         for (int i = 0; i < stars.length; i++) {
@@ -56,7 +56,7 @@ public class PhysicsModule extends ThreadModuleModel {
 
             if (stars[i].inUniverse) {
                 //count the amount of stars in the universe + 1
-                World.getUniverse().setStarAmount(World.getUniverse().getStarAmount() + 1);
+                world.getUniverse().setStarAmount(world.getUniverse().getStarAmount() + 1);
 
                 //set the next position of star according to star speed
                 stars[i].move();
@@ -70,13 +70,15 @@ public class PhysicsModule extends ThreadModuleModel {
             }
         }
 
-        World.getUniverse().setStars(stars);
+        world.getUniverse().setStars(stars);
+
+        world.getLauncher().getGameStage().getGameScene().getStatusBar().setStarAmount(universe.getStarAmount());
     }
 
     //function designed for screen cleaning
     //calling it will remove all the stars in the universe
     public void clear() {
-        for (Star star : World.getUniverse().getStars()) {
+        for (Star star : world.getUniverse().getStars()) {
             star.remove();
         }
     }

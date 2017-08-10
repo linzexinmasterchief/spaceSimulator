@@ -20,7 +20,7 @@ import java.awt.*;
 
 public class Launcher extends Application {
 
-    //object used to store World information
+    //object used to store world information
     private EngineStatus engineStatus;
     //object used to store system information
     private SystemStatus systemStatus;
@@ -50,7 +50,7 @@ public class Launcher extends Application {
     @Override
     //initialize the application
     public void start(Stage stage) {
-        //initialize World status
+        //initialize world status
         engineStatus = new EngineStatus();
         //initialize system status
         systemStatus = new SystemStatus();

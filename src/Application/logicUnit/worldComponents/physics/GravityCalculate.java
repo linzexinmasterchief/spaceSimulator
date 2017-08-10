@@ -25,7 +25,7 @@ public class GravityCalculate {
                 double yDiff = star.centerY - s.centerY;
                 double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
 
-                if (distance > (star.r + s.r) / 3 * 2) {
+                if (distance > star.r & distance > s.r) {
                     //normal acceleration
                     s.accelerationX = (0.06673 * star.mass / Math.pow(distance, 2)) * (xDiff / distance);
                     s.accelerationY = (0.06673 * star.mass / Math.pow(distance, 2)) * (yDiff / distance);
