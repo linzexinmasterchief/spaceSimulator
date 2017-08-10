@@ -47,10 +47,19 @@ public class GraphicsThread extends ThreadModel {
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
 
+        gc.setFill(Color.RED);
+        gc.setLineWidth(5);
+        gc.strokeLine(
+                systemStatus.getDragLine()[0],
+                systemStatus.getDragLine()[1],
+                systemStatus.getDragLine()[2],
+                systemStatus.getDragLine()[3]
+        );
+
         //iterate the star list to draw all the exist stars in the universe
         for (Star star : world.getUniverse().getStars()) {
 
-            int r, g, b;
+            int r, g, b = 0;
 
             //change the color of pen according to the mass of the star to paint the stars
             if (star.mass > 500){
