@@ -15,8 +15,18 @@ import javafx.scene.paint.Color;
 public class MenuSlider extends Button {
 
     private double value;
+    private String title;
 
     public MenuSlider(){
+        initialize();
+    }
+
+    public MenuSlider(String text){
+        title = text;
+        initialize();
+    }
+
+    private void initialize(){
         setMinWidth(150);
         setWidth(150);
         setVisible(false);
@@ -25,13 +35,13 @@ public class MenuSlider extends Button {
 
         setBackground(new Background(
                 new BackgroundFill(Color.grayRgb(33),
-                new CornerRadii(0),
-                null))
+                        new CornerRadii(0),
+                        null))
         );
 
         setOnMousePressed(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
-                value = me.getX() - getTranslateX();
+                value = me.getX();
                 if (value < 0) {
                     value = 0;
                 } else if (value > getWidth()) {
@@ -43,7 +53,7 @@ public class MenuSlider extends Button {
 
         setOnMouseDragged(me -> {
             if (me.getButton() == MouseButton.PRIMARY){
-                value = me.getX() - getTranslateX();
+                value = me.getX();
                 if (value < 0){
                     value = 0;
                 }else if (value > getWidth()){
@@ -57,7 +67,7 @@ public class MenuSlider extends Button {
     }
 
     public void refresh(){
-        setText("" + value);
+        setText(title + "   " + value);
         setBackground(new Background(
                 new BackgroundFill(
                         Color.grayRgb(33),
@@ -75,4 +85,5 @@ public class MenuSlider extends Button {
         this.value = value;
         refresh();
     }
+
 }

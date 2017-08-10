@@ -37,7 +37,7 @@ public class CreateStarMenu {
         });
         group.getChildren().add(settingBtn);
 
-        massSlider = new MenuSlider();
+        massSlider = new MenuSlider("mass");
         massSlider.setTranslateX(5);
         massSlider.setTranslateY(35);
         massSlider.setMaxHeight(25);
@@ -45,7 +45,7 @@ public class CreateStarMenu {
         massSlider.setValue(10);
         group.getChildren().add(massSlider);
 
-        raiusSlider = new MenuSlider();
+        raiusSlider = new MenuSlider("radius");
         raiusSlider.setTranslateX(5);
         raiusSlider.setTranslateY(65);
         raiusSlider.setMaxHeight(25);
