@@ -8,15 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Launcher.java" afterPath="$PROJECT_DIR$/src/Application/Launcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/graphicUnit/GameStage.java" afterPath="$PROJECT_DIR$/src/Application/graphicUnit/GameStage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java" afterPath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/World.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/World.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsModule.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationModule.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsModule.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/models/systemComponentModels/ThreadModuleModel.java" afterPath="$PROJECT_DIR$/src/models/systemComponentModels/ThreadModel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/uiComponentModels/MenuSlider.java" afterPath="$PROJECT_DIR$/src/models/uiComponentModels/MenuSlider.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,56 +26,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="15">
-                <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameStage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/GameStage.java">
+      <file leaf-file-name="MenuSlider.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/models/uiComponentModels/MenuSlider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="25" column="115" lean-forward="false" selection-start-line="25" selection-start-column="115" selection-end-line="25" selection-end-column="115" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GravityCalculate.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameScene.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/GameScene.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="56" column="46" lean-forward="true" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UniverseStatusBar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+            <state relative-caret-position="461">
+              <caret line="65" column="17" lean-forward="false" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -110,7 +57,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/prefabs/CircularButton.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/CircularButton.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/BottomStatusBar.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/physics/physicsStatus.java" />
@@ -161,6 +107,7 @@
         <option value="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java" />
         <option value="$PROJECT_DIR$/src/Application/graphicUnit/GameStage.java" />
         <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" />
+        <option value="$PROJECT_DIR$/src/models/uiComponentModels/MenuSlider.java" />
       </list>
     </option>
   </component>
@@ -1390,7 +1337,14 @@
       <option name="project" value="LOCAL" />
       <updated>1501255676538</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="fixed some bugs">
+      <created>1502352492236</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1502352492236</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1444,7 +1398,6 @@
     <MESSAGE value="update" />
     <MESSAGE value="new slider ui" />
     <MESSAGE value="build update" />
-    <MESSAGE value="fixed some bugs" />
     <MESSAGE value="removed debug code" />
     <MESSAGE value="add comments" />
     <MESSAGE value="add comments fixed some bugs" />
@@ -1456,7 +1409,8 @@
     <MESSAGE value="readme update" />
     <MESSAGE value="build" />
     <MESSAGE value="project update" />
-    <option name="LAST_COMMIT_MESSAGE" value="project update" />
+    <MESSAGE value="fixed some bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1467,20 +1421,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="42" lean-forward="false" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/World.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1800">
@@ -1648,13 +1588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/uiComponentModels/MenuSlider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="29" column="48" lean-forward="true" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/uiComponentModels/MenuButton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1725,13 +1658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/CreateStarMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="64" column="39" lean-forward="true" selection-start-line="64" selection-start-column="39" selection-end-line="64" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1783,10 +1709,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java">
+    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/GameStage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+        <state relative-caret-position="45">
+          <caret line="25" column="115" lean-forward="false" selection-start-line="25" selection-start-column="115" selection-end-line="25" selection-end-column="115" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1801,18 +1735,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/GameStage.java">
+    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="25" column="115" lean-forward="false" selection-start-line="25" selection-start-column="115" selection-end-line="25" selection-end-column="115" />
+        <state relative-caret-position="116">
+          <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java">
+    <entry file="jar://E:/Java/jdk1.8.0_121/javafx-src.zip!/javafx/beans/value/WritableObjectValue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="133">
+          <caret line="38" column="37" lean-forward="false" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Java/jdk1.8.0_121/javafx-src.zip!/javafx/scene/layout/Region.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="570" column="65" lean-forward="true" selection-start-line="570" selection-start-column="65" selection-end-line="570" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/CreateStarMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="44" column="32" lean-forward="true" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+          <folding>
+            <element signature="e#1930#1931#0" expanded="true" />
+            <element signature="e#1964#1965#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/uiComponentModels/MenuSlider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="65" column="17" lean-forward="false" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
           <folding />
         </state>
       </provider>

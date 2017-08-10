@@ -1,5 +1,6 @@
 package models.uiComponentModels;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.Background;
@@ -17,10 +18,16 @@ public class MenuSlider extends Button {
 
     public MenuSlider(){
         setMinWidth(150);
+        setWidth(150);
         setVisible(false);
         setTextFill(Color.WHITE);
+        setValue(0);
 
-        setBackground(new Background(new BackgroundFill(Color.grayRgb(33),new CornerRadii(0),null)));
+        setBackground(new Background(
+                new BackgroundFill(Color.grayRgb(33),
+                new CornerRadii(0),
+                null))
+        );
 
         setOnMousePressed(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
@@ -51,6 +58,13 @@ public class MenuSlider extends Button {
 
     public void refresh(){
         setText("" + value);
+        setBackground(new Background(
+                new BackgroundFill(
+                        Color.grayRgb(33),
+                        new CornerRadii(0),
+                        new Insets(0,150 - value, 0,0)
+                )
+        ));
     }
 
     public double getValue() {
