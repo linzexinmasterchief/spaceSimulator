@@ -47,8 +47,8 @@ public class GraphicsThread extends ThreadModel {
         gc.setFill(Color.BLACK);
         gc.fillRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
 
-        gc.setFill(Color.RED);
-        gc.setLineWidth(5);
+        gc.setStroke(Color.RED);
+        gc.setLineWidth(1);
         gc.strokeLine(
                 systemStatus.getDragLine()[0],
                 systemStatus.getDragLine()[1],

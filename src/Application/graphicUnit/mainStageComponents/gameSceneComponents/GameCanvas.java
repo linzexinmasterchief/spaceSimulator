@@ -36,15 +36,18 @@ public class GameCanvas extends Canvas{
 
         setOnMouseMoved(me -> {
             systemStatus.setMouse_coordinate(new double[]{me.getX(),me.getY()});
-            if (systemStatus.isMousePressed()){
+            if (me.isPrimaryButtonDown()){
                 systemStatus.setDragLine(new double[]{
                         systemStatus.getDragLine()[0],
                         systemStatus.getDragLine()[1],
                         me.getX(),
                         me.getY()
                 });
+                System.out.println(systemStatus.getMouse_coordinate()[0]);
             }
         });
+
+        setOnMouseDragged(me -> systemStatus.setMouse_coordinate(new double[]{me.getX(),me.getY()}));
 
         //listen the operations of mouse press
         setOnMousePressed(me -> {
@@ -55,8 +58,8 @@ public class GameCanvas extends Canvas{
             systemStatus.setDragLine(new double[]{
                     me.getX(),
                     me.getY(),
-                    0,
-                    0
+                    me.getX(),
+                    me.getY()
             });
             systemStatus.setMouse_coordinate(mouse_coordinate);
             systemStatus.setActivatedMouseButton(me.getButton());

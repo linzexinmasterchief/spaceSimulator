@@ -71,10 +71,10 @@ public class OperationThread extends ThreadModel {
                             //once you draw it out on the paper, be careful changing it anyway
                             (world.getCamera().getCenterX() - world.getUniverse().getWidth() / 2)
                                     + (world.getUniverse().getWidth() - world.getCamera().getWidth()) / 2
-                                    + systemStatus.getMouse_coordinate()[0] * world.getGraphicsThreadModule().getScaleX(),
+                                    + systemStatus.getDragLine()[0] * world.getGraphicsThreadModule().getScaleX(),
                             (world.getCamera().getCenterY() - world.getUniverse().getHeight() / 2)
                                     + (world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2
-                                    + systemStatus.getMouse_coordinate()[1] * world.getGraphicsThreadModule().getScaleY()
+                                    + systemStatus.getDragLine()[1] * world.getGraphicsThreadModule().getScaleY()
                     );
 
                     //change the slot property from empty to full
@@ -106,10 +106,8 @@ public class OperationThread extends ThreadModel {
                 systemStatus.setMouseReleased(false);
                 switch (systemStatus.getActivatedMouseButton()) {
                     case PRIMARY:
-                        double dragline[] = systemStatus.getDragLine();
-                        dragline[0] = systemStatus.getMouse_coordinate()[0];
-                        dragline[1] = systemStatus.getMouse_coordinate()[1];
-                        systemStatus.setDragLine(dragline);
+                        systemStatus.getDragLine()[2] = systemStatus.getMouse_coordinate()[0];
+                        systemStatus.getDragLine()[3] = systemStatus.getMouse_coordinate()[1];
                         break;
                 }
             }
@@ -118,13 +116,16 @@ public class OperationThread extends ThreadModel {
                 systemStatus.setMousePressed(false);
                 switch (systemStatus.getActivatedMouseButton()) {
                     case PRIMARY:
-                        double dragline[] = systemStatus.getDragLine();
-                        dragline[2] = systemStatus.getMouse_coordinate()[0];
-                        dragline[3] = systemStatus.getMouse_coordinate()[1];
-                        systemStatus.setDragLine(dragline);
                         addNewStar();
+                        systemStatus.setDragLine(new double[]{
+                                0,
+                                0,
+                                0,
+                                0
+                        });
                         break;
                     case SECONDARY:
+                        //execute clear command
                         world.getPhysicsThreadModule().clear();
                         break;
                     case MIDDLE:
@@ -184,7 +185,6 @@ public class OperationThread extends ThreadModel {
             }
 
             systemStatus.setMouseReleased(false);
-            systemStatus.setMousePressed(false);
             systemStatus.setMouseScrolled(false);
 
             gameScene.getCreateStarMenu().getSettingBtn().setVisible(systemStatus.isCreateStarMenuOut());
