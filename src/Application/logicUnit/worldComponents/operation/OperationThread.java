@@ -18,9 +18,6 @@ public class OperationThread extends ThreadModel {
     private GameScene gameScene;
     private CanvasStatus canvasStatus;
 
-    //create reference to the mouse
-    private Mouse mouse;
-
     public OperationThread(World root_world){
         super(root_world);
     }
@@ -31,7 +28,6 @@ public class OperationThread extends ThreadModel {
         gameScene = world.getLauncher().getGameStage().getGameScene();
 
         canvasStatus = world.getLauncher().getCanvasStatus();
-        mouse = world.getLauncher().getMouse();
     }
 
     //determine if a new star should be created
@@ -95,7 +91,7 @@ public class OperationThread extends ThreadModel {
                 }
             }
         }
-        mouse.setMouseReleased(false);
+        Mouse.setMouseReleased(false);
     }
 
 
@@ -109,19 +105,19 @@ public class OperationThread extends ThreadModel {
                 e.printStackTrace();
             }
 
-            if (mouse.isMousePressed()) {
-                mouse.setMouseReleased(false);
-                switch (mouse.getActivatedMouseButton()) {
+            if (Mouse.isMousePressed()) {
+                Mouse.setMouseReleased(false);
+                switch (Mouse.getActivatedMouseButton()) {
                     case PRIMARY:
-                        systemStatus.getDragLine()[2] = mouse.getMouse_coordinate()[0];
-                        systemStatus.getDragLine()[3] = mouse.getMouse_coordinate()[1];
+                        systemStatus.getDragLine()[2] = Mouse.getMouse_coordinate()[0];
+                        systemStatus.getDragLine()[3] = Mouse.getMouse_coordinate()[1];
                         break;
                 }
             }
 
-            if (mouse.isMouseReleased()) {
-                mouse.setMousePressed(false);
-                switch (mouse.getActivatedMouseButton()) {
+            if (Mouse.isMouseReleased()) {
+                Mouse.setMousePressed(false);
+                switch (Mouse.getActivatedMouseButton()) {
                     case PRIMARY:
                         addNewStar();
                         systemStatus.setDragLine(new double[]{
@@ -142,15 +138,15 @@ public class OperationThread extends ThreadModel {
                 }
             }
 
-            if (mouse.isMouseScrolled()) {
+            if (Mouse.isMouseScrolled()) {
 
-                mouse.setMouseReleased(false);
-                mouse.setMousePressed(false);
+                Mouse.setMouseReleased(false);
+                Mouse.setMousePressed(false);
 
                 double cameraWidthChangingSpeed = world.getCamera().getWidth() / world.getCamera().getOriginalWidth() * 2;
                 double cameraHeightChangingSpeed = world.getCamera().getHeight() / world.getCamera().getOriginalHeight() * 2;
                 //on mouse wheel rolling back (minimize)
-                if (mouse.getMouseScrollValue() < 0) {
+                if (Mouse.getMouseScrollValue() < 0) {
                     if (world.getCamera().getHeight() < world.getUniverse().getHeight()
                             & world.getCamera().getWidth() < world.getUniverse().getWidth()) {
 
@@ -161,15 +157,15 @@ public class OperationThread extends ThreadModel {
 
                         //move the camera to the mouse coordinate to create an effect
                         world.getCamera().setCenterX(world.getCamera().getCenterX()
-                                - (mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
+                                - (Mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
                                 / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed
                         );
                         world.getCamera().setCenterY(world.getCamera().getCenterY()
-                                - (mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
+                                - (Mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
                                 / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed
                         );
                     }
-                } else if (mouse.getMouseScrollValue() > 0) {
+                } else if (Mouse.getMouseScrollValue() > 0) {
                     //on mouse wheel rolling back (enlarge)
                     world.getCamera().setWidth(world.getCamera().getWidth() - Speed.getSizeChangeSpeed() * cameraWidthChangingSpeed);
                     world.getCamera().setHeight(world.getCamera().getHeight()
@@ -178,12 +174,12 @@ public class OperationThread extends ThreadModel {
 
                     //move the camera to the mouse coordinate to create an effect
                     world.getCamera().setCenterX(world.getCamera().getCenterX()
-                            + (mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
+                            + (Mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
                             / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed
                     );
 
                     world.getCamera().setCenterY(world.getCamera().getCenterY()
-                            + (mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
+                            + (Mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
                             / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed
                     );
                 }
@@ -196,8 +192,8 @@ public class OperationThread extends ThreadModel {
                 world.getGraphicsThreadModule().drawShapes();
             }
 
-            mouse.setMouseReleased(false);
-            mouse.setMouseScrolled(false);
+            Mouse.setMouseReleased(false);
+            Mouse.setMouseScrolled(false);
 
             gameScene.getCreateStarMenu().getSettingBtn().setVisible(systemStatus.isCreateStarMenuOut());
             gameScene.getCreateStarMenu().getMassSlider().setVisible(systemStatus.isCreateStarMenuOut());

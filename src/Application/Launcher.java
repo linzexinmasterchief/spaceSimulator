@@ -28,9 +28,6 @@ public class Launcher extends Application {
     //object used to store canvas information
     private CanvasStatus canvasStatus;
 
-    //create mouse object
-    private Mouse mouse;
-
     //get screen size
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -58,9 +55,6 @@ public class Launcher extends Application {
         systemStatus = new SystemStatus();
         //initialize canvas status
         canvasStatus = new CanvasStatus();
-
-        //initialize mouse
-        mouse = new Mouse();
 
         //initialize system worldSettings
         systemSettings = new SystemSettings();
@@ -130,11 +124,4 @@ public class Launcher extends Application {
         this.screenSize = screenSize;
     }
 
-    public Mouse getMouse() {
-        return mouse;
-    }
-
-    public void setMouse(Mouse mouse) {
-        this.mouse = mouse;
-    }
 }

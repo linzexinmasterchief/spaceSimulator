@@ -28,52 +28,52 @@ public class Mouse {
         MouseScrolled = false;
     }
 
-    public boolean isMousePressed() {
+    public static boolean isMousePressed() {
         return MousePressed;
     }
 
-    public void setMousePressed(boolean mousePressed) {
+    public static void setMousePressed(boolean mousePressed) {
         MousePressed = mousePressed;
     }
 
-    public boolean isMouseReleased() {
+    public static boolean isMouseReleased() {
         return MouseReleased;
     }
 
-    public void setMouseReleased(boolean mouseReleased) {
+    public static void setMouseReleased(boolean mouseReleased) {
         MouseReleased = mouseReleased;
     }
 
-    public boolean isMouseScrolled() {
+    public static boolean isMouseScrolled() {
         return MouseScrolled;
     }
 
-    public void setMouseScrolled(boolean mouseScrolled) {
+    public static void setMouseScrolled(boolean mouseScrolled) {
         MouseScrolled = mouseScrolled;
     }
 
-    public double[] getMouse_coordinate() {
+    public static double[] getMouse_coordinate() {
         return mouse_coordinate;
     }
 
-    public void setMouse_coordinate(double[] mouse_coordinate) {
-        this.mouse_coordinate = mouse_coordinate;
+    public static void setMouse_coordinate(double[] coordinate) {
+        mouse_coordinate = coordinate;
     }
 
-    public MouseButton getActivatedMouseButton() {
+    public static MouseButton getActivatedMouseButton() {
         return activatedMouseButton;
     }
 
-    public void setActivatedMouseButton(MouseButton activatedMouseButton) {
-        this.activatedMouseButton = activatedMouseButton;
+    public static void setActivatedMouseButton(MouseButton mouseButton) {
+        activatedMouseButton = mouseButton;
     }
 
-    public double getMouseScrollValue() {
+    public static double getMouseScrollValue() {
         return mouseScrollValue;
     }
 
-    public void setMouseScrollValue(double mouseScrollValue) {
-        this.mouseScrollValue = mouseScrollValue;
+    public static void setMouseScrollValue(double value) {
+        mouseScrollValue = value;
     }
 
 }
