@@ -7,8 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/status/Mouse.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Launcher.java" afterPath="$PROJECT_DIR$/src/Application/Launcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java" afterPath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/status/SystemStatus.java" afterPath="$PROJECT_DIR$/src/Application/status/SystemStatus.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,11 +36,21 @@
       <file leaf-file-name="SystemStatus.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/status/SystemStatus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" column="33" lean-forward="false" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
+            <state relative-caret-position="521">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mouse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/status/Mouse.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
               <folding>
-                <element signature="e#3194#3195#0" expanded="true" />
-                <element signature="e#3250#3251#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#setActivatedMouseButton#0;class#Mouse#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -45,39 +59,37 @@
       <file leaf-file-name="GameCanvas.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+            <state relative-caret-position="540">
+              <caret line="103" column="17" lean-forward="false" selection-start-line="103" selection-start-column="17" selection-end-line="103" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GraphicsThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="65" column="22" lean-forward="true" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OperationThread.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OperationThread.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="165" column="21" lean-forward="false" selection-start-line="165" selection-start-column="21" selection-end-line="165" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="609">
+              <caret line="199" column="17" lean-forward="false" selection-start-line="199" selection-start-column="17" selection-end-line="199" selection-end-column="17" />
+              <folding>
+                <element signature="e#813#814#0" expanded="true" />
+                <element signature="e#846#847#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhysicsThread.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java">
+      <file leaf-file-name="Launcher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135">
-              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="276">
+              <caret line="62" column="28" lean-forward="false" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+              <folding>
+                <element signature="e#3370#3371#0" expanded="true" />
+                <element signature="e#3398#3399#0" expanded="true" />
+                <element signature="e#3439#3440#0" expanded="true" />
+                <element signature="e#3473#3474#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,7 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/models/UIComponents/CircularButton.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/universeStatusBar/universeStatusBar.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/createStarMenuSwitch.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/UIprefabs/createStarMenu/createStarMenu.java" />
@@ -120,7 +131,6 @@
         <option value="$PROJECT_DIR$/src/Application/system/SystemSettings.java" />
         <option value="$PROJECT_DIR$/src/Application/system/EngineStatus.java" />
         <option value="$PROJECT_DIR$/src/Application/status/EngineStatus.java" />
-        <option value="$PROJECT_DIR$/src/Application/status/SystemStatus.java" />
         <option value="$PROJECT_DIR$/src/Application/status/CanvasStatus.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/canvas/GameCanvas.java" />
         <option value="$PROJECT_DIR$/src/models/SystemComponents/ThreadModuleModel.java" />
@@ -130,7 +140,6 @@
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/gameScene/GameScene.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/Engine.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/physics/GravityCalculate.java" />
-        <option value="$PROJECT_DIR$/src/Application/Launcher.java" />
         <option value="$PROJECT_DIR$/src/Application/stages/MainStage/GameStage.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/physics/physicsPrefabs/universeComponents/Star.java" />
         <option value="$PROJECT_DIR$/src/Application/Engine/physics/physicsComponents/universeComponents/Star.java" />
@@ -152,7 +161,10 @@
         <option value="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/CreateStarMenu.java" />
         <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/worldSettings/Speed.java" />
         <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java" />
+        <option value="$PROJECT_DIR$/src/Application/status/SystemStatus.java" />
+        <option value="$PROJECT_DIR$/src/Application/Launcher.java" />
         <option value="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java" />
+        <option value="$PROJECT_DIR$/src/Application/status/Mouse.java" />
         <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" />
       </list>
     </option>
@@ -1047,13 +1059,6 @@
       <option name="presentableId" value="Default" />
       <updated>1497451245085</updated>
     </task>
-    <task id="LOCAL-00005" summary="readme update">
-      <created>1498278862547</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1498278862547</updated>
-    </task>
     <task id="LOCAL-00006" summary="adjusted some of the color changes and values">
       <created>1498491572170</created>
       <option name="number" value="00006" />
@@ -1390,7 +1395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502370083145</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="clean code">
+      <created>1502457930866</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1502457930866</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1432,7 +1444,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="better star counter" />
     <MESSAGE value="added some model classes for future developing" />
     <MESSAGE value="move star array to universe" />
     <MESSAGE value="fixed some bugs, it seems that something weired happened and my editor reports warning like crazy" />
@@ -1457,7 +1468,8 @@
     <MESSAGE value="better slider" />
     <MESSAGE value="better scrolling" />
     <MESSAGE value="add drag line" />
-    <option name="LAST_COMMIT_MESSAGE" value="add drag line" />
+    <MESSAGE value="clean code" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1468,13 +1480,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1800">
-          <caret line="120" column="29" lean-forward="false" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1576,6 +1581,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="5" lean-forward="false" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding>
+            <element signature="e#364#365#0" expanded="false" />
+            <element signature="e#398#399#0" expanded="false" />
+            <element signature="e#452#453#0" expanded="false" />
+            <element signature="e#498#499#0" expanded="false" />
+            <element signature="e#537#538#0" expanded="false" />
+            <element signature="e#572#573#0" expanded="false" />
+            <element signature="e#628#629#0" expanded="false" />
+            <element signature="e#676#677#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1600,18 +1615,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/SettingStage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1643,6 +1651,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="665" column="30" lean-forward="true" selection-start-line="665" selection-start-column="30" selection-end-line="665" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1658,6 +1667,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="25" column="115" lean-forward="false" selection-start-line="25" selection-start-column="115" selection-end-line="25" selection-end-column="115" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1665,6 +1675,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="56" column="46" lean-forward="true" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1672,6 +1685,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="36" column="39" lean-forward="false" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1693,6 +1707,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1711,25 +1726,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/status/EngineStatus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/system/SystemSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1737,17 +1738,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7">
           <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/status/SystemStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="33" lean-forward="false" selection-start-line="47" selection-start-column="33" selection-end-line="47" selection-end-column="33" />
-          <folding>
-            <element signature="e#3194#3195#0" expanded="true" />
-            <element signature="e#3250#3251#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1755,6 +1746,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1770,14 +1762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="14" column="92" lean-forward="false" selection-start-line="14" selection-start-column="92" selection-end-line="14" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1797,19 +1781,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java">
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="165" column="21" lean-forward="false" selection-start-line="165" selection-start-column="21" selection-end-line="165" selection-end-column="21" />
+        <state relative-caret-position="150">
+          <caret line="53" column="34" lean-forward="true" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java">
+    <entry file="file://$PROJECT_DIR$/src/Application/system/SystemSettings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="4" column="38" lean-forward="false" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/status/SystemStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="101" column="0" lean-forward="true" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Launcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="62" column="28" lean-forward="false" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+          <folding>
+            <element signature="e#3370#3371#0" expanded="true" />
+            <element signature="e#3398#3399#0" expanded="true" />
+            <element signature="e#3439#3440#0" expanded="true" />
+            <element signature="e#3473#3474#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="103" column="17" lean-forward="false" selection-start-line="103" selection-start-column="17" selection-end-line="103" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/status/Mouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setActivatedMouseButton#0;class#Mouse#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="199" column="17" lean-forward="false" selection-start-line="199" selection-start-column="17" selection-end-line="199" selection-end-column="17" />
+          <folding>
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#846#847#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,6 +1,7 @@
 package Application.graphicUnit.mainStageComponents.gameSceneComponents;
 
 import Application.status.CanvasStatus;
+import Application.status.Mouse;
 import Application.status.SystemStatus;
 import javafx.scene.canvas.Canvas;
 import Application.graphicUnit.mainStageComponents.GameScene;
@@ -21,6 +22,9 @@ public class GameCanvas extends Canvas{
     //create reference to canvas status
     private final CanvasStatus canvasStatus;
 
+    //create reference to mouse object
+    private final Mouse mouse;
+
     //constructor
     public GameCanvas(double width, double height, GameScene rootScene) {
         //width and height is pretty necessary for things like
@@ -34,8 +38,10 @@ public class GameCanvas extends Canvas{
         canvasStatus.setCanvasHeight(getHeight());
         canvasStatus.setCanvasWidth(getWidth());
 
+        mouse = rootScene.getGameStage().getLauncher().getMouse();
+
         setOnMouseMoved(me -> {
-            systemStatus.setMouse_coordinate(new double[]{me.getX(),me.getY()});
+            mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()});
             if (me.isPrimaryButtonDown()){
                 systemStatus.setDragLine(new double[]{
                         systemStatus.getDragLine()[0],
@@ -43,11 +49,11 @@ public class GameCanvas extends Canvas{
                         me.getX(),
                         me.getY()
                 });
-                System.out.println(systemStatus.getMouse_coordinate()[0]);
+                System.out.println(mouse.getMouse_coordinate()[0]);
             }
         });
 
-        setOnMouseDragged(me -> systemStatus.setMouse_coordinate(new double[]{me.getX(),me.getY()}));
+        setOnMouseDragged(me -> mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()}));
 
         //listen the operations of mouse press
         setOnMousePressed(me -> {
@@ -61,11 +67,11 @@ public class GameCanvas extends Canvas{
                     me.getX(),
                     me.getY()
             });
-            systemStatus.setMouse_coordinate(mouse_coordinate);
-            systemStatus.setActivatedMouseButton(me.getButton());
-            systemStatus.setMousePressed(true);
-            systemStatus.setMouseReleased(false);
-            systemStatus.setMouseScrolled(false);
+            mouse.setMouse_coordinate(mouse_coordinate);
+            mouse.setActivatedMouseButton(me.getButton());
+            mouse.setMousePressed(true);
+            mouse.setMouseReleased(false);
+            mouse.setMouseScrolled(false);
 
         });
 
@@ -76,11 +82,11 @@ public class GameCanvas extends Canvas{
             double mouse_coordinate[] = new double[2];
             mouse_coordinate[0] = me.getX();
             mouse_coordinate[1] = me.getY();
-            systemStatus.setMouse_coordinate(mouse_coordinate);
-            systemStatus.setActivatedMouseButton(me.getButton());
-            systemStatus.setMouseReleased(true);
-            systemStatus.setMousePressed(false);
-            systemStatus.setMouseScrolled(false);
+            mouse.setMouse_coordinate(mouse_coordinate);
+            mouse.setActivatedMouseButton(me.getButton());
+            mouse.setMousePressed(false);
+            mouse.setMouseReleased(true);
+            mouse.setMouseScrolled(false);
         });
 
         //set operations on mouse scrolled
@@ -90,12 +96,12 @@ public class GameCanvas extends Canvas{
             double mouse_coordinate[] = new double[2];
             mouse_coordinate[0] = se.getX();
             mouse_coordinate[1] = se.getY();
-            systemStatus.setMouse_coordinate(mouse_coordinate);
-            systemStatus.setMouseScrollValue(se.getDeltaY());
-            systemStatus.setActivatedMouseButton(MouseButton.MIDDLE);
-            systemStatus.setMouseReleased(false);
-            systemStatus.setMousePressed(false);
-            systemStatus.setMouseScrolled(true);
+            mouse.setMouse_coordinate(mouse_coordinate);
+            mouse.setMouseScrollValue(se.getDeltaY());
+            mouse.setActivatedMouseButton(MouseButton.MIDDLE);
+            mouse.setMousePressed(false);
+            mouse.setMouseReleased(false);
+            mouse.setMouseScrolled(true);
 
         });
 

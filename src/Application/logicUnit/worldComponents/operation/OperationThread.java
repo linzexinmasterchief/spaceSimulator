@@ -4,18 +4,22 @@ import Application.logicUnit.World;
 import Application.logicUnit.worldComponents.worldSettings.Speed;
 import Application.graphicUnit.mainStageComponents.GameScene;
 import Application.status.CanvasStatus;
+import Application.status.Mouse;
 import javafx.application.Platform;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
 import models.systemComponentModels.ThreadModel;
 
 /**
  * Created by lzx on 2017/7/13.
- *
+ * thread which controls every operation from mouse and keyboard
  */
 public class OperationThread extends ThreadModel {
 
     private GameScene gameScene;
     private CanvasStatus canvasStatus;
+
+    //create reference to the mouse
+    private Mouse mouse;
 
     public OperationThread(World root_world){
         super(root_world);
@@ -27,6 +31,7 @@ public class OperationThread extends ThreadModel {
         gameScene = world.getLauncher().getGameStage().getGameScene();
 
         canvasStatus = world.getLauncher().getCanvasStatus();
+        mouse = world.getLauncher().getMouse();
     }
 
     //determine if a new star should be created
@@ -90,7 +95,7 @@ public class OperationThread extends ThreadModel {
                 }
             }
         }
-        systemStatus.setMouseReleased(false);
+        mouse.setMouseReleased(false);
     }
 
 
@@ -104,19 +109,19 @@ public class OperationThread extends ThreadModel {
                 e.printStackTrace();
             }
 
-            if (systemStatus.isMousePressed()) {
-                systemStatus.setMouseReleased(false);
-                switch (systemStatus.getActivatedMouseButton()) {
+            if (mouse.isMousePressed()) {
+                mouse.setMouseReleased(false);
+                switch (mouse.getActivatedMouseButton()) {
                     case PRIMARY:
-                        systemStatus.getDragLine()[2] = systemStatus.getMouse_coordinate()[0];
-                        systemStatus.getDragLine()[3] = systemStatus.getMouse_coordinate()[1];
+                        systemStatus.getDragLine()[2] = mouse.getMouse_coordinate()[0];
+                        systemStatus.getDragLine()[3] = mouse.getMouse_coordinate()[1];
                         break;
                 }
             }
 
-            if (systemStatus.isMouseReleased()) {
-                systemStatus.setMousePressed(false);
-                switch (systemStatus.getActivatedMouseButton()) {
+            if (mouse.isMouseReleased()) {
+                mouse.setMousePressed(false);
+                switch (mouse.getActivatedMouseButton()) {
                     case PRIMARY:
                         addNewStar();
                         systemStatus.setDragLine(new double[]{
@@ -137,15 +142,15 @@ public class OperationThread extends ThreadModel {
                 }
             }
 
-            if (systemStatus.isMouseScrolled()) {
+            if (mouse.isMouseScrolled()) {
 
-                systemStatus.setMouseReleased(false);
-                systemStatus.setMousePressed(false);
+                mouse.setMouseReleased(false);
+                mouse.setMousePressed(false);
 
                 double cameraWidthChangingSpeed = world.getCamera().getWidth() / world.getCamera().getOriginalWidth() * 2;
                 double cameraHeightChangingSpeed = world.getCamera().getHeight() / world.getCamera().getOriginalHeight() * 2;
                 //on mouse wheel rolling back (minimize)
-                if (systemStatus.getMouseScrollValue() < 0) {
+                if (mouse.getMouseScrollValue() < 0) {
                     if (world.getCamera().getHeight() < world.getUniverse().getHeight()
                             & world.getCamera().getWidth() < world.getUniverse().getWidth()) {
 
@@ -156,15 +161,15 @@ public class OperationThread extends ThreadModel {
 
                         //move the camera to the mouse coordinate to create an effect
                         world.getCamera().setCenterX(world.getCamera().getCenterX()
-                                - (systemStatus.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
+                                - (mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
                                 / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed
                         );
                         world.getCamera().setCenterY(world.getCamera().getCenterY()
-                                - (systemStatus.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
+                                - (mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
                                 / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed
                         );
                     }
-                } else if (systemStatus.getMouseScrollValue() > 0) {
+                } else if (mouse.getMouseScrollValue() > 0) {
                     //on mouse wheel rolling back (enlarge)
                     world.getCamera().setWidth(world.getCamera().getWidth() - Speed.getSizeChangeSpeed() * cameraWidthChangingSpeed);
                     world.getCamera().setHeight(world.getCamera().getHeight()
@@ -173,12 +178,12 @@ public class OperationThread extends ThreadModel {
 
                     //move the camera to the mouse coordinate to create an effect
                     world.getCamera().setCenterX(world.getCamera().getCenterX()
-                            + (systemStatus.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
+                            + (mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
                             / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed
                     );
 
                     world.getCamera().setCenterY(world.getCamera().getCenterY()
-                            + (systemStatus.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
+                            + (mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
                             / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed
                     );
                 }
@@ -191,8 +196,8 @@ public class OperationThread extends ThreadModel {
                 world.getGraphicsThreadModule().drawShapes();
             }
 
-            systemStatus.setMouseReleased(false);
-            systemStatus.setMouseScrolled(false);
+            mouse.setMouseReleased(false);
+            mouse.setMouseScrolled(false);
 
             gameScene.getCreateStarMenu().getSettingBtn().setVisible(systemStatus.isCreateStarMenuOut());
             gameScene.getCreateStarMenu().getMassSlider().setVisible(systemStatus.isCreateStarMenuOut());
