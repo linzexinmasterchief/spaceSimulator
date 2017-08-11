@@ -36,12 +36,14 @@ public class OperationThread extends ThreadModel {
         systemStatus.setNewStarExist(true);
 
         //give the buffer star speed based on the distance mouse dragged
-        world.getBufferStar().velocityX = (systemStatus.getDragLine()[2]
-                - systemStatus.getDragLine()[0])
-                / Speed.getDragSpeedConstant();
-        world.getBufferStar().velocityY = (systemStatus.getDragLine()[3]
-                - systemStatus.getDragLine()[1])
-                / Speed.getDragSpeedConstant();
+        world.getBufferStar().velocityX = (systemStatus.getDragLine()[2] - systemStatus.getDragLine()[0])
+                / Speed.getDragSpeedConstant()
+                //times camera enlarge scale
+                * world.getCamera().getWidth() / world.getCamera().getOriginalWidth();
+        world.getBufferStar().velocityY = (systemStatus.getDragLine()[3] - systemStatus.getDragLine()[1])
+                / Speed.getDragSpeedConstant()
+                //times camera enlarge scale
+                * world.getCamera().getHeight() / world.getCamera().getOriginalHeight();
 
         //check if the new star lock is opened to avoid unnecessary star list iterations
         //check if there is empty star slot for a new star
@@ -136,27 +138,32 @@ public class OperationThread extends ThreadModel {
             }
 
             if (systemStatus.isMouseScrolled()) {
+
                 systemStatus.setMouseReleased(false);
                 systemStatus.setMousePressed(false);
+
                 double cameraWidthChangingSpeed = world.getCamera().getWidth() / world.getCamera().getOriginalWidth() * 2;
                 double cameraHeightChangingSpeed = world.getCamera().getHeight() / world.getCamera().getOriginalHeight() * 2;
                 //on mouse wheel rolling back (minimize)
                 if (systemStatus.getMouseScrollValue() < 0) {
+                    if (world.getCamera().getHeight() < world.getUniverse().getHeight()
+                            & world.getCamera().getWidth() < world.getUniverse().getWidth()) {
 
-                    //change the size of the camera (+)
-                    world.getCamera().setWidth(world.getCamera().getWidth() + Speed.getSizeChangeSpeed() * cameraWidthChangingSpeed);
-                    world.getCamera().setHeight(world.getCamera().getHeight()
-                            + Speed.getSizeChangeSpeed() * systemStatus.getHeightWidthScale() * cameraHeightChangingSpeed);
+                        //change the size of the camera (+)
+                        world.getCamera().setWidth(world.getCamera().getWidth() + Speed.getSizeChangeSpeed() * cameraWidthChangingSpeed);
+                        world.getCamera().setHeight(world.getCamera().getHeight()
+                                + Speed.getSizeChangeSpeed() * systemStatus.getHeightWidthScale() * cameraHeightChangingSpeed);
 
-                    //move the camera to the mouse coordinate to create an effect
-                    world.getCamera().setCenterX(world.getCamera().getCenterX()
-                                    - (systemStatus.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
-                                    / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed
-                    );
-                    world.getCamera().setCenterY(world.getCamera().getCenterY()
-                            - (systemStatus.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
-                            / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed
-                    );
+                        //move the camera to the mouse coordinate to create an effect
+                        world.getCamera().setCenterX(world.getCamera().getCenterX()
+                                - (systemStatus.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
+                                / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed
+                        );
+                        world.getCamera().setCenterY(world.getCamera().getCenterY()
+                                - (systemStatus.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
+                                / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed
+                        );
+                    }
                 } else if (systemStatus.getMouseScrollValue() > 0) {
                     //on mouse wheel rolling back (enlarge)
                     world.getCamera().setWidth(world.getCamera().getWidth() - Speed.getSizeChangeSpeed() * cameraWidthChangingSpeed);
