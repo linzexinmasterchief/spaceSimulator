@@ -9,7 +9,6 @@ import Application.status.SystemStatus;
 public class ThreadModel implements Runnable{
 
     protected World world;
-    protected SystemStatus systemStatus;
 
     //some properties of the program
     private boolean isExit;
@@ -17,9 +16,6 @@ public class ThreadModel implements Runnable{
 
     public ThreadModel(World root_world){
         world = root_world;
-
-        //initialize reference to system PhysicsStatus
-        systemStatus = world.getLauncher().getSystemStatus();
 
         //initialize program properties
         setExit(false);

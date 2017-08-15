@@ -1,11 +1,12 @@
 package Application.graphicUnit.mainStageComponents.gameSceneComponents.ui;
 
 import Application.graphicUnit.mainStageComponents.GameScene;
-import Application.status.SystemStatus;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import models.uiComponentModels.MenuButton;
+import models.uiComponentModels.BetterButton;
+import models.uiComponentModels.BetterSlider;
 
 /**
  * Created by lzx on 2017/7/14.
@@ -13,9 +14,8 @@ import models.uiComponentModels.MenuButton;
  */
 public class UniverseStatusBar {
 
-    private SystemStatus systemStatus;
-
     private GameScene gameScene;
+
     private double width;
     private double height;
     private double x;
@@ -23,11 +23,10 @@ public class UniverseStatusBar {
 
     private int starAmount;
 
-    private MenuButton starAmountStatus;
+    private BetterButton starAmountStatus;
+    private BetterSlider timeSpeedAjuster;
 
     private UniverseStatusBar(GameScene scene, Group group){
-
-        systemStatus = scene.getGameStage().getLauncher().getSystemStatus();
 
         //initialize game scene reference
         gameScene = scene;
@@ -39,15 +38,28 @@ public class UniverseStatusBar {
         starAmount = 0;
 
         //add buttons in it
-        starAmountStatus = new MenuButton("star amount :" + starAmount);
+        starAmountStatus = new BetterButton("star amount :" + starAmount);
         starAmountStatus.setTranslateX(x + 0);
         starAmountStatus.setTranslateY(y);
+        starAmountStatus.setMaxWidth(width * 0.2);
         starAmountStatus.setMinWidth(width * 0.2);
         starAmountStatus.setMinHeight(height);
         starAmountStatus.setVisible(true);
         starAmountStatus.setAlignment(Pos.CENTER_LEFT);
         starAmountStatus.setFont(Font.font(10));
         group.getChildren().add(starAmountStatus);
+
+        //add time speed slider
+        timeSpeedAjuster = new BetterSlider("timeSpeed", Color.grayRgb(50));
+        timeSpeedAjuster.setTranslateX(starAmountStatus.getTranslateX() + starAmountStatus.getMinWidth());
+        timeSpeedAjuster.setTranslateY(y);
+        timeSpeedAjuster.setMaxWidth(width * 0.2);
+        timeSpeedAjuster.setMinWidth(width * 0.2);
+        timeSpeedAjuster.setMinHeight(height);
+        timeSpeedAjuster.setVisible(true);
+        timeSpeedAjuster.setFont(Font.font(10));
+        timeSpeedAjuster.setValue(100);
+        group.getChildren().add(timeSpeedAjuster);
 
     }
 
@@ -63,7 +75,7 @@ public class UniverseStatusBar {
         return y;
     }
 
-    public MenuButton getStarAmountStatus(){
+    public BetterButton getStarAmountStatus(){
         return starAmountStatus;
     }
 
@@ -74,5 +86,9 @@ public class UniverseStatusBar {
 
     public void setStarAmount(int starAmount) {
         this.starAmount = starAmount;
+    }
+
+    public double getTimeSpeed(){
+        return timeSpeedAjuster.getValue() / 20;
     }
 }

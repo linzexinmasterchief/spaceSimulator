@@ -12,8 +12,6 @@ public class Speed {
     private static int sizeChangeSpeed = 20;
     //determine how fast the camera moves to the mouse coordinate when scrolling on a point
     private static int cameraMoveSpeed = 20;
-    //determine how fast the time goes in the universe (does not affect the speed of thread)
-    private static int timeChangingSpeed = 1;
 
     public static int getDragSpeedConstant() {
         return dragSpeedConstant;

@@ -17,8 +17,6 @@ import javafx.scene.input.MouseButton;
  */
 public class GameCanvas extends Canvas{
 
-    //create reference to system status
-    private final SystemStatus systemStatus;
     //create reference to canvas status
     private final CanvasStatus canvasStatus;
 
@@ -28,8 +26,7 @@ public class GameCanvas extends Canvas{
         //"this.getWidth()" to work properly
         super(width, height);
 
-        systemStatus = rootScene.getGameStage().getLauncher().getSystemStatus();
-        systemStatus.setHeightWidthScale(getHeight() / getWidth());
+        SystemStatus.setHeightWidthScale(getHeight() / getWidth());
 
         canvasStatus = rootScene.getGameStage().getLauncher().getCanvasStatus();
         canvasStatus.setCanvasHeight(getHeight());
@@ -37,35 +34,16 @@ public class GameCanvas extends Canvas{
 
         setOnMouseMoved(me -> {
             Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()});
-            if (me.isPrimaryButtonDown()){
-                systemStatus.setDragLine(new double[]{
-                        systemStatus.getDragLine()[0],
-                        systemStatus.getDragLine()[1],
-                        me.getX(),
-                        me.getY()
-                });
-                System.out.println(Mouse.getMouse_coordinate()[0]);
-            }
         });
 
         setOnMouseDragged(me -> Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()}));
 
         //listen the operations of mouse press
         setOnMousePressed(me -> {
-            //get the mouse press coordinate
-            double mouse_coordinate[] = new double[2];
-            mouse_coordinate[0] = me.getX();
-            mouse_coordinate[1] = me.getY();
-            systemStatus.setDragLine(new double[]{
-                    me.getX(),
-                    me.getY(),
-                    me.getX(),
-                    me.getY()
-            });
-            Mouse.setMouse_coordinate(mouse_coordinate);
             Mouse.setActivatedMouseButton(me.getButton());
             Mouse.setMousePressed(true);
-            Mouse.setMouseReleased(false);
+            Mouse.setMousePressing(true);
+            Mouse.setMouseReleasing(false);
             Mouse.setMouseScrolled(false);
 
         });
@@ -73,29 +51,19 @@ public class GameCanvas extends Canvas{
         //set operations on mouse release
         //new and clear
         setOnMouseReleased(me -> {
-            //get the mouse press coordinate
-            double mouse_coordinate[] = new double[2];
-            mouse_coordinate[0] = me.getX();
-            mouse_coordinate[1] = me.getY();
-            Mouse.setMouse_coordinate(mouse_coordinate);
             Mouse.setActivatedMouseButton(me.getButton());
-            Mouse.setMousePressed(false);
-            Mouse.setMouseReleased(true);
+            Mouse.setMousePressing(false);
+            Mouse.setMouseReleasing(true);
             Mouse.setMouseScrolled(false);
         });
 
         //set operations on mouse scrolled
         //enlarge and minimize
         setOnScroll(se -> {
-            //get the mouse press coordinate
-            double mouse_coordinate[] = new double[2];
-            mouse_coordinate[0] = se.getX();
-            mouse_coordinate[1] = se.getY();
-            Mouse.setMouse_coordinate(mouse_coordinate);
             Mouse.setMouseScrollValue(se.getDeltaY());
             Mouse.setActivatedMouseButton(MouseButton.MIDDLE);
-            Mouse.setMousePressed(false);
-            Mouse.setMouseReleased(false);
+            Mouse.setMousePressing(false);
+            Mouse.setMouseReleasing(false);
             Mouse.setMouseScrolled(true);
 
         });

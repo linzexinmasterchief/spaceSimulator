@@ -18,6 +18,9 @@ public class Star {
     public double accelerationX;
     public double accelerationY;
 
+    public double vectorX;
+    public double vectorY;
+
     public boolean onScreen;
     public boolean inUniverse;
 
@@ -34,53 +37,71 @@ public class Star {
         initialize();
 
         //this should be pretty straight forward to understand
-        mass = star.mass;
-        r = star.r;
-        velocityX = star.velocityX;
-        velocityY = star.velocityY;
+
+        //mass of the star
+        mass          = star.mass;
+
+        //radius of the star
+        r             = star.r;
+
+        //velocities(x,y) of the star
+        velocityX     = star.velocityX;
+        velocityY     = star.velocityY;
+
+        //accelerations(x,y) of the star
         accelerationX = star.accelerationX;
         accelerationY = star.accelerationY;
-        onScreen = star.onScreen;
-        inUniverse = star.inUniverse;
-        centerX = star.centerX;
-        centerY = star.centerY;
+
+        //vector(x,y)(how much will the star move) of the star
+        vectorX       = star.vectorX;
+        vectorY       = star.vectorY;
+
+
+        onScreen      = star.onScreen;
+        inUniverse    = star.inUniverse;
+        centerX       = star.centerX;
+        centerY       = star.centerY;
     }
 
     //initialize the properties
     public void initialize() {
-        mass = 1;
-        r = 5;
-        velocityX = velocityY = 0;
-        accelerationX = 0;
-        accelerationY = 0;
-        onScreen = false;
-        inUniverse = false;
-        centerX = 0;
-        centerY = 0;
+        mass          = 1;
+        r             = 5;
+        velocityX     = velocityY     = 0;
+        accelerationX = accelerationY = 0;
+        vectorX       = vectorY       = 0;
+        onScreen      = false;
+        inUniverse    = false;
+        centerX       = 0;
+        centerY       = 0;
     }
 
     //move (or more like teleporting) to another point
     private void setPosition(double input_centerX, double input_centerY) {
-        centerX = input_centerX;
-        centerY = input_centerY;
+        centerX       = input_centerX;
+        centerY       = input_centerY;
     }
 
     //allow the star thee add on screen
     public void add(double input_centerX, double input_centerY) {
-        onScreen = true;
-        inUniverse = true;
+        onScreen      = true;
+        inUniverse    = true;
         setPosition(input_centerX, input_centerY);
     }
 
     //update the position
-    public void move() {
+    public void move(double time) {
 
         //calculate the speed of the star
         velocityX = velocityX + accelerationX;
         velocityY = velocityY + accelerationY;
 
+        //calculate vector
+        vectorX = velocityX * time;
+        vectorY = velocityY * time;
+
         //calculate the position of the star
-        setPosition(centerX + velocityX, centerY + velocityY);
+        setPosition(centerX + vectorX, centerY + vectorY);
     }
 
     //like it's name

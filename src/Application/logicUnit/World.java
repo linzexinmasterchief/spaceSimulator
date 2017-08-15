@@ -4,11 +4,13 @@ import Application.logicUnit.worldComponents.graphics.GraphicsThread;
 import Application.logicUnit.worldComponents.operation.OperationThread;
 import Application.logicUnit.worldComponents.physics.PhysicsThread;
 import Application.Launcher;
-import Application.logicUnit.worldComponents.physics.physicsComponents.Camera;
+import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Camera;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
 import Application.logicUnit.worldComponents.physics.physicsComponents.Universe;
+import Application.status.SystemStatus;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 
 /**
  * Created by lzx on 2017/6/13.
@@ -30,7 +32,8 @@ public class World {
     private Star bufferStar;
     //define a camera used for display
     private Camera camera;
-
+    //a line used to tell the new star direction and speed
+    private double[] dragLine;
 
     public World(Launcher starter) {
         launcher = starter;
@@ -47,14 +50,14 @@ public class World {
         bufferStar = new Star();
 
         //initialize the camera
-        Dimension screenSize = launcher.getScreenSize();
         camera = new Camera(
-                screenSize.width,
-                screenSize.height,
+                SystemStatus.getScreenwidth(),
+                SystemStatus.getScreenHeight(),
                 universe.getWidth() / 2,
                 universe.getHeight() / 2
         );
 
+        dragLine = new double[4];
 
         //>>>>>>>>>>>>>>>>>>|[THREADS]|<<<<<<<<<<<<<<<<<<<<
         //physics module
@@ -75,6 +78,14 @@ public class World {
         //halt until game canvas is initialized
     }
 
+    //clear drag line
+    public void clearDragLine(){
+        dragLine[0] = 0;
+        dragLine[1] = 0;
+        dragLine[2] = 0;
+        dragLine[3] = 0;
+    }
+
     //getter and setters
     public Launcher getLauncher(){
         return launcher;
@@ -92,11 +103,15 @@ public class World {
         return universe;
     }
 
-    public PhysicsThread getPhysicsThreadModule(){
+    public double[] getDragLine(){
+        return dragLine;
+    }
+
+    public PhysicsThread getPhysicsThread(){
         return physicsThreadModule;
     }
 
-    public GraphicsThread getGraphicsThreadModule(){
+    public GraphicsThread getGraphicsThread(){
         return graphicsThreadModule;
     }
 

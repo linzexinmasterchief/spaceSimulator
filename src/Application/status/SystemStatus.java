@@ -1,6 +1,5 @@
 package Application.status;
 
-import javafx.scene.input.MouseButton;
 
 /**
  * Created by lzx on 2017/7/13.
@@ -9,21 +8,22 @@ import javafx.scene.input.MouseButton;
 public class SystemStatus {
 
     //is create star menu out or not
-    private boolean isCreateStarMenuOut;
+    private static boolean isCreateStarMenuOut;
 
     //is setting window out
-    private boolean isSettingStageOut;
+    private static boolean isSettingStageOut;
 
     //new star lock
-    private boolean isNewStarExist;
-
-    //drag line
-    private double[] dragLine;
-
-
+    private static boolean isNewStarExist;
 
     //a variable used to store the scale between height and width
-    private double HeightWidthScale;
+    private static double HeightWidthScale;
+
+    //store screen height
+    private static double screenHeight;
+
+    //store screen width
+    private static double screenwidth;
 
     public SystemStatus(){
         //initialize crate star menu lock
@@ -35,51 +35,59 @@ public class SystemStatus {
         //close new star lock
         isNewStarExist = false;
 
-        //initialize drag line
-        dragLine = new double[4];
-
         //initialize the scale between height and width
         HeightWidthScale = 1;
+
+        //initialize screen size
+        screenHeight = 0;
+        screenwidth = 0;
     }
 
-    public boolean isNewStarExist() {
+    public static boolean isNewStarExist() {
         return isNewStarExist;
     }
 
-    public void setNewStarExist(boolean newStarExist) {
+    public static void setNewStarExist(boolean newStarExist) {
         isNewStarExist = newStarExist;
     }
 
-    public double getHeightWidthScale() {
+    public static double getHeightWidthScale() {
         return HeightWidthScale;
     }
 
-    public void setHeightWidthScale(double heightWidthScale) {
+    public static void setHeightWidthScale(double heightWidthScale) {
         HeightWidthScale = heightWidthScale;
     }
 
-    public double[] getDragLine() {
-        return dragLine;
-    }
-
-    public void setDragLine(double[] dragLine) {
-        this.dragLine = dragLine;
-    }
-
-
-    public boolean isCreateStarMenuOut() {
+    public static boolean isCreateStarMenuOut() {
         return isCreateStarMenuOut;
     }
 
-    public void setCreateStarMenuOut(boolean createStarMenuOut) {
+    public static void setCreateStarMenuOut(boolean createStarMenuOut) {
         isCreateStarMenuOut = createStarMenuOut;
     }
 
-    public boolean isSettingStageOut() {
+    public static boolean isSettingStageOut() {
         return isSettingStageOut;
     }
 
-    public void setSettingStageOut(boolean settingStageOut) {
+    public static void setSettingStageOut(boolean settingStageOut) {
         isSettingStageOut = settingStageOut;
+    }
+
+    public static double getScreenHeight() {
+        return screenHeight;
+    }
+
+    public static void setScreenHeight(double screenHeight) {
+        SystemStatus.screenHeight = screenHeight;
+    }
+
+    public static double getScreenwidth() {
+        return screenwidth;
+    }
+
+    public static void setScreenwidth(double screenwidth) {
+        SystemStatus.screenwidth = screenwidth;
     }
 }

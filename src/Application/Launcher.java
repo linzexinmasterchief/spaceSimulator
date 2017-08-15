@@ -9,6 +9,8 @@ import Application.status.Mouse;
 import Application.system.SystemSettings;
 import Application.status.SystemStatus;
 import javafx.application.Application;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -23,13 +25,11 @@ public class Launcher extends Application {
 
     //object used to store world information
     private EngineStatus engineStatus;
-    //object used to store system information
-    private SystemStatus systemStatus;
     //object used to store canvas information
     private CanvasStatus canvasStatus;
 
     //get screen size
-    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
 
     //game worldSettings
     private SystemSettings systemSettings;
@@ -49,10 +49,13 @@ public class Launcher extends Application {
     @Override
     //initialize the application
     public void start(Stage stage) {
+
+        //get width height
+        SystemStatus.setScreenHeight(screenSize.getHeight());
+        SystemStatus.setScreenwidth(screenSize.getWidth());
+
         //initialize world status
         engineStatus = new EngineStatus();
-        //initialize system status
-        systemStatus = new SystemStatus();
         //initialize canvas status
         canvasStatus = new CanvasStatus();
 
@@ -66,18 +69,14 @@ public class Launcher extends Application {
 
         //setting window
         settingStage = new SettingStage(400, 400, 400, 400);
-        settingStage.setOnCloseRequest(event -> systemStatus.setSettingStageOut(false));
-        systemStatus.setSettingStageOut(false);
+        settingStage.setOnCloseRequest(event -> SystemStatus.setSettingStageOut(false));
+        SystemStatus.setSettingStageOut(false);
 
         //the position is critical
         World = new World(this);
 
         //add the window
         stage.show();
-    }
-
-    public SystemStatus getSystemStatus(){
-        return systemStatus;
     }
 
     public World getWorld(){
@@ -116,11 +115,11 @@ public class Launcher extends Application {
         this.canvasStatus = canvasStatus;
     }
 
-    public Dimension getScreenSize() {
+    public Rectangle2D getScreenSize() {
         return screenSize;
     }
 
-    public void setScreenSize(Dimension screenSize) {
+    public void setScreenSize(Rectangle2D screenSize) {
         this.screenSize = screenSize;
     }
 

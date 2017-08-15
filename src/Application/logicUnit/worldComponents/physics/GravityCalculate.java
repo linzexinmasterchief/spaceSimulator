@@ -1,5 +1,6 @@
 package Application.logicUnit.worldComponents.physics;
 
+import Application.logicUnit.worldComponents.physics.physicsComponents.Universe;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
 
 /**
@@ -7,14 +8,15 @@ import Application.logicUnit.worldComponents.physics.physicsComponents.universeC
  * this class is used to perform collisions and gravities between stars
  */
 public class GravityCalculate {
+
     private Star[] stars;
 
     public GravityCalculate(Star[] stars) {
-        synchronize(stars);
+        this.stars = stars;
     }
 
-    public void synchronize(Star[] stars) {
-        this.stars = stars;
+    public void synchronize(Universe universe) {
+        stars = universe.getStars();
     }
 
     public void fire(Star s) {

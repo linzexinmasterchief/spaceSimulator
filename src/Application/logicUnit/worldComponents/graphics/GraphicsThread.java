@@ -3,6 +3,7 @@ package Application.logicUnit.worldComponents.graphics;
 import Application.logicUnit.World;
 import Application.graphicUnit.mainStageComponents.GameScene;
 import Application.graphicUnit.mainStageComponents.gameSceneComponents.GameCanvas;
+import Application.status.SystemStatus;
 import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
@@ -38,6 +39,7 @@ public class GraphicsThread extends ThreadModel {
         //initialize program properties
         setExit(false);
         setPause(false);
+
     }
 
     //screen painting function
@@ -50,10 +52,10 @@ public class GraphicsThread extends ThreadModel {
         gc.setStroke(Color.RED);
         gc.setLineWidth(1);
         gc.strokeLine(
-                systemStatus.getDragLine()[0],
-                systemStatus.getDragLine()[1],
-                systemStatus.getDragLine()[2],
-                systemStatus.getDragLine()[3]
+                world.getDragLine()[0],
+                world.getDragLine()[1],
+                world.getDragLine()[2],
+                world.getDragLine()[3]
         );
 
         //iterate the star list to draw all the exist stars in the universe
@@ -132,6 +134,7 @@ public class GraphicsThread extends ThreadModel {
 //        gc.fillText(""+systemStatus.getStarAmount(),400,15);
 
     }
+
 
     //getters and setters
 

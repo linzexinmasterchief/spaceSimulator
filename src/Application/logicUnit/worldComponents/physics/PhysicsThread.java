@@ -43,6 +43,8 @@ public class PhysicsThread extends ThreadModel {
         //create reference of universe
         Universe universe = world.getUniverse();
 
+        universe.setTimeSpeed(world.getLauncher().getGameStage().getGameScene().getStatusBar().getTimeSpeed());
+
         //iterate star list
         for (int i = 0; i < stars.length; i++) {
 
@@ -59,12 +61,12 @@ public class PhysicsThread extends ThreadModel {
                 world.getUniverse().setStarAmount(world.getUniverse().getStarAmount() + 1);
 
                 //set the next position of star according to star speed
-                stars[i].move();
+                stars[i].move(universe.getTimeSpeed());
 
                 //use multi-thread to calculate the acceleration of star
                 final int F = i;
                 Platform.runLater(() -> {
-                    gravityCalculate.synchronize(stars);
+                    gravityCalculate.synchronize(universe);
                     gravityCalculate.fire(stars[F]);
                 });
             }

@@ -14,7 +14,10 @@ public class Universe {
     //define the size of the universe
     private double width;
     private double height;
-    private double unitTimeSpeed;
+
+    //determine how fast the time goes in the universe (does not affect the speed of thread)
+    private double timeSpeed;
+
     //store all the stars in this universe
     private Star[] stars;
 
@@ -39,6 +42,8 @@ public class Universe {
         this.width = width;
         this.height = height;
 
+        timeSpeed = 1;
+
         //initialize the star list of the universe
         stars = new Star[200];
         //initialize every star in the star list
@@ -60,12 +65,12 @@ public class Universe {
         return height;
     }
 
-    public double getUnitTimeSpeed() {
-        return unitTimeSpeed;
+    public double getTimeSpeed() {
+        return timeSpeed;
     }
 
-    public void setUnitTimeSpeed(double unitTimeSpeed) {
-        this.unitTimeSpeed = unitTimeSpeed;
+    public void setTimeSpeed(double timeSpeed) {
+        this.timeSpeed = timeSpeed;
     }
 
     public Star[] getStars() {

@@ -5,8 +5,10 @@ import Application.logicUnit.worldComponents.worldSettings.Speed;
 import Application.graphicUnit.mainStageComponents.GameScene;
 import Application.status.CanvasStatus;
 import Application.status.Mouse;
+import Application.status.SystemStatus;
 import javafx.application.Platform;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
+import javafx.scene.input.MouseButton;
 import models.systemComponentModels.ThreadModel;
 
 /**
@@ -34,24 +36,24 @@ public class OperationThread extends ThreadModel {
     //left click to new a star
     private void addNewStar(){
         //open the new star lock
-        systemStatus.setNewStarExist(true);
+        SystemStatus.setNewStarExist(true);
 
         //give the buffer star speed based on the distance mouse dragged
-        world.getBufferStar().velocityX = (systemStatus.getDragLine()[2] - systemStatus.getDragLine()[0])
+        world.getBufferStar().velocityX = (world.getDragLine()[2] - world.getDragLine()[0])
                 / Speed.getDragSpeedConstant()
                 //times camera enlarge scale
                 * world.getCamera().getWidth() / world.getCamera().getOriginalWidth();
-        world.getBufferStar().velocityY = (systemStatus.getDragLine()[3] - systemStatus.getDragLine()[1])
+        world.getBufferStar().velocityY = (world.getDragLine()[3] - world.getDragLine()[1])
                 / Speed.getDragSpeedConstant()
                 //times camera enlarge scale
                 * world.getCamera().getHeight() / world.getCamera().getOriginalHeight();
 
         //check if the new star lock is opened to avoid unnecessary star list iterations
         //check if there is empty star slot for a new star
-        if (systemStatus.isNewStarExist()) {
+        if (SystemStatus.isNewStarExist()) {
             for (int i = 0; i < world.getUniverse().getStars().length; i++) {
                 //not on screen means it is safe to clear
-                if (systemStatus.isNewStarExist() & !world.getUniverse().getStars()[i].inUniverse) {
+                if (SystemStatus.isNewStarExist() & !world.getUniverse().getStars()[i].inUniverse) {
 
                     //prepare the empty slot for new star
                     world.getUniverse().getStars()[i].remove();
@@ -74,24 +76,24 @@ public class OperationThread extends ThreadModel {
                             //once you draw it out on the paper, be careful changing it anyway
                             (world.getCamera().getCenterX() - world.getUniverse().getWidth() / 2)
                                     + (world.getUniverse().getWidth() - world.getCamera().getWidth()) / 2
-                                    + systemStatus.getDragLine()[0] * world.getGraphicsThreadModule().getScaleX(),
+                                    + world.getDragLine()[0] * world.getGraphicsThread().getScaleX(),
                             (world.getCamera().getCenterY() - world.getUniverse().getHeight() / 2)
                                     + (world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2
-                                    + systemStatus.getDragLine()[1] * world.getGraphicsThreadModule().getScaleY()
+                                    + world.getDragLine()[1] * world.getGraphicsThread().getScaleY()
                     );
 
                     //change the slot property from empty to full
                     world.getUniverse().getStars()[i].inUniverse = true;
 
                     //close the new star lock
-                    systemStatus.setNewStarExist(false);
+                    SystemStatus.setNewStarExist(false);
 
                     //refresh the screen
-                    world.getGraphicsThreadModule().drawShapes();
+                    world.getGraphicsThread().drawShapes();
                 }
             }
         }
-        Mouse.setMouseReleased(false);
+        Mouse.setMouseReleasing(false);
     }
 
 
@@ -104,44 +106,51 @@ public class OperationThread extends ThreadModel {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            if (Mouse.isMousePressed()){
+                if (Mouse.getActivatedMouseButton() == MouseButton.PRIMARY){
+                    world.getDragLine()[0] = Mouse.getMouse_coordinate()[0];
+                    world.getDragLine()[1] = Mouse.getMouse_coordinate()[1];
+                    world.getDragLine()[2] = Mouse.getMouse_coordinate()[0];
+                    world.getDragLine()[3] = Mouse.getMouse_coordinate()[1];
+                }
 
-            if (Mouse.isMousePressed()) {
-                Mouse.setMouseReleased(false);
+                //because mouse pressed is a short time period event, the status must be set to false after execute
+                Mouse.setMousePressed(false);
+            }
+
+            if (Mouse.isMousePressing()) {
+                Mouse.setMouseReleasing(false);
                 switch (Mouse.getActivatedMouseButton()) {
                     case PRIMARY:
-                        systemStatus.getDragLine()[2] = Mouse.getMouse_coordinate()[0];
-                        systemStatus.getDragLine()[3] = Mouse.getMouse_coordinate()[1];
+                        world.getDragLine()[2] = Mouse.getMouse_coordinate()[0];
+                        world.getDragLine()[3] = Mouse.getMouse_coordinate()[1];
                         break;
                 }
             }
 
-            if (Mouse.isMouseReleased()) {
-                Mouse.setMousePressed(false);
+            if (Mouse.isMouseReleasing()) {
+                Mouse.setMousePressing(false);
                 switch (Mouse.getActivatedMouseButton()) {
                     case PRIMARY:
                         addNewStar();
-                        systemStatus.setDragLine(new double[]{
-                                0,
-                                0,
-                                0,
-                                0
-                        });
+                        world.clearDragLine();
                         break;
                     case SECONDARY:
                         //execute clear command
-                        world.getPhysicsThreadModule().clear();
+                        world.getPhysicsThread().clear();
                         break;
                     case MIDDLE:
                         //change pause value if middle button pressed
-                        world.getPhysicsThreadModule().setPause(!world.getPhysicsThreadModule().isPause());
+                        world.getPhysicsThread().setPause(!world.getPhysicsThread().isPause());
                         break;
                 }
+                Mouse.setMouseReleasing(false);
             }
 
             if (Mouse.isMouseScrolled()) {
 
-                Mouse.setMouseReleased(false);
-                Mouse.setMousePressed(false);
+                Mouse.setMouseReleasing(false);
+                Mouse.setMousePressing(false);
 
                 double cameraWidthChangingSpeed = world.getCamera().getWidth() / world.getCamera().getOriginalWidth() * 2;
                 double cameraHeightChangingSpeed = world.getCamera().getHeight() / world.getCamera().getOriginalHeight() * 2;
@@ -153,7 +162,7 @@ public class OperationThread extends ThreadModel {
                         //change the size of the camera (+)
                         world.getCamera().setWidth(world.getCamera().getWidth() + Speed.getSizeChangeSpeed() * cameraWidthChangingSpeed);
                         world.getCamera().setHeight(world.getCamera().getHeight()
-                                + Speed.getSizeChangeSpeed() * systemStatus.getHeightWidthScale() * cameraHeightChangingSpeed);
+                                + Speed.getSizeChangeSpeed() * SystemStatus.getHeightWidthScale() * cameraHeightChangingSpeed);
 
                         //move the camera to the mouse coordinate to create an effect
                         world.getCamera().setCenterX(world.getCamera().getCenterX()
@@ -169,7 +178,7 @@ public class OperationThread extends ThreadModel {
                     //on mouse wheel rolling back (enlarge)
                     world.getCamera().setWidth(world.getCamera().getWidth() - Speed.getSizeChangeSpeed() * cameraWidthChangingSpeed);
                     world.getCamera().setHeight(world.getCamera().getHeight()
-                            - Speed.getSizeChangeSpeed() * systemStatus.getHeightWidthScale() * cameraHeightChangingSpeed
+                            - Speed.getSizeChangeSpeed() * SystemStatus.getHeightWidthScale() * cameraHeightChangingSpeed
                     );
 
                     //move the camera to the mouse coordinate to create an effect
@@ -185,27 +194,24 @@ public class OperationThread extends ThreadModel {
                 }
 
                 //calculate the scale between camera and original camera
-                world.getGraphicsThreadModule().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
-                world.getGraphicsThreadModule().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
+                world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
+                world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
 
-                //refresh the screen
-                world.getGraphicsThreadModule().drawShapes();
+                Mouse.setMouseScrolled(false);
             }
 
-            Mouse.setMouseReleased(false);
-            Mouse.setMouseScrolled(false);
+            gameScene.getCreateStarMenu().setVisible(SystemStatus.isCreateStarMenuOut());
 
-            gameScene.getCreateStarMenu().getSettingBtn().setVisible(systemStatus.isCreateStarMenuOut());
-            gameScene.getCreateStarMenu().getMassSlider().setVisible(systemStatus.isCreateStarMenuOut());
-            gameScene.getCreateStarMenu().getRaiusSlider().setVisible(systemStatus.isCreateStarMenuOut());
-
-            if (systemStatus.isSettingStageOut()) {
+            //toggle setting menu
+            if (SystemStatus.isSettingStageOut()) {
                 Platform.runLater(() -> world.getLauncher().getSettingStage().show());
             }else {
                 Platform.runLater(() -> world.getLauncher().getSettingStage().hide());
             }
 
+            //update status bar information
             Platform.runLater(() -> gameScene.getStatusBar().update());
+
         }
 
     }

@@ -8,7 +8,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import Application.graphicUnit.mainStageComponents.gameSceneComponents.ui.UniverseStatusBar;
 
-public class GameScene extends Scene {
+public class GameScene extends Scene{
 
     //create reference to root game stage
     private GameStage gameStage;

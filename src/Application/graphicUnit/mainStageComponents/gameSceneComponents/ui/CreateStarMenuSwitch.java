@@ -11,11 +11,9 @@ import models.uiComponentModels.CircularButton;
 public class CreateStarMenuSwitch extends CircularButton {
 
     private boolean clicked;
-    private SystemStatus systemStatus;
 
     public CreateStarMenuSwitch(String text, GameScene gameScene) {
         super(text);
-        systemStatus = gameScene.getGameStage().getLauncher().getSystemStatus();
 
         clicked = false;
 
@@ -27,13 +25,13 @@ public class CreateStarMenuSwitch extends CircularButton {
                 setTranslateX(160);
                 setText("-");
                 //pop out
-                systemStatus.setCreateStarMenuOut(true);
+                SystemStatus.setCreateStarMenuOut(true);
             } else {
                 //menuButton change
                 setTranslateX(5);
                 setText("+");
                 //goes back
-                systemStatus.setCreateStarMenuOut(false);
+                SystemStatus.setCreateStarMenuOut(false);
             }
         });
     }

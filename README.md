@@ -14,6 +14,8 @@ land on every planet, asteroid and star. I think maybe
 * even better collisions
 * changeable time speed
 ## update logs
+#### version 0.1.3 alpha build1 2017/8/15
+add a universe time speed adjuster
 # ```version 0.1.2 beta```
 `[2017/7/28] finally the third stable version released after 2 months`
 #### version 0.1.2 alpha build7 2017/7/21
