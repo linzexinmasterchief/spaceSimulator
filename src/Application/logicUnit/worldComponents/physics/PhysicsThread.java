@@ -48,13 +48,26 @@ public class PhysicsThread extends ThreadModel {
         //iterate star list
         for (int i = 0; i < stars.length; i++) {
 
-            //remove the star from star list if it move out the universe
-            if (((stars[i].centerX - stars[i].r) > (universe.getWidth() + 10 + (2 * stars[i].r)))
-                    | ((stars[i].centerY - stars[i].r) > (universe.getHeight() + 10 + (2 * stars[i].r)))
-                    | ((stars[i].centerX - stars[i].r) < (-10 - (2 * stars[i].r)))
-                    | ((stars[i].centerY - stars[i].r) < (-10 - (2 * stars[i].r)))) {
-                stars[i].remove();
+            if ((stars[i].centerX - stars[i].r) > universe.getWidth()){
+                //if star reaches right edge
+                stars[i].centerX = 0;
+            }else if ((stars[i].centerY - stars[i].r) > universe.getHeight()){
+                //if star reaches bottom edge
+                stars[i].centerY = 0;
+            }else if ((stars[i].centerX - stars[i].r) < 0){
+                //if star reaches left edge
+                stars[i].centerX = universe.getWidth();
+            }else if ((stars[i].centerY - stars[i].r) < 0){
+                //if star reaches top edge
+                stars[i].centerX = universe.getHeight();
             }
+            //remove the star from star list if it move out the universe
+//            if (((stars[i].centerX - stars[i].r) > (universe.getWidth() + 10 + (2 * stars[i].r)))
+//                    | ((stars[i].centerY - stars[i].r) > (universe.getHeight() + 10 + (2 * stars[i].r)))
+//                    | ((stars[i].centerX - stars[i].r) < (-10 - (2 * stars[i].r)))
+//                    | ((stars[i].centerY - stars[i].r) < (-10 - (2 * stars[i].r)))) {
+//                stars[i].remove();
+//            }
 
             if (stars[i].inUniverse) {
                 //count the amount of stars in the universe + 1
