@@ -79,7 +79,7 @@ public class GameScene extends Scene{
     }
 
     public double getRadius(){
-        return createStarMenu.getRaiusSlider().getValue();
+        return createStarMenu.getRadiusSlider().getValue();
     }
 
 }

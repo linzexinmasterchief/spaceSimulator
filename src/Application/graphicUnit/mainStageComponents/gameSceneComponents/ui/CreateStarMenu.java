@@ -19,7 +19,7 @@ public class CreateStarMenu {
     //menu components
     private BetterButton settingBtn;
     private BetterSlider massSlider;
-    private BetterSlider raiusSlider;
+    private BetterSlider radiusSlider;
 
     public CreateStarMenu(GameScene scene, Group group){
 
@@ -42,21 +42,23 @@ public class CreateStarMenu {
         massSlider.setSliderWidth(150);
         massSlider.setSliderHeight(25);
         massSlider.setValue(10);
+        massSlider.refresh();
         group.getChildren().add(massSlider);
 
-        raiusSlider = new BetterSlider("radius", Color.grayRgb(33), 0, 300);
-        raiusSlider.setTranslateX(5);
-        raiusSlider.setTranslateY(65);
-        raiusSlider.setSliderWidth(150);
-        raiusSlider.setSliderHeight(25);
-        raiusSlider.setValue(5);
-        group.getChildren().add(raiusSlider);
+        radiusSlider = new BetterSlider("radius", Color.grayRgb(33), 0, 300);
+        radiusSlider.setTranslateX(5);
+        radiusSlider.setTranslateY(65);
+        radiusSlider.setSliderWidth(150);
+        radiusSlider.setSliderHeight(25);
+        radiusSlider.setValue(5);
+        radiusSlider.refresh();
+        group.getChildren().add(radiusSlider);
     }
 
     public void setVisible(boolean visibility){
         settingBtn.setVisible(visibility);
         massSlider.setVisible(visibility);
-        raiusSlider.setVisible(visibility);
+        radiusSlider.setVisible(visibility);
     }
 
 //getters
@@ -68,8 +70,8 @@ public class CreateStarMenu {
         return massSlider;
     }
 
-    public BetterSlider getRaiusSlider(){
-        return raiusSlider;
+    public BetterSlider getRadiusSlider(){
+        return radiusSlider;
     }
 
 }

@@ -1,6 +1,7 @@
 package Application.logicUnit.worldComponents.physics;
 
 import Application.logicUnit.World;
+import Application.status.Mouse;
 import javafx.application.Platform;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
 import models.systemComponentModels.ThreadModel;
@@ -25,6 +26,9 @@ public class PhysicsThread extends ThreadModel {
     public void initialize(){
         //override default initialize block
         gravityCalculate = new GravityCalculate(stars);
+
+        //create reference of star list
+        stars = world.getUniverse().getStars();
     }
 
     //this is the function called on every Application.world.physics cycle
@@ -36,9 +40,6 @@ public class PhysicsThread extends ThreadModel {
 
         //initialize star amount
         world.getUniverse().setStarAmount(0);
-
-        //create reference of star list
-        stars = world.getUniverse().getStars();
 
         //create reference of universe
         Universe universe = world.getUniverse();
@@ -54,20 +55,13 @@ public class PhysicsThread extends ThreadModel {
             }else if ((stars[i].centerY - stars[i].r) > universe.getHeight()){
                 //if star reaches bottom edge
                 stars[i].centerY = 0;
-            }else if ((stars[i].centerX - stars[i].r) < 0){
+            }else if ((stars[i].centerX + stars[i].r) < 0){
                 //if star reaches left edge
                 stars[i].centerX = universe.getWidth();
-            }else if ((stars[i].centerY - stars[i].r) < 0){
+            }else if ((stars[i].centerY + stars[i].r) < 0){
                 //if star reaches top edge
                 stars[i].centerX = universe.getHeight();
             }
-            //remove the star from star list if it move out the universe
-//            if (((stars[i].centerX - stars[i].r) > (universe.getWidth() + 10 + (2 * stars[i].r)))
-//                    | ((stars[i].centerY - stars[i].r) > (universe.getHeight() + 10 + (2 * stars[i].r)))
-//                    | ((stars[i].centerX - stars[i].r) < (-10 - (2 * stars[i].r)))
-//                    | ((stars[i].centerY - stars[i].r) < (-10 - (2 * stars[i].r)))) {
-//                stars[i].remove();
-//            }
 
             if (stars[i].inUniverse) {
                 //count the amount of stars in the universe + 1

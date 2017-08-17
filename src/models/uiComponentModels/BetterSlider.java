@@ -100,12 +100,7 @@ public class BetterSlider extends Button {
         setOnMousePressed(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
                 uiValue = me.getX();
-                if (uiValue < 0){
-                    uiValue = 0;
-                }else if (uiValue > getSliderWidth()){
-                    uiValue = getSliderWidth();
-                }
-                value = uiValue * valueScale;
+                value = minValue + (uiValue * valueScale);
             }
             refresh();
         });
@@ -118,7 +113,7 @@ public class BetterSlider extends Button {
                 }else if (uiValue > getSliderWidth()){
                     uiValue = getSliderWidth();
                 }
-                value = uiValue * valueScale;
+                value = minValue + (uiValue * valueScale);
             }
             refresh();
         });
@@ -127,6 +122,7 @@ public class BetterSlider extends Button {
 
     public void refresh(){
         setText(title + "   " + value);
+        updateValueScale();
         setBackground(new Background(
                 new BackgroundFill(
                         color,
@@ -143,9 +139,11 @@ public class BetterSlider extends Button {
     private void updateValueScale(){
         if (getWidth() == 0){
             valueScale = 0;
+            uiValue = 0;
             return;
         }
         valueScale = valueRange / getWidth();
+        uiValue = (value - minValue) / valueScale;
     }
 
     public double getValue() {
@@ -154,7 +152,7 @@ public class BetterSlider extends Button {
 
     public void setValue(double value) {
         this.value = value;
-        uiValue = value / valueScale;
+        uiValue = (value - minValue) / valueScale;
         refresh();
     }
 

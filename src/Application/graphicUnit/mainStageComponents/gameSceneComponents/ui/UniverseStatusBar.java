@@ -50,7 +50,7 @@ public class UniverseStatusBar {
         group.getChildren().add(starAmountStatus);
 
         //add time speed slider
-        timeSpeedAjuster = new BetterSlider("timeSpeed", Color.grayRgb(50), 0, 300);
+        timeSpeedAjuster = new BetterSlider("timeSpeed", Color.grayRgb(50), -1000, 1000);
         timeSpeedAjuster.setTranslateX(starAmountStatus.getTranslateX() + starAmountStatus.getMinWidth());
         timeSpeedAjuster.setTranslateY(y);
         timeSpeedAjuster.setSliderWidth(width * 0.2);
@@ -58,6 +58,7 @@ public class UniverseStatusBar {
         timeSpeedAjuster.setVisible(true);
         timeSpeedAjuster.setFont(Font.font(10));
         timeSpeedAjuster.setValue(100);
+        timeSpeedAjuster.refresh();
         group.getChildren().add(timeSpeedAjuster);
 
     }
