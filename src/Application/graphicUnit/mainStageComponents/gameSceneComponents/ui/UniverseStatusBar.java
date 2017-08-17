@@ -41,8 +41,8 @@ public class UniverseStatusBar {
         starAmountStatus = new BetterButton("star amount :" + starAmount);
         starAmountStatus.setTranslateX(x + 0);
         starAmountStatus.setTranslateY(y);
-        starAmountStatus.setMaxWidth(width * 0.2);
-        starAmountStatus.setMinWidth(width * 0.2);
+        starAmountStatus.setMaxWidth(width * 0.1);
+        starAmountStatus.setMinWidth(width * 0.1);
         starAmountStatus.setMinHeight(height);
         starAmountStatus.setVisible(true);
         starAmountStatus.setAlignment(Pos.CENTER_LEFT);
@@ -50,12 +50,11 @@ public class UniverseStatusBar {
         group.getChildren().add(starAmountStatus);
 
         //add time speed slider
-        timeSpeedAjuster = new BetterSlider("timeSpeed", Color.grayRgb(50));
+        timeSpeedAjuster = new BetterSlider("timeSpeed", Color.grayRgb(50), 0, 300);
         timeSpeedAjuster.setTranslateX(starAmountStatus.getTranslateX() + starAmountStatus.getMinWidth());
         timeSpeedAjuster.setTranslateY(y);
-        timeSpeedAjuster.setMaxWidth(width * 0.2);
-        timeSpeedAjuster.setMinWidth(width * 0.2);
-        timeSpeedAjuster.setMinHeight(height);
+        timeSpeedAjuster.setSliderWidth(width * 0.2);
+        timeSpeedAjuster.setSliderHeight(height);
         timeSpeedAjuster.setVisible(true);
         timeSpeedAjuster.setFont(Font.font(10));
         timeSpeedAjuster.setValue(100);

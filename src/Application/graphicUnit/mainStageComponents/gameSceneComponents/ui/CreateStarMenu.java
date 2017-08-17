@@ -3,6 +3,7 @@ package Application.graphicUnit.mainStageComponents.gameSceneComponents.ui;
 import Application.graphicUnit.mainStageComponents.GameScene;
 import Application.status.SystemStatus;
 import javafx.scene.Group;
+import javafx.scene.paint.Color;
 import models.uiComponentModels.BetterButton;
 import models.uiComponentModels.BetterSlider;
 
@@ -35,23 +36,19 @@ public class CreateStarMenu {
         });
         group.getChildren().add(settingBtn);
 
-        massSlider = new BetterSlider("mass");
+        massSlider = new BetterSlider("mass", Color.grayRgb(33), 0, 150);
         massSlider.setTranslateX(5);
         massSlider.setTranslateY(35);
-        massSlider.setMaxWidth(150);
-        massSlider.setMinWidth(150);
-        massSlider.setMaxHeight(25);
-        massSlider.setMinHeight(25);
+        massSlider.setSliderWidth(150);
+        massSlider.setSliderHeight(25);
         massSlider.setValue(10);
         group.getChildren().add(massSlider);
 
-        raiusSlider = new BetterSlider("radius");
+        raiusSlider = new BetterSlider("radius", Color.grayRgb(33), 0, 300);
         raiusSlider.setTranslateX(5);
         raiusSlider.setTranslateY(65);
-        raiusSlider.setMaxWidth(150);
-        raiusSlider.setMinWidth(150);
-        raiusSlider.setMaxHeight(25);
-        raiusSlider.setMinHeight(25);
+        raiusSlider.setSliderWidth(150);
+        raiusSlider.setSliderHeight(25);
         raiusSlider.setValue(5);
         group.getChildren().add(raiusSlider);
     }

@@ -12,7 +12,6 @@ land on every planet, asteroid and star. I think maybe
 * add console
 * use map files
 * even better collisions
-* changeable time speed
 ## update logs
 #### version 0.1.3 alpha build1 2017/8/15
 add a universe time speed adjuster

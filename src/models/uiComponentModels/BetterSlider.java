@@ -16,19 +16,34 @@ import javafx.scene.paint.Color;
 public class BetterSlider extends Button {
 
     private double value;
+    private double uiValue;
+
     private String title;
     private Color color;
+
+    private double sliderWidth;
+    private double sliderHeight;
+
+    private double maxValue;
+    private double minValue;
+    private double valueRange;
+    private double valueScale;
 
     public BetterSlider(){
         initialize();
 
-        refresh();
+        updateValueScale();
+        updateValueRange();
 
+        refresh();
     }
 
     public BetterSlider(String title){
         initialize();
         this.title = title;
+
+        updateValueScale();
+        updateValueRange();
 
         refresh();
     }
@@ -38,50 +53,75 @@ public class BetterSlider extends Button {
         this.title = title;
         this.color = color;
 
+        updateValueScale();
+        updateValueRange();
+
+        refresh();
+    }
+
+    public BetterSlider(String title, Color color, double minValue, double maxValue){
+        initialize();
+        this.title = title;
+        this.color = color;
+        this.maxValue = maxValue;
+        this.minValue = minValue;
+
+        updateValueScale();
+        updateValueRange();
+
         refresh();
     }
 
     private void initialize(){
 
-        title = "";
-        color = Color.grayRgb(33);
-
-        setWidth(0);
         setVisible(false);
         setTextFill(Color.WHITE);
-        setValue(0);
 
-        setBackground(new Background(
-                new BackgroundFill(color,
-                        new CornerRadii(0),
-                        null))
+        value = 0;
+        uiValue = 0;
+
+        title = "";
+        color = Color.grayRgb(33);
+        maxValue = 0;
+        minValue = 0;
+        valueRange = maxValue - minValue;
+        valueScale = valueRange / getWidth();
+
+        setBackground(
+                new Background(
+                        new BackgroundFill(
+                                color,
+                                new CornerRadii(0),
+                                null
+                        )
+                )
         );
 
         setOnMousePressed(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
-                value = (int) me.getX();
-                if (value < 0) {
-                    value = 0;
-                } else if (value > getMinWidth()) {
-                    value = (int) getMinWidth();
+                uiValue = me.getX();
+                if (uiValue < 0){
+                    uiValue = 0;
+                }else if (uiValue > getSliderWidth()){
+                    uiValue = getSliderWidth();
                 }
+                value = uiValue * valueScale;
             }
             refresh();
         });
 
         setOnMouseDragged(me -> {
             if (me.getButton() == MouseButton.PRIMARY){
-                value = (int) me.getX();
-                if (value < 0){
-                    value = 0;
-                }else if (value > getMinWidth()){
-                    value = (int) getMinWidth();
+                uiValue = me.getX();
+                if (uiValue < 0){
+                    uiValue = 0;
+                }else if (uiValue > getSliderWidth()){
+                    uiValue = getSliderWidth();
                 }
+                value = uiValue * valueScale;
             }
             refresh();
         });
-
-        refresh();
 
     }
 
@@ -91,9 +131,21 @@ public class BetterSlider extends Button {
                 new BackgroundFill(
                         color,
                         new CornerRadii(0),
-                        new Insets(0,getMinWidth() - value, 0,0)
+                        new Insets(0,getSliderWidth() - uiValue, 0,0)
                 )
         ));
+    }
+
+    private void updateValueRange(){
+        valueRange = maxValue - minValue;
+    }
+
+    private void updateValueScale(){
+        if (getWidth() == 0){
+            valueScale = 0;
+            return;
+        }
+        valueScale = valueRange / getWidth();
     }
 
     public double getValue() {
@@ -102,8 +154,50 @@ public class BetterSlider extends Button {
 
     public void setValue(double value) {
         this.value = value;
+        uiValue = value / valueScale;
         refresh();
     }
 
+    public double getMaxValue() {
+        return maxValue;
+    }
 
+    public void setMaxValue(double maxValue) {
+        this.maxValue = maxValue;
+        updateValueRange();
+    }
+
+    public double getMinValue() {
+        return minValue;
+    }
+
+    public void setMinValue(double minValue) {
+        this.minValue = minValue;
+        updateValueRange();
+    }
+
+    public double getSliderWidth() {
+        return sliderWidth;
+    }
+
+    public void setSliderWidth(double sliderWidth) {
+        this.sliderWidth = sliderWidth;
+        setWidth(sliderWidth);
+        setMaxWidth(sliderWidth);
+        setMinWidth(sliderWidth);
+
+        updateValueScale();
+    }
+
+    public double getSliderHeight() {
+        return sliderHeight;
+    }
+
+    public void setSliderHeight(double sliderHeight) {
+        setHeight(sliderHeight);
+        setMaxHeight(sliderHeight);
+        setMinHeight(sliderHeight);
+
+        updateValueScale();
+    }
 }
