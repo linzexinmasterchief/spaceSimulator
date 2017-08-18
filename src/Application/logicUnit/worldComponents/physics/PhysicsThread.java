@@ -25,69 +25,69 @@ public class PhysicsThread extends ThreadModel {
     @Override
     public void initialize(){
         //override default initialize block
-        gravityCalculate = new GravityCalculate(stars);
+        this.gravityCalculate = new GravityCalculate(this.stars);
 
         //create reference of star list
-        stars = world.getUniverse().getStars();
+        this.stars = this.world.getUniverse().getStars();
     }
 
     //this is the function called on every Application.world.physics cycle
     //kind of like "fixed update" in unity
     private void PhysicsUpdate() {
-        if (isPause()) {
+        if (this.isPause()) {
             return;
         }
 
         //initialize star amount
-        world.getUniverse().setStarAmount(0);
+        this.world.getUniverse().setStarAmount(0);
 
         //create reference of universe
-        Universe universe = world.getUniverse();
+        Universe universe = this.world.getUniverse();
 
-        universe.setTimeSpeed(world.getLauncher().getGameStage().getGameScene().getStatusBar().getTimeSpeed());
+        universe.setTimeSpeed(this.world.getLauncher().getGameStage().getGameScene().getStatusBar().getTimeSpeed());
 
         //iterate star list
-        for (int i = 0; i < stars.length; i++) {
+        for (int i = 0; i < this.stars.length; i++) {
 
-            if ((stars[i].centerX - stars[i].r) > universe.getWidth()){
+            if ((this.stars[i].centerX - this.stars[i].r) > universe.getWidth()){
                 //if star reaches right edge
-                stars[i].centerX = 0;
-            }else if ((stars[i].centerY - stars[i].r) > universe.getHeight()){
+                this.stars[i].centerX = 0;
+            }else if ((this.stars[i].centerY - this.stars[i].r) > universe.getHeight()){
                 //if star reaches bottom edge
-                stars[i].centerY = 0;
-            }else if ((stars[i].centerX + stars[i].r) < 0){
+                this.stars[i].centerY = 0;
+            }else if ((this.stars[i].centerX + this.stars[i].r) < 0){
                 //if star reaches left edge
-                stars[i].centerX = universe.getWidth();
-            }else if ((stars[i].centerY + stars[i].r) < 0){
+                this.stars[i].centerX = universe.getWidth();
+            }else if ((this.stars[i].centerY + this.stars[i].r) < 0){
                 //if star reaches top edge
-                stars[i].centerX = universe.getHeight();
+                this.stars[i].centerX = universe.getHeight();
             }
 
-            if (stars[i].inUniverse) {
+            if (this.stars[i].inUniverse) {
                 //count the amount of stars in the universe + 1
-                world.getUniverse().setStarAmount(world.getUniverse().getStarAmount() + 1);
+                this.world.getUniverse().setStarAmount(this.world.getUniverse().getStarAmount() + 1);
 
                 //set the next position of star according to star speed
-                stars[i].move(universe.getTimeSpeed());
+                this.stars[i].move(universe.getTimeSpeed());
 
                 //use multi-thread to calculate the acceleration of star
-                final int F = i;
+                int F = i;
                 Platform.runLater(() -> {
-                    gravityCalculate.synchronize(universe);
-                    gravityCalculate.fire(stars[F]);
+                    this.gravityCalculate.synchronize(universe);
+                    this.gravityCalculate.fire(this.stars[F]);
                 });
             }
         }
 
-        world.getUniverse().setStars(stars);
+        this.world.getUniverse().setStars(this.stars);
 
-        world.getLauncher().getGameStage().getGameScene().getStatusBar().setStarAmount(universe.getStarAmount());
+        this.world.getLauncher().getGameStage().getGameScene().getStatusBar().setStarAmount(universe.getStarAmount());
     }
 
     //function designed for screen cleaning
     //calling it will remove all the stars in the universe
     public void clear() {
-        for (Star star : world.getUniverse().getStars()) {
+        for (Star star : this.world.getUniverse().getStars()) {
             star.remove();
         }
     }
@@ -95,14 +95,14 @@ public class PhysicsThread extends ThreadModel {
     //the main thread cycle of the universe
     @Override
     public void run() {
-        while (!isExit()) {
+        while (!this.isExit()) {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             //call the specific used function
-            PhysicsUpdate();
+            this.PhysicsUpdate();
 
         }
     }

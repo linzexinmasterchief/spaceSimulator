@@ -24,7 +24,7 @@ public class Mouse {
         mouseScrollValue = 0;
         activatedMouseButton = MouseButton.NONE;
         MousePressing = false;
-        MousePressed  = false;
+        MousePressed = false;
         MouseReleasing = false;
         MouseScrolled = false;
     }

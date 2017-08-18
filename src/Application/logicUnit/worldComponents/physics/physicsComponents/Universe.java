@@ -12,8 +12,8 @@ import Application.logicUnit.worldComponents.physics.physicsComponents.universeC
 public class Universe {
 
     //define the size of the universe
-    private double width;
-    private double height;
+    private final double width;
+    private final double height;
 
     //determine how fast the time goes in the universe (does not affect the speed of thread)
     private double timeSpeed;

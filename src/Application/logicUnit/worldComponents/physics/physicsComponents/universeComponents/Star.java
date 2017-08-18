@@ -39,53 +39,53 @@ public class Star {
         //this should be pretty straight forward to understand
 
         //mass of the star
-        mass          = star.mass;
+        mass = star.mass;
 
         //radius of the star
-        r             = star.r;
+        r = star.r;
 
         //velocities(x,y) of the star
-        velocityX     = star.velocityX;
-        velocityY     = star.velocityY;
+        velocityX = star.velocityX;
+        velocityY = star.velocityY;
 
         //accelerations(x,y) of the star
         accelerationX = star.accelerationX;
         accelerationY = star.accelerationY;
 
         //vector(x,y)(how much will the star move) of the star
-        vectorX       = star.vectorX;
-        vectorY       = star.vectorY;
+        vectorX = star.vectorX;
+        vectorY = star.vectorY;
 
 
-        onScreen      = star.onScreen;
-        inUniverse    = star.inUniverse;
-        centerX       = star.centerX;
-        centerY       = star.centerY;
+        onScreen = star.onScreen;
+        inUniverse = star.inUniverse;
+        centerX = star.centerX;
+        centerY = star.centerY;
     }
 
     //initialize the properties
     public void initialize() {
-        mass          = 1;
-        r             = 5;
-        velocityX     = velocityY     = 0;
+        mass = 1;
+        r = 5;
+        velocityX = velocityY = 0;
         accelerationX = accelerationY = 0;
-        vectorX       = vectorY       = 0;
-        onScreen      = false;
-        inUniverse    = false;
-        centerX       = 0;
-        centerY       = 0;
+        vectorX = vectorY = 0;
+        onScreen = false;
+        inUniverse = false;
+        centerX = 0;
+        centerY = 0;
     }
 
     //move (or more like teleporting) to another point
     private void setPosition(double input_centerX, double input_centerY) {
-        centerX       = input_centerX;
-        centerY       = input_centerY;
+        centerX = input_centerX;
+        centerY = input_centerY;
     }
 
     //allow the star thee add on screen
     public void add(double input_centerX, double input_centerY) {
-        onScreen      = true;
-        inUniverse    = true;
+        onScreen = true;
+        inUniverse = true;
         setPosition(input_centerX, input_centerY);
     }
 

@@ -11,17 +11,17 @@ import Application.graphicUnit.mainStageComponents.gameSceneComponents.ui.Univer
 public class GameScene extends Scene{
 
     //create reference to root game stage
-    private GameStage gameStage;
+    private final GameStage gameStage;
 
     //give access to the canvas
-    private GameCanvas gameCanvas;
+    private final GameCanvas gameCanvas;
 
-    private UniverseStatusBar universeStatusBar;
+    private final UniverseStatusBar universeStatusBar;
 
-    private CreateStarMenu createStarMenu;
+    private final CreateStarMenu createStarMenu;
 
     //menu toggle
-    private CreateStarMenuSwitch createStarMenuSwitch;
+    private final CreateStarMenuSwitch createStarMenuSwitch;
 
     //constructor
     public GameScene(Group root, double width, double height, GameStage gameStage) {
@@ -54,7 +54,12 @@ public class GameScene extends Scene{
         root.getChildren().add(createStarMenuSwitch);
 
         //add bottom PhysicsStatus bar
-        universeStatusBar = UniverseStatusBar.createUniverseStatusBar(this, root);
+        universeStatusBar = new UniverseStatusBar(this);
+        universeStatusBar.setWidth(getWidth());
+        universeStatusBar.setHeight(25);
+        universeStatusBar.setX(0);
+        universeStatusBar.setY(getHeight() - universeStatusBar.getHeight());
+        universeStatusBar.join(root);
 
     }
 

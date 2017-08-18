@@ -17,10 +17,10 @@ import java.awt.event.KeyListener;
  */
 public class GameStage extends Stage{
 
-    private Launcher launcher;
+    private final Launcher launcher;
 
     //create an object of the game scene
-    private GameScene gameScene;
+    private final GameScene gameScene;
 
     public GameStage(Launcher starter){
 

@@ -18,7 +18,7 @@ import java.awt.geom.Rectangle2D;
  */
 public class World {
 
-    private Launcher launcher;
+    private final Launcher launcher;
 
     private PhysicsThread physicsThreadModule;
     private GraphicsThread graphicsThreadModule;

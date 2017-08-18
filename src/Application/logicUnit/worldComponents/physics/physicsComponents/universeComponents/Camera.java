@@ -10,8 +10,8 @@ package Application.logicUnit.worldComponents.physics.physicsComponents.universe
 
 public class Camera {
 
-    private double originalWidth;
-    private double originalHeight;
+    private final double originalWidth;
+    private final double originalHeight;
 
     private double width;
     private double height;

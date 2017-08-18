@@ -42,7 +42,7 @@ public class Launcher extends Application {
 
     //launch the application
     public static void main(String[] args) {
-        launch(args);
+        Application.launch(args);
     }
 
     //override the default constructor

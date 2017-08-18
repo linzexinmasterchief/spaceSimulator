@@ -127,7 +127,7 @@ public class BetterSlider extends Button {
                 new BackgroundFill(
                         color,
                         new CornerRadii(0),
-                        new Insets(0,getSliderWidth() - uiValue, 0,0)
+                        new Insets(0, getSliderWidth() - uiValue, 0,0)
                 )
         ));
     }

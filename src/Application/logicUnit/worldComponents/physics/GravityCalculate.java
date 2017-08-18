@@ -29,8 +29,8 @@ public class GravityCalculate {
 
                 if (distance > star.r & distance > s.r) {
                     //normal acceleration
-                    s.accelerationX = (0.06673 * star.mass / Math.pow(distance, 2)) * (xDiff / distance);
-                    s.accelerationY = (0.06673 * star.mass / Math.pow(distance, 2)) * (yDiff / distance);
+                    s.accelerationX = (0.6673 * star.mass / Math.pow(distance, 2)) * (xDiff / distance);
+                    s.accelerationY = (0.6673 * star.mass / Math.pow(distance, 2)) * (yDiff / distance);
                 }else{
                     //collide
                     //think carefully before you try to replace these codes with a buffer star

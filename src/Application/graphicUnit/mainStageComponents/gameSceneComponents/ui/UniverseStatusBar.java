@@ -1,7 +1,6 @@
 package Application.graphicUnit.mainStageComponents.gameSceneComponents.ui;
 
 import Application.graphicUnit.mainStageComponents.GameScene;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -14,7 +13,7 @@ import models.uiComponentModels.BetterSlider;
  */
 public class UniverseStatusBar {
 
-    private GameScene gameScene;
+    private final GameScene gameScene;
 
     private double width;
     private double height;
@@ -24,55 +23,78 @@ public class UniverseStatusBar {
     private int starAmount;
 
     private BetterButton starAmountStatus;
-    private BetterSlider timeSpeedAjuster;
+    private BetterSlider timeSpeedAdjuster;
 
-    private UniverseStatusBar(GameScene scene, Group group){
+    public UniverseStatusBar(GameScene scene){
 
         //initialize game scene reference
         gameScene = scene;
-        width = scene.getWidth();
-        height = 20;
+        width = 0;
+        height = 0;
         x = 0;
-        y = scene.getHeight() - height;
+        y = 0;
 
         starAmount = 0;
+
+    }
+
+    public void join(Group group){
 
         //add buttons in it
         starAmountStatus = new BetterButton("star amount :" + starAmount);
         starAmountStatus.setTranslateX(x + 0);
         starAmountStatus.setTranslateY(y);
-        starAmountStatus.setMaxWidth(width * 0.1);
-        starAmountStatus.setMinWidth(width * 0.1);
-        starAmountStatus.setMinHeight(height);
+        starAmountStatus.setButtonWidth(width * 0.1);
+        starAmountStatus.setButtonHeight(height);
         starAmountStatus.setVisible(true);
-        starAmountStatus.setAlignment(Pos.CENTER_LEFT);
         starAmountStatus.setFont(Font.font(10));
         group.getChildren().add(starAmountStatus);
 
         //add time speed slider
-        timeSpeedAjuster = new BetterSlider("timeSpeed", Color.grayRgb(50), -1000, 1000);
-        timeSpeedAjuster.setTranslateX(starAmountStatus.getTranslateX() + starAmountStatus.getMinWidth());
-        timeSpeedAjuster.setTranslateY(y);
-        timeSpeedAjuster.setSliderWidth(width * 0.2);
-        timeSpeedAjuster.setSliderHeight(height);
-        timeSpeedAjuster.setVisible(true);
-        timeSpeedAjuster.setFont(Font.font(10));
-        timeSpeedAjuster.setValue(100);
-        timeSpeedAjuster.refresh();
-        group.getChildren().add(timeSpeedAjuster);
+        timeSpeedAdjuster = new BetterSlider("timeSpeed", Color.grayRgb(50), -1000, 1000);
+        timeSpeedAdjuster.setTranslateX(x + starAmountStatus.getTranslateX() + starAmountStatus.getMinWidth());
+        timeSpeedAdjuster.setTranslateY(y);
+        timeSpeedAdjuster.setSliderWidth(width * 0.2);
+        timeSpeedAdjuster.setSliderHeight(height);
+        timeSpeedAdjuster.setVisible(true);
+        timeSpeedAdjuster.setFont(Font.font(10));
+        timeSpeedAdjuster.setValue(100);
+        timeSpeedAdjuster.refresh();
+        group.getChildren().add(timeSpeedAdjuster);
 
     }
 
-    public static UniverseStatusBar createUniverseStatusBar(GameScene scene, Group group) {
-        return new UniverseStatusBar(scene, group);
+    //setters and getters
+    public void setX(double value){
+        x = value;
     }
 
     public double getX(){
         return x;
     }
 
+    public void setY(double value){
+        y = value;
+    }
+
     public double getY(){
         return y;
+    }
+
+    public void setHeight(double value){
+        height = value;
+    }
+
+    public double getHeight(){
+        return height;
+    }
+
+    public void setWidth(double value){
+        width = value;
+    }
+
+    public double getWidth(){
+        return width;
     }
 
     public BetterButton getStarAmountStatus(){
@@ -89,6 +111,6 @@ public class UniverseStatusBar {
     }
 
     public double getTimeSpeed(){
-        return timeSpeedAjuster.getValue() / 20;
+        return timeSpeedAdjuster.getValue() / 20;
     }
 }

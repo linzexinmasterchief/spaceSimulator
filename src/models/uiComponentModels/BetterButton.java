@@ -16,9 +16,39 @@ public class BetterButton extends Button {
         setText(Text);
         setTextFill(Color.WHITE);
         setVisible(false);
-        setBackground(new Background(new BackgroundFill(Color.grayRgb(33),new CornerRadii(0),null)));
-        setOnMouseEntered(me -> setBackground(new Background(new BackgroundFill(Color.grayRgb(24), new CornerRadii(0), null))));
-        setOnMouseExited(me -> setBackground(new Background(new BackgroundFill(Color.grayRgb(33), new CornerRadii(0), null))));
+        setBackground(
+                new Background(
+                        new BackgroundFill(Color.grayRgb(33),new CornerRadii(0),null)
+                )
+        );
+
+        setOnMouseEntered(me ->
+                setBackground(
+                        new Background(
+                                new BackgroundFill(Color.grayRgb(24), new CornerRadii(0), null)
+                        )
+                )
+        );
+
+        setOnMouseExited(me ->
+                setBackground(
+                        new Background(
+                                new BackgroundFill(Color.grayRgb(33), new CornerRadii(0), null)
+                        )
+                )
+        );
+    }
+
+    public void setButtonWidth(double value){
+        setMaxWidth(value);
+        setMinWidth(value);
+        setWidth(value);
+    }
+
+    public void setButtonHeight(double value){
+        setMaxHeight(value);
+        setMinHeight(value);
+        setHeight(value);
     }
 
 }

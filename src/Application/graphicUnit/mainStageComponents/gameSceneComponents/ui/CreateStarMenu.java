@@ -14,12 +14,12 @@ import models.uiComponentModels.BetterSlider;
 public class CreateStarMenu {
 
     //reference to root scene
-    private GameScene gameScene;
+    private final GameScene gameScene;
 
     //menu components
-    private BetterButton settingBtn;
-    private BetterSlider massSlider;
-    private BetterSlider radiusSlider;
+    private final BetterButton settingBtn;
+    private final BetterSlider massSlider;
+    private final BetterSlider radiusSlider;
 
     public CreateStarMenu(GameScene scene, Group group){
 
@@ -28,9 +28,8 @@ public class CreateStarMenu {
         settingBtn = new BetterButton("setting");
         settingBtn.setTranslateY(5);
         settingBtn.setTranslateX(5);
-        settingBtn.setMaxHeight(25);
-        settingBtn.setMinHeight(25);
-        settingBtn.setMinWidth(150);
+        settingBtn.setButtonHeight(25);
+        settingBtn.setButtonWidth(150);
         settingBtn.setOnAction(ae -> {
             SystemStatus.setSettingStageOut(!SystemStatus.isSettingStageOut());
         });
