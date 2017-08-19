@@ -24,18 +24,6 @@ public class Universe {
     //active star amount
     private int starAmount;
 
-    //unused constructor
-
-//    //first constructor
-//    public Universe() {
-//        //give a default universe size
-//        width = 0;
-//        height = 0;
-//
-//        //call the function to initialize all the stars in the universe
-//        initialize();
-//    }
-
     //second constructor
     public Universe(double width, double height) {
         //define the size of the universe based on the value input
@@ -45,7 +33,7 @@ public class Universe {
         timeSpeed = 1;
 
         //initialize the star list of the universe
-        stars = new Star[200];
+        stars = new Star[10];
         //initialize every star in the star list
         //this is very important and necessary, do not delete it
         for (int i = 0; i < stars.length; i++) {
@@ -79,6 +67,21 @@ public class Universe {
 
     public void setStars(Star[] stars) {
         this.stars = stars;
+    }
+
+    public void expendStarList(){
+        //create enlarged star list
+        Star[] newStarList = new Star[getStars().length + 10];
+
+        //copy stars from original star list
+        System.arraycopy(getStars(), 0, newStarList, 0, getStars().length);
+
+        //initialize the rest of the star list
+        for (int i = getStars().length;i < newStarList.length;i ++){
+            newStarList[i] = new Star();
+        }
+
+        setStars(newStarList);
     }
 
     public int getStarAmount() {

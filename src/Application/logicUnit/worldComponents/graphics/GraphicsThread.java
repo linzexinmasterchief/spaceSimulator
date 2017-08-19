@@ -17,7 +17,9 @@ public class GraphicsThread extends ThreadModel {
 
     private GameScene gameScene;
     private GameCanvas gameCanvas;
-    private GraphicsContext gc;
+    private GraphicsContext offScreen;
+
+    private GraphicsContext onScreen;
 
     //the scale between graphics and physics
     //original is 1:1
@@ -36,7 +38,8 @@ public class GraphicsThread extends ThreadModel {
         //override default initialize block
         gameScene = world.getLauncher().getGameStage().getGameScene();
         gameCanvas = gameScene.getGameCanvas();
-        gc = gameCanvas.getGraphicsContext2D();
+
+        offScreen = gameCanvas.getGraphicsContext2D();
 
         //initialize program properties
         setExit(false);
@@ -49,16 +52,16 @@ public class GraphicsThread extends ThreadModel {
 
         Platform.runLater(() -> {
             //fill the back ground with black color
-            gc.setFill(Color.BLACK);
-            gc.fillRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
+            offScreen.setFill(Color.BLACK);
+            offScreen.fillRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
 
         });
 
         Platform.runLater(() -> {
             //draw drag line
-            gc.setStroke(Color.RED);
-            gc.setLineWidth(1);
-            gc.strokeLine(
+            offScreen.setStroke(Color.RED);
+            offScreen.setLineWidth(1);
+            offScreen.strokeLine(
                     world.getDragLine()[0],
                     world.getDragLine()[1],
                     world.getDragLine()[2],
@@ -70,36 +73,35 @@ public class GraphicsThread extends ThreadModel {
         //iterate the star list to draw all the exist stars in the universe
         for (Star star : world.getUniverse().getStars()) {
 
-            Platform.runLater(() -> {
-                int r, g, b = 0;
-
-                //change the color of pen according to the mass of the star to paint the stars
-                if (star.mass > 500){
-                    r = 0;
-                    g = 0;
-                    b = 255;
-                }else if (star.mass < 0){
-                    r = 255;
-                    g = 0;
-                    b = 0;
-                }else {
-                    if (star.mass > 255){
-                        r = (int) (500 - star.mass);
-                        g = (int) (500 - star.mass);
-                        b = 255;
-                    }else {
-                        r = 255;
-                        g = (int) star.mass;
-                        b = (int) star.mass;
-                    }
-                }
-                gc.setFill(Color.rgb(r, g, b));
-            });
-
             //only display the star if it is on screen
             //in the camera range
             if (star.onScreen) {
 
+                Platform.runLater(() -> {
+                    int r, g, b = 0;
+
+                    //change the color of pen according to the mass of the star to paint the stars
+                    if (star.mass > 500){
+                        r = 0;
+                        g = 0;
+                        b = 255;
+                    }else if (star.mass < 0){
+                        r = 255;
+                        g = 0;
+                        b = 0;
+                    }else {
+                        if (star.mass > 255){
+                            r = (int) (500 - star.mass);
+                            g = (int) (500 - star.mass);
+                            b = 255;
+                        }else {
+                            r = 255;
+                            g = (int) star.mass;
+                            b = (int) star.mass;
+                        }
+                    }
+                    offScreen.setFill(Color.rgb(r, g, b));
+                });
 
                 //noinspection OverlyLongLambda
                 Platform.runLater(() -> {
@@ -120,7 +122,7 @@ public class GraphicsThread extends ThreadModel {
                         starDisplayHeight = 1;
                     }
 
-                    gc.fillOval(
+                    offScreen.fillOval(
 
                             //a little math here, should be reliable after 6 changes
                             //also, this is related to the math above when the user
@@ -173,7 +175,7 @@ public class GraphicsThread extends ThreadModel {
     public void run() {
         while (!isExit()) {
             try {
-                Thread.sleep(10);
+                Thread.sleep(30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -7,23 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Launcher.java" afterPath="$PROJECT_DIR$/src/Application/Launcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/graphicUnit/GameStage.java" afterPath="$PROJECT_DIR$/src/Application/graphicUnit/GameStage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/GameScene.java" afterPath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/GameScene.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/CreateStarMenu.java" afterPath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/CreateStarMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java" afterPath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/World.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/World.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java" afterPath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Camera.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Camera.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/status/Mouse.java" afterPath="$PROJECT_DIR$/src/Application/status/Mouse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/uiComponentModels/BetterButton.java" afterPath="$PROJECT_DIR$/src/models/uiComponentModels/BetterButton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/uiComponentModels/BetterSlider.java" afterPath="$PROJECT_DIR$/src/models/uiComponentModels/BetterSlider.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,55 +36,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CreateStarMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/CreateStarMenu.java">
+      <file leaf-file-name="Star.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-307">
-              <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+            <state relative-caret-position="53">
+              <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UniverseStatusBar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java">
+      <file leaf-file-name="OperationThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="40" column="20" lean-forward="false" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-              <folding>
-                <element signature="method#update#0;class#UniverseStatusBar#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameScene.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/GameScene.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="60" column="42" lean-forward="false" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GravityCalculate.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+            <state relative-caret-position="163">
+              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BetterButton.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/uiComponentModels/BetterButton.java">
+      <file leaf-file-name="Universe.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+            <state relative-caret-position="248">
+              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+              <folding>
+                <element signature="e#1714#1715#0" expanded="true" />
+                <element signature="e#1748#1749#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PhysicsThread.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="77" column="67" lean-forward="false" selection-start-line="77" selection-start-column="67" selection-end-line="77" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -151,7 +131,6 @@
         <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Camera.java" />
         <option value="$PROJECT_DIR$/src/models/systemComponentModels/ThreadModel.java" />
         <option value="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/CreateStarMenuSwitch.java" />
-        <option value="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java" />
         <option value="$PROJECT_DIR$/src/Application/status/Mouse.java" />
         <option value="$PROJECT_DIR$/src/models/uiComponentModels/MenuSlider.java" />
         <option value="$PROJECT_DIR$/src/models/uiComponentModels/Slider.java" />
@@ -160,18 +139,19 @@
         <option value="$PROJECT_DIR$/src/Application/status/SystemStatus.java" />
         <option value="$PROJECT_DIR$/src/Application/graphicUnit/GameStage.java" />
         <option value="$PROJECT_DIR$/src/a.puml" />
-        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" />
         <option value="$PROJECT_DIR$/src/models/uiComponentModels/BetterSlider.java" />
         <option value="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/GameScene.java" />
         <option value="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java" />
-        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" />
-        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java" />
         <option value="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/CreateStarMenu.java" />
-        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java" />
-        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java" />
         <option value="$PROJECT_DIR$/src/models/uiComponentModels/BetterButton.java" />
+        <option value="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java" />
+        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" />
+        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java" />
+        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java" />
+        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java" />
+        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" />
+        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java" />
       </list>
     </option>
   </component>
@@ -224,7 +204,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -663,10 +645,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spaceSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="graphicUnit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mainStageComponents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gameSceneComponents" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1001,13 +1015,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1497451245085</updated>
-    </task>
-    <task id="LOCAL-00012" summary="separate physics module from the engine">
-      <created>1499346888649</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1499346888649</updated>
     </task>
     <task id="LOCAL-00013" summary="separate physics module from the engine">
       <created>1499347199196</created>
@@ -1345,7 +1352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502975523237</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="fixed some bugs">
+      <created>1503059939814</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1503059939814</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1375,8 +1389,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27912253" sideWeight="0.4947994" order="0" side_tool="false" content_ui="combo" x="434" y="127" width="338" height="673" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28366113" sideWeight="0.4947994" order="0" side_tool="false" content_ui="combo" x="434" y="127" width="338" height="673" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.49076924" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1392,6 +1405,7 @@
       <window_info id="Code Iris" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1414,7 +1428,6 @@
     <MESSAGE value="readme update" />
     <MESSAGE value="build" />
     <MESSAGE value="project update" />
-    <MESSAGE value="fixed some bugs" />
     <MESSAGE value="better slider" />
     <MESSAGE value="better scrolling" />
     <MESSAGE value="add drag line" />
@@ -1423,7 +1436,8 @@
     <MESSAGE value="removed universe edge, stars will return to the same point if travel in a straight line" />
     <MESSAGE value="fixed some bugs in betterSlider" />
     <MESSAGE value="allow time to go backwards" />
-    <option name="LAST_COMMIT_MESSAGE" value="allow time to go backwards" />
+    <MESSAGE value="fixed some bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1618,13 +1632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="63" column="62" lean-forward="true" selection-start-line="63" selection-start-column="62" selection-end-line="63" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1648,14 +1655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/World.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://E:/Java/jdk1.8.0_121/javafx-src.zip!/javafx/scene/layout/Region.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
@@ -1675,14 +1674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/uiComponentModels/BetterSlider.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -1696,70 +1687,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="70" column="16" lean-forward="false" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/systemComponentModels/ThreadModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="83">
           <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="134" column="61" lean-forward="true" selection-start-line="134" selection-start-column="61" selection-end-line="134" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="87" column="8" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/GameScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="60" column="42" lean-forward="false" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="40" column="20" lean-forward="false" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-          <folding>
-            <element signature="method#update#0;class#UniverseStatusBar#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/CreateStarMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-307">
-          <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -1772,10 +1703,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="21" column="44" lean-forward="false" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/GameScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="60" column="42" lean-forward="false" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/CreateStarMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="45" column="33" lean-forward="true" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        <state relative-caret-position="122">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1583">
+          <caret line="185" column="25" lean-forward="false" selection-start-line="185" selection-start-column="25" selection-end-line="185" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/UniverseStatusBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="103" column="24" lean-forward="false" selection-start-line="103" selection-start-column="24" selection-end-line="103" selection-end-column="24" />
+          <folding>
+            <element signature="method#update#0;class#UniverseStatusBar#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding>
+            <element signature="e#1714#1715#0" expanded="true" />
+            <element signature="e#1748#1749#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="77" column="67" lean-forward="false" selection-start-line="77" selection-start-column="67" selection-end-line="77" selection-end-column="67" />
           <folding />
         </state>
       </provider>

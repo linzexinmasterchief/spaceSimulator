@@ -93,8 +93,8 @@ public class Star {
     public void move(double time) {
 
         //calculate the speed of the star
-        velocityX = velocityX + accelerationX;
-        velocityY = velocityY + accelerationY;
+        velocityX = velocityX + accelerationX * time;
+        velocityY = velocityY + accelerationY * time;
 
         //calculate vector
         vectorX = velocityX * time;

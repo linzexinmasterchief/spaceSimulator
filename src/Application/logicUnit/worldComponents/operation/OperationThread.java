@@ -39,61 +39,74 @@ public class OperationThread extends ThreadModel {
         SystemStatus.setNewStarExist(true);
 
         //give the buffer star speed based on the distance mouse dragged
-        world.getBufferStar().velocityX = (world.getDragLine()[2] - world.getDragLine()[0])
-                / Speed.getDragSpeedConstant()
+        world.getBufferStar().velocityX = (((world.getDragLine()[2] - world.getDragLine()[0])
+                / Speed.getDragSpeedConstant())
                 //times camera enlarge scale
-                * world.getCamera().getWidth() / world.getCamera().getOriginalWidth();
-        world.getBufferStar().velocityY = (world.getDragLine()[3] - world.getDragLine()[1])
-                / Speed.getDragSpeedConstant()
+                * world.getCamera().getWidth()) / world.getCamera().getOriginalWidth();
+
+        world.getBufferStar().velocityY = (((world.getDragLine()[3] - world.getDragLine()[1])
+                / Speed.getDragSpeedConstant())
                 //times camera enlarge scale
-                * world.getCamera().getHeight() / world.getCamera().getOriginalHeight();
+                * world.getCamera().getHeight()) / world.getCamera().getOriginalHeight();
 
-        //check if the new star lock is opened to avoid unnecessary star list iterations
-        //check if there is empty star slot for a new star
-        if (SystemStatus.isNewStarExist()) {
-            for (int i = 0; i < world.getUniverse().getStars().length; i++) {
-                //not on screen means it is safe to clear
-                if (SystemStatus.isNewStarExist() & !world.getUniverse().getStars()[i].inUniverse) {
+        for (int i = 0; i < world.getUniverse().getStars().length; i++) {
+            //check if the new star lock is opened to avoid unnecessary star list iterations
+            //not on screen means it is safe to clear
+            if (!SystemStatus.isNewStarExist()){
+                break;
+            }
+            if (!world.getUniverse().getStars()[i].inUniverse) {
 
-                    //prepare the empty slot for new star
-                    world.getUniverse().getStars()[i].remove();
-                    world.getUniverse().getStars()[i].initialize();
+                //prepare the empty slot for new star
+                world.getUniverse().getStars()[i].remove();
+                world.getUniverse().getStars()[i].initialize();
 
-                    //give buffer star properties
-                    world.getBufferStar().mass = gameScene.getMass();
-                    world.getBufferStar().r = gameScene.getRadius();
+                //give buffer star properties
+                world.getBufferStar().mass = gameScene.getMass();
+                world.getBufferStar().r = gameScene.getRadius();
 
-                    //give the properties of buffer star to the empty star slot
-                    world.getUniverse().getStars()[i] = new Star(world.getBufferStar());
-                    //remove the buffer star (clear the values to default)
-                    world.getBufferStar().remove();
+                //give the properties of buffer star to the empty star slot
+                world.getUniverse().getStars()[i] = new Star(world.getBufferStar());
+                //remove the buffer star (clear the values to default)
+                world.getBufferStar().remove();
 
-                    //add the star according to the size of window(camera)
-                    //and the enlarge scales
-                    world.getUniverse().getStars()[i].add(
-                            //convert the coordinate on screen to coordinate in the universe
-                            //it's hard to explain the math, but it will be easy to understand
-                            //once you draw it out on the paper, be careful changing it anyway
-                            (world.getCamera().getCenterX() - world.getUniverse().getWidth() / 2)
-                                    + (world.getUniverse().getWidth() - world.getCamera().getWidth()) / 2
-                                    + world.getDragLine()[0] * world.getGraphicsThread().getScaleX(),
-                            (world.getCamera().getCenterY() - world.getUniverse().getHeight() / 2)
-                                    + (world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2
-                                    + world.getDragLine()[1] * world.getGraphicsThread().getScaleY()
-                    );
+                //add the star according to the size of window(camera)
+                //and the enlarge scales
+                world.getUniverse().getStars()[i].add(
+                        //convert the coordinate on screen to coordinate in the universe
+                        //it's hard to explain the math, but it will be easy to understand
+                        //once you draw it out on the paper, be careful changing it anyway
 
-                    //change the slot property from empty to full
-                    world.getUniverse().getStars()[i].inUniverse = true;
+                        (world.getCamera().getCenterX() - (world.getUniverse().getWidth() / 2))
+                                + ((world.getUniverse().getWidth() - world.getCamera().getWidth()) / 2)
+                                + (world.getDragLine()[0] * world.getGraphicsThread().getScaleX()),
 
-                    //close the new star lock
-                    SystemStatus.setNewStarExist(false);
+                        (world.getCamera().getCenterY() - (world.getUniverse().getHeight() / 2))
+                                + ((world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2)
+                                + (world.getDragLine()[1] * world.getGraphicsThread().getScaleY())
+                );
 
-                    //refresh the screen
-                    world.getGraphicsThread().drawShapes();
-                }
+                //change the slot property from empty to full
+                world.getUniverse().getStars()[i].inUniverse = true;
+
+                //close the new star lock
+                SystemStatus.setNewStarExist(false);
+
+                //refresh the screen
+                world.getGraphicsThread().drawShapes();
+
+                world.getUniverse().setStarAmount(world.getUniverse().getStarAmount() + 1);
+                world.getLauncher().getGameStage().getGameScene().getStatusBar().setStarAmount(world.getUniverse().getStarAmount());
             }
         }
-        Mouse.setMouseReleasing(false);
+
+        //check if the the new star is created
+        if (SystemStatus.isNewStarExist()) {
+            //if not, expand the star list and create the star
+            world.getUniverse().expendStarList();
+            addNewStar();
+        }
+
     }
 
 

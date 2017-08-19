@@ -6,6 +6,7 @@ import Application.status.SystemStatus;
 import javafx.scene.canvas.Canvas;
 import Application.graphicUnit.mainStageComponents.GameScene;
 import javafx.scene.input.MouseButton;
+import javafx.scene.paint.Color;
 
 /**
  * Created by lzx on 2017/4/6.
