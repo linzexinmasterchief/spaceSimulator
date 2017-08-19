@@ -45,6 +45,7 @@ public class PhysicsThread extends ThreadModel {
         //iterate star list
         for (int i = 0; i < world.getUniverse().getStars().length; i++) {
 
+            //allow the stars to cross the edge of the universe
             if ((world.getUniverse().getStars()[i].centerX - world.getUniverse().getStars()[i].r) > universe.getWidth()){
                 //if star reaches right edge
                 world.getUniverse().getStars()[i].centerX = 0;
