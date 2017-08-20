@@ -53,6 +53,7 @@ public class GravityCalculate {
                     star.velocityY = newVY;
                     star.mass = newMass;
                     s.remove();
+
                     return;
                 }
 

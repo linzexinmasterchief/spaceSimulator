@@ -97,13 +97,14 @@ public class OperationThread extends ThreadModel {
 
                 world.getUniverse().setStarAmount(world.getUniverse().getStarAmount() + 1);
                 world.getLauncher().getGameStage().getGameScene().getStatusBar().setStarAmount(world.getUniverse().getStarAmount());
+
+                world.getUniverse().reFitStarListSize();
             }
         }
 
         //check if the the new star is created
         if (SystemStatus.isNewStarExist()) {
             //if not, expand the star list and create the star
-            world.getUniverse().expendStarList();
             addNewStar();
         }
 
@@ -151,6 +152,7 @@ public class OperationThread extends ThreadModel {
                     case SECONDARY:
                         //execute clear command
                         world.getPhysicsThread().clear();
+
                         break;
                     case MIDDLE:
                         //change pause value if middle button pressed

@@ -8,13 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java" afterPath="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,28 +36,18 @@
       <file leaf-file-name="Star.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="53">
-              <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+            <state relative-caret-position="195">
+              <caret line="89" column="5" lean-forward="false" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OperationThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Universe.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Universe.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state relative-caret-position="293">
+              <caret line="86" column="40" lean-forward="true" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
               <folding>
                 <element signature="e#1714#1715#0" expanded="true" />
                 <element signature="e#1748#1749#0" expanded="true" />
@@ -69,11 +56,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PhysicsThread.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PhysicsThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="77" column="67" lean-forward="false" selection-start-line="77" selection-start-column="67" selection-end-line="77" selection-end-column="67" />
+            <state relative-caret-position="1306">
+              <caret line="103" column="52" lean-forward="false" selection-start-line="103" selection-start-column="52" selection-end-line="103" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OperationThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GravityCalculate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -146,12 +153,12 @@
         <option value="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/ui/CreateStarMenu.java" />
         <option value="$PROJECT_DIR$/src/models/uiComponentModels/BetterButton.java" />
         <option value="$PROJECT_DIR$/src/Application/graphicUnit/mainStageComponents/gameSceneComponents/GameCanvas.java" />
-        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" />
         <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java" />
         <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java" />
-        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java" />
-        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" />
+        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" />
         <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java" />
+        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" />
+        <option value="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java" />
       </list>
     </option>
   </component>
@@ -204,9 +211,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1016,20 +1023,6 @@
       <option name="presentableId" value="Default" />
       <updated>1497451245085</updated>
     </task>
-    <task id="LOCAL-00013" summary="separate physics module from the engine">
-      <created>1499347199196</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1499347199196</updated>
-    </task>
-    <task id="LOCAL-00014" summary="separate physics module from the engine">
-      <created>1499347225461</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1499347225461</updated>
-    </task>
     <task id="LOCAL-00015" summary="unfinished separation of graphics module and main engine">
       <created>1499354287282</created>
       <option name="number" value="00015" />
@@ -1359,7 +1352,21 @@
       <option name="project" value="LOCAL" />
       <updated>1503059939814</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="applied dynamic star list to save memory">
+      <created>1503154294418</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1503154294419</updated>
+    </task>
+    <task id="LOCAL-00063" summary="add comment">
+      <created>1503154415364</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1503154415364</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1389,7 +1396,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28366113" sideWeight="0.4947994" order="0" side_tool="false" content_ui="combo" x="434" y="127" width="338" height="673" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2927383" sideWeight="0.4947994" order="0" side_tool="false" content_ui="combo" x="434" y="127" width="338" height="673" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.49076924" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1412,8 +1419,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="simplified some code" />
-    <MESSAGE value="engine setting(speed) upgrade" />
     <MESSAGE value="update" />
     <MESSAGE value="new slider ui" />
     <MESSAGE value="build update" />
@@ -1437,7 +1442,9 @@
     <MESSAGE value="fixed some bugs in betterSlider" />
     <MESSAGE value="allow time to go backwards" />
     <MESSAGE value="fixed some bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed some bugs" />
+    <MESSAGE value="applied dynamic star list to save memory" />
+    <MESSAGE value="add comment" />
+    <option name="LAST_COMMIT_MESSAGE" value="add comment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1651,7 +1658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1659,18 +1665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="1068" column="32" lean-forward="false" selection-start-line="1068" selection-start-column="32" selection-end-line="1068" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="135">
-            <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-            <folding />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -1678,12 +1672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-          <folding>
-            <element signature="method#setMaxValue#0;class#BetterSlider#0" expanded="false" />
-            <element signature="method#setMinValue#0;class#BetterSlider#0" expanded="false" />
-            <element signature="method#setSliderWidth#0;class#BetterSlider#0" expanded="false" />
-            <element signature="method#setSliderHeight#0;class#BetterSlider#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1699,7 +1687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1737,14 +1724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1583">
@@ -1765,36 +1744,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/universeComponents/Star.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+        <state relative-caret-position="195">
+          <caret line="89" column="5" lean-forward="false" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="119">
+            <caret line="27" column="19" lean-forward="false" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1306">
+          <caret line="103" column="52" lean-forward="false" selection-start-line="103" selection-start-column="52" selection-end-line="103" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/physicsComponents/Universe.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        <state relative-caret-position="293">
+          <caret line="86" column="40" lean-forward="true" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
           <folding>
             <element signature="e#1714#1715#0" expanded="true" />
             <element signature="e#1748#1749#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="77" column="67" lean-forward="false" selection-start-line="77" selection-start-column="67" selection-end-line="77" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>

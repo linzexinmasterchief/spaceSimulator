@@ -101,6 +101,7 @@ public class PhysicsThread extends ThreadModel {
             //call the specific used function
             PhysicsUpdate();
 
+            world.getUniverse().reFitStarListSize();
         }
     }
 

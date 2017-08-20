@@ -69,18 +69,29 @@ public class Universe {
         this.stars = stars;
     }
 
-    public void expendStarList(){
-        //create enlarged star list
-        Star[] newStarList = new Star[getStars().length + 10];
+    public void reFitStarListSize(){
 
-        //copy stars from original star list
-        System.arraycopy(getStars(), 0, newStarList, 0, getStars().length);
+        //save time if there is still enough spaces
+        if (Math.abs(getStars().length - getStarAmount()) > 5){
+            return;
+        }
 
-        //initialize the rest of the star list
-        for (int i = getStars().length;i < newStarList.length;i ++){
+        //create resized star list
+        Star[] newStarList = new Star[((getStarAmount() / 10) + 1) * 10];
+
+        //initialize new star list
+        for (int i = 0;i < newStarList.length;i ++){
             newStarList[i] = new Star();
         }
 
+        //copy original list to new list
+        for (int i = 0;i < getStarAmount();i ++){
+            if (getStars()[i].inUniverse){
+                newStarList[i] = getStars()[i];
+            }
+        }
+
+        //set new star list as current star list
         setStars(newStarList);
     }
 
