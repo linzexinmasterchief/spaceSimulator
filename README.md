@@ -7,7 +7,7 @@ simulate the universe
 ```the game will allow the character to travel through, 
 even modify the universe. Moreover, player can also 
 land on every planet, asteroid and star. I think maybe
-"becoming god" is a better name.```
+"becoming god" is a better name.
     
 ## TODO list
 * add collide system for planets
