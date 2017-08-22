@@ -1,7 +1,9 @@
 # spaceSimulator
 simulate the universe
+
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
 [![Travis](https://img.shields.io/badge/version-0.1.3%20alpha%20build%201-red.svg)]()
+
 the game will allow the character to travel through, 
 even modify the universe. Moreover, player can also 
 land on every planet, asteroid and star. I think maybe
