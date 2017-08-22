@@ -1,5 +1,6 @@
 # spaceSimulator
 ![](https://github.com/lzx3778/spaceSimulator/blob/master/src/resources/icon.png)
+
 simulate the universe
 
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)]()
