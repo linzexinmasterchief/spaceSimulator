@@ -175,7 +175,7 @@ public class GraphicsThread extends ThreadModel {
     public void run() {
         while (!isExit()) {
             try {
-                Thread.sleep(30);
+                Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -71,7 +71,6 @@ public class Universe {
 
     public void reFitStarListSize(){
 
-        //save time if there is still enough spaces
         if (Math.abs(getStars().length - getStarAmount()) > 5){
             return;
         }
