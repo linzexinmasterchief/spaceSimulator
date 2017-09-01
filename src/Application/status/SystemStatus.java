@@ -17,13 +17,13 @@ public class SystemStatus {
     private static boolean isNewStarExist;
 
     //a variable used to store the scale between height and width
-    private static double HeightWidthScale;
+    private static float HeightWidthScale;
 
     //store screen height
-    private static double screenHeight;
+    private static float screenHeight;
 
     //store screen width
-    private static double screenwidth;
+    private static float screenwidth;
 
     public SystemStatus(){
         //initialize crate star menu lock
@@ -51,11 +51,11 @@ public class SystemStatus {
         isNewStarExist = newStarExist;
     }
 
-    public static double getHeightWidthScale() {
+    public static float getHeightWidthScale() {
         return HeightWidthScale;
     }
 
-    public static void setHeightWidthScale(double heightWidthScale) {
+    public static void setHeightWidthScale(float heightWidthScale) {
         HeightWidthScale = heightWidthScale;
     }
 
@@ -75,19 +75,20 @@ public class SystemStatus {
         isSettingStageOut = settingStageOut;
     }
 
-    public static double getScreenHeight() {
+    public static float getScreenHeight() {
         return screenHeight;
     }
 
-    public static void setScreenHeight(double screenHeight) {
+    public static void setScreenHeight(float screenHeight) {
         SystemStatus.screenHeight = screenHeight;
     }
 
-    public static double getScreenwidth() {
+    public static float getScreenwidth() {
         return screenwidth;
     }
 
-    public static void setScreenwidth(double screenwidth) {
+    public static void setScreenwidth(float screenwidth)
+    {
         SystemStatus.screenwidth = screenwidth;
     }
 }

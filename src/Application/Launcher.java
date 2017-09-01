@@ -5,15 +5,12 @@ import Application.graphicUnit.GameStage;
 import Application.graphicUnit.SettingStage;
 import Application.status.CanvasStatus;
 import Application.status.EngineStatus;
-import Application.status.Mouse;
-import Application.system.SystemSettings;
+import Application.system.SystemSetting;
 import Application.status.SystemStatus;
 import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-
-import java.awt.*;
 
 
 /**
@@ -32,7 +29,7 @@ public class Launcher extends Application {
     private Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
 
     //game worldSettings
-    private SystemSettings systemSettings;
+    private SystemSetting systemSetting;
 
     private World World;
 
@@ -51,8 +48,8 @@ public class Launcher extends Application {
     public void start(Stage stage) {
 
         //get width height
-        SystemStatus.setScreenHeight(screenSize.getHeight());
-        SystemStatus.setScreenwidth(screenSize.getWidth());
+        SystemStatus.setScreenHeight((float) screenSize.getHeight());
+        SystemStatus.setScreenwidth((float) screenSize.getWidth());
 
         //initialize world status
         engineStatus = new EngineStatus();
@@ -60,7 +57,7 @@ public class Launcher extends Application {
         canvasStatus = new CanvasStatus();
 
         //initialize system worldSettings
-        systemSettings = new SystemSettings();
+        systemSetting = new SystemSetting();
 
         //create an object of the stage
         stage = new GameStage(this);
@@ -75,7 +72,7 @@ public class Launcher extends Application {
         //the position is critical
         World = new World(this);
 
-        //add the window
+        //putIn the window
         stage.show();
     }
 
@@ -91,12 +88,12 @@ public class Launcher extends Application {
         return settingStage;
     }
 
-    public SystemSettings getSystemSettings() {
-        return systemSettings;
+    public SystemSetting getSystemSetting() {
+        return systemSetting;
     }
 
-    public void setSystemSettings(SystemSettings systemSettings) {
-        this.systemSettings = systemSettings;
+    public void setSystemSetting(SystemSetting systemSetting) {
+        this.systemSetting = systemSetting;
     }
 
     public EngineStatus getEngineStatus() {
