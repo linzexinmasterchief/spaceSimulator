@@ -115,4 +115,7 @@ public class World {
         return graphicsThreadModule;
     }
 
+    public void setBufferStar(Star star) {
+        bufferStar.cloneStar(star);
+    }
 }
