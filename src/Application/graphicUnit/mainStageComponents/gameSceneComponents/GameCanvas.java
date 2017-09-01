@@ -1,6 +1,7 @@
 package Application.graphicUnit.mainStageComponents.gameSceneComponents;
 
 import Application.status.CanvasStatus;
+import Application.status.KeyBoard;
 import Application.status.Mouse;
 import Application.status.SystemStatus;
 import javafx.scene.canvas.Canvas;
@@ -27,7 +28,7 @@ public class GameCanvas extends Canvas{
         //"this.getWidth()" to work properly
         super(width, height);
 
-        SystemStatus.setHeightWidthScale(getHeight() / getWidth());
+        SystemStatus.setHeightWidthScale((float) (getHeight() / getWidth()));
 
         canvasStatus = rootScene.getGameStage().getLauncher().getCanvasStatus();
         canvasStatus.setCanvasHeight(getHeight());
@@ -53,6 +54,7 @@ public class GameCanvas extends Canvas{
         //new and clear
         setOnMouseReleased(me -> {
             Mouse.setActivatedMouseButton(me.getButton());
+            Mouse.setMousePressed(false);
             Mouse.setMousePressing(false);
             Mouse.setMouseReleasing(true);
             Mouse.setMouseScrolled(false);
@@ -63,10 +65,16 @@ public class GameCanvas extends Canvas{
         setOnScroll(se -> {
             Mouse.setMouseScrollValue(se.getDeltaY());
             Mouse.setActivatedMouseButton(MouseButton.MIDDLE);
+            Mouse.setMousePressed(false);
             Mouse.setMousePressing(false);
             Mouse.setMouseReleasing(false);
             Mouse.setMouseScrolled(true);
 
+        });
+
+        setOnKeyPressed(ke -> {
+            KeyBoard.activeKey = ke.getCode();
+            KeyBoard.isKeyReleasing = true;
         });
 
     }

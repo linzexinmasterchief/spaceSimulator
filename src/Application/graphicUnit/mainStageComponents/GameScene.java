@@ -7,6 +7,7 @@ import Application.graphicUnit.mainStageComponents.gameSceneComponents.GameCanva
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import Application.graphicUnit.mainStageComponents.gameSceneComponents.ui.UniverseStatusBar;
+import models.uiComponentModels.betterUI.BetterSlider;
 
 public class GameScene extends Scene{
 
@@ -33,7 +34,7 @@ public class GameScene extends Scene{
         //initialize the canvas
         //size
         gameCanvas = new GameCanvas(getWidth(), getHeight(), this);
-        //add game canvas
+        //putIn game canvas
         root.getChildren().add(gameCanvas);
 
         //listener for activating the console
@@ -44,16 +45,16 @@ public class GameScene extends Scene{
 //            }
 //        });
 
-        //add a menu
+        //putIn a menu
         createStarMenu = new CreateStarMenu(this, root);
 
-        //add a menuButton
+        //putIn a menuButton
         createStarMenuSwitch = new CreateStarMenuSwitch("+",this);
         createStarMenuSwitch.setTranslateX(5);
         createStarMenuSwitch.setTranslateY(5);
         root.getChildren().add(createStarMenuSwitch);
 
-        //add bottom PhysicsStatus bar
+        //putIn bottom PhysicsStatus bar
         universeStatusBar = new UniverseStatusBar(this);
         universeStatusBar.setWidth(getWidth());
         universeStatusBar.setHeight(25);
@@ -79,12 +80,12 @@ public class GameScene extends Scene{
         return createStarMenu;
     }
 
-    public float getMass(){
-        return (float) createStarMenu.getMassSlider().getValue();
+    public BetterSlider getMassSlider(){
+        return createStarMenu.getMassSlider();
     }
 
-    public float getRadius(){
-        return (float) createStarMenu.getRadiusSlider().getValue();
+    public BetterSlider getRadiusSlider(){
+        return createStarMenu.getRadiusSlider();
     }
 
 }
