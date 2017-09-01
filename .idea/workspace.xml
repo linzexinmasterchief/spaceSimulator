@@ -6,14 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="change double values to float to save memory">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/myMath/floatOperate.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Application/status/KeyBoard.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/GravityCalculate.java" afterPath="" />
+    <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/Launcher.java" afterPath="$PROJECT_DIR$/src/Application/Launcher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/status/SystemStatus.java" afterPath="$PROJECT_DIR$/src/Application/status/SystemStatus.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Application/system/SystemSettings.java" afterPath="$PROJECT_DIR$/src/Application/system/SystemSetting.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1033,13 +1027,6 @@
       <option name="presentableId" value="Default" />
       <updated>1497451245085</updated>
     </task>
-    <task id="LOCAL-00029" summary="simplified some code">
-      <created>1500558861492</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1500558861492</updated>
-    </task>
     <task id="LOCAL-00030" summary="simplified some code">
       <created>1500559211562</created>
       <option name="number" value="00030" />
@@ -1376,7 +1363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1504273752224</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="fixed some bugs">
+      <created>1504273803330</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1504273803330</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1483,12 +1477,12 @@
     <MESSAGE value="implements physicsComponent interface for easier management" />
     <MESSAGE value="renamed from GravityCalculate, optimized calculation process" />
     <MESSAGE value="better physics -&gt; now the star list only iterate one time in every process" />
-    <MESSAGE value="fixed some bugs" />
     <MESSAGE value="key setting for each function, still can't use" />
     <MESSAGE value="implement uiComponent" />
     <MESSAGE value="base ui class" />
     <MESSAGE value="interfaces for easier management" />
-    <option name="LAST_COMMIT_MESSAGE" value="interfaces for easier management" />
+    <MESSAGE value="fixed some bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
