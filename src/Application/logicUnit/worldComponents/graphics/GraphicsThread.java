@@ -21,11 +21,11 @@ public class GraphicsThread extends ThreadModel {
 
     //the scale between graphics and physics
     //original is 1:1
-    private double scaleX = 1.0;
-    private double scaleY = 1.0;
+    private float scaleX = 1.0f;
+    private float scaleY = 1.0f;
 
-    private double starDisplayWidth;
-    private double starDisplayHeight;
+    private int starDisplayWidth;
+    private int starDisplayHeight;
 
     public GraphicsThread(World root_world){
         super(root_world);
@@ -109,8 +109,8 @@ public class GraphicsThread extends ThreadModel {
                     starDisplayHeight = 1;
 
                     //calculate the actual display size according to the scale
-                    starDisplayWidth = (star.r * 2) / scaleX;
-                    starDisplayHeight = (star.r * 2) / scaleY;
+                    starDisplayWidth = (int) ((star.r * 2) / scaleX);
+                    starDisplayHeight = (int) ((star.r * 2) / scaleY);
 
                     //make sure there is always a small point displaying for every star, even the scale is crazily large
                     if (starDisplayWidth < 1) {
@@ -160,11 +160,11 @@ public class GraphicsThread extends ThreadModel {
         return scaleY;
     }
 
-    public void setScaleX(double new_scaleX){
+    public void setScaleX(float new_scaleX){
         scaleX = new_scaleX;
     }
 
-    public void setScaleY(double new_scaleY){
+    public void setScaleY(float new_scaleY){
         scaleY = new_scaleY;
     }
 
@@ -173,7 +173,7 @@ public class GraphicsThread extends ThreadModel {
     public void run() {
         while (!isExit()) {
             try {
-                Thread.sleep(20);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

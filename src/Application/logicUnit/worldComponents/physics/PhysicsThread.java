@@ -1,7 +1,7 @@
 package Application.logicUnit.worldComponents.physics;
 
 import Application.logicUnit.World;
-import Application.status.Mouse;
+import Application.status.SystemStatus;
 import javafx.application.Platform;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
 import models.systemComponentModels.ThreadModel;
@@ -13,26 +13,24 @@ import Application.logicUnit.worldComponents.physics.physicsComponents.Universe;
  */
 public class PhysicsThread extends ThreadModel {
 
-    //install the gravity module
-    private GravityCalculate gravityCalculate;
+    private Star[] cloneStarList;
 
     public PhysicsThread(World root_world){
         super(root_world);
+        //the initialize block is executed inside the super constructor
     }
 
     @Override
     public void initialize(){
         //override default initialize block
-        gravityCalculate = new GravityCalculate(world.getUniverse().getStars());
+        GravityCalculate.synchronize(world.getUniverse());
+        cloneStarList = world.getUniverse().getStars();
 
     }
 
     //this is the function called on every Application.world.physics cycle
     //kind of like "fixed update" in unity
     private void PhysicsUpdate() {
-        if (isPause()) {
-            return;
-        }
 
         //initialize star amount
         world.getUniverse().setStarAmount(0);
@@ -42,43 +40,78 @@ public class PhysicsThread extends ThreadModel {
 
         universe.setTimeSpeed(world.getLauncher().getGameStage().getGameScene().getStatusBar().getTimeSpeed());
 
+        cloneStarList = world.getUniverse().getStars();
+
         //iterate star list
-        for (int i = 0; i < world.getUniverse().getStars().length; i++) {
+        for (Star star : cloneStarList) {
 
-            //allow the stars to cross the edge of the universe
-            if ((world.getUniverse().getStars()[i].centerX - world.getUniverse().getStars()[i].r) > universe.getWidth()){
-                //if star reaches right edge
-                world.getUniverse().getStars()[i].centerX = 0;
-            }else if ((world.getUniverse().getStars()[i].centerY - world.getUniverse().getStars()[i].r) > universe.getHeight()){
-                //if star reaches bottom edge
-                world.getUniverse().getStars()[i].centerY = 0;
-            }else if ((world.getUniverse().getStars()[i].centerX + world.getUniverse().getStars()[i].r) < 0){
-                //if star reaches left edge
-                world.getUniverse().getStars()[i].centerX = (float) universe.getWidth();
-            }else if ((world.getUniverse().getStars()[i].centerY + world.getUniverse().getStars()[i].r) < 0){
-                //if star reaches top edge
-                world.getUniverse().getStars()[i].centerX = (float) universe.getHeight();
-            }
+            teleport(star, universe);
 
-            if (world.getUniverse().getStars()[i].inUniverse) {
+            if (star.inUniverse) {
                 //count the amount of stars in the universe + 1
                 world.getUniverse().setStarAmount(world.getUniverse().getStarAmount() + 1);
 
-                //set the next position of star according to star speed
-                world.getUniverse().getStars()[i].move(universe.getTimeSpeed());
+                if (!isPause()) {
+                    //set the next position of star according to star speed
+                    star.move(universe.getTimeSpeed());
 
-                //use multi-thread to calculate the acceleration of star
-                int F = i;
-                Platform.runLater(() -> {
-                    gravityCalculate.synchronize(universe);
-                    gravityCalculate.fire(world.getUniverse().getStars()[F]);
-                });
+                    //use multi-thread to calculate the acceleration of star
+                    GravityCalculate.synchronize(universe);
+                    GravityCalculate.step(star);
+                }
+
+            }else {
+                if (SystemStatus.isNewStarExist()) {
+
+                    //give the properties of buffer star to the empty star slot
+                    star.cloneStar(world.getBufferStar());
+
+                    //remove the buffer star (clear the values to default)
+                    world.getBufferStar().remove();
+
+                    //close the new star lock
+                    SystemStatus.setNewStarExist(false);
+
+                    //refresh the screen
+                    world.getGraphicsThread().drawShapes();
+
+                    world.getLauncher().getGameStage().getGameScene().getStatusBar().setStarAmount(world.getUniverse().getStarAmount());
+
+                    //increase the amount of star by 1
+                    world.getUniverse().setStarAmount(world.getUniverse().getStarAmount() + 1);
+                }
             }
         }
 
-        world.getUniverse().setStars(world.getUniverse().getStars());
+        world.getUniverse().setStars(cloneStarList);
 
         world.getLauncher().getGameStage().getGameScene().getStatusBar().setStarAmount(universe.getStarAmount());
+    }
+
+    //transfer star to the other side if it is out of bound
+    public void teleport(Star star, Universe universe){
+        //allow the stars to cross the edge of the universe
+        if ((star.centerX - star.r) > universe.getWidth()){
+
+            //if star reaches right edge
+            star.centerX = 0;
+
+        }else if ((star.centerY - star.r) > universe.getHeight()){
+
+            //if star reaches bottom edge
+            star.centerY = 0;
+
+        }else if ((star.centerX + star.r) < 0){
+
+            //if star reaches left edge
+            star.centerX = (float) universe.getWidth();
+
+        }else if ((star.centerY + star.r) < 0){
+
+            //if star reaches top edge
+            star.centerX = (float) universe.getHeight();
+
+        }
     }
 
     //function designed for screen cleaning
@@ -101,7 +134,7 @@ public class PhysicsThread extends ThreadModel {
             //call the specific used function
             PhysicsUpdate();
 
-            world.getUniverse().reFitStarListSize();
+//            world.getUniverse().reFitStarListSize();
         }
     }
 
