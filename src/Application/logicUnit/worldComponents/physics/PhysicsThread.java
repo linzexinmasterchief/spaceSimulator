@@ -2,7 +2,6 @@ package Application.logicUnit.worldComponents.physics;
 
 import Application.logicUnit.World;
 import Application.status.SystemStatus;
-import javafx.application.Platform;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
 import models.systemComponentModels.ThreadModel;
 import Application.logicUnit.worldComponents.physics.physicsComponents.Universe;
@@ -23,7 +22,7 @@ public class PhysicsThread extends ThreadModel {
     @Override
     public void initialize(){
         //override default initialize block
-        GravityCalculate.synchronize(world.getUniverse());
+        Gravity.synchronize(world.getUniverse());
         cloneStarList = world.getUniverse().getStars();
 
     }
@@ -56,8 +55,8 @@ public class PhysicsThread extends ThreadModel {
                     star.move(universe.getTimeSpeed());
 
                     //use multi-thread to calculate the acceleration of star
-                    GravityCalculate.synchronize(universe);
-                    GravityCalculate.step(star);
+                    Gravity.synchronize(universe);
+                    Gravity.step(star);
                 }
 
             }else {
