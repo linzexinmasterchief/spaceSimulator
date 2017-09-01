@@ -4,8 +4,8 @@ import Application.graphicUnit.mainStageComponents.GameScene;
 import Application.status.SystemStatus;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
-import models.uiComponentModels.BetterButton;
-import models.uiComponentModels.BetterSlider;
+import models.uiComponentModels.betterUI.BetterButton;
+import models.uiComponentModels.betterUI.BetterSlider;
 
 /**
  * Created by lzx on 2017/7/15.
@@ -13,17 +13,12 @@ import models.uiComponentModels.BetterSlider;
  */
 public class CreateStarMenu {
 
-    //reference to root scene
-    private final GameScene gameScene;
-
     //menu components
     private final BetterButton settingBtn;
     private final BetterSlider massSlider;
     private final BetterSlider radiusSlider;
 
     public CreateStarMenu(GameScene scene, Group group){
-
-        gameScene = scene;
 
         settingBtn = new BetterButton("setting");
         settingBtn.setTranslateY(5);
