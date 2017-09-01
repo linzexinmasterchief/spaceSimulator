@@ -16,7 +16,7 @@ public class Universe {
     private final double height;
 
     //determine how fast the time goes in the universe (does not affect the speed of thread)
-    private double timeSpeed;
+    private float timeSpeed;
 
     //store all the stars in this universe
     private Star[] stars;
@@ -53,11 +53,11 @@ public class Universe {
         return height;
     }
 
-    public double getTimeSpeed() {
+    public float getTimeSpeed() {
         return timeSpeed;
     }
 
-    public void setTimeSpeed(double timeSpeed) {
+    public void setTimeSpeed(float timeSpeed) {
         this.timeSpeed = timeSpeed;
     }
 

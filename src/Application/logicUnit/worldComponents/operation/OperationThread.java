@@ -39,15 +39,15 @@ public class OperationThread extends ThreadModel {
         SystemStatus.setNewStarExist(true);
 
         //give the buffer star speed based on the distance mouse dragged
-        world.getBufferStar().velocityX = (((world.getDragLine()[2] - world.getDragLine()[0])
-                / Speed.getDragSpeedConstant())
-                //times camera enlarge scale
-                * world.getCamera().getWidth()) / world.getCamera().getOriginalWidth();
+        world.getBufferStar().velocityX = (float) ((((world.getDragLine()[2] - world.getDragLine()[0])
+                        / Speed.getDragSpeedConstant())
+                        //times camera enlarge scale
+                        * world.getCamera().getWidth()) / world.getCamera().getOriginalWidth());
 
-        world.getBufferStar().velocityY = (((world.getDragLine()[3] - world.getDragLine()[1])
-                / Speed.getDragSpeedConstant())
-                //times camera enlarge scale
-                * world.getCamera().getHeight()) / world.getCamera().getOriginalHeight();
+        world.getBufferStar().velocityY = (float) ((((world.getDragLine()[3] - world.getDragLine()[1])
+                        / Speed.getDragSpeedConstant())
+                        //times camera enlarge scale
+                        * world.getCamera().getHeight()) / world.getCamera().getOriginalHeight());
 
         for (int i = 0; i < world.getUniverse().getStars().length; i++) {
             //check if the new star lock is opened to avoid unnecessary star list iterations
@@ -77,13 +77,13 @@ public class OperationThread extends ThreadModel {
                         //it's hard to explain the math, but it will be easy to understand
                         //once you draw it out on the paper, be careful changing it anyway
 
-                        (world.getCamera().getCenterX() - (world.getUniverse().getWidth() / 2))
+                        (float) ((world.getCamera().getCenterX() - (world.getUniverse().getWidth() / 2))
                                 + ((world.getUniverse().getWidth() - world.getCamera().getWidth()) / 2)
-                                + (world.getDragLine()[0] * world.getGraphicsThread().getScaleX()),
+                                + (world.getDragLine()[0] * world.getGraphicsThread().getScaleX())),
 
-                        (world.getCamera().getCenterY() - (world.getUniverse().getHeight() / 2))
+                        (float) ((world.getCamera().getCenterY() - (world.getUniverse().getHeight() / 2))
                                 + ((world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2)
-                                + (world.getDragLine()[1] * world.getGraphicsThread().getScaleY())
+                                + (world.getDragLine()[1] * world.getGraphicsThread().getScaleY()))
                 );
 
                 //change the slot property from empty to full

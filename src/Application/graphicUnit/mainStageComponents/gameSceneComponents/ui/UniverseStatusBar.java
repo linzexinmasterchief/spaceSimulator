@@ -110,7 +110,7 @@ public class UniverseStatusBar {
         this.starAmount = starAmount;
     }
 
-    public double getTimeSpeed(){
-        return timeSpeedAdjuster.getValue() / 20;
+    public float getTimeSpeed(){
+        return (float) (timeSpeedAdjuster.getValue() / 20);
     }
 }

@@ -23,23 +23,23 @@ public class GravityCalculate {
         s.accelerationX = s.accelerationY = 0;
         for (Star star : stars) {
             if (star.inUniverse & star != s) {
-                double xDiff = star.centerX - s.centerX;
-                double yDiff = star.centerY - s.centerY;
-                double distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+                float xDiff = star.centerX - s.centerX;
+                float yDiff = star.centerY - s.centerY;
+                float distance = (float) Math.sqrt(xDiff * xDiff + yDiff * yDiff);
 
                 if (distance > star.r & distance > s.r) {
                     //normal acceleration
-                    s.accelerationX = (0.06673 * star.mass / Math.pow(distance, 2)) * (xDiff / distance);
-                    s.accelerationY = (0.06673 * star.mass / Math.pow(distance, 2)) * (yDiff / distance);
+                    s.accelerationX = (float) ((0.6673 * star.mass / Math.pow(distance, 2)) * (xDiff / distance));
+                    s.accelerationY = (float) ((0.6673 * star.mass / Math.pow(distance, 2)) * (yDiff / distance));
                 }else{
                     //collide
                     //think carefully before you try to replace these codes with a buffer star
-                    double newR = Math.sqrt(star.r * star.r + s.r * s.r);
-                    double newMass = s.mass + star.mass;
-                    double newAX = ((s.accelerationX * s.mass) + (star.accelerationX * star.mass)) / newMass;
-                    double newAY = ((s.accelerationY * s.mass) + (star.accelerationY * star.mass)) / newMass;
-                    double newVX = ((s.velocityX * s.mass) + (star.velocityX * star.mass)) / newMass;
-                    double newVY = ((s.velocityY * s.mass) + (star.velocityY * star.mass)) / newMass;
+                    float newR = (float) Math.sqrt(star.r * star.r + s.r * s.r);
+                    float newMass = s.mass + star.mass;
+                    float newAX = ((s.accelerationX * s.mass) + (star.accelerationX * star.mass)) / newMass;
+                    float newAY = ((s.accelerationY * s.mass) + (star.accelerationY * star.mass)) / newMass;
+                    float newVX = ((s.velocityX * s.mass) + (star.velocityX * star.mass)) / newMass;
+                    float newVY = ((s.velocityY * s.mass) + (star.velocityY * star.mass)) / newMass;
 
                     if (s.r >= star.r) {
                         star.add(s.centerX, s.centerY);

@@ -54,10 +54,10 @@ public class PhysicsThread extends ThreadModel {
                 world.getUniverse().getStars()[i].centerY = 0;
             }else if ((world.getUniverse().getStars()[i].centerX + world.getUniverse().getStars()[i].r) < 0){
                 //if star reaches left edge
-                world.getUniverse().getStars()[i].centerX = universe.getWidth();
+                world.getUniverse().getStars()[i].centerX = (float) universe.getWidth();
             }else if ((world.getUniverse().getStars()[i].centerY + world.getUniverse().getStars()[i].r) < 0){
                 //if star reaches top edge
-                world.getUniverse().getStars()[i].centerX = universe.getHeight();
+                world.getUniverse().getStars()[i].centerX = (float) universe.getHeight();
             }
 
             if (world.getUniverse().getStars()[i].inUniverse) {

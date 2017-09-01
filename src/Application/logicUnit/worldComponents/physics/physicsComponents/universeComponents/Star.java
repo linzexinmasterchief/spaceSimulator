@@ -6,20 +6,20 @@ package Application.logicUnit.worldComponents.physics.physicsComponents.universe
  */
 public class Star {
 
-    public double mass;
-    public double r;
+    public float mass;
+    public float r;
 
-    public double centerX;
-    public double centerY;
+    public float centerX;
+    public float centerY;
 
-    public double velocityX;
-    public double velocityY;
+    public float velocityX;
+    public float velocityY;
 
-    public double accelerationX;
-    public double accelerationY;
+    public float accelerationX;
+    public float accelerationY;
 
-    public double vectorX;
-    public double vectorY;
+    public float vectorX;
+    public float vectorY;
 
     public boolean onScreen;
     public boolean inUniverse;
@@ -77,20 +77,20 @@ public class Star {
     }
 
     //move (or more like teleporting) to another point
-    private void setPosition(double input_centerX, double input_centerY) {
+    private void setPosition(float input_centerX, float input_centerY) {
         centerX = input_centerX;
         centerY = input_centerY;
     }
 
     //allow the star thee add on screen
-    public void add(double input_centerX, double input_centerY) {
+    public void add(float input_centerX, float input_centerY) {
         onScreen = true;
         inUniverse = true;
         setPosition(input_centerX, input_centerY);
     }
 
     //update the position
-    public void move(double time) {
+    public void move(float time) {
 
         //calculate the speed of the star
         velocityX = velocityX + accelerationX * time;

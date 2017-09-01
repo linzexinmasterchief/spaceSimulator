@@ -79,12 +79,12 @@ public class GameScene extends Scene{
         return createStarMenu;
     }
 
-    public double getMass(){
-        return createStarMenu.getMassSlider().getValue();
+    public float getMass(){
+        return (float) createStarMenu.getMassSlider().getValue();
     }
 
-    public double getRadius(){
-        return createStarMenu.getRadiusSlider().getValue();
+    public float getRadius(){
+        return (float) createStarMenu.getRadiusSlider().getValue();
     }
 
 }

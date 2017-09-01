@@ -19,8 +19,6 @@ public class GraphicsThread extends ThreadModel {
     private GameCanvas gameCanvas;
     private GraphicsContext offScreen;
 
-    private GraphicsContext onScreen;
-
     //the scale between graphics and physics
     //original is 1:1
     private double scaleX = 1.0;
