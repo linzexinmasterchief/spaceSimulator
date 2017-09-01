@@ -1,5 +1,6 @@
-package models.uiComponentModels;
+package models.uiComponentModels.betterUI;
 
+import Application.myMath.floatOperate;
 import Application.status.SystemStatus;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -29,6 +30,7 @@ public class BetterSlider extends Button {
     private double valueRange;
     private double valueScale;
 
+    //default constructor
     public BetterSlider(){
         initialize();
 
@@ -38,6 +40,7 @@ public class BetterSlider extends Button {
         refresh();
     }
 
+    //title constructor
     public BetterSlider(String title){
         initialize();
         this.title = title;
@@ -48,6 +51,7 @@ public class BetterSlider extends Button {
         refresh();
     }
 
+    //title color constructor
     public BetterSlider(String title, Color color){
         initialize();
         this.title = title;
@@ -59,6 +63,7 @@ public class BetterSlider extends Button {
         refresh();
     }
 
+    //full constructor
     public BetterSlider(String title, Color color, double minValue, double maxValue){
         initialize();
         this.title = title;
@@ -72,6 +77,7 @@ public class BetterSlider extends Button {
         refresh();
     }
 
+    //initialize block
     private void initialize(){
 
         setVisible(false);
@@ -87,15 +93,7 @@ public class BetterSlider extends Button {
         valueRange = maxValue - minValue;
         valueScale = valueRange / getWidth();
 
-        setBackground(
-                new Background(
-                        new BackgroundFill(
-                                color,
-                                new CornerRadii(0),
-                                null
-                        )
-                )
-        );
+        setBackground(new Background(new BackgroundFill(color, new CornerRadii(0), null)));
 
         setOnMousePressed(me -> {
             if (me.getButton() == MouseButton.PRIMARY) {
@@ -121,8 +119,9 @@ public class BetterSlider extends Button {
     }
 
     public void refresh(){
-        setText(title + "   " + value);
+        setText(title + "   " + floatOperate.toDecimal((float) value, 2));
         updateValueScale();
+        updateValueRange();
         setBackground(new Background(
                 new BackgroundFill(
                         color,

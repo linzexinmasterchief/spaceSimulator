@@ -1,4 +1,4 @@
-package models.uiComponentModels;
+package models.uiComponentModels.betterUI;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
@@ -16,27 +16,11 @@ public class BetterButton extends Button {
         setText(Text);
         setTextFill(Color.WHITE);
         setVisible(false);
-        setBackground(
-                new Background(
-                        new BackgroundFill(Color.grayRgb(33),new CornerRadii(0),null)
-                )
-        );
+        setBackground(new Background(new BackgroundFill(Color.grayRgb(33),new CornerRadii(0),null)));
 
-        setOnMouseEntered(me ->
-                setBackground(
-                        new Background(
-                                new BackgroundFill(Color.grayRgb(24), new CornerRadii(0), null)
-                        )
-                )
-        );
+        setOnMouseEntered(me -> setBackground(new Background(new BackgroundFill(Color.grayRgb(24), new CornerRadii(0), null))));
 
-        setOnMouseExited(me ->
-                setBackground(
-                        new Background(
-                                new BackgroundFill(Color.grayRgb(33), new CornerRadii(0), null)
-                        )
-                )
-        );
+        setOnMouseExited(me -> setBackground(new Background(new BackgroundFill(Color.grayRgb(33), new CornerRadii(0), null))));
     }
 
     public void setButtonWidth(double value){
