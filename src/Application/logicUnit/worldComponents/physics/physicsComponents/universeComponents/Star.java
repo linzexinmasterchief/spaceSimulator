@@ -1,10 +1,12 @@
 package Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents;
 
+import models.physicsComponentModels.PhysicsComponent;
+
 /**
  * Created by lzx on 2017/3/27.
  * this is a model class for star, every star must be constructed as here
  */
-public class Star {
+public class Star implements PhysicsComponent{
 
     public float mass;
     public float r;
@@ -31,7 +33,7 @@ public class Star {
 
     //second constructor
     //used to copy all the data from another star with out making directly pointer to the original object
-    public Star(Star star) {
+    public void cloneStar(Star star) {
 
         //clean the star slot for new values
         initialize();
@@ -77,13 +79,13 @@ public class Star {
     }
 
     //move (or more like teleporting) to another point
-    private void setPosition(float input_centerX, float input_centerY) {
+    public void setPosition(float input_centerX, float input_centerY) {
         centerX = input_centerX;
         centerY = input_centerY;
     }
 
-    //allow the star thee add on screen
-    public void add(float input_centerX, float input_centerY) {
+    //allow the star thee putIn on screen
+    public void putIn(float input_centerX, float input_centerY) {
         onScreen = true;
         inUniverse = true;
         setPosition(input_centerX, input_centerY);
@@ -107,6 +109,37 @@ public class Star {
     //like it's name
     public void remove() {
         initialize();
+        r = 0;
+        mass = 0;
     }
 
+    @Override
+    public void setX(float value) {
+
+    }
+
+    @Override
+    public void setY(float value) {
+
+    }
+
+    @Override
+    public void setCenterX(float value) {
+        centerX = value;
+    }
+
+    @Override
+    public void setCenterY(float value) {
+        centerY = value;
+    }
+
+    @Override
+    public void setWidth(float value) {
+        r = value;
+    }
+
+    @Override
+    public void setHeight(float value) {
+        r = value;
+    }
 }

@@ -12,8 +12,8 @@ import Application.logicUnit.worldComponents.physics.physicsComponents.universeC
 public class Universe {
 
     //define the size of the universe
-    private final double width;
-    private final double height;
+    private final float width;
+    private final float height;
 
     //determine how fast the time goes in the universe (does not affect the speed of thread)
     private float timeSpeed;
@@ -25,7 +25,7 @@ public class Universe {
     private int starAmount;
 
     //second constructor
-    public Universe(double width, double height) {
+    public Universe(float width, float height) {
         //define the size of the universe based on the value input
         this.width = width;
         this.height = height;
@@ -33,7 +33,7 @@ public class Universe {
         timeSpeed = 1;
 
         //initialize the star list of the universe
-        stars = new Star[10];
+        stars = new Star[2000];
         //initialize every star in the star list
         //this is very important and necessary, do not delete it
         for (int i = 0; i < stars.length; i++) {
@@ -45,11 +45,11 @@ public class Universe {
 
     }
 
-    public double getWidth() {
+    public float getWidth() {
         return width;
     }
 
-    public double getHeight() {
+    public float getHeight() {
         return height;
     }
 
@@ -69,30 +69,30 @@ public class Universe {
         this.stars = stars;
     }
 
-    public void reFitStarListSize(){
-
-        if (Math.abs(getStars().length - getStarAmount()) > 5){
-            return;
-        }
-
-        //create resized star list
-        Star[] newStarList = new Star[((getStarAmount() / 10) + 1) * 10];
-
-        //initialize new star list
-        for (int i = 0;i < newStarList.length;i ++){
-            newStarList[i] = new Star();
-        }
-
-        //copy original list to new list
-        for (int i = 0;i < getStarAmount();i ++){
-            if (getStars()[i].inUniverse){
-                newStarList[i] = getStars()[i];
-            }
-        }
-
-        //set new star list as current star list
-        setStars(newStarList);
-    }
+//    public void reFitStarListSize(){
+//
+//        if (Math.abs(getStars().length - getStarAmount()) > 5){
+//            return;
+//        }
+//
+//        //create resized star list
+//        Star[] newStarList = new Star[((getStarAmount() / 10) + 1) * 10];
+//
+//        //initialize new star list
+//        for (int i = 0;i < newStarList.length;i ++){
+//            newStarList[i] = new Star();
+//        }
+//
+//        //copy original list to new list
+//        for (int i = 0;i < getStarAmount();i ++){
+//            if (getStars()[i].inUniverse){
+//                newStarList[i] = getStars()[i];
+//            }
+//        }
+//
+//        //set new star list as current star list
+//        setStars(newStarList);
+//    }
 
     public int getStarAmount() {
         return starAmount;

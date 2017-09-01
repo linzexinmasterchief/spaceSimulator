@@ -1,5 +1,7 @@
 package Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents;
 
+import models.physicsComponentModels.PhysicsComponent;
+
 /**
  * Created by lzx on 2017/5/26.
  * this class is designed to be an blueprint of camera
@@ -8,18 +10,18 @@ package Application.logicUnit.worldComponents.physics.physicsComponents.universe
  * star class and universe class
  */
 
-public class Camera {
+public class Camera implements PhysicsComponent{
 
-    private final double originalWidth;
-    private final double originalHeight;
+    private final float originalWidth;
+    private final float originalHeight;
 
-    private double width;
-    private double height;
-    private double centerX;
-    private double centerY;
+    private float width;
+    private float height;
+    private float centerX;
+    private float centerY;
 
 //    unused constructors
-    //first constructor
+    //default constructor
     public Camera() {
         //give default values to width and height
         this.width = 100;
@@ -31,7 +33,7 @@ public class Camera {
     }
 
     //second constructor
-    public Camera(double width, double height) {
+    public Camera(float width, float height) {
         //take in width and height
         this.width = width;
         this.height = height;
@@ -42,7 +44,7 @@ public class Camera {
     }
 
     //third constructor
-    public Camera(double width, double height, double centerX, double centerY) {
+    public Camera(float width, float height, float centerX, float centerY) {
         this.width = width;
         this.height = height;
         this.centerX = centerX;
@@ -54,43 +56,53 @@ public class Camera {
 
     //a whole bunch of getters and setters
 
-    public double getWidth() {
+    public float getWidth() {
         return width;
     }
 
-    public void setWidth(double width) {
-        this.width = width;
+    public void setWidth(float value) {
+        width = value;
     }
 
-    public double getHeight() {
+    public float getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
+    public void setHeight(float value) {
+        height = value;
     }
 
-    public double getCenterX() {
+    public float getCenterX() {
         return centerX;
     }
 
-    public void setCenterX(double centerX) {
-        this.centerX = centerX;
+    @Override
+    public void setX(float value) {
+
     }
 
-    public double getCenterY() {
+    @Override
+    public void setY(float value) {
+
+    }
+
+    public void setCenterX(float value) {
+        centerX = value;
+    }
+
+    public float getCenterY() {
         return centerY;
     }
 
-    public void setCenterY(double centerY) {
-        this.centerY = centerY;
+    public void setCenterY(float value) {
+        centerY = value;
     }
 
-    public double getOriginalWidth() {
+    public float getOriginalWidth() {
         return originalWidth;
     }
 
-    public double getOriginalHeight() {
+    public float getOriginalHeight() {
         return originalHeight;
     }
 
