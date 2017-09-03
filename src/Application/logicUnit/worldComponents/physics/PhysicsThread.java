@@ -3,6 +3,7 @@ package Application.logicUnit.worldComponents.physics;
 import Application.logicUnit.World;
 import Application.status.SystemStatus;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
+import javafx.application.Platform;
 import models.systemComponentModels.ThreadModel;
 import Application.logicUnit.worldComponents.physics.physicsComponents.Universe;
 
@@ -54,9 +55,12 @@ public class PhysicsThread extends ThreadModel {
                     //set the next position of star according to star speed
                     star.move(universe.getTimeSpeed());
 
-                    //use multi-thread to calculate the acceleration of star
-                    Gravity.synchronize(universe);
-                    Gravity.step(star);
+                    Platform.runLater(() -> {
+                        //use multi-thread to calculate the acceleration of star
+                        Gravity.synchronize(universe);
+                        Gravity.step(star);
+                    });
+
                 }
 
             }else {
@@ -65,14 +69,13 @@ public class PhysicsThread extends ThreadModel {
                     //give the properties of buffer star to the empty star slot
                     star.cloneStar(world.getBufferStar());
 
+                    world.getGraphicsThread().drawStar(world.getUniverse().getStars()[world.getUniverse().getStars().length - 1]);
+
                     //remove the buffer star (clear the values to default)
                     world.getBufferStar().remove();
 
                     //close the new star lock
                     SystemStatus.setNewStarExist(false);
-
-                    //refresh the screen
-                    world.getGraphicsThread().drawShapes();
 
                     world.getLauncher().getGameStage().getGameScene().getStatusBar().setStarAmount(world.getUniverse().getStarAmount());
 

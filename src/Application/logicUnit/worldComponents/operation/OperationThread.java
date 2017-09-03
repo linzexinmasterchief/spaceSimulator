@@ -2,7 +2,7 @@ package Application.logicUnit.worldComponents.operation;
 
 import Application.logicUnit.World;
 import Application.logicUnit.worldComponents.worldSettings.Speed;
-import Application.graphicUnit.mainStageComponents.GameScene;
+import Application.graphicUnit.GameStagePack.mainStageComponents.GameScene;
 import Application.status.CanvasStatus;
 import Application.status.Mouse;
 import Application.status.SystemStatus;
@@ -37,6 +37,8 @@ public class OperationThread extends ThreadModel {
 
         cloneBufferStar = new Star();
         cloneBufferStar.cloneStar(world.getBufferStar());
+
+        Mouse.setMouseScrolled(true);
     }
 
     //determine if a new star should be created
@@ -83,7 +85,6 @@ public class OperationThread extends ThreadModel {
         world.setBufferStar(cloneBufferStar);
     }
 
-
     @Override
     public void run() {
         while (!isExit()) {
@@ -121,7 +122,7 @@ public class OperationThread extends ThreadModel {
                     case PRIMARY:
                         addNewStar();
                         world.clearDragLine();
-                        world.getGraphicsThread().drawShapes();
+                        world.getGraphicsThread().updateFrame();
                         break;
                     case SECONDARY:
                         //execute clear command
@@ -186,6 +187,7 @@ public class OperationThread extends ThreadModel {
                 world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
                 world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
 
+                world.getGraphicsThread().updateBias();
                 Mouse.setMouseScrolled(false);
             }
 

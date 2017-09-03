@@ -1,7 +1,7 @@
 package Application;
 
 import Application.logicUnit.World;
-import Application.graphicUnit.GameStage;
+import Application.graphicUnit.GameStagePack.GameStage;
 import Application.graphicUnit.SettingStage;
 import Application.status.CanvasStatus;
 import Application.status.EngineStatus;

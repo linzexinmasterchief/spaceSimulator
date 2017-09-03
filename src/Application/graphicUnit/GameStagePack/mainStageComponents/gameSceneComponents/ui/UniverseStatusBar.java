@@ -1,6 +1,6 @@
-package Application.graphicUnit.mainStageComponents.gameSceneComponents.ui;
+package Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui;
 
-import Application.graphicUnit.mainStageComponents.GameScene;
+import Application.graphicUnit.GameStagePack.mainStageComponents.GameScene;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -51,14 +51,14 @@ public class UniverseStatusBar {
         group.getChildren().add(starAmountStatus);
 
         //putIn time speed slider
-        timeSpeedAdjuster = new BetterSlider("timeSpeed", Color.grayRgb(50), -300, 300);
+        timeSpeedAdjuster = new BetterSlider("timeSpeed", Color.grayRgb(50), -10, 10);
         timeSpeedAdjuster.setTranslateX(x + starAmountStatus.getTranslateX() + starAmountStatus.getMinWidth());
         timeSpeedAdjuster.setTranslateY(y);
         timeSpeedAdjuster.setSliderWidth(width * 0.2);
         timeSpeedAdjuster.setSliderHeight(height);
         timeSpeedAdjuster.setVisible(true);
         timeSpeedAdjuster.setFont(Font.font(10));
-        timeSpeedAdjuster.setValue(50);
+        timeSpeedAdjuster.setValue(1);
         timeSpeedAdjuster.refresh();
         group.getChildren().add(timeSpeedAdjuster);
 

@@ -44,7 +44,7 @@ public class World {
     //function used to initialize all the stars to their default value
     private void initialize() {
         //initialize the universe
-        universe = new Universe(10000, 10000);
+        universe = new Universe(100000, 100000);
 
         //initialize the buffer star
         bufferStar = new Star();

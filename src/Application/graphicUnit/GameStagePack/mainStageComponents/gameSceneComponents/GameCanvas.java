@@ -1,13 +1,12 @@
-package Application.graphicUnit.mainStageComponents.gameSceneComponents;
+package Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents;
 
 import Application.status.CanvasStatus;
 import Application.status.KeyBoard;
 import Application.status.Mouse;
 import Application.status.SystemStatus;
 import javafx.scene.canvas.Canvas;
-import Application.graphicUnit.mainStageComponents.GameScene;
+import Application.graphicUnit.GameStagePack.mainStageComponents.GameScene;
 import javafx.scene.input.MouseButton;
-import javafx.scene.paint.Color;
 
 /**
  * Created by lzx on 2017/4/6.

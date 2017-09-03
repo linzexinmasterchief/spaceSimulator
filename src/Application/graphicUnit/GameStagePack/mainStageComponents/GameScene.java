@@ -1,25 +1,25 @@
-package Application.graphicUnit.mainStageComponents;
+package Application.graphicUnit.GameStagePack.mainStageComponents;
 
-import Application.graphicUnit.GameStage;
-import Application.graphicUnit.mainStageComponents.gameSceneComponents.ui.CreateStarMenuSwitch;
-import Application.graphicUnit.mainStageComponents.gameSceneComponents.ui.CreateStarMenu;
-import Application.graphicUnit.mainStageComponents.gameSceneComponents.GameCanvas;
+import Application.graphicUnit.GameStagePack.GameStage;
+import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui.CreateStarMenuSwitch;
+import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui.CreateStarMenu;
+import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.GameCanvas;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import Application.graphicUnit.mainStageComponents.gameSceneComponents.ui.UniverseStatusBar;
+import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui.UniverseStatusBar;
 import models.uiComponentModels.betterUI.BetterSlider;
 
 public class GameScene extends Scene{
 
     //create reference to root game stage
-    private final GameStage gameStage;
+    private GameStage gameStage;
 
     //give access to the canvas
-    private final GameCanvas gameCanvas;
+    public GameCanvas gameCanvas;
 
-    private final UniverseStatusBar universeStatusBar;
+    private UniverseStatusBar universeStatusBar;
 
-    private final CreateStarMenu createStarMenu;
+    private CreateStarMenu createStarMenu;
 
     //menu toggle
     private final CreateStarMenuSwitch createStarMenuSwitch;

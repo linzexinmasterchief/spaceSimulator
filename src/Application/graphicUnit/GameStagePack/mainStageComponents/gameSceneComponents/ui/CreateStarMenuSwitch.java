@@ -1,6 +1,6 @@
-package Application.graphicUnit.mainStageComponents.gameSceneComponents.ui;
+package Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui;
 
-import Application.graphicUnit.mainStageComponents.GameScene;
+import Application.graphicUnit.GameStagePack.mainStageComponents.GameScene;
 import Application.status.SystemStatus;
 import models.uiComponentModels.betterUI.CircularButton;
 

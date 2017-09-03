@@ -1,15 +1,12 @@
-package Application.graphicUnit;
+package Application.graphicUnit.GameStagePack;
 
 import Application.Launcher;
-import Application.graphicUnit.mainStageComponents.GameScene;
+import Application.graphicUnit.GameStagePack.mainStageComponents.GameScene;
 import Application.status.SystemStatus;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCharacterCombination;
 import javafx.stage.Stage;
-
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 /**
  * Created by lzx on 2017/7/6.
@@ -21,6 +18,8 @@ public class GameStage extends Stage{
 
     //create an object of the game scene
     private final GameScene gameScene;
+
+    private Group group;
 
     public GameStage(Launcher starter){
 
@@ -35,7 +34,8 @@ public class GameStage extends Stage{
         launcher = starter;
 
         //initialize components
-        gameScene = new GameScene(new Group(), SystemStatus.getScreenwidth(), SystemStatus.getScreenHeight(), this);
+        group = new Group();
+        gameScene = new GameScene(group, SystemStatus.getScreenwidth(), SystemStatus.getScreenHeight(), this);
 
         //give the stage an start scene
         setScene(gameScene);
@@ -65,6 +65,10 @@ public class GameStage extends Stage{
 
     public Launcher getLauncher(){
         return launcher;
+    }
+
+    public Group getGameSceneComponents(){
+        return group;
     }
 
 }

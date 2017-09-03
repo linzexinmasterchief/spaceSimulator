@@ -1,11 +1,10 @@
 package Application.logicUnit.worldComponents.graphics;
 
-import Application.graphicUnit.mainStageComponents.GameScene;
-import Application.graphicUnit.mainStageComponents.gameSceneComponents.GameCanvas;
+import Application.graphicUnit.GameStagePack.GameStage;
+import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.GameCanvas;
 import Application.logicUnit.World;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
 import javafx.application.Platform;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import models.systemComponentModels.ThreadModel;
 
@@ -15,17 +14,22 @@ import models.systemComponentModels.ThreadModel;
  */
 public class GraphicsThread extends ThreadModel {
 
-    private GameScene gameScene;
+    private GameStage gameStage;
     private GameCanvas gameCanvas;
-    private GraphicsContext offScreen;
+    private GameCanvas offScreen;
 
     //the scale between graphics and physics
     //original is 1:1
     private float scaleX = 1.0f;
     private float scaleY = 1.0f;
 
-    private int starDisplayWidth;
-    private int starDisplayHeight;
+    private int starDisplayWidth = 1;
+    private int starDisplayHeight = 1;
+
+    private int biasX = 0;
+    private int biasY = 0;
+
+    int r, g, b = 0;
 
     public GraphicsThread(World root_world){
         super(root_world);
@@ -34,32 +38,35 @@ public class GraphicsThread extends ThreadModel {
     @Override
     public void initialize(){
         //override default initialize block
-        gameScene = world.getLauncher().getGameStage().getGameScene();
-        gameCanvas = gameScene.getGameCanvas();
+        gameStage = world.getLauncher().getGameStage();
+        gameCanvas = gameStage.getGameScene().getGameCanvas();
+//        offScreen = new GameCanvas(gameCanvas.getWidth(),gameCanvas.getHeight(), (GameScene) gameCanvas.getScene());
 
-        offScreen = gameCanvas.getGraphicsContext2D();
+        offScreen = gameStage.getGameScene().getGameCanvas();
 
         //initialize program properties
         setExit(false);
         setPause(false);
 
+        updateBias();
+
     }
 
     //screen painting function
-    public void drawShapes() {
+    public void updateFrame() {
 
         Platform.runLater(() -> {
             //fill the back ground with black color
-            offScreen.setFill(Color.BLACK);
-            offScreen.fillRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
+            offScreen.getGraphicsContext2D().setFill(Color.BLACK);
+            offScreen.getGraphicsContext2D().fillRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
 
         });
 
         Platform.runLater(() -> {
             //draw drag line
-            offScreen.setStroke(Color.RED);
-            offScreen.setLineWidth(1);
-            offScreen.strokeLine(
+            offScreen.getGraphicsContext2D().setStroke(Color.RED);
+            offScreen.getGraphicsContext2D().setLineWidth(1);
+            offScreen.getGraphicsContext2D().strokeLine(
                     world.getDragLine()[0],
                     world.getDragLine()[1],
                     world.getDragLine()[2],
@@ -76,8 +83,6 @@ public class GraphicsThread extends ThreadModel {
             if (star.onScreen) {
 
                 Platform.runLater(() -> {
-                    int r, g, b = 0;
-
                     //change the color of pen according to the mass of the star to paint the stars
                     if (star.mass > 500){
                         r = 0;
@@ -98,57 +103,48 @@ public class GraphicsThread extends ThreadModel {
                             b = (int) star.mass;
                         }
                     }
-                    offScreen.setFill(Color.rgb(r, g, b));
+                    offScreen.getGraphicsContext2D().setFill(Color.rgb(r, g, b));
                 });
 
-                //noinspection OverlyLongLambda
-                Platform.runLater(() -> {
-
-                    //create and initialize star display width and height
-                    starDisplayWidth = 1;
-                    starDisplayHeight = 1;
-
-                    //calculate the actual display size according to the scale
-                    starDisplayWidth = (int) ((star.r * 2) / scaleX);
-                    starDisplayHeight = (int) ((star.r * 2) / scaleY);
-
-                    //make sure there is always a small point displaying for every star, even the scale is crazily large
-                    if (starDisplayWidth < 1) {
-                        starDisplayWidth = 1;
-                    }
-                    if (starDisplayHeight < 1) {
-                        starDisplayHeight = 1;
-                    }
-
-                    offScreen.fillOval(
-
-                            //a little math here, should be reliable after 6 changes
-                            //also, this is related to the math above when the user
-                            //new a star, they are reverse functions to each other
-
-                            //this is convert the universe coordinates to display coordinates
-                            ((
-                                    star.centerX
-                                            - (world.getCamera().getCenterX() - (world.getUniverse().getWidth() / 2))
-                                            - ((world.getUniverse().getWidth() - world.getCamera().getWidth()) / 2))
-                                    / scaleX)
-                                    - (starDisplayWidth / 2),
-                            ((
-                                    star.centerY - (world.getCamera().getCenterY() - (world.getUniverse().getHeight() / 2))
-                                            - ((world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2)
-                            )
-                                    / scaleY)
-                                    - (starDisplayHeight / 2),
-                            this.starDisplayWidth,
-                            this.starDisplayHeight
-                    );
-                });
+                drawStar(star);
 
             }
         }
 
+        gameStage.getGameScene().gameCanvas = offScreen;
+//        offScreen = gameStage.getGameScene().getGameCanvas();
+
     }
 
+    public void drawStar(Star star){
+        Platform.runLater(() -> {
+            //calculate the actual display size according to the scale
+            starDisplayWidth = (int) ((star.r * 2) / scaleX) + 1;
+            starDisplayHeight = (int) ((star.r * 2) / scaleY) + 1;
+            offScreen.getGraphicsContext2D().fillOval(
+
+                    //a little math here, should be reliable after 6 changes
+                    //also, this is related to the math above when the user
+                    //new a star, they are reverse functions to each other
+
+                    //this is convert the universe coordinates to display coordinates
+                    ((star.centerX - biasX) / scaleX) - (starDisplayWidth / 2),
+                    ((star.centerY - biasY) / scaleY) - (starDisplayHeight / 2),
+                    starDisplayWidth,
+                    starDisplayHeight
+            );
+        });
+    }
+
+    public void updateBias(){
+
+        biasX = (int) ((world.getCamera().getCenterX() - (world.getUniverse().getWidth() / 2))
+                + ((world.getUniverse().getWidth() - world.getCamera().getWidth()) / 2));
+
+        biasY = (int) ((world.getCamera().getCenterY() - (world.getUniverse().getHeight() / 2))
+                + ((world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2));
+
+    }
 
     //getters and setters
 
@@ -173,7 +169,7 @@ public class GraphicsThread extends ThreadModel {
     public void run() {
         while (!isExit()) {
             try {
-                Thread.sleep(10);
+                Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -181,7 +177,7 @@ public class GraphicsThread extends ThreadModel {
                 continue;
             }
             //send the rendering job to a background thread
-            drawShapes();
+            updateFrame();
         }
     }
 }

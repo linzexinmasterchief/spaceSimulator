@@ -7,7 +7,7 @@ package Application.logicUnit.worldComponents.worldSettings;
 public class Speed {
     //determine how fast the star moves with the same drag distance
     //larger the value, slower the speed
-    private static int dragSpeedConstant = 1000;
+    private static int dragSpeedConstant = 10;
     //determine how fast the camera enlarge/minify
     private static int sizeChangeSpeed = 20;
     //determine how fast the camera moves to the mouse coordinate when scrolling on a point

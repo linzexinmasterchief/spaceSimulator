@@ -15,7 +15,7 @@ class Gravity {
     private static float distance;
     private static float newMass;
 
-    private static float scale = 0.5f;
+    private static float scale = 10f;
 
     Gravity(Star[] stars) {
         Gravity.stars = stars;
@@ -35,8 +35,8 @@ class Gravity {
 
                 if (distance > star.r * 2 / 3 & distance > s.r * 2 / 3) {
                     //normal acceleration
-                    s.accelerationX += (0.6673f * star.mass / (distance * distance)) * (xDiff / distance) * scale;
-                    s.accelerationY += (0.6673f * star.mass / (distance * distance)) * (yDiff / distance) * scale;
+                    s.accelerationX += (6.673f * star.mass / (distance * distance)) * (xDiff / distance) * scale;
+                    s.accelerationY += (6.673f * star.mass / (distance * distance)) * (yDiff / distance) * scale;
                 }else{
                     //collide
                     //think carefully before you try to replace these codes with a buffer star
