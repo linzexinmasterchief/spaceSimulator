@@ -4,6 +4,7 @@ import Application.graphicUnit.GameStagePack.GameStage;
 import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui.CreateStarMenuSwitch;
 import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui.CreateStarMenu;
 import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.GameCanvas;
+import Application.status.KeyBoard;
 import Application.status.Mouse;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -76,6 +77,50 @@ public class GameScene extends Scene{
         universeStatusBar.join(ui);
 
         root.getChildren().add(ui);
+
+
+        setOnMouseMoved(me -> {
+            Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()});
+        });
+
+        setOnMouseDragged(me -> Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()}));
+
+        //listen the operations of mouse press
+        setOnMousePressed(me -> {
+            Mouse.setActivatedMouseButton(me.getButton());
+            Mouse.setMousePressed(true);
+            Mouse.setMousePressing(true);
+            Mouse.setMouseReleasing(false);
+            Mouse.setMouseScrolled(false);
+
+        });
+
+        //set operations on mouse release
+        //new and clear
+        setOnMouseReleased(me -> {
+            Mouse.setActivatedMouseButton(me.getButton());
+            Mouse.setMousePressed(false);
+            Mouse.setMousePressing(false);
+            Mouse.setMouseReleasing(true);
+            Mouse.setMouseScrolled(false);
+        });
+
+        //set operations on mouse scrolled
+        //enlarge and minimize
+        setOnScroll(se -> {
+            Mouse.setMouseScrollValue(se.getDeltaY());
+            Mouse.setActivatedMouseButton(MouseButton.MIDDLE);
+            Mouse.setMousePressed(false);
+            Mouse.setMousePressing(false);
+            Mouse.setMouseReleasing(false);
+            Mouse.setMouseScrolled(true);
+
+        });
+
+        setOnKeyPressed(ke -> {
+            KeyBoard.activeKey = ke.getCode();
+            KeyBoard.isKeyReleasing = true;
+        });
 
     }
 
