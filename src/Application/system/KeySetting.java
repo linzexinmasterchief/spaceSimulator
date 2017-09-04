@@ -14,7 +14,7 @@ public class KeySetting {
 
     public static KeyCode clearStar = KeyCode.C;
 
-    public static KeyCode togglePause = KeyCode.SPACE;
+    public static KeyCode togglePause = KeyCode.ESCAPE;
 
     public static KeyCode moveCamForward = KeyCode.W;
 

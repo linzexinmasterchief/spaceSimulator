@@ -4,10 +4,13 @@ import Application.logicUnit.World;
 import Application.logicUnit.worldComponents.worldSettings.Speed;
 import Application.graphicUnit.GameStagePack.mainStageComponents.GameScene;
 import Application.status.CanvasStatus;
+import Application.status.KeyBoard;
 import Application.status.Mouse;
 import Application.status.SystemStatus;
+import Application.system.KeySetting;
 import javafx.application.Platform;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import models.systemComponentModels.ThreadModel;
 
@@ -90,12 +93,42 @@ public class OperationThread extends ThreadModel {
         while (!isExit()) {
 
             try {
-                Thread.sleep(50);
+                Thread.sleep(15);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
+            if (KeyBoard.isKeyPressed){
+                if (KeyBoard.activeKey == KeySetting.moveCamForward){
+                    world.getCamera().setCenterY(world.getCamera().getCenterY() - 5 * world.getCamera().getScaleY());
+                }
+                if (KeyBoard.activeKey == KeySetting.moveCamBackward){
+                    world.getCamera().setCenterY(world.getCamera().getCenterY() + 5 * world.getCamera().getScaleY());
+                }
+                if (KeyBoard.activeKey == KeySetting.moveCamLeft){
+                    world.getCamera().setCenterX(world.getCamera().getCenterX() - 5 * world.getCamera().getScaleX());
+                }
+                if (KeyBoard.activeKey == KeySetting.moveCamRight){
+                    world.getCamera().setCenterX(world.getCamera().getCenterX() + 5 * world.getCamera().getScaleX());
+                }
+
+                world.getGraphicsThread().updateBias();
+            }
+
+            if (KeyBoard.isKeyReleasing){
+                if (KeyBoard.activeKey == KeySetting.clearStar){
+                    //execute clear command
+                    world.getPhysicsThread().clear();
+                }
+                if (KeyBoard.activeKey == KeySetting.togglePause){
+                    //change pause value if middle button pressed
+                    world.getPhysicsThread().setPause(!world.getPhysicsThread().isPause());
+                }
+                KeyBoard.isKeyReleasing = false;
+            }
+
             if (Mouse.isMousePressed()){
-                if (Mouse.getActivatedMouseButton() == MouseButton.PRIMARY){
+                if (Mouse.getActivatedMouseButton() == KeySetting.newStar){
                     world.getDragLine()[0] = Mouse.getMouse_coordinate()[0];
                     world.getDragLine()[1] = Mouse.getMouse_coordinate()[1];
                     world.getDragLine()[2] = Mouse.getMouse_coordinate()[0];
@@ -108,31 +141,19 @@ public class OperationThread extends ThreadModel {
 
             if (Mouse.isMousePressing()) {
                 Mouse.setMouseReleasing(false);
-                switch (Mouse.getActivatedMouseButton()) {
-                    case PRIMARY:
-                        world.getDragLine()[2] = Mouse.getMouse_coordinate()[0];
-                        world.getDragLine()[3] = Mouse.getMouse_coordinate()[1];
-                        break;
+                if (Mouse.getActivatedMouseButton() == KeySetting.newStar){
+                    world.getDragLine()[2] = Mouse.getMouse_coordinate()[0];
+                    world.getDragLine()[3] = Mouse.getMouse_coordinate()[1];
                 }
             }
 
             if (Mouse.isMouseReleasing()) {
                 Mouse.setMousePressing(false);
-                switch (Mouse.getActivatedMouseButton()) {
-                    case PRIMARY:
-                        addNewStar();
-                        world.clearDragLine();
-                        world.getGraphicsThread().updateFrame();
-                        break;
-                    case SECONDARY:
-                        //execute clear command
-                        world.getPhysicsThread().clear();
 
-                        break;
-                    case MIDDLE:
-                        //change pause value if middle button pressed
-                        world.getPhysicsThread().setPause(!world.getPhysicsThread().isPause());
-                        break;
+                if (Mouse.getActivatedMouseButton() == KeySetting.newStar){
+                    addNewStar();
+                    world.clearDragLine();
+                    world.getGraphicsThread().updateFrame();
                 }
                 Mouse.setMouseReleasing(false);
             }
@@ -191,7 +212,12 @@ public class OperationThread extends ThreadModel {
                 Mouse.setMouseScrolled(false);
             }
 
-            gameScene.getCreateStarMenu().setVisible(SystemStatus.isCreateStarMenuOut());
+            if(SystemStatus.isCreateStarMenuOut()){
+                gameScene.getCreateStarMenu().setX(5);
+            }else {
+                gameScene.getCreateStarMenu().setX(-150);
+            }
+//            gameScene.getCreateStarMenu().setVisible(SystemStatus.isCreateStarMenuOut());
 
             //toggle setting menu
             if (SystemStatus.isSettingStageOut()) {

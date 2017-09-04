@@ -15,7 +15,7 @@ class Gravity {
     private static float distance;
     private static float newMass;
 
-    private static float scale = 10f;
+    private static float scale = 100f;
 
     Gravity(Star[] stars) {
         Gravity.stars = stars;

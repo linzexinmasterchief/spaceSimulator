@@ -72,10 +72,6 @@ public class Camera implements PhysicsComponent{
         height = value;
     }
 
-    public float getCenterX() {
-        return centerX;
-    }
-
     @Override
     public void setX(float value) {
 
@@ -84,6 +80,10 @@ public class Camera implements PhysicsComponent{
     @Override
     public void setY(float value) {
 
+    }
+
+    public float getCenterX() {
+        return centerX;
     }
 
     public void setCenterX(float value) {
@@ -104,6 +104,14 @@ public class Camera implements PhysicsComponent{
 
     public float getOriginalHeight() {
         return originalHeight;
+    }
+
+    public float getScaleX(){
+        return getWidth() / getOriginalWidth();
+    }
+
+    public float getScaleY(){
+        return getHeight() / getOriginalHeight();
     }
 
 }

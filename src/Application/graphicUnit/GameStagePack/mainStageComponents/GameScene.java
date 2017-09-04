@@ -6,7 +6,9 @@ import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneCompon
 import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.GameCanvas;
 import Application.status.KeyBoard;
 import Application.status.Mouse;
+import Application.status.SystemStatus;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui.UniverseStatusBar;
 import javafx.scene.input.MouseButton;
@@ -83,47 +85,94 @@ public class GameScene extends Scene{
             Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()});
         });
 
-        setOnMouseDragged(me -> Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()}));
+        setOnMouseDragged(me -> {
+            Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()});
+            if (!isMouseInUIRange()) {
+                Mouse.setMouse_coordinate(
+                        new double[]{
+                                me.getX(), me.getY()
+                        }
+                );
+            }
+        });
 
         //listen the operations of mouse press
         setOnMousePressed(me -> {
-            Mouse.setActivatedMouseButton(me.getButton());
-            Mouse.setMousePressed(true);
-            Mouse.setMousePressing(true);
-            Mouse.setMouseReleasing(false);
-            Mouse.setMouseScrolled(false);
-
+            Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()});
+            if (!isMouseInUIRange()) {
+                Mouse.setActivatedMouseButton(me.getButton());
+                Mouse.setMousePressed(true);
+                Mouse.setMousePressing(true);
+                Mouse.setMouseReleasing(false);
+                Mouse.setMouseScrolled(false);
+            }
         });
 
         //set operations on mouse release
         //new and clear
         setOnMouseReleased(me -> {
-            Mouse.setActivatedMouseButton(me.getButton());
-            Mouse.setMousePressed(false);
-            Mouse.setMousePressing(false);
-            Mouse.setMouseReleasing(true);
-            Mouse.setMouseScrolled(false);
+            Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()});
+            if (!isMouseInUIRange()) {
+                Mouse.setActivatedMouseButton(me.getButton());
+                Mouse.setMousePressed(false);
+                Mouse.setMousePressing(false);
+                Mouse.setMouseReleasing(true);
+                Mouse.setMouseScrolled(false);
+            }else if(
+                    Mouse.getMouse_coordinate()[0] >= createStarMenuSwitch.getTranslateX()
+                    & Mouse.getMouse_coordinate()[0] <= createStarMenuSwitch.getTranslateX() + createStarMenuSwitch.getWidth()
+                    & Mouse.getMouse_coordinate()[1] >= createStarMenuSwitch.getTranslateY()
+                    & Mouse.getMouse_coordinate()[1] <= createStarMenuSwitch.getTranslateY() + createStarMenuSwitch.getHeight()
+                    ){
+                SystemStatus.setCreateStarMenuOut(true);
+            }
         });
 
         //set operations on mouse scrolled
         //enlarge and minimize
         setOnScroll(se -> {
-            Mouse.setMouseScrollValue(se.getDeltaY());
-            Mouse.setActivatedMouseButton(MouseButton.MIDDLE);
-            Mouse.setMousePressed(false);
-            Mouse.setMousePressing(false);
-            Mouse.setMouseReleasing(false);
-            Mouse.setMouseScrolled(true);
-
+            Mouse.setMouse_coordinate(new double[]{se.getX(),se.getY()});
+            if (!isMouseInUIRange()) {
+                Mouse.setMouseScrollValue(se.getDeltaY());
+                Mouse.setActivatedMouseButton(MouseButton.MIDDLE);
+                Mouse.setMousePressed(false);
+                Mouse.setMousePressing(false);
+                Mouse.setMouseReleasing(false);
+                Mouse.setMouseScrolled(true);
+            }
         });
 
         setOnKeyPressed(ke -> {
-            KeyBoard.activeKey = ke.getCode();
-            KeyBoard.isKeyReleasing = true;
+            if (!isMouseInUIRange()) {
+                KeyBoard.activeKey = ke.getCode();
+                KeyBoard.isKeyReleasing = true;
+                KeyBoard.isKeyPressed = true;
+            }
+        });
+
+        setOnKeyReleased(ke -> {
+            if (!isMouseInUIRange()) {
+                KeyBoard.activeKey = ke.getCode();
+                KeyBoard.isKeyPressed = false;
+            }
         });
 
     }
 
+    public boolean isMouseInUIRange(){
+        if (SystemStatus.isCreateStarMenuOut()){
+            if (Mouse.getMouse_coordinate()[0] <= 180){
+                return true;
+            }
+        }else {
+            if (Mouse.getMouse_coordinate()[0] <= 30 | Mouse.getMouse_coordinate()[1] >= SystemStatus.getScreenHeight() - 25){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //getter and setters
     public GameStage getGameStage() {
         return gameStage;
     }

@@ -4,6 +4,8 @@ import Application.graphicUnit.GameStagePack.mainStageComponents.GameScene;
 import Application.status.SystemStatus;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import models.uiComponentModels.UiBase;
+import models.uiComponentModels.UiComponent;
 import models.uiComponentModels.betterUI.BetterButton;
 import models.uiComponentModels.betterUI.BetterSlider;
 
@@ -11,8 +13,7 @@ import models.uiComponentModels.betterUI.BetterSlider;
  * Created by lzx on 2017/7/15.
  * menu used to create stars
  */
-public class CreateStarMenu {
-
+public class CreateStarMenu implements UiComponent{
     //menu components
     private final BetterButton settingBtn;
     private final BetterSlider massSlider;
@@ -66,6 +67,40 @@ public class CreateStarMenu {
 
     public BetterSlider getRadiusSlider(){
         return radiusSlider;
+    }
+
+    @Override
+    public void setX(double value) {
+        settingBtn.setTranslateX(value);
+        massSlider.setTranslateX(value);
+        radiusSlider.setTranslateX(value);
+    }
+
+    @Override
+    public void setY(double value) {
+
+    }
+
+    @Override
+    public void setCenterX(double value) {
+        settingBtn.setTranslateX(value);
+        massSlider.setTranslateX(value);
+        radiusSlider.setTranslateX(value);
+    }
+
+    @Override
+    public void setCenterY(double value) {
+
+    }
+
+    @Override
+    public void setWidth(double value) {
+
+    }
+
+    @Override
+    public void setHeight(double value) {
+
     }
 
 }
