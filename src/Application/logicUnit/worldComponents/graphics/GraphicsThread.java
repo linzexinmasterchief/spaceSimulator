@@ -15,8 +15,6 @@ import models.systemComponentModels.ThreadModel;
 public class GraphicsThread extends ThreadModel {
 
     private GameStage gameStage;
-    private GameCanvas gameCanvas;
-    private GameCanvas offScreen;
 
     //the scale between graphics and physics
     //original is 1:1
@@ -29,7 +27,10 @@ public class GraphicsThread extends ThreadModel {
     private int biasX = 0;
     private int biasY = 0;
 
-    int r, g, b = 0;
+    private int r, g, b = 0;
+
+    //determine if the current screen is screenAlpha
+    private boolean flag;
 
     public GraphicsThread(World root_world){
         super(root_world);
@@ -39,16 +40,14 @@ public class GraphicsThread extends ThreadModel {
     public void initialize(){
         //override default initialize block
         gameStage = world.getLauncher().getGameStage();
-        gameCanvas = gameStage.getGameScene().getGameCanvas();
-//        offScreen = new GameCanvas(gameCanvas.getWidth(),gameCanvas.getHeight(), (GameScene) gameCanvas.getScene());
-
-        offScreen = gameStage.getGameScene().getGameCanvas();
 
         //initialize program properties
         setExit(false);
         setPause(false);
 
         updateBias();
+
+        flag = true;
 
     }
 
@@ -57,16 +56,16 @@ public class GraphicsThread extends ThreadModel {
 
         Platform.runLater(() -> {
             //fill the back ground with black color
-            offScreen.getGraphicsContext2D().setFill(Color.BLACK);
-            offScreen.getGraphicsContext2D().fillRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
+            getCanvas(flag).getGraphicsContext2D().setFill(Color.BLACK);
+            getCanvas(flag).getGraphicsContext2D().fillRect(0, 0, getCanvas(flag).getWidth(), getCanvas(flag).getHeight());
 
         });
 
         Platform.runLater(() -> {
             //draw drag line
-            offScreen.getGraphicsContext2D().setStroke(Color.RED);
-            offScreen.getGraphicsContext2D().setLineWidth(1);
-            offScreen.getGraphicsContext2D().strokeLine(
+            getCanvas(flag).getGraphicsContext2D().setStroke(Color.RED);
+            getCanvas(flag).getGraphicsContext2D().setLineWidth(1);
+            getCanvas(flag).getGraphicsContext2D().strokeLine(
                     world.getDragLine()[0],
                     world.getDragLine()[1],
                     world.getDragLine()[2],
@@ -103,16 +102,21 @@ public class GraphicsThread extends ThreadModel {
                             b = (int) star.mass;
                         }
                     }
-                    offScreen.getGraphicsContext2D().setFill(Color.rgb(r, g, b));
+                    getCanvas(flag).getGraphicsContext2D().setFill(Color.rgb(r, g, b));
                 });
 
                 drawStar(star);
 
             }
         }
-
-        gameStage.getGameScene().gameCanvas = offScreen;
-//        offScreen = gameStage.getGameScene().getGameCanvas();
+//
+//        Platform.runLater(() -> {
+//            gameStage.getGameSceneComponents().getChildren().remove(getCanvas(flag));
+//            gameStage.getGameSceneComponents().getChildren().remove(gameStage.getGameScene().getUi());
+//            flag = !flag;
+//            gameStage.getGameSceneComponents().getChildren().add(getCanvas(flag));
+//            gameStage.getGameSceneComponents().getChildren().add(gameStage.getGameScene().getUi());
+//        });
 
     }
 
@@ -121,7 +125,7 @@ public class GraphicsThread extends ThreadModel {
             //calculate the actual display size according to the scale
             starDisplayWidth = (int) ((star.r * 2) / scaleX) + 1;
             starDisplayHeight = (int) ((star.r * 2) / scaleY) + 1;
-            offScreen.getGraphicsContext2D().fillOval(
+            getCanvas(flag).getGraphicsContext2D().fillOval(
 
                     //a little math here, should be reliable after 6 changes
                     //also, this is related to the math above when the user
@@ -144,6 +148,14 @@ public class GraphicsThread extends ThreadModel {
         biasY = (int) ((world.getCamera().getCenterY() - (world.getUniverse().getHeight() / 2))
                 + ((world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2));
 
+    }
+
+    private GameCanvas getCanvas(boolean flag){
+        if (flag){
+            return gameStage.getGameScene().screenAlpha;
+        }else{
+            return gameStage.getGameScene().screenBeta;
+        }
     }
 
     //getters and setters

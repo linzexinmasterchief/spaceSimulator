@@ -4,6 +4,7 @@ import javafx.scene.input.MouseButton;
 
 /**
  * Created by lzx on 2017/8/11.
+ * 
  */
 public class Mouse {
     //mouse coordinate

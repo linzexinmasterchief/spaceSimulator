@@ -4,10 +4,17 @@ import Application.graphicUnit.GameStagePack.GameStage;
 import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui.CreateStarMenuSwitch;
 import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui.CreateStarMenu;
 import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.GameCanvas;
+import Application.status.Mouse;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui.UniverseStatusBar;
+import javafx.scene.input.MouseButton;
 import models.uiComponentModels.betterUI.BetterSlider;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 public class GameScene extends Scene{
 
@@ -15,7 +22,11 @@ public class GameScene extends Scene{
     private GameStage gameStage;
 
     //give access to the canvas
-    public GameCanvas gameCanvas;
+    public GameCanvas screenAlpha;
+
+    public GameCanvas screenBeta;
+
+    private Group ui;
 
     private UniverseStatusBar universeStatusBar;
 
@@ -33,9 +44,10 @@ public class GameScene extends Scene{
 
         //initialize the canvas
         //size
-        gameCanvas = new GameCanvas(getWidth(), getHeight(), this);
+        screenAlpha = new GameCanvas(getWidth(), getHeight(), this);
+        screenBeta = new GameCanvas(getWidth(), getHeight(), this);
         //putIn game canvas
-        root.getChildren().add(gameCanvas);
+        root.getChildren().add(screenAlpha);
 
         //listener for activating the console
 //        setOnKeyTyped(ke -> {
@@ -45,14 +57,15 @@ public class GameScene extends Scene{
 //            }
 //        });
 
+        ui = new Group();
         //putIn a menu
-        createStarMenu = new CreateStarMenu(this, root);
+        createStarMenu = new CreateStarMenu(this, ui);
 
         //putIn a menuButton
         createStarMenuSwitch = new CreateStarMenuSwitch("+",this);
         createStarMenuSwitch.setTranslateX(5);
         createStarMenuSwitch.setTranslateY(5);
-        root.getChildren().add(createStarMenuSwitch);
+        ui.getChildren().add(createStarMenuSwitch);
 
         //putIn bottom PhysicsStatus bar
         universeStatusBar = new UniverseStatusBar(this);
@@ -60,7 +73,9 @@ public class GameScene extends Scene{
         universeStatusBar.setHeight(25);
         universeStatusBar.setX(0);
         universeStatusBar.setY(getHeight() - universeStatusBar.getHeight());
-        universeStatusBar.join(root);
+        universeStatusBar.join(ui);
+
+        root.getChildren().add(ui);
 
     }
 
@@ -68,8 +83,8 @@ public class GameScene extends Scene{
         return gameStage;
     }
 
-    public GameCanvas getGameCanvas() {
-        return gameCanvas;
+    public GameCanvas getScreenAlpha() {
+        return screenAlpha;
     }
 
     public UniverseStatusBar getStatusBar(){
@@ -86,6 +101,10 @@ public class GameScene extends Scene{
 
     public BetterSlider getRadiusSlider(){
         return createStarMenu.getRadiusSlider();
+    }
+
+    public Group getUi() {
+        return ui;
     }
 
 }
