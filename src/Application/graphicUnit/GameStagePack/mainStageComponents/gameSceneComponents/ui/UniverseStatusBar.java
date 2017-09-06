@@ -1,9 +1,12 @@
 package Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.ui;
 
 import Application.graphicUnit.GameStagePack.mainStageComponents.GameScene;
+import Application.status.SystemStatus;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import models.uiComponentModels.UiBase;
+import models.uiComponentModels.UiComponent;
 import models.uiComponentModels.betterUI.BetterButton;
 import models.uiComponentModels.betterUI.BetterSlider;
 
@@ -11,9 +14,7 @@ import models.uiComponentModels.betterUI.BetterSlider;
  * Created by lzx on 2017/7/14.
  * status bar in universe
  */
-public class UniverseStatusBar {
-
-    private final GameScene gameScene;
+public class UniverseStatusBar extends UiBase {
 
     private double width;
     private double height;
@@ -25,20 +26,15 @@ public class UniverseStatusBar {
     private BetterButton starAmountStatus;
     private BetterSlider timeSpeedAdjuster;
 
-    public UniverseStatusBar(GameScene scene) {
+    public UniverseStatusBar() {
 
         //initialize game scene reference
-        gameScene = scene;
-        width = 0;
-        height = 0;
+        width = SystemStatus.getScreenwidth();
+        height = 25;
         x = 0;
-        y = 0;
+        y = SystemStatus.getScreenHeight() - height;
 
         starAmount = 0;
-
-    }
-
-    public void join(Group group){
 
         //putIn buttons in it
         starAmountStatus = new BetterButton("star amount :" + starAmount);
@@ -48,7 +44,7 @@ public class UniverseStatusBar {
         starAmountStatus.setButtonHeight(height);
         starAmountStatus.setVisible(true);
         starAmountStatus.setFont(Font.font(10));
-        group.getChildren().add(starAmountStatus);
+        getChildren().add(starAmountStatus);
 
         //putIn time speed slider
         timeSpeedAdjuster = new BetterSlider("timeSpeed", Color.grayRgb(50), -10, 10);
@@ -60,41 +56,8 @@ public class UniverseStatusBar {
         timeSpeedAdjuster.setFont(Font.font(10));
         timeSpeedAdjuster.setValue(1);
         timeSpeedAdjuster.refresh();
-        group.getChildren().add(timeSpeedAdjuster);
+        getChildren().add(timeSpeedAdjuster);
 
-    }
-
-    //setters and getters
-    public void setX(double value){
-        x = value;
-    }
-
-    public double getX(){
-        return x;
-    }
-
-    public void setY(double value){
-        y = value;
-    }
-
-    public double getY(){
-        return y;
-    }
-
-    public void setHeight(double value){
-        height = value;
-    }
-
-    public double getHeight(){
-        return height;
-    }
-
-    public void setWidth(double value){
-        width = value;
-    }
-
-    public double getWidth(){
-        return width;
     }
 
     public void update(){

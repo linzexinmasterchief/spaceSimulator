@@ -20,7 +20,6 @@ public class CircularButton extends Button{
         setOnMouseEntered(me -> setBackground(new Background(new BackgroundFill(Color.GRAY, new CornerRadii(20), null))));
 
         setOnMouseExited(me -> setBackground(new Background(new BackgroundFill(Color.DARKGRAY, new CornerRadii(20), null))));
-
     }
 
 }

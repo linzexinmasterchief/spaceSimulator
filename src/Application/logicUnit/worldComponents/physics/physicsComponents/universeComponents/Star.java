@@ -115,12 +115,12 @@ public class Star implements PhysicsComponent{
 
     @Override
     public void setX(float value) {
-
+        centerX = value - (width / 2);
     }
 
     @Override
     public void setY(float value) {
-
+        centerY = value - (height / 2);
     }
 
     @Override

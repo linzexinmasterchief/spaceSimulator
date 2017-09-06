@@ -1,9 +1,12 @@
 package models.uiComponentModels;
 
+import javafx.scene.Group;
+
 /**
  * Created by lzx on 2017/9/1.
+ * used as a base class for ui components
  */
-public class UiBase implements UiComponent {
+public class UiBase extends Group implements UiComponent {
 
     //x and y is the coordinate of the top left corner
     double x = 0;

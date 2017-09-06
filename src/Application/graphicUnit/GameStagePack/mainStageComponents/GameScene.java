@@ -62,24 +62,33 @@ public class GameScene extends Scene{
 
         ui = new Group();
         //putIn a menu
-        createStarMenu = new CreateStarMenu(this, ui);
+        createStarMenu = new CreateStarMenu();
+        ui.getChildren().add(createStarMenu);
 
         //putIn a menuButton
         createStarMenuSwitch = new CreateStarMenuSwitch("+",this);
         createStarMenuSwitch.setTranslateX(5);
         createStarMenuSwitch.setTranslateY(5);
+        createStarMenuSwitch.setOnAction(ae -> {
+            SystemStatus.setCreateStarMenuOut(!SystemStatus.isCreateStarMenuOut());
+
+            if(SystemStatus.isCreateStarMenuOut()){
+                getCreateStarMenu().setX(5);
+            }else {
+                getCreateStarMenu().setX(-150);
+            }
+        });
         ui.getChildren().add(createStarMenuSwitch);
 
         //putIn bottom PhysicsStatus bar
-        universeStatusBar = new UniverseStatusBar(this);
+        universeStatusBar = new UniverseStatusBar();
         universeStatusBar.setWidth(getWidth());
         universeStatusBar.setHeight(25);
         universeStatusBar.setX(0);
         universeStatusBar.setY(getHeight() - universeStatusBar.getHeight());
-        universeStatusBar.join(ui);
+        ui.getChildren().add(universeStatusBar);
 
         root.getChildren().add(ui);
-
 
         setOnMouseMoved(me -> {
             Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()});
@@ -87,89 +96,61 @@ public class GameScene extends Scene{
 
         setOnMouseDragged(me -> {
             Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()});
-            if (!isMouseInUIRange()) {
-                Mouse.setMouse_coordinate(
-                        new double[]{
-                                me.getX(), me.getY()
-                        }
-                );
-            }
+            Mouse.setMouse_coordinate(
+                    new double[]{
+                            me.getX(), me.getY()
+                    }
+            );
+
         });
 
         //listen the operations of mouse press
         setOnMousePressed(me -> {
             Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()});
-            if (!isMouseInUIRange()) {
-                Mouse.setActivatedMouseButton(me.getButton());
-                Mouse.setMousePressed(true);
-                Mouse.setMousePressing(true);
-                Mouse.setMouseReleasing(false);
-                Mouse.setMouseScrolled(false);
-            }
+            Mouse.setActivatedMouseButton(me.getButton());
+            Mouse.setMousePressed(true);
+            Mouse.setMousePressing(true);
+            Mouse.setMouseReleasing(false);
+            Mouse.setMouseScrolled(false);
+
         });
 
         //set operations on mouse release
         //new and clear
         setOnMouseReleased(me -> {
             Mouse.setMouse_coordinate(new double[]{me.getX(),me.getY()});
-            if (!isMouseInUIRange()) {
-                Mouse.setActivatedMouseButton(me.getButton());
-                Mouse.setMousePressed(false);
-                Mouse.setMousePressing(false);
-                Mouse.setMouseReleasing(true);
-                Mouse.setMouseScrolled(false);
-            }else if(
-                    Mouse.getMouse_coordinate()[0] >= createStarMenuSwitch.getTranslateX()
-                    & Mouse.getMouse_coordinate()[0] <= createStarMenuSwitch.getTranslateX() + createStarMenuSwitch.getWidth()
-                    & Mouse.getMouse_coordinate()[1] >= createStarMenuSwitch.getTranslateY()
-                    & Mouse.getMouse_coordinate()[1] <= createStarMenuSwitch.getTranslateY() + createStarMenuSwitch.getHeight()
-                    ){
-                SystemStatus.setCreateStarMenuOut(true);
-            }
+            Mouse.setActivatedMouseButton(me.getButton());
+            Mouse.setMousePressed(false);
+            Mouse.setMousePressing(false);
+            Mouse.setMouseReleasing(true);
+            Mouse.setMouseScrolled(false);
         });
 
         //set operations on mouse scrolled
         //enlarge and minimize
         setOnScroll(se -> {
             Mouse.setMouse_coordinate(new double[]{se.getX(),se.getY()});
-            if (!isMouseInUIRange()) {
-                Mouse.setMouseScrollValue(se.getDeltaY());
-                Mouse.setActivatedMouseButton(MouseButton.MIDDLE);
-                Mouse.setMousePressed(false);
-                Mouse.setMousePressing(false);
-                Mouse.setMouseReleasing(false);
-                Mouse.setMouseScrolled(true);
-            }
+            Mouse.setMouseScrollValue(se.getDeltaY());
+            Mouse.setActivatedMouseButton(MouseButton.MIDDLE);
+            Mouse.setMousePressed(false);
+            Mouse.setMousePressing(false);
+            Mouse.setMouseReleasing(false);
+            Mouse.setMouseScrolled(true);
         });
 
         setOnKeyPressed(ke -> {
-            if (!isMouseInUIRange()) {
-                KeyBoard.activeKey = ke.getCode();
-                KeyBoard.isKeyReleasing = true;
-                KeyBoard.isKeyPressed = true;
-            }
+            KeyBoard.activeKey = ke.getCode();
+            KeyBoard.isKeyReleasing = true;
+            KeyBoard.isKeyPressed = true;
+
         });
 
         setOnKeyReleased(ke -> {
-            if (!isMouseInUIRange()) {
-                KeyBoard.activeKey = ke.getCode();
-                KeyBoard.isKeyPressed = false;
-            }
+            KeyBoard.activeKey = ke.getCode();
+            KeyBoard.isKeyPressed = false;
+
         });
 
-    }
-
-    public boolean isMouseInUIRange(){
-        if (SystemStatus.isCreateStarMenuOut()){
-            if (Mouse.getMouse_coordinate()[0] <= 180){
-                return true;
-            }
-        }else {
-            if (Mouse.getMouse_coordinate()[0] <= 30 | Mouse.getMouse_coordinate()[1] >= SystemStatus.getScreenHeight() - 25){
-                return true;
-            }
-        }
-        return false;
     }
 
     //getter and setters

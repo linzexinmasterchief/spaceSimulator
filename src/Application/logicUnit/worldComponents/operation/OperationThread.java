@@ -212,11 +212,6 @@ public class OperationThread extends ThreadModel {
                 Mouse.setMouseScrolled(false);
             }
 
-            if(SystemStatus.isCreateStarMenuOut()){
-                gameScene.getCreateStarMenu().setX(5);
-            }else {
-                gameScene.getCreateStarMenu().setX(-150);
-            }
 //            gameScene.getCreateStarMenu().setVisible(SystemStatus.isCreateStarMenuOut());
 
             //toggle setting menu

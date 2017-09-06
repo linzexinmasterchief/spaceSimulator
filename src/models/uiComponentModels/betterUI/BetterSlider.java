@@ -80,7 +80,7 @@ public class BetterSlider extends Button {
     //initialize block
     private void initialize(){
 
-        setVisible(false);
+        setVisible(true);
         setTextFill(Color.WHITE);
 
         value = 0;

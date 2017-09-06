@@ -13,47 +13,41 @@ import models.uiComponentModels.betterUI.BetterSlider;
  * Created by lzx on 2017/7/15.
  * menu used to create stars
  */
-public class CreateStarMenu implements UiComponent{
+public class CreateStarMenu extends UiBase{
     //menu components
     private final BetterButton settingBtn;
     private final BetterSlider massSlider;
     private final BetterSlider radiusSlider;
 
-    public CreateStarMenu(GameScene scene, Group group){
+    public CreateStarMenu(){
 
         settingBtn = new BetterButton("setting");
         settingBtn.setTranslateY(5);
-        settingBtn.setTranslateX(5);
+        settingBtn.setTranslateX(-150);
         settingBtn.setButtonHeight(25);
         settingBtn.setButtonWidth(150);
         settingBtn.setOnAction(ae -> {
             SystemStatus.setSettingStageOut(!SystemStatus.isSettingStageOut());
         });
-        group.getChildren().add(settingBtn);
+        getChildren().add(settingBtn);
 
         massSlider = new BetterSlider("mass", Color.grayRgb(33), 0, 150);
-        massSlider.setTranslateX(5);
+        massSlider.setTranslateX(-150);
         massSlider.setTranslateY(35);
         massSlider.setSliderWidth(150);
         massSlider.setSliderHeight(25);
         massSlider.setValue(10);
         massSlider.refresh();
-        group.getChildren().add(massSlider);
+        getChildren().add(massSlider);
 
         radiusSlider = new BetterSlider("radius", Color.grayRgb(33), 0, 300);
-        radiusSlider.setTranslateX(5);
+        radiusSlider.setTranslateX(-150);
         radiusSlider.setTranslateY(65);
         radiusSlider.setSliderWidth(150);
         radiusSlider.setSliderHeight(25);
         radiusSlider.setValue(5);
         radiusSlider.refresh();
-        group.getChildren().add(radiusSlider);
-    }
-
-    public void setVisible(boolean visibility){
-        settingBtn.setVisible(visibility);
-        massSlider.setVisible(visibility);
-        radiusSlider.setVisible(visibility);
+        getChildren().add(radiusSlider);
     }
 
 //getters

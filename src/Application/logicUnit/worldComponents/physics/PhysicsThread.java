@@ -23,7 +23,7 @@ public class PhysicsThread extends ThreadModel {
     @Override
     public void initialize(){
         //override default initialize block
-        Gravity.synchronize(world.getUniverse());
+//        Gravity.synchronize(world.getUniverse());
         cloneStarList = world.getUniverse().getStars();
 
     }
@@ -57,8 +57,8 @@ public class PhysicsThread extends ThreadModel {
 
                     Platform.runLater(() -> {
                         //use multi-thread to calculate the acceleration of star
-                        Gravity.synchronize(universe);
-                        Gravity.step(star);
+//                        Gravity.synchronize(universe);
+                        Gravity.step(cloneStarList ,star);
                     });
 
                 }
@@ -83,6 +83,8 @@ public class PhysicsThread extends ThreadModel {
                     world.getUniverse().setStarAmount(world.getUniverse().getStarAmount() + 1);
                 }
             }
+
+
         }
 
         world.getUniverse().setStars(cloneStarList);

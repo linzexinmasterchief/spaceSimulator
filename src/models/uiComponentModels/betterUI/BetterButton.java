@@ -15,7 +15,7 @@ public class BetterButton extends Button {
     public BetterButton(String Text){
         setText(Text);
         setTextFill(Color.WHITE);
-        setVisible(false);
+        setVisible(true);
         setBackground(new Background(new BackgroundFill(Color.grayRgb(33),new CornerRadii(0),null)));
 
         setOnMouseEntered(me -> setBackground(new Background(new BackgroundFill(Color.grayRgb(24), new CornerRadii(0), null))));

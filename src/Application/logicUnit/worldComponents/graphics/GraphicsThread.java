@@ -111,10 +111,7 @@ public class GraphicsThread extends ThreadModel {
         }
 
         Platform.runLater(() -> {
-            gameStage.getGameSceneComponents().getChildren().remove(getCanvas(flag));
-            gameStage.getGameSceneComponents().getChildren().remove(gameStage.getGameScene().getUi());
-            gameStage.getGameSceneComponents().getChildren().add(getCanvas(flag));
-            gameStage.getGameSceneComponents().getChildren().add(gameStage.getGameScene().getUi());
+            gameStage.getGameSceneComponents().getChildren().set(0, getCanvas(flag));
             flag = !flag;
         });
 
