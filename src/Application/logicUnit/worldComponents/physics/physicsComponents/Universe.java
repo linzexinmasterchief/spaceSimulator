@@ -1,6 +1,7 @@
 package Application.logicUnit.worldComponents.physics.physicsComponents;
 
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
+import Application.status.SystemStatus;
 
 /**
  * Created by lzx on 2017/5/26.
@@ -38,6 +39,8 @@ public class Universe {
         //this is very important and necessary, do not delete it
         for (int i = 0; i < stars.length; i++) {
             stars[i] = new Star();
+            stars[i].centerX = SystemStatus.getScreenwidth() / 2;
+            stars[i].centerX = SystemStatus.getScreenHeight() / 2;
         }
 
         //initialize star amount;
@@ -68,31 +71,6 @@ public class Universe {
     public void setStars(Star[] stars) {
         this.stars = stars;
     }
-
-//    public void reFitStarListSize(){
-//
-//        if (Math.abs(getStars().length - getStarAmount()) > 5){
-//            return;
-//        }
-//
-//        //create resized star list
-//        Star[] newStarList = new Star[((getStarAmount() / 10) + 1) * 10];
-//
-//        //initialize new star list
-//        for (int i = 0;i < newStarList.length;i ++){
-//            newStarList[i] = new Star();
-//        }
-//
-//        //copy original list to new list
-//        for (int i = 0;i < getStarAmount();i ++){
-//            if (getStars()[i].inUniverse){
-//                newStarList[i] = getStars()[i];
-//            }
-//        }
-//
-//        //set new star list as current star list
-//        setStars(newStarList);
-//    }
 
     public int getStarAmount() {
         return starAmount;

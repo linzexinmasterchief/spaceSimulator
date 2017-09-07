@@ -55,7 +55,6 @@ public class Launcher extends Application {
         engineStatus = new EngineStatus();
         //initialize canvas status
         canvasStatus = new CanvasStatus();
-
         //initialize system worldSettings
         systemSetting = new SystemSetting();
 
@@ -88,36 +87,8 @@ public class Launcher extends Application {
         return settingStage;
     }
 
-    public SystemSetting getSystemSetting() {
-        return systemSetting;
-    }
-
-    public void setSystemSetting(SystemSetting systemSetting) {
-        this.systemSetting = systemSetting;
-    }
-
-    public EngineStatus getEngineStatus() {
-        return engineStatus;
-    }
-
-    public void setEngineStatus(EngineStatus engineStatus) {
-        this.engineStatus = engineStatus;
-    }
-
     public CanvasStatus getCanvasStatus() {
         return canvasStatus;
-    }
-
-    public void setCanvasStatus(CanvasStatus canvasStatus) {
-        this.canvasStatus = canvasStatus;
-    }
-
-    public Rectangle2D getScreenSize() {
-        return screenSize;
-    }
-
-    public void setScreenSize(Rectangle2D screenSize) {
-        this.screenSize = screenSize;
     }
 
 }

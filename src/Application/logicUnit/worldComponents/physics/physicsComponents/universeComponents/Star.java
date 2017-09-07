@@ -58,8 +58,6 @@ public class Star implements PhysicsComponent{
         vectorX = star.vectorX;
         vectorY = star.vectorY;
 
-
-        onScreen = star.onScreen;
         inUniverse = star.inUniverse;
         centerX = star.centerX;
         centerY = star.centerY;
@@ -72,7 +70,6 @@ public class Star implements PhysicsComponent{
         velocityX = velocityY = 0;
         accelerationX = accelerationY = 0;
         vectorX = vectorY = 0;
-        onScreen = false;
         inUniverse = false;
         centerX = 0;
         centerY = 0;
@@ -95,12 +92,12 @@ public class Star implements PhysicsComponent{
     public void move(float time) {
 
         //calculate the speed of the star
-        velocityX = velocityX + accelerationX * time;
-        velocityY = velocityY + accelerationY * time;
+        velocityX = velocityX + accelerationX * 0.1f * time;
+        velocityY = velocityY + accelerationY * 0.1f * time;
 
         //calculate vector
-        vectorX = velocityX * time;
-        vectorY = velocityY * time;
+        vectorX = velocityX * 0.1f * time;
+        vectorY = velocityY * 0.1f * time;
 
         //calculate the position of the star
         setPosition(centerX + vectorX, centerY + vectorY);
@@ -109,8 +106,6 @@ public class Star implements PhysicsComponent{
     //like it's name
     public void remove() {
         initialize();
-        r = 0;
-        mass = 0;
     }
 
     @Override

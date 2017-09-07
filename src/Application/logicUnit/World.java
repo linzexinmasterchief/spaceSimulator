@@ -7,6 +7,7 @@ import Application.Launcher;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Camera;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
 import Application.logicUnit.worldComponents.physics.physicsComponents.Universe;
+import Application.status.Mouse;
 import Application.status.SystemStatus;
 
 import java.awt.*;
@@ -44,10 +45,12 @@ public class World {
     //function used to initialize all the stars to their default value
     private void initialize() {
         //initialize the universe
-        universe = new Universe(100000, 100000);
+        universe = new Universe(10000, 10000);
 
         //initialize the buffer star
         bufferStar = new Star();
+        bufferStar.centerX = SystemStatus.getScreenwidth() / 2;
+        bufferStar.centerX = SystemStatus.getScreenHeight() / 2;
 
         //initialize the camera
         camera = new Camera(
@@ -58,6 +61,11 @@ public class World {
         );
 
         dragLine = new double[4];
+
+        dragLine[0] = universe.getWidth() / 2;
+        dragLine[1] = universe.getHeight() / 2;
+        dragLine[2] = universe.getWidth() / 2;
+        dragLine[3] = universe.getHeight() / 2;
 
         //>>>>>>>>>>>>>>>>>>|[THREADS]|<<<<<<<<<<<<<<<<<<<<
         //physics module
@@ -80,10 +88,10 @@ public class World {
 
     //clear drag line
     public void clearDragLine(){
-        dragLine[0] = 0;
-        dragLine[1] = 0;
-        dragLine[2] = 0;
-        dragLine[3] = 0;
+        dragLine[0] = universe.getWidth() / 2;
+        dragLine[1] = universe.getHeight() / 2;
+        dragLine[2] = universe.getWidth() / 2;
+        dragLine[3] = universe.getHeight() / 2;
     }
 
     //getter and setters

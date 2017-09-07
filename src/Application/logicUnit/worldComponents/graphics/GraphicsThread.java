@@ -4,6 +4,7 @@ import Application.graphicUnit.GameStagePack.GameStage;
 import Application.graphicUnit.GameStagePack.mainStageComponents.gameSceneComponents.GameCanvas;
 import Application.logicUnit.World;
 import Application.logicUnit.worldComponents.physics.physicsComponents.universeComponents.Star;
+import Application.status.SystemStatus;
 import javafx.application.Platform;
 import javafx.scene.paint.Color;
 import models.systemComponentModels.ThreadModel;
@@ -24,10 +25,10 @@ public class GraphicsThread extends ThreadModel {
     private int starDisplayWidth = 1;
     private int starDisplayHeight = 1;
 
-    private int biasX = 0;
-    private int biasY = 0;
+    private float biasX = 0;
+    private float biasY = 0;
 
-    private int r, g, b = 0;
+    private Color[] colors = {Color.RED};
 
     //determine if the current screen is screenAlpha
     private boolean flag;
@@ -53,15 +54,11 @@ public class GraphicsThread extends ThreadModel {
 
     //screen painting function
     public void updateFrame() {
-
         Platform.runLater(() -> {
             //fill the back ground with black color
             getCanvas(flag).getGraphicsContext2D().setFill(Color.BLACK);
             getCanvas(flag).getGraphicsContext2D().fillRect(0, 0, getCanvas(flag).getWidth(), getCanvas(flag).getHeight());
 
-        });
-
-        Platform.runLater(() -> {
             //draw drag line
             getCanvas(flag).getGraphicsContext2D().setStroke(Color.RED);
             getCanvas(flag).getGraphicsContext2D().setLineWidth(1);
@@ -71,46 +68,16 @@ public class GraphicsThread extends ThreadModel {
                     world.getDragLine()[2],
                     world.getDragLine()[3]
             );
-        });
 
-
-        //iterate the star list to draw all the exist stars in the universe
-        for (Star star : world.getUniverse().getStars()) {
-
-            //only display the star if it is on screen
-            //in the camera range
-            if (star.onScreen) {
-
-                Platform.runLater(() -> {
-                    //change the color of pen according to the mass of the star to paint the stars
-                    if (star.mass > 500){
-                        r = 0;
-                        g = 0;
-                        b = 255;
-                    }else if (star.mass < 0){
-                        r = 255;
-                        g = 0;
-                        b = 0;
-                    }else {
-                        if (star.mass > 255){
-                            r = (int) (500 - star.mass);
-                            g = (int) (500 - star.mass);
-                            b = 255;
-                        }else {
-                            r = 255;
-                            g = (int) star.mass;
-                            b = (int) star.mass;
-                        }
-                    }
-                    getCanvas(flag).getGraphicsContext2D().setFill(Color.rgb(r, g, b));
-                });
-
-                drawStar(star);
-
+            //iterate the star list to draw all the exist stars in the universe
+            for (Star star : world.getUniverse().getStars()) {
+                //only display the star if it is on screen
+                //in the camera range
+                if (isStarOnScreen(star)) {
+                    drawStar(star);
+                }
             }
-        }
 
-        Platform.runLater(() -> {
             gameStage.getGameSceneComponents().getChildren().set(0, getCanvas(flag));
             flag = !flag;
         });
@@ -118,31 +85,39 @@ public class GraphicsThread extends ThreadModel {
     }
 
     public void drawStar(Star star){
-        Platform.runLater(() -> {
-            //calculate the actual display size according to the scale
-            starDisplayWidth = (int) ((star.r * 2) / scaleX) + 1;
-            starDisplayHeight = (int) ((star.r * 2) / scaleY) + 1;
-            getCanvas(flag).getGraphicsContext2D().fillOval(
+        //calculate the actual display size according to the scale
+        starDisplayWidth = (int) ((star.r * 2) / scaleX) + 1;
+        starDisplayHeight = (int) ((star.r * 2) / scaleY) + 1;
+        getCanvas(flag).getGraphicsContext2D().strokeOval(
 
-                    //a little math here, should be reliable after 6 changes
-                    //also, this is related to the math above when the user
-                    //new a star, they are reverse functions to each other
+                //a little math here, should be reliable after 6 changes
+                //also, this is related to the math above when the user
+                //new a star, they are reverse functions to each other
 
-                    //this is convert the universe coordinates to display coordinates
-                    ((star.centerX - biasX) / scaleX) - (starDisplayWidth / 2),
-                    ((star.centerY - biasY) / scaleY) - (starDisplayHeight / 2),
-                    starDisplayWidth,
-                    starDisplayHeight
-            );
-        });
+                //this is convert the universe coordinates to display coordinates
+                ((star.centerX - biasX) / scaleX) - (starDisplayWidth / 2),
+                ((star.centerY - biasY) / scaleY) - (starDisplayHeight / 2),
+                starDisplayWidth,
+                starDisplayHeight
+        );
+    }
+
+    public boolean isStarOnScreen(Star star) {
+        return ! (
+                //conditions for out of bound
+                ((star.centerX - biasX) / scaleX) - (starDisplayWidth / 2) < 0 - starDisplayWidth
+                || ((star.centerX - biasX) / scaleX) - (starDisplayWidth / 2) > SystemStatus.getScreenwidth() + starDisplayWidth
+                || ((star.centerY - biasY) / scaleY) - (starDisplayHeight / 2) < 0 - starDisplayWidth
+                || ((star.centerY - biasY) / scaleY) - (starDisplayHeight / 2) > SystemStatus.getScreenHeight() + starDisplayWidth
+        );
     }
 
     public void updateBias(){
 
-        biasX = (int) ((world.getCamera().getCenterX() - (world.getUniverse().getWidth() / 2))
+        biasX = ((world.getCamera().getCenterX() - (world.getUniverse().getWidth() / 2))
                 + ((world.getUniverse().getWidth() - world.getCamera().getWidth()) / 2));
 
-        biasY = (int) ((world.getCamera().getCenterY() - (world.getUniverse().getHeight() / 2))
+        biasY = ((world.getCamera().getCenterY() - (world.getUniverse().getHeight() / 2))
                 + ((world.getUniverse().getHeight() - world.getCamera().getHeight()) / 2));
 
     }
@@ -178,7 +153,7 @@ public class GraphicsThread extends ThreadModel {
     public void run() {
         while (!isExit()) {
             try {
-                Thread.sleep(15);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

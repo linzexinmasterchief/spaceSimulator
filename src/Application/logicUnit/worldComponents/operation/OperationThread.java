@@ -93,7 +93,7 @@ public class OperationThread extends ThreadModel {
         while (!isExit()) {
 
             try {
-                Thread.sleep(15);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -101,29 +101,48 @@ public class OperationThread extends ThreadModel {
             if (KeyBoard.isKeyPressed){
                 if (KeyBoard.activeKey == KeySetting.moveCamForward){
                     world.getCamera().setCenterY(world.getCamera().getCenterY() - 5 * world.getCamera().getScaleY());
-                }
-                if (KeyBoard.activeKey == KeySetting.moveCamBackward){
+
+                }else if (KeyBoard.activeKey == KeySetting.moveCamBackward){
                     world.getCamera().setCenterY(world.getCamera().getCenterY() + 5 * world.getCamera().getScaleY());
-                }
-                if (KeyBoard.activeKey == KeySetting.moveCamLeft){
+
+                }else if (KeyBoard.activeKey == KeySetting.moveCamLeft){
                     world.getCamera().setCenterX(world.getCamera().getCenterX() - 5 * world.getCamera().getScaleX());
-                }
-                if (KeyBoard.activeKey == KeySetting.moveCamRight){
+
+                }else if (KeyBoard.activeKey == KeySetting.moveCamRight){
                     world.getCamera().setCenterX(world.getCamera().getCenterX() + 5 * world.getCamera().getScaleX());
+
+                }else if (KeyBoard.activeKey == KeySetting.clearStar){
+                    //execute clear command
+                    world.getPhysicsThread().clear();
+
+                }else if (KeyBoard.activeKey == KeySetting.enlargeCamera){
+                    world.getCamera().setWidth(world.getCamera().getWidth() / 1.05f);
+                    world.getCamera().setHeight(world.getCamera().getHeight() / 1.05f);
+
+                    //calculate the scale between camera and original camera
+                    world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
+                    world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
+
+                }else if (KeyBoard.activeKey == KeySetting.minimizeCamera){
+                    world.getCamera().setWidth(world.getCamera().getWidth() * 1.05f);
+                    world.getCamera().setHeight(world.getCamera().getHeight() * 1.05f);
+
+                    //calculate the scale between camera and original camera
+                    world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
+                    world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
+
                 }
 
                 world.getGraphicsThread().updateBias();
             }
 
             if (KeyBoard.isKeyReleasing){
-                if (KeyBoard.activeKey == KeySetting.clearStar){
-                    //execute clear command
-                    world.getPhysicsThread().clear();
-                }
-                if (KeyBoard.activeKey == KeySetting.togglePause){
+                if (KeyBoard.activeKey == KeySetting.togglePause) {
                     //change pause value if middle button pressed
                     world.getPhysicsThread().setPause(!world.getPhysicsThread().isPause());
                 }
+
+                    world.getGraphicsThread().updateBias();
                 KeyBoard.isKeyReleasing = false;
             }
 
@@ -163,44 +182,47 @@ public class OperationThread extends ThreadModel {
                 Mouse.setMouseReleasing(false);
                 Mouse.setMousePressing(false);
 
-                cameraWidthChangingSpeed = world.getCamera().getWidth() / world.getCamera().getOriginalWidth() * 2;
-                cameraHeightChangingSpeed = world.getCamera().getHeight() / world.getCamera().getOriginalHeight() * 2;
+                cameraWidthChangingSpeed = world.getCamera().getWidth() / world.getCamera().getOriginalWidth();
+                cameraHeightChangingSpeed = world.getCamera().getHeight() / world.getCamera().getOriginalHeight();
                 //on mouse wheel rolling back (minimize)
                 if (Mouse.getMouseScrollValue() < 0) {
                     if (world.getCamera().getHeight() < world.getUniverse().getHeight()
                             & world.getCamera().getWidth() < world.getUniverse().getWidth()) {
+                        world.getCamera().setWidth(world.getCamera().getWidth() * 1.01f);
+                        world.getCamera().setHeight(world.getCamera().getHeight() * 1.01f);
 
-                        //change the size of the camera (+)
-                        world.getCamera().setWidth(world.getCamera().getWidth() + Speed.getSizeChangeSpeed() * cameraWidthChangingSpeed);
-                        world.getCamera().setHeight(world.getCamera().getHeight()
-                                + Speed.getSizeChangeSpeed() * SystemStatus.getHeightWidthScale() * cameraHeightChangingSpeed);
+                        //calculate the scale between camera and original camera
+                        world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
+                        world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
 
                         //move the camera to the mouse coordinate to create an effect
                         world.getCamera().setCenterX((float) (world.getCamera().getCenterX()
                                 - (Mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
-                                / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed)
+                                /Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed)
                         );
                         world.getCamera().setCenterY((float) (world.getCamera().getCenterY()
                                 - (Mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
-                                / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed)
+                                /Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed)
                         );
                     }
                 } else if (Mouse.getMouseScrollValue() > 0) {
                     //on mouse wheel rolling back (enlarge)
-                    world.getCamera().setWidth(world.getCamera().getWidth() - Speed.getSizeChangeSpeed() * cameraWidthChangingSpeed);
-                    world.getCamera().setHeight(world.getCamera().getHeight()
-                            - Speed.getSizeChangeSpeed() * SystemStatus.getHeightWidthScale() * cameraHeightChangingSpeed
-                    );
+                    world.getCamera().setWidth(world.getCamera().getWidth() / 1.01f);
+                    world.getCamera().setHeight(world.getCamera().getHeight() / 1.01f);
+
+                    //calculate the scale between camera and original camera
+                    world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
+                    world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
 
                     //move the camera to the mouse coordinate to create an effect
                     world.getCamera().setCenterX((float) (world.getCamera().getCenterX()
                             + (Mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
-                            / canvasStatus.getCanvasWidth() * Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed)
+                            /Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed)
                     );
 
                     world.getCamera().setCenterY((float) (world.getCamera().getCenterY()
                             + (Mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
-                            / canvasStatus.getCanvasHeight() * Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed)
+                            /Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed)
                     );
                 }
 

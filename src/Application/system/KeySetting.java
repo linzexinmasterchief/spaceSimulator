@@ -24,4 +24,8 @@ public class KeySetting {
 
     public static KeyCode moveCamRight = KeyCode.D;
 
+    public static KeyCode enlargeCamera = KeyCode.EQUALS;
+
+    public static KeyCode minimizeCamera = KeyCode.MINUS;
+
 }
