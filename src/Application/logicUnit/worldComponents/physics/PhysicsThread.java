@@ -7,6 +7,8 @@ import javafx.application.Platform;
 import models.systemComponentModels.ThreadModel;
 import Application.logicUnit.worldComponents.physics.physicsComponents.Universe;
 
+import java.util.Timer;
+
 /**
  * Created by lzx on 2017/7/6.
  * physics thread is a independent module
@@ -14,6 +16,11 @@ import Application.logicUnit.worldComponents.physics.physicsComponents.Universe;
 public class PhysicsThread extends ThreadModel {
 
     private Star[] cloneStarList;
+
+    private long update = 0;
+    private long sleep = 0;
+    private long before = 0;
+    private long t = 0;
 
     public PhysicsThread(World root_world){
         super(root_world);
@@ -30,7 +37,7 @@ public class PhysicsThread extends ThreadModel {
 
     //this is the function called on every Application.world.physics cycle
     //kind of like "fixed update" in unity
-    private void PhysicsUpdate() {
+    private void physicsUpdate() {
 
         //initialize star amount
         world.getUniverse().setStarAmount(0);
@@ -129,16 +136,23 @@ public class PhysicsThread extends ThreadModel {
     //the main thread cycle of the universe
     @Override
     public void run() {
-        while (!isExit()) {
+        //main loop start, record time
+        //time = 0
+        update=0;//record rendering time
+        sleep=0;//record thread sleep time
+        while(!isExit()){
+            before=System.nanoTime();//get current time (not real time)
+            t=sleep+update;//record the time used by last frame
+
+            //send the rendering job to a background thread
+            physicsUpdate();//update physics
+            update=(System.nanoTime()-before)/1000000L;//record total rendering time
+            sleep=Math.max(2,16-update);
             try {
-                Thread.sleep(10);
+                Thread.sleep(sleep);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            //call the specific used function
-            PhysicsUpdate();
-
-//            world.getUniverse().reFitStarListSize();
         }
     }
 

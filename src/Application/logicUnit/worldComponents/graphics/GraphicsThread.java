@@ -28,6 +28,11 @@ public class GraphicsThread extends ThreadModel {
     private float biasX = 0;
     private float biasY = 0;
 
+    private long update = 0;
+    private long sleep = 0;
+    private long before = 0;
+    private long t = 0;
+
     private Color[] colors = {Color.RED};
 
     //determine if the current screen is screenAlpha
@@ -151,17 +156,23 @@ public class GraphicsThread extends ThreadModel {
     //the graphic thread operation function
     @Override
     public void run() {
-        while (!isExit()) {
+        //main loop start, record time
+        //time = 0
+        update=0;//record rendering time
+        sleep=0;//record thread sleep time
+        while(!isExit()){
+            before=System.nanoTime();//get current time (not real time)
+            t=sleep+update;//record the time used by last frame
+
+            //send the rendering job to a background thread
+            updateFrame();//update frame
+            update=(System.nanoTime()-before)/1000000L;//record total rendering time
+            sleep=Math.max(2,16-update);
             try {
-                Thread.sleep(10);
+                Thread.sleep(sleep);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (isPause()){
-                continue;
-            }
-            //send the rendering job to a background thread
-            updateFrame();
         }
     }
 }

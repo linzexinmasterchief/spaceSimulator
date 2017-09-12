@@ -27,6 +27,11 @@ public class OperationThread extends ThreadModel {
 
     private Star cloneBufferStar;
 
+    private long update = 0;
+    private long sleep = 0;
+    private long before = 0;
+    private long t = 0;
+
     public OperationThread(World root_world){
         super(root_world);
     }
@@ -88,127 +93,100 @@ public class OperationThread extends ThreadModel {
         world.setBufferStar(cloneBufferStar);
     }
 
-    @Override
-    public void run() {
-        while (!isExit()) {
+    private void executeInput(){
 
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        if (KeyBoard.isKeyPressed){
+            if (KeyBoard.activeKey == KeySetting.moveCamForward){
+                world.getCamera().setCenterY(world.getCamera().getCenterY() - 5 * world.getCamera().getScaleY());
+
+            }else if (KeyBoard.activeKey == KeySetting.moveCamBackward){
+                world.getCamera().setCenterY(world.getCamera().getCenterY() + 5 * world.getCamera().getScaleY());
+
+            }else if (KeyBoard.activeKey == KeySetting.moveCamLeft){
+                world.getCamera().setCenterX(world.getCamera().getCenterX() - 5 * world.getCamera().getScaleX());
+
+            }else if (KeyBoard.activeKey == KeySetting.moveCamRight){
+                world.getCamera().setCenterX(world.getCamera().getCenterX() + 5 * world.getCamera().getScaleX());
+
+            }else if (KeyBoard.activeKey == KeySetting.clearStar){
+                //execute clear command
+                world.getPhysicsThread().clear();
+
+            }else if (KeyBoard.activeKey == KeySetting.enlargeCamera){
+                world.getCamera().setWidth(world.getCamera().getWidth() / 1.05f);
+                world.getCamera().setHeight(world.getCamera().getHeight() / 1.05f);
+
+                //calculate the scale between camera and original camera
+                world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
+                world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
+
+            }else if (KeyBoard.activeKey == KeySetting.minimizeCamera){
+                world.getCamera().setWidth(world.getCamera().getWidth() * 1.05f);
+                world.getCamera().setHeight(world.getCamera().getHeight() * 1.05f);
+
+                //calculate the scale between camera and original camera
+                world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
+                world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
+
             }
 
-            if (KeyBoard.isKeyPressed){
-                if (KeyBoard.activeKey == KeySetting.moveCamForward){
-                    world.getCamera().setCenterY(world.getCamera().getCenterY() - 5 * world.getCamera().getScaleY());
+            world.getGraphicsThread().updateBias();
+        }
 
-                }else if (KeyBoard.activeKey == KeySetting.moveCamBackward){
-                    world.getCamera().setCenterY(world.getCamera().getCenterY() + 5 * world.getCamera().getScaleY());
-
-                }else if (KeyBoard.activeKey == KeySetting.moveCamLeft){
-                    world.getCamera().setCenterX(world.getCamera().getCenterX() - 5 * world.getCamera().getScaleX());
-
-                }else if (KeyBoard.activeKey == KeySetting.moveCamRight){
-                    world.getCamera().setCenterX(world.getCamera().getCenterX() + 5 * world.getCamera().getScaleX());
-
-                }else if (KeyBoard.activeKey == KeySetting.clearStar){
-                    //execute clear command
-                    world.getPhysicsThread().clear();
-
-                }else if (KeyBoard.activeKey == KeySetting.enlargeCamera){
-                    world.getCamera().setWidth(world.getCamera().getWidth() / 1.05f);
-                    world.getCamera().setHeight(world.getCamera().getHeight() / 1.05f);
-
-                    //calculate the scale between camera and original camera
-                    world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
-                    world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
-
-                }else if (KeyBoard.activeKey == KeySetting.minimizeCamera){
-                    world.getCamera().setWidth(world.getCamera().getWidth() * 1.05f);
-                    world.getCamera().setHeight(world.getCamera().getHeight() * 1.05f);
-
-                    //calculate the scale between camera and original camera
-                    world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
-                    world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
-
-                }
-
-                world.getGraphicsThread().updateBias();
+        if (KeyBoard.isKeyReleasing){
+            if (KeyBoard.activeKey == KeySetting.togglePause) {
+                //change pause value if middle button pressed
+                world.getPhysicsThread().setPause(!world.getPhysicsThread().isPause());
             }
 
-            if (KeyBoard.isKeyReleasing){
-                if (KeyBoard.activeKey == KeySetting.togglePause) {
-                    //change pause value if middle button pressed
-                    world.getPhysicsThread().setPause(!world.getPhysicsThread().isPause());
-                }
+            world.getGraphicsThread().updateBias();
+            KeyBoard.isKeyReleasing = false;
+        }
 
-                    world.getGraphicsThread().updateBias();
-                KeyBoard.isKeyReleasing = false;
+        if (Mouse.isMousePressed()){
+            if (Mouse.getActivatedMouseButton() == KeySetting.newStar){
+                world.getDragLine()[0] = Mouse.getMouse_coordinate()[0];
+                world.getDragLine()[1] = Mouse.getMouse_coordinate()[1];
+                world.getDragLine()[2] = Mouse.getMouse_coordinate()[0];
+                world.getDragLine()[3] = Mouse.getMouse_coordinate()[1];
             }
 
-            if (Mouse.isMousePressed()){
-                if (Mouse.getActivatedMouseButton() == KeySetting.newStar){
-                    world.getDragLine()[0] = Mouse.getMouse_coordinate()[0];
-                    world.getDragLine()[1] = Mouse.getMouse_coordinate()[1];
-                    world.getDragLine()[2] = Mouse.getMouse_coordinate()[0];
-                    world.getDragLine()[3] = Mouse.getMouse_coordinate()[1];
-                }
+            //because mouse pressed is a short time period event, the status must be set to false after execute
+            Mouse.setMousePressed(false);
+        }
 
-                //because mouse pressed is a short time period event, the status must be set to false after execute
-                Mouse.setMousePressed(false);
+        if (Mouse.isMousePressing()) {
+            Mouse.setMouseReleasing(false);
+            if (Mouse.getActivatedMouseButton() == KeySetting.newStar){
+                world.getDragLine()[2] = Mouse.getMouse_coordinate()[0];
+                world.getDragLine()[3] = Mouse.getMouse_coordinate()[1];
             }
+        }
 
-            if (Mouse.isMousePressing()) {
-                Mouse.setMouseReleasing(false);
-                if (Mouse.getActivatedMouseButton() == KeySetting.newStar){
-                    world.getDragLine()[2] = Mouse.getMouse_coordinate()[0];
-                    world.getDragLine()[3] = Mouse.getMouse_coordinate()[1];
-                }
+        if (Mouse.isMouseReleasing()) {
+            Mouse.setMousePressing(false);
+
+            if (Mouse.getActivatedMouseButton() == KeySetting.newStar){
+                addNewStar();
+                world.clearDragLine();
+                world.getGraphicsThread().updateFrame();
             }
+            Mouse.setMouseReleasing(false);
+        }
 
-            if (Mouse.isMouseReleasing()) {
-                Mouse.setMousePressing(false);
+        if (Mouse.isMouseScrolled()) {
 
-                if (Mouse.getActivatedMouseButton() == KeySetting.newStar){
-                    addNewStar();
-                    world.clearDragLine();
-                    world.getGraphicsThread().updateFrame();
-                }
-                Mouse.setMouseReleasing(false);
-            }
+            Mouse.setMouseReleasing(false);
+            Mouse.setMousePressing(false);
 
-            if (Mouse.isMouseScrolled()) {
-
-                Mouse.setMouseReleasing(false);
-                Mouse.setMousePressing(false);
-
-                cameraWidthChangingSpeed = world.getCamera().getWidth() / world.getCamera().getOriginalWidth();
-                cameraHeightChangingSpeed = world.getCamera().getHeight() / world.getCamera().getOriginalHeight();
-                //on mouse wheel rolling back (minimize)
-                if (Mouse.getMouseScrollValue() < 0) {
-                    if (world.getCamera().getHeight() < world.getUniverse().getHeight()
-                            & world.getCamera().getWidth() < world.getUniverse().getWidth()) {
-                        world.getCamera().setWidth(world.getCamera().getWidth() * 1.01f);
-                        world.getCamera().setHeight(world.getCamera().getHeight() * 1.01f);
-
-                        //calculate the scale between camera and original camera
-                        world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
-                        world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
-
-                        //move the camera to the mouse coordinate to create an effect
-                        world.getCamera().setCenterX((float) (world.getCamera().getCenterX()
-                                - (Mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
-                                /Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed)
-                        );
-                        world.getCamera().setCenterY((float) (world.getCamera().getCenterY()
-                                - (Mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
-                                /Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed)
-                        );
-                    }
-                } else if (Mouse.getMouseScrollValue() > 0) {
-                    //on mouse wheel rolling back (enlarge)
-                    world.getCamera().setWidth(world.getCamera().getWidth() / 1.01f);
-                    world.getCamera().setHeight(world.getCamera().getHeight() / 1.01f);
+            cameraWidthChangingSpeed = world.getCamera().getWidth() / world.getCamera().getOriginalWidth();
+            cameraHeightChangingSpeed = world.getCamera().getHeight() / world.getCamera().getOriginalHeight();
+            //on mouse wheel rolling back (minimize)
+            if (Mouse.getMouseScrollValue() < 0) {
+                if (world.getCamera().getHeight() < world.getUniverse().getHeight()
+                        & world.getCamera().getWidth() < world.getUniverse().getWidth()) {
+                    world.getCamera().setWidth(world.getCamera().getWidth() * 1.01f);
+                    world.getCamera().setHeight(world.getCamera().getHeight() * 1.01f);
 
                     //calculate the scale between camera and original camera
                     world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
@@ -216,36 +194,76 @@ public class OperationThread extends ThreadModel {
 
                     //move the camera to the mouse coordinate to create an effect
                     world.getCamera().setCenterX((float) (world.getCamera().getCenterX()
-                            + (Mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
+                            - (Mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
                             /Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed)
                     );
-
                     world.getCamera().setCenterY((float) (world.getCamera().getCenterY()
-                            + (Mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
+                            - (Mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
                             /Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed)
                     );
                 }
+            } else if (Mouse.getMouseScrollValue() > 0) {
+                //on mouse wheel rolling back (enlarge)
+                world.getCamera().setWidth(world.getCamera().getWidth() / 1.01f);
+                world.getCamera().setHeight(world.getCamera().getHeight() / 1.01f);
 
                 //calculate the scale between camera and original camera
                 world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
                 world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
 
-                world.getGraphicsThread().updateBias();
-                Mouse.setMouseScrolled(false);
+                //move the camera to the mouse coordinate to create an effect
+                world.getCamera().setCenterX((float) (world.getCamera().getCenterX()
+                        + (Mouse.getMouse_coordinate()[0] - canvasStatus.getCanvasWidth() / 2)
+                        /Speed.getCameraMoveSpeed() * cameraWidthChangingSpeed)
+                );
+
+                world.getCamera().setCenterY((float) (world.getCamera().getCenterY()
+                        + (Mouse.getMouse_coordinate()[1] - canvasStatus.getCanvasHeight() / 2)
+                        /Speed.getCameraMoveSpeed() * cameraHeightChangingSpeed)
+                );
             }
+
+            //calculate the scale between camera and original camera
+            world.getGraphicsThread().setScaleX(world.getCamera().getWidth() / world.getCamera().getOriginalWidth());
+            world.getGraphicsThread().setScaleY(world.getCamera().getHeight() / world.getCamera().getOriginalHeight());
+
+            world.getGraphicsThread().updateBias();
+            Mouse.setMouseScrolled(false);
+        }
 
 //            gameScene.getCreateStarMenu().setVisible(SystemStatus.isCreateStarMenuOut());
 
-            //toggle setting menu
-            if (SystemStatus.isSettingStageOut()) {
-                Platform.runLater(() -> world.getLauncher().getSettingStage().show());
-            }else {
-                Platform.runLater(() -> world.getLauncher().getSettingStage().hide());
+        //toggle setting menu
+        if (SystemStatus.isSettingStageOut()) {
+            Platform.runLater(() -> world.getLauncher().getSettingStage().show());
+        }else {
+            Platform.runLater(() -> world.getLauncher().getSettingStage().hide());
+        }
+
+        //update status bar information
+        Platform.runLater(() -> gameScene.getStatusBar().update());
+
+    }
+
+    @Override
+    public void run() {
+        //main loop start, record time
+        //time = 0
+        update=0;//record rendering time
+        sleep=0;//record thread sleep time
+        while(!isExit()){
+            before=System.nanoTime();//get current time (not real time)
+            t=sleep+update;//record the time used by last frame
+
+            //send the rendering job to a background thread
+            executeInput();//exe input
+            update=(System.nanoTime()-before)/1000000L;//record total rendering time
+            sleep=Math.max(2,16-update);
+            try {
+                Thread.sleep(sleep);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-
-            //update status bar information
-            Platform.runLater(() -> gameScene.getStatusBar().update());
-
         }
 
     }
