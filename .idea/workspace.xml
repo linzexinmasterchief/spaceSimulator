@@ -8,9 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6ebf4ecf-ff47-4baa-9862-38b13979bff6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/operation/OperationThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java" afterPath="$PROJECT_DIR$/src/Application/logicUnit/worldComponents/physics/PhysicsThread.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,8 +78,8 @@
       <file leaf-file-name="GraphicsThread.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
               <folding>
                 <element signature="method#initialize#0;class#GraphicsThread#0" expanded="false" />
                 <element signature="method#updateFrame#0;class#GraphicsThread#0" expanded="false" />
@@ -1007,13 +1004,6 @@
       <option name="presentableId" value="Default" />
       <updated>1497451245085</updated>
     </task>
-    <task id="LOCAL-00036" summary="fixed some bugs">
-      <created>1501158429064</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1501158429064</updated>
-    </task>
     <task id="LOCAL-00037" summary="removed debug code">
       <created>1501158609095</created>
       <option name="number" value="00037" />
@@ -1350,7 +1340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1504790887413</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="use better game thread">
+      <created>1505224347920</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1505224347920</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1364,6 +1361,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1374,7 +1372,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35384616" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35384616" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.4969743" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3276923" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1403,7 +1401,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="better mouse driver" />
     <MESSAGE value="removed universe edge, stars will return to the same point if travel in a straight line" />
     <MESSAGE value="fixed some bugs in betterSlider" />
     <MESSAGE value="allow time to go backwards" />
@@ -1428,7 +1425,8 @@
     <MESSAGE value="allow the user to move the camera, add the key setting file" />
     <MESSAGE value="fixed the ui bug" />
     <MESSAGE value="daily update" />
-    <option name="LAST_COMMIT_MESSAGE" value="daily update" />
+    <MESSAGE value="use better game thread" />
+    <option name="LAST_COMMIT_MESSAGE" value="use better game thread" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1770,8 +1768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Application/logicUnit/worldComponents/graphics/GraphicsThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
           <folding>
             <element signature="method#initialize#0;class#GraphicsThread#0" expanded="false" />
             <element signature="method#updateFrame#0;class#GraphicsThread#0" expanded="false" />
