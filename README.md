@@ -17,6 +17,8 @@ land on every planet, asteroid and star. I think maybe
 * use map files
 * even better collisions
 ## update logs
+#### version 0.1.3 alpha build2 2018/2/9
+fixed the resolution bug for my new computer
 #### version 0.1.3 alpha build1 2017/8/15
 add a universe time speed adjuster
 # ```version 0.1.2 beta```

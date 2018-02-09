@@ -24,7 +24,7 @@ public class CreateStarMenu extends UiBase{
         settingBtn = new BetterButton("setting");
         settingBtn.setTranslateY(5);
         settingBtn.setTranslateX(-150);
-        settingBtn.setButtonHeight(25);
+        settingBtn.setButtonHeight(30);
         settingBtn.setButtonWidth(150);
         settingBtn.setOnAction(ae -> {
             SystemStatus.setSettingStageOut(!SystemStatus.isSettingStageOut());
@@ -35,7 +35,7 @@ public class CreateStarMenu extends UiBase{
         massSlider.setTranslateX(-150);
         massSlider.setTranslateY(35);
         massSlider.setSliderWidth(150);
-        massSlider.setSliderHeight(25);
+        massSlider.setSliderHeight(30);
         massSlider.setValue(10);
         massSlider.refresh();
         getChildren().add(massSlider);
@@ -44,7 +44,7 @@ public class CreateStarMenu extends UiBase{
         radiusSlider.setTranslateX(-150);
         radiusSlider.setTranslateY(65);
         radiusSlider.setSliderWidth(150);
-        radiusSlider.setSliderHeight(25);
+        radiusSlider.setSliderHeight(30);
         radiusSlider.setValue(5);
         radiusSlider.refresh();
         getChildren().add(radiusSlider);

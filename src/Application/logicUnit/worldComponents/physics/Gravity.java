@@ -30,8 +30,8 @@ class Gravity {
 
                 if ((int) distance > (int) star.r * 2 / 3 & (int) distance > (int) s.r * 2 / 3) {
                     //normal acceleration 6.673
-                    s.accelerationX += (6 * star.mass / (distance * distance)) * (xDiff / distance) * scale;
-                    s.accelerationY += (6 * star.mass / (distance * distance)) * (yDiff / distance) * scale;
+                    s.accelerationX += (6.673 * (star.mass) / (distance * distance)) * (xDiff / distance) * scale;
+                    s.accelerationY += (6.673 * (star.mass) / (distance * distance)) * (yDiff / distance) * scale;
                 }else{
                     collide(star,s);
                     return;
