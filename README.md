@@ -15,7 +15,6 @@ land on every planet, asteroid and star. I think maybe
 * design settings
 * add console
 * use map files
-* even better collisions
 ## update logs
 #### version 0.1.3 alpha build2 2018/2/9
 fixed the resolution bug for my new computer
