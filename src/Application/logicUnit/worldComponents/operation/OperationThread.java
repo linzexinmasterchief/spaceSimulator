@@ -137,6 +137,7 @@ public class OperationThread extends ThreadModel {
             if (KeyBoard.activeKey == KeySetting.togglePause) {
                 //change pause value if middle button pressed
                 world.getPhysicsThread().setPause(!world.getPhysicsThread().isPause());
+                SystemStatus.setSimulationPaused(!SystemStatus.isSimulationPaused());
             }
 
             world.getGraphicsThread().updateBias();
@@ -230,8 +231,6 @@ public class OperationThread extends ThreadModel {
             world.getGraphicsThread().updateBias();
             Mouse.setMouseScrolled(false);
         }
-
-//            gameScene.getCreateStarMenu().setVisible(SystemStatus.isCreateStarMenuOut());
 
         //toggle setting menu
         if (SystemStatus.isSettingStageOut()) {
