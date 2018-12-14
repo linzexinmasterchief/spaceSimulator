@@ -16,6 +16,9 @@ public class SystemStatus {
     //new star lock
     private static boolean isNewStarExist;
 
+    //toggle esc
+    private static boolean isSimulationPaused;
+
     //a variable used to store the scale between height and width
     private static float HeightWidthScale;
 
@@ -35,6 +38,9 @@ public class SystemStatus {
         //close new star lock
         isNewStarExist = false;
 
+        //init simulation not paused
+        isSimulationPaused = false;
+
         //initialize the scale between height and width
         HeightWidthScale = 1;
 
@@ -49,6 +55,14 @@ public class SystemStatus {
 
     public static void setNewStarExist(boolean newStarExist) {
         isNewStarExist = newStarExist;
+    }
+
+    public static boolean isSimulationPaused() {
+        return isSimulationPaused;
+    }
+
+    public static void setSimulationPaused(boolean isSimulationPaused) {
+        SystemStatus.isSimulationPaused = isSimulationPaused;
     }
 
     public static float getHeightWidthScale() {
